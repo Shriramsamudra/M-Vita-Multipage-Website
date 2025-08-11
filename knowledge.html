@@ -38,6 +38,9 @@
         .custom-shadow {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -88,16 +91,16 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Blog Post 1 -->
                     <div class="bg-white rounded-lg custom-shadow">
-                        <img src="https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Financial Planning" class="w-full h-48 object-cover rounded-t-lg">
+                        <img src="PHBlog1.png" alt="Infographic showing money being pooled into a mutual fund and then invested" class="w-full h-48 object-cover rounded-t-lg">
                         <div class="p-6 text-left">
-                            <h3 class="text-xl font-semibold mb-2">How to Build a Strong Financial Foundation</h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">A step-by-step guide to help you start your financial planning journey, from budgeting to investing.</p>
-                            <a href="https://mvitaservices.blogspot.com/" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                            <h3 class="text-xl font-semibold mb-2">Article 3: Mutual Funds: A Smart Choice for Beginners in Equity</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">The article, 'Mutual Funds: A Smart Choice for Beginners in Equity,' explains what mutual funds are and why they are a good investment option for new investors in India. It describes mutual funds as a financial tool where money from many investors is pooled and managed by expert fund managers. This professional management and the diversification of investments help new investors overcome the lack of money and knowledge often required for individual stock selection.</p>
+                            <a href="https://mvitaservices.blogspot.com/2025/08/3.html" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                     <!-- Blog Post 2 -->
                     <div class="bg-white rounded-lg custom-shadow">
-                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Investment strategies" class="w-full h-48 object-cover rounded-t-lg">
+                        <img src="PHBlog2.png" alt="Investment strategies" class="w-full h-48 object-cover rounded-t-lg">
                         <div class="p-6 text-left">
                             <h3 class="text-xl font-semibold mb-2">Understanding SIPs vs. Lump-sum Investments</h3>
                             <p class="text-gray-600 mb-4 line-clamp-3">We break down the pros and cons of Systematic Investment Plans and one-time investments.</p>
@@ -106,11 +109,11 @@
                     </div>
                     <!-- Blog Post 3 -->
                     <div class="bg-white rounded-lg custom-shadow">
-                        <img src="https://images.unsplash.com/photo-1581452146039-4467d0224d08?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Insurance awareness" class="w-full h-48 object-cover rounded-t-lg">
+                        <img src="PHBlog3.png" alt="Thumbnail for Asset Allocator Funds article" class="w-full h-48 object-cover rounded-t-lg">
                         <div class="p-6 text-left">
-                            <h3 class="text-xl font-semibold mb-2">Why Health Insurance is a Must-Have</h3>
-                            <p class="text-gray-600 mb-4 line-clamp-3">Learn about the importance of health insurance and how to choose the right plan for your family.</p>
-                            <a href="https://mvitaservices.blogspot.com/" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                            <h3 class="text-xl font-semibold mb-2">Asset Allocator Funds: A Safer Bet in a Volatile Market</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">When the stock market is unpredictable, as it has been recently, many investors feel a sense of unease. This volatility can make it difficult to decide where to invest. In such times, Asset Allocator Funds emerge as a highly effective solution. These funds are designed to automatically adjust their asset allocation between equity (stocks) and debt (bonds) based on market conditions.</p>
+                            <a href="https://mvitaservices.blogspot.com/2024/08/asset-allocator-funds-safer-bet-in.html" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
                         </div>
                     </div>
                 </div>
@@ -125,27 +128,28 @@
                 <div id="calculators" class="bg-white p-8 rounded-lg custom-shadow mb-12 text-center">
                     <h3 class="text-2xl font-bold m-vita-blue-text mb-4">Financial Calculators</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                        <!-- All calculator links now point to Calculators.html -->
+                        <a href="Calculators.html" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
                             <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-calculator"></i></div>
                             <span class="text-sm font-semibold">SIP Calculator</span>
                         </a>
-                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                        <a href="Calculators.html" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
                             <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-user-friends"></i></div>
                             <span class="text-sm font-semibold">Retirement Calculator</span>
                         </a>
-                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                        <a href="Calculators.html" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
                             <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-shield-alt"></i></div>
                             <span class="text-sm font-semibold">Premium Calculator</span>
                         </a>
-                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                        <a href="Calculators.html" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
                             <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-bullseye"></i></div>
                             <span class="text-sm font-semibold">Goal Planning</span>
                         </a>
-                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                        <a href="Calculators.html" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
                             <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-money-check-alt"></i></div>
                             <span class="text-sm font-semibold">EMI Calculator</span>
                         </a>
-                        <a href="#calculators" class="flex flex-col items-center p-4 m-vita-blue-bg text-white rounded-lg custom-shadow hover:bg-blue-700 transition-colors duration-300">
+                        <a href="Calculators.html" class="flex flex-col items-center p-4 m-vita-blue-bg text-white rounded-lg custom-shadow hover:bg-blue-700 transition-colors duration-300">
                             <div class="text-3xl text-white mb-2"><i class="fas fa-external-link-alt"></i></div>
                             <span class="text-sm font-semibold">View All</span>
                         </a>
@@ -156,19 +160,19 @@
                     <h3 class="text-2xl font-bold m-vita-blue-text mb-4">Video Gallery</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="relative group w-full aspect-video rounded-lg overflow-hidden custom-shadow">
-                            <img src="https://placehold.co/600x400/a2d3e9/ffffff?text=Video+1" alt="Video 1 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <img src="Video1.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a2d3e9/ffffff?text=Video+1';" alt="Video 1 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 group-hover:opacity-100">
                                 <i class="fas fa-play text-white text-4xl"></i>
                             </div>
                         </a>
                         <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="relative group w-full aspect-video rounded-lg overflow-hidden custom-shadow">
-                            <img src="https://placehold.co/600x400/a2d3e9/ffffff?text=Video+2" alt="Video 2 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <img src="Video2.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a2d3e9/ffffff?text=Video+2';" alt="Video 2 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 group-hover:opacity-100">
                                 <i class="fas fa-play text-white text-4xl"></i>
                             </div>
                         </a>
                         <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="relative group w-full aspect-video rounded-lg overflow-hidden custom-shadow">
-                            <img src="https://placehold.co/600x400/a2d3e9/ffffff?text=Video+3" alt="Video 3 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <img src="Video3.png" onerror="this.onerror=null;this.src='https://placehold.co/600x400/a2d3e9/ffffff?text=Video+3';" alt="Video 3 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
                             <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 group-hover:opacity-100">
                                 <i class="fas fa-play text-white text-4xl"></i>
                             </div>
@@ -177,19 +181,6 @@
                     <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
                         View All Videos
                     </a>
-                </div>
-
-                <div class="bg-white p-8 rounded-lg custom-shadow text-center">
-                    <h3 class="text-2xl font-bold m-vita-blue-text mb-4">Photo Gallery</h3>
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Events" alt="Events photo" class="w-full h-auto rounded-lg custom-shadow">
-                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Seminar" alt="Seminar photo" class="w-full h-auto rounded-lg custom-shadow">
-                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Client+Meeting" alt="Client meeting photo" class="w-full h-auto rounded-lg custom-shadow">
-                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Team+Photo" alt="Team photo" class="w-full h-auto rounded-lg custom-shadow">
-                    </div>
-                    <button class="mt-8 px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
-                        More Photos
-                    </button>
                 </div>
             </div>
         </section>
@@ -209,15 +200,83 @@
                 <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/9152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:mvitaservices@gmail.com" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="text-sm">
-                <a href="#" class="hover:underline">Privacy Policy</a> |
-                <a href="#" class="hover:underline">Terms of Service</a>
+                <a href="javascript:void(0)" onclick="openModal('privacy-policy-modal')" class="hover:underline">Privacy Policy</a> |
+                <a href="javascript:void(0)" onclick="openModal('terms-of-service-modal')" class="hover:underline">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto custom-shadow relative">
+            <button onclick="closeModal('privacy-policy-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200 text-xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 m-vita-blue-text">Privacy Policy</h2>
+            <p class="text-sm text-gray-600 mb-4">
+                **Effective Date: August 11, 2024**
+            </p>
+            <p class="mb-4">
+                At M-Vita Services, we are committed to protecting your privacy. This policy outlines how we collect, use, and protect your personal information.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Information We Collect</h3>
+            <p class="mb-4">
+                We may collect personal information such as your name, contact details (email, phone number), financial information, and investment goals. This information is collected to provide you with tailored financial and insurance solutions.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">How We Use Your Information</h3>
+            <p class="mb-4">
+                Your information is used to:
+                <ul class="list-disc list-inside ml-4">
+                    <li>Provide personalized financial planning and advice.</li>
+                    <li>Process investment and insurance applications.</li>
+                    <li>Communicate with you about your portfolio and our services.</li>
+                    <li>Improve our services and offerings.</li>
+                </ul>
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Information Sharing</h3>
+            <p class="mb-4">
+                We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties without your consent, except as required by law or to trusted third parties who assist us in operating our business and providing services, so long as those parties agree to keep this information confidential.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Data Security</h3>
+            <p>
+                We implement a variety of security measures to maintain the safety of your personal information.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto custom-shadow relative">
+            <button onclick="closeModal('terms-of-service-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200 text-xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 m-vita-blue-text">Terms of Service</h2>
+            <p class="text-sm text-gray-600 mb-4">
+                **Effective Date: August 11, 2024**
+            </p>
+            <p class="mb-4">
+                Welcome to M-Vita Services. By using our website and services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Services Provided</h3>
+            <p class="mb-4">
+                M-Vita Services is a financial solutions firm offering investment and insurance products. Our guidance and recommendations are based on our professional judgment and the information you provide. The value of investments can fluctuate, and past performance is not indicative of future results. We do not guarantee any specific returns on your investments.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">User Responsibilities</h3>
+            <p class="mb-4">
+                You are responsible for ensuring that the information you provide is accurate and complete. You agree to use our services and website for lawful purposes only.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Intellectual Property</h3>
+            <p class="mb-4">
+                The content on this website, including text, graphics, logos, and images, is the property of M-Vita Services and is protected by copyright laws. You may not reproduce or distribute any content without our prior written consent.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Disclaimer</h3>
+            <p>
+                The information on this website is for general informational purposes only and does not constitute financial advice. We recommend consulting with a qualified professional before making any financial decisions.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu & Modals -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -235,6 +294,18 @@
                 });
             });
         });
+
+        // Function to open a modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent body from scrolling
+        }
+
+        // Function to close a modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.classList.remove('overflow-hidden'); // Restore body scrolling
+        }
     </script>
 </body>
 </html>
