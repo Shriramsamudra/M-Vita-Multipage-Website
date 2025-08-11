@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services - Financial Calculators</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+        }
+        .mvita-blue-text { color: #005A9C; }
+        .mvita-blue-bg { background-color: #005A9C; }
+        .mvita-blue-border { border-color: #005A9C; }
+        .tab-active {
+            border-bottom: 3px solid #005A9C;
+            color: #005A9C;
+            font-weight: 600;
+        }
+        .tab-inactive {
+            color: #6b7280;
+        }
+        .calculator-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        .input-field {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.5rem;
+            transition: border-color 0.2s;
+        }
+        .input-field:focus {
+            outline: none;
+            border-color: #005A9C;
+            box-shadow: 0 0 0 2px rgba(0, 90, 156, 0.2);
+        }
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #d1d5db;
+            outline: none;
+            opacity: 0.9;
+            transition: opacity .2s;
+            border-radius: 9999px;
+        }
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: #005A9C;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: #005A9C;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 0.75rem;
+            font-weight: 600;
+            color: white;
+            background-color: #005A9C;
+            border-radius: 0.5rem;
+            transition: background-color 0.3s;
+        }
+        .calculate-btn:hover {
+            background-color: #004b80;
+        }
+        .output-card {
+            background-color: #eef2ff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        .output-label {
+            font-weight: 500;
+            color: #4338ca;
+        }
+        .output-value {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: #312e81;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            border-radius: 9999px;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+        .back-to-main-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background-color: #005A9C;
+            color: white;
+            font-weight: 600;
+            border-radius: 9999px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .back-to-main-btn:hover {
+            background-color: #004b80;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
+        <a href="https://www.m-vitaservices.in/" class="back-to-main-btn">Back to Main Site</a>
+    </div>
+
+    <header class="bg-white shadow-sm relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div>
+                <h1 class="text-3xl font-bold mvita-blue-text">M-Vita Services</h1>
+                <p class="text-gray-600 mt-1">Your Partner in Financial Journey</p>
+            </div>
+            <a href="https://wa.me/9152049967" target="_blank" class="whatsapp-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle"><path d="M7.9 20A9.3 9.3 0 0 1 4 16.1L2 22l6-2"/><path d="M10.9 20a9.3 9.3 0 0 1-6.9-3.9"/><path d="M21 15a9 9 0 0 0-9-9H6v6l2-2h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4l-2 2v-6a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H7.9"/></svg>
+                Chat with Us
+            </a>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="bg-white rounded-lg shadow p-2 sm:p-4 mb-8">
+            <nav id="tabs" class="flex flex-wrap justify-center -mb-px">
+                <button data-tab="sip" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">SIP</button>
+                <button data-tab="step-up-sip" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Step-up SIP</button>
+                <button data-tab="retirement" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Retirement</button>
+                <button data-tab="goal" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Goal Journey</button>
+                <button data-tab="hlv" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">HLV</button>
+                <button data-tab="emi" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">EMI</button>
+                <button data-tab="repayment" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Loan Repayment</button>
+                <button data-tab="lumpsum" class="tab-btn tab-active text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Lumpsum Repayment</button>
+            </nav>
+        </div>
+
+        <div id="sip-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">SIP Calculator</h2>
+                <p class="text-gray-600 mb-6">Estimate the future value of your monthly investments through a Systematic Investment Plan.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="sip-amount" class="input-label">Monthly Investment (₹)</label>
+                            <input type="number" id="sip-amount" class="input-field" value="5000">
+                        </div>
+                        <div class="input-group">
+                            <label for="sip-rate" class="input-label">Expected Return Rate (% p.a.) - <span id="sip-rate-val">12</span>%</label>
+                            <input type="range" id="sip-rate" class="slider" min="1" max="30" value="12" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="sip-years" class="input-label">Investment Period (Years) - <span id="sip-years-val">10</span> years</label>
+                            <input type="range" id="sip-years" class="slider" min="1" max="40" value="10">
+                        </div>
+                        <button id="sip-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Invested Amount</p>
+                                <p id="sip-invested" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Est. Returns</p>
+                                <p id="sip-returns" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Future Value</p>
+                                <p id="sip-future-value" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="sip-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="step-up-sip-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Step-up SIP Calculator</h2>
+                <p class="text-gray-600 mb-6">See how annually increasing your SIP amount can accelerate your wealth creation.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="step-up-sip-amount" class="input-label">Initial Monthly Investment (₹)</label>
+                            <input type="number" id="step-up-sip-amount" class="input-field" value="5000">
+                        </div>
+                        <div class="input-group">
+                            <label for="step-up-sip-rate" class="input-label">Expected Return Rate (% p.a.) - <span id="step-up-sip-rate-val">12</span>%</label>
+                            <input type="range" id="step-up-sip-rate" class="slider" min="1" max="30" value="12" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="step-up-sip-years" class="input-label">Investment Period (Years) - <span id="step-up-sip-years-val">10</span> years</label>
+                            <input type="range" id="step-up-sip-years" class="slider" min="1" max="40" value="10">
+                        </div>
+                        <div class="input-group">
+                            <label for="step-up-percentage" class="input-label">Annual Step-up (%) - <span id="step-up-percentage-val">10</span>%</label>
+                            <input type="range" id="step-up-percentage" class="slider" min="0" max="25" value="10" step="1">
+                        </div>
+                        <button id="step-up-sip-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Invested Amount</p>
+                                <p id="step-up-sip-invested" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Est. Returns</p>
+                                <p id="step-up-sip-returns" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Future Value</p>
+                                <p id="step-up-sip-future-value" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="step-up-sip-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="retirement-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Retirement Planner</h2>
+                <p class="text-gray-600 mb-6">Plan for your golden years by estimating the corpus you need to build.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="ret-current-age" class="input-label">Current Age - <span id="ret-current-age-val">30</span> years</label>
+                            <input type="range" id="ret-current-age" class="slider" min="18" max="60" value="30">
+                        </div>
+                        <div class="input-group">
+                            <label for="ret-age" class="input-label">Retirement Age - <span id="ret-age-val">60</span> years</label>
+                            <input type="range" id="ret-age" class="slider" min="40" max="70" value="60">
+                        </div>
+                        <div class="input-group">
+                            <label for="ret-monthly-expense" class="input-label">Current Monthly Expenses (₹)</label>
+                            <input type="number" id="ret-monthly-expense" class="input-field" value="50000">
+                        </div>
+                        <div class="input-group">
+                            <label for="ret-current-savings" class="input-label">Current Savings for Retirement (₹)</label>
+                            <input type="number" id="ret-current-savings" class="input-field" value="500000">
+                        </div>
+                        <div class="input-group">
+                            <label for="ret-pre-rate" class="input-label">Expected Return (Pre-Retirement) - <span id="ret-pre-rate-val">12</span>%</label>
+                            <input type="range" id="ret-pre-rate" class="slider" min="1" max="20" value="12" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="ret-post-rate" class="input-label">Expected Return (Post-Retirement) - <span id="ret-post-rate-val">7</span>%</label>
+                            <input type="range" id="ret-post-rate" class="slider" min="1" max="15" value="7" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="ret-inflation" class="input-label">Expected Inflation Rate - <span id="ret-inflation-val">6</span>%</label>
+                            <input type="range" id="ret-inflation" class="slider" min="1" max="10" value="6" step="0.5">
+                        </div>
+                        <button id="ret-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Retirement Corpus Needed</p>
+                                <p id="ret-corpus-needed" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Corpus You Will Have</p>
+                                <p id="ret-corpus-have" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card bg-red-100 border border-red-200" id="ret-shortfall-card">
+                                <p class="output-label text-red-600">Shortfall</p>
+                                <p id="ret-shortfall" class="output-value text-red-800">₹0</p>
+                            </div>
+                             <div class="output-card bg-green-100 border border-green-200" id="ret-req-sip-card">
+                                <p class="output-label text-green-600">Required Monthly SIP</p>
+                                <p id="ret-req-sip" class="output-value text-green-800">₹0</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="retirement-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="goal-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Goal Journey Calculator</h2>
+                <p class="text-gray-600 mb-6">Determine the monthly investment needed to reach your financial goals.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="goal-target" class="input-label">Target Amount (₹)</label>
+                            <input type="number" id="goal-target" class="input-field" value="2500000">
+                        </div>
+                        <div class="input-group">
+                            <label for="goal-years" class="input-label">Time to Achieve Goal (Years) - <span id="goal-years-val">10</span> years</label>
+                            <input type="range" id="goal-years" class="slider" min="1" max="40" value="10">
+                        </div>
+                        <div class="input-group">
+                            <label for="goal-rate" class="input-label">Expected Return Rate (% p.a.) - <span id="goal-rate-val">12</span>%</label>
+                            <input type="range" id="goal-rate" class="slider" min="1" max="30" value="12" step="0.5">
+                        </div>
+                        <div class="input-group">
+                            <label for="goal-initial" class="input-label">Initial Investment (₹)</label>
+                            <input type="number" id="goal-initial" class="input-field" value="100000">
+                        </div>
+                        <button id="goal-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Required Monthly SIP</p>
+                                <p id="goal-req-sip" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                            <div class="output-card">
+                                <p class="output-label">Total Investment</p>
+                                <p id="goal-invested" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Est. Returns</p>
+                                <p id="goal-returns" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="chart-container mt-4">
+                            <canvas id="goal-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="hlv-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Human Life Value (HLV) Calculator</h2>
+                <p class="text-gray-600 mb-6">Estimate your economic value to determine adequate life insurance coverage.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="hlv-age" class="input-label">Current Age - <span id="hlv-age-val">30</span> years</label>
+                            <input type="range" id="hlv-age" class="slider" min="18" max="60" value="30">
+                        </div>
+                         <div class="input-group">
+                            <label for="hlv-retire-age" class="input-label">Retirement Age - <span id="hlv-retire-age-val">60</span> years</label>
+                            <input type="range" id="hlv-retire-age" class="slider" min="40" max="70" value="60">
+                        </div>
+                        <div class="input-group">
+                            <label for="hlv-income" class="input-label">Current Annual Income (₹)</label>
+                            <input type="number" id="hlv-income" class="input-field" value="1000000">
+                        </div>
+                        <div class="input-group">
+                            <label for="hlv-savings" class="input-label">Existing Savings & Insurance (₹)</label>
+                            <input type="number" id="hlv-savings" class="input-field" value="500000">
+                        </div>
+                         <div class="input-group">
+                            <label for="hlv-liabilities" class="input-label">Total Liabilities (Loans, etc.) (₹)</label>
+                            <input type="number" id="hlv-liabilities" class="input-field" value="1000000">
+                        </div>
+                        <button id="hlv-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Your Human Life Value (HLV)</p>
+                                <p id="hlv-value" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Required Insurance Cover</p>
+                                <p id="hlv-cover" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 text-center text-gray-600">
+                            <p>This calculator provides an estimate based on the income replacement method. It helps ensure your family's financial stability. Consult with our advisors for a detailed plan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="emi-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">EMI Calculator</h2>
+                <p class="text-gray-600 mb-6">Calculate your Equated Monthly Installment (EMI) for home, car, or personal loans.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="emi-amount" class="input-label">Loan Amount (₹)</label>
+                            <input type="number" id="emi-amount" class="input-field" value="2500000">
+                        </div>
+                        <div class="input-group">
+                            <label for="emi-rate" class="input-label">Interest Rate (% p.a.) - <span id="emi-rate-val">8.5</span>%</label>
+                            <input type="range" id="emi-rate" class="slider" min="1" max="20" value="8.5" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="emi-years" class="input-label">Loan Tenure (Years) - <span id="emi-years-val">20</span> years</label>
+                            <input type="range" id="emi-years" class="slider" min="1" max="30" value="20">
+                        </div>
+                        <button id="emi-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Monthly EMI</p>
+                                <p id="emi-monthly" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Total Interest</p>
+                                <p id="emi-interest" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Total Payment</p>
+                                <p id="emi-total" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="emi-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="repayment-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Home Loan Early Repayment Calculator</h2>
+                <p class="text-gray-600 mb-6">Discover how much you can save by making prepayments on your home loan.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="repay-principal" class="input-label">Outstanding Loan Amount (₹)</label>
+                            <input type="number" id="repay-principal" class="input-field" value="5000000">
+                        </div>
+                        <div class="input-group">
+                            <label for="repay-rate" class="input-label">Interest Rate (% p.a.) - <span id="repay-rate-val">8.5</span>%</label>
+                            <input type="range" id="repay-rate" class="slider" min="1" max="20" value="8.5" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="repay-tenure" class="input-label">Remaining Tenure (Years) - <span id="repay-tenure-val">20</span> years</label>
+                            <input type="range" id="repay-tenure" class="slider" min="1" max="30" value="20">
+                        </div>
+                        <div class="input-group">
+                            <label for="repay-prepayment" class="input-label">Monthly Prepayment (₹)</label>
+                            <input type="number" id="repay-prepayment" class="input-field" value="10000">
+                        </div>
+                        <button id="repay-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Interest Saved</p>
+                                <p id="repay-interest-saved" class="output-value">₹0</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Tenure Reduced By</p>
+                                <p id="repay-tenure-reduced" class="output-value">0y 0m</p>
+                            </div>
+                        </div>
+                        <div class="chart-container mt-4">
+                            <canvas id="repayment-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="lumpsum-calculator" class="tab-content">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Home Loan Lumpsum Payment Calculator</h2>
+                <p class="text-gray-600 mb-6">See how a one-time lump sum payment can reduce your loan burden.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="lumpsum-principal" class="input-label">Outstanding Loan Amount (₹)</label>
+                            <input type="number" id="lumpsum-principal" class="input-field" value="5000000">
+                        </div>
+                        <div class="input-group">
+                            <label for="lumpsum-rate" class="input-label">Interest Rate (% p.a.) - <span id="lumpsum-rate-val">8.5</span>%</label>
+                            <input type="range" id="lumpsum-rate" class="slider" min="1" max="20" value="8.5" step="0.1">
+                        </div>
+                        <div class="input-group">
+                            <label for="lumpsum-tenure" class="input-label">Remaining Tenure (Years) - <span id="lumpsum-tenure-val">20</span> years</label>
+                            <input type="range" id="lumpsum-tenure" class="slider" min="1" max="30" value="20">
+                        </div>
+                        <div class="input-group">
+                            <label for="lumpsum-payment" class="input-label">Lumpsum Payment Amount (₹)</label>
+                            <input type="number" id="lumpsum-payment" class="input-field" value="1000000">
+                        </div>
+                        <div class="input-group">
+                            <label for="lumpsum-month" class="input-label">Month of Lumpsum Payment - <span id="lumpsum-month-val">24</span> months</label>
+                            <input type="range" id="lumpsum-month" class="slider" min="1" max="240" value="24">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label class="input-label">Choose Repayment Option:</label>
+                            <div class="flex space-x-4">
+                                <label class="flex items-center">
+                                    <input type="radio" name="repaymentOption" value="reduceTenure" class="h-4 w-4 text-indigo-600 form-radio" checked>
+                                    <span class="ml-2 text-gray-700">Reduce Tenure</span>
+                                </label>
+                                <label class="flex items-center">
+                                    <input type="radio" name="repaymentOption" value="reduceEmi" class="h-4 w-4 text-indigo-600 form-radio">
+                                    <span class="ml-2 text-gray-700">Reduce EMI</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button id="lumpsum-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+                             <div class="output-card" id="lumpsum-output-tenure">
+                                <p class="output-label">New Tenure</p>
+                                <p id="lumpsum-new-tenure" class="output-value">0y 0m</p>
+                            </div>
+                             <div class="output-card" id="lumpsum-output-emi">
+                                <p class="output-label">New Monthly EMI</p>
+                                <p id="lumpsum-new-emi" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        <div class="w-full grid grid-cols-1 gap-4 mt-4">
+                             <div class="output-card bg-green-100 border border-green-200">
+                                <p class="output-label text-green-600">Interest Saved</p>
+                                <p id="lumpsum-interest-saved" class="output-value text-green-800">₹0</p>
+                            </div>
+                        </div>
+                        <div class="chart-container mt-4">
+                            <canvas id="lumpsum-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
+        <a href="https://www.m-vitaservices.in/" class="back-to-main-btn">Back to Main Site</a>
+    </div>
+
+    <footer class="bg-white mt-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center text-gray-500">
+            <p>&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            <p class="text-xs text-red-600 font-medium mt-2">Mutual Fund investments are subject to market risks, read all scheme related documents carefully.</p>
+            <p class="text-xs mt-2">Disclaimer: The calculations are based on the data provided by you and are for illustrative purposes only. They do not constitute financial advice.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // DOM element selectors
+            const tabs = document.querySelectorAll('.tab-btn');
+            const contents = document.querySelectorAll('.tab-content');
+            const charts = {}; // Object to hold chart instances for updating
+
+            // Currency formatter for Indian Rupees
+            const currencyFormatter = new Intl.NumberFormat('en-IN', {
+                style: 'currency',
+                currency: 'INR',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+            });
+
+            // Helper function to format currency
+            function formatCurrency(value) {
+                // Ensure the value is a number and not negative
+                if (typeof value !== 'number' || isNaN(value) || value < 0) {
+                    value = 0;
+                }
+                return currencyFormatter.format(value);
+            }
+
+            // Function to handle tab switching
+            function switchTab(tab) {
+                tabs.forEach(t => {
+                    t.classList.remove('tab-active');
+                    t.classList.add('tab-inactive');
+                });
+                tab.classList.add('tab-active');
+                tab.classList.remove('tab-inactive');
+
+                contents.forEach(content => {
+                    content.classList.add('hidden');
+                });
+                document.getElementById(`${tab.dataset.tab}-calculator`).classList.remove('hidden');
+            }
+
+            // Event listeners for tab buttons
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    switchTab(tab);
+                    // Re-calculate the content for the new tab when it's clicked
+                    const tabId = tab.dataset.tab;
+                    if (tabId === 'sip') calculateSIP();
+                    if (tabId === 'step-up-sip') calculateStepUpSIP();
+                    if (tabId === 'retirement') calculateRetirement();
+                    if (tabId === 'goal') calculateGoal();
+                    if (tabId === 'hlv') calculateHLV();
+                    if (tabId === 'emi') calculateEMI();
+                    if (tabId === 'repayment') calculateRepayment();
+                    if (tabId === 'lumpsum') calculateLumpsum();
+                });
+            });
+
+            // Function to create or update Chart.js charts
+            function createOrUpdateChart(chartId, type, data, options) {
+                const ctx = document.getElementById(chartId).getContext('2d');
+                if (charts[chartId]) {
+                    charts[chartId].destroy(); // Destroy existing chart instance
+                }
+                charts[chartId] = new Chart(ctx, { type, data, options });
+            }
+
+            // Default options for Chart.js
+            const defaultChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) label += ': ';
+                                const value = context.parsed.y !== undefined ? context.parsed.y : context.parsed;
+                                if (value !== null) {
+                                    label += formatCurrency(value);
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                }
+            };
+            
+            // Helper function to connect a slider with its value display
+            function setupSlider(sliderId, displayId, calculateFunc) {
+                const slider = document.getElementById(sliderId);
+                const display = document.getElementById(displayId);
+                // Initial display update
+                display.textContent = slider.value;
+                slider.addEventListener('input', () => {
+                    display.textContent = slider.value;
+                    if (calculateFunc) calculateFunc();
+                });
+            }
+
+            // SIP Calculator Logic
+            setupSlider('sip-rate', 'sip-rate-val');
+            setupSlider('sip-years', 'sip-years-val');
+            const sipCalculateBtn = document.getElementById('sip-calculate-btn');
+            
+            function calculateSIP() {
+                const P = parseFloat(document.getElementById('sip-amount').value);
+                const R = parseFloat(document.getElementById('sip-rate').value) / 100;
+                const N = parseInt(document.getElementById('sip-years').value);
+                
+                if (isNaN(P) || isNaN(R) || isNaN(N) || P <= 0 || R <= 0 || N <= 0) {
+                     // Reset outputs if inputs are invalid
+                     document.getElementById('sip-invested').textContent = formatCurrency(0);
+                     document.getElementById('sip-returns').textContent = formatCurrency(0);
+                     document.getElementById('sip-future-value').textContent = formatCurrency(0);
+                     return;
+                }
+
+                const i = R / 12;
+                const n = N * 12;
+
+                const futureValue = P * (((Math.pow(1 + i, n) - 1) / i) * (1 + i));
+                const investedAmount = P * n;
+                const returns = futureValue - investedAmount;
+
+                document.getElementById('sip-invested').textContent = formatCurrency(investedAmount);
+                document.getElementById('sip-returns').textContent = formatCurrency(returns);
+                document.getElementById('sip-future-value').textContent = formatCurrency(futureValue);
+
+                createOrUpdateChart('sip-chart', 'doughnut', {
+                    labels: ['Invested Amount', 'Est. Returns'],
+                    datasets: [{
+                        data: [investedAmount, returns],
+                        backgroundColor: ['#3b82f6', '#005A9C'],
+                    }]
+                }, defaultChartOptions);
+            }
+            sipCalculateBtn.addEventListener('click', calculateSIP);
+
+            // Step-up SIP Calculator Logic
+            setupSlider('step-up-sip-rate', 'step-up-sip-rate-val');
+            setupSlider('step-up-sip-years', 'step-up-sip-years-val');
+            setupSlider('step-up-percentage', 'step-up-percentage-val');
+            const stepUpSipCalculateBtn = document.getElementById('step-up-sip-calculate-btn');
+
+            function calculateStepUpSIP() {
+                const P = parseFloat(document.getElementById('step-up-sip-amount').value);
+                const R = parseFloat(document.getElementById('step-up-sip-rate').value) / 100;
+                const N = parseInt(document.getElementById('step-up-sip-years').value);
+                const S = parseFloat(document.getElementById('step-up-percentage').value) / 100;
+                
+                if (isNaN(P) || isNaN(R) || isNaN(N) || isNaN(S) || P <= 0 || R <= 0 || N <= 0) {
+                    document.getElementById('step-up-sip-invested').textContent = formatCurrency(0);
+                    document.getElementById('step-up-sip-returns').textContent = formatCurrency(0);
+                    document.getElementById('step-up-sip-future-value').textContent = formatCurrency(0);
+                    return;
+                }
+
+                const i = R / 12;
+                let futureValue = 0;
+                let investedAmount = 0;
+                let currentP = P;
+
+                for (let year = 1; year <= N; year++) {
+                    for (let month = 1; month <= 12; month++) {
+                        futureValue = (futureValue + currentP) * (1 + i);
+                    }
+                    investedAmount += currentP * 12;
+                    currentP *= (1 + S);
+                }
+
+                const returns = futureValue - investedAmount;
+
+                document.getElementById('step-up-sip-invested').textContent = formatCurrency(investedAmount);
+                document.getElementById('step-up-sip-returns').textContent = formatCurrency(returns);
+                document.getElementById('step-up-sip-future-value').textContent = formatCurrency(futureValue);
+                
+                createOrUpdateChart('step-up-sip-chart', 'doughnut', {
+                    labels: ['Invested Amount', 'Est. Returns'],
+                    datasets: [{
+                        data: [investedAmount, returns],
+                        backgroundColor: ['#3b82f6', '#005A9C'],
+                    }]
+                }, defaultChartOptions);
+            }
+            stepUpSipCalculateBtn.addEventListener('click', calculateStepUpSIP);
+            
+            // Retirement Calculator Logic
+            setupSlider('ret-current-age', 'ret-current-age-val');
+            setupSlider('ret-age', 'ret-age-val');
+            setupSlider('ret-pre-rate', 'ret-pre-rate-val');
+            setupSlider('ret-post-rate', 'ret-post-rate-val');
+            setupSlider('ret-inflation', 'ret-inflation-val');
+            const retCalculateBtn = document.getElementById('ret-calculate-btn');
+
+            function calculateRetirement() {
+                const currentAge = parseInt(document.getElementById('ret-current-age').value);
+                const retirementAge = parseInt(document.getElementById('ret-age').value);
+                const monthlyExpense = parseFloat(document.getElementById('ret-monthly-expense').value);
+                const currentSavings = parseFloat(document.getElementById('ret-current-savings').value);
+                const preRetireRate = parseFloat(document.getElementById('ret-pre-rate').value) / 100;
+                const postRetireRate = parseFloat(document.getElementById('ret-post-rate').value) / 100;
+                const inflationRate = parseFloat(document.getElementById('ret-inflation').value) / 100;
+
+                if (isNaN(currentAge) || isNaN(retirementAge) || isNaN(monthlyExpense) || isNaN(currentSavings) || isNaN(preRetireRate) || isNaN(postRetireRate) || isNaN(inflationRate) || currentAge >= retirementAge) {
+                    document.getElementById('ret-corpus-needed').textContent = formatCurrency(0);
+                    document.getElementById('ret-corpus-have').textContent = formatCurrency(0);
+                    document.getElementById('ret-shortfall').textContent = formatCurrency(0);
+                    document.getElementById('ret-req-sip').textContent = formatCurrency(0);
+                    return;
+                }
+
+                const yearsToRetire = retirementAge - currentAge;
+                const inflatedExpense = monthlyExpense * Math.pow(1 + inflationRate, yearsToRetire);
+                const realPostRetireRate = ((1 + postRetireRate) / (1 + inflationRate)) - 1;
+                
+                const corpusNeeded = (inflatedExpense * 12) / realPostRetireRate;
+                
+                const futureOfCurrentSavings = currentSavings * Math.pow(1 + preRetireRate, yearsToRetire);
+                const shortfall = corpusNeeded - futureOfCurrentSavings;
+                
+                const i = preRetireRate / 12;
+                const n = yearsToRetire * 12;
+                const requiredSIP = shortfall > 0 ? (shortfall * i) / (Math.pow(1 + i, n) - 1) : 0;
+                
+                const corpusYouWillHave = futureOfCurrentSavings + (requiredSIP * (((Math.pow(1 + i, n) - 1) / i) * (1 + i)));
+
+                document.getElementById('ret-corpus-needed').textContent = formatCurrency(corpusNeeded);
+                document.getElementById('ret-corpus-have').textContent = formatCurrency(corpusYouWillHave);
+                document.getElementById('ret-shortfall').textContent = formatCurrency(Math.max(0, shortfall));
+                document.getElementById('ret-req-sip').textContent = formatCurrency(requiredSIP);
+                
+                document.getElementById('ret-shortfall-card').classList.toggle('hidden', shortfall <= 0);
+                document.getElementById('ret-req-sip-card').classList.toggle('hidden', shortfall <= 0);
+
+                const labels = Array.from({ length: yearsToRetire + 1 }, (_, i) => currentAge + i);
+                const data = labels.map((age, index) => {
+                    const years = index;
+                    const savingsFuture = currentSavings * Math.pow(1 + preRetireRate, years);
+                    const sipFuture = requiredSIP * (((Math.pow(1 + i, years * 12) - 1) / i) * (1+i));
+                    return savingsFuture + sipFuture;
+                });
+                
+                createOrUpdateChart('retirement-chart', 'line', {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Projected Corpus Growth',
+                        data: data,
+                        borderColor: '#005A9C',
+                        backgroundColor: 'rgba(0, 90, 156, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    }]
+                }, defaultChartOptions);
+            }
+            retCalculateBtn.addEventListener('click', calculateRetirement);
+
+            // Goal Journey Calculator Logic
+            setupSlider('goal-years', 'goal-years-val');
+            setupSlider('goal-rate', 'goal-rate-val');
+            const goalCalculateBtn = document.getElementById('goal-calculate-btn');
+
+            function calculateGoal() {
+                const target = parseFloat(document.getElementById('goal-target').value);
+                const years = parseInt(document.getElementById('goal-years').value);
+                const rate = parseFloat(document.getElementById('goal-rate').value) / 100;
+                const initial = parseFloat(document.getElementById('goal-initial').value);
+                
+                if (isNaN(target) || isNaN(years) || isNaN(rate) || isNaN(initial) || target <= 0 || years <= 0) {
+                    document.getElementById('goal-req-sip').textContent = formatCurrency(0);
+                    document.getElementById('goal-invested').textContent = formatCurrency(0);
+                    document.getElementById('goal-returns').textContent = formatCurrency(0);
+                    return;
+                }
+
+                const i = rate / 12;
+                const n = years * 12;
+                
+                const futureOfInitial = initial * Math.pow(1 + i, n);
+                const shortfall = target - futureOfInitial;
+
+                let requiredSIP = 0;
+                if (shortfall > 0) {
+                    requiredSIP = (shortfall * i) / (Math.pow(1 + i, n) - 1);
+                } else if (shortfall < 0) {
+                    // Goal is already met with initial investment
+                    requiredSIP = 0;
+                } else {
+                    requiredSIP = 0;
+                }
+                
+                const totalInvested = initial + (requiredSIP * n);
+                const totalReturns = target - totalInvested;
+
+                document.getElementById('goal-req-sip').textContent = formatCurrency(requiredSIP);
+                document.getElementById('goal-invested').textContent = formatCurrency(totalInvested);
+                document.getElementById('goal-returns').textContent = formatCurrency(totalReturns);
+
+                createOrUpdateChart('goal-chart', 'doughnut', {
+                    labels: ['Total Investment', 'Est. Returns'],
+                    datasets: [{
+                        data: [totalInvested, totalReturns],
+                        backgroundColor: ['#3b82f6', '#005A9C'],
+                    }]
+                }, defaultChartOptions);
+            }
+            goalCalculateBtn.addEventListener('click', calculateGoal);
+
+            // HLV Calculator Logic
+            setupSlider('hlv-age', 'hlv-age-val');
+            setupSlider('hlv-retire-age', 'hlv-retire-age-val');
+            const hlvCalculateBtn = document.getElementById('hlv-calculate-btn');
+
+            function calculateHLV() {
+                const age = parseInt(document.getElementById('hlv-age').value);
+                const retireAge = parseInt(document.getElementById('hlv-retire-age').value);
+                const income = parseFloat(document.getElementById('hlv-income').value);
+                const savings = parseFloat(document.getElementById('hlv-savings').value);
+                const liabilities = parseFloat(document.getElementById('hlv-liabilities').value);
+
+                if (isNaN(age) || isNaN(retireAge) || isNaN(income) || isNaN(savings) || isNaN(liabilities) || age >= retireAge) {
+                    document.getElementById('hlv-value').textContent = formatCurrency(0);
+                    document.getElementById('hlv-cover').textContent = formatCurrency(0);
+                    return;
+                }
+
+                const yearsToRetire = retireAge - age;
+                const hlv = income * yearsToRetire;
+                const coverNeeded = hlv + liabilities - savings;
+                
+                document.getElementById('hlv-value').textContent = formatCurrency(hlv);
+                document.getElementById('hlv-cover').textContent = formatCurrency(Math.max(0, coverNeeded));
+            }
+            hlvCalculateBtn.addEventListener('click', calculateHLV);
+
+            // EMI Calculator Logic
+            setupSlider('emi-rate', 'emi-rate-val');
+            setupSlider('emi-years', 'emi-years-val');
+            const emiCalculateBtn = document.getElementById('emi-calculate-btn');
+
+            function calculateEMI() {
+                const P = parseFloat(document.getElementById('emi-amount').value);
+                const R = parseFloat(document.getElementById('emi-rate').value) / 100;
+                const N = parseInt(document.getElementById('emi-years').value);
+
+                if (isNaN(P) || isNaN(R) || isNaN(N) || P <= 0 || R <= 0 || N <= 0) {
+                    document.getElementById('emi-monthly').textContent = formatCurrency(0);
+                    document.getElementById('emi-interest').textContent = formatCurrency(0);
+                    document.getElementById('emi-total').textContent = formatCurrency(0);
+                    return;
+                }
+
+                const r = R / 12;
+                const n = N * 12;
+                const emi = P * r * (Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1));
+                const totalPayment = emi * n;
+                const totalInterest = totalPayment - P;
+
+                document.getElementById('emi-monthly').textContent = formatCurrency(emi);
+                document.getElementById('emi-interest').textContent = formatCurrency(totalInterest);
+                document.getElementById('emi-total').textContent = formatCurrency(totalPayment);
+
+                createOrUpdateChart('emi-chart', 'doughnut', {
+                    labels: ['Principal Amount', 'Total Interest'],
+                    datasets: [{
+                        data: [P, totalInterest],
+                        backgroundColor: ['#3b82f6', '#005A9C'],
+                    }]
+                }, defaultChartOptions);
+            }
+            emiCalculateBtn.addEventListener('click', calculateEMI);
+
+            // Home Loan Early Repayment Calculator Logic (Monthly Prepayments)
+            setupSlider('repay-rate', 'repay-rate-val');
+            setupSlider('repay-tenure', 'repay-tenure-val');
+            const repayCalculateBtn = document.getElementById('repay-calculate-btn');
+
+            function calculateRepayment() {
+                const P = parseFloat(document.getElementById('repay-principal').value);
+                const R = parseFloat(document.getElementById('repay-rate').value) / 100;
+                const N = parseInt(document.getElementById('repay-tenure').value);
+                const prepayment = parseFloat(document.getElementById('repay-prepayment').value);
+
+                if (isNaN(P) || isNaN(R) || isNaN(N) || isNaN(prepayment) || P <= 0 || R <= 0 || N <= 0) {
+                    document.getElementById('repay-interest-saved').textContent = formatCurrency(0);
+                    document.getElementById('repay-tenure-reduced').textContent = `0y 0m`;
+                    return;
+                }
+
+                const r = R / 12;
+                const original_n = N * 12;
+                
+                const emi = P * r * (Math.pow(1 + r, original_n) / (Math.pow(1 + r, original_n) - 1));
+                const originalTotalInterest = (emi * original_n) - P;
+
+                let balance = P;
+                let new_n = 0;
+                let newTotalInterest = 0;
+                while (balance > 0) {
+                    if (emi <= 0) break; // Avoid infinite loop
+                    const interestComponent = balance * r;
+                    const principalComponent = emi - interestComponent;
+                    balance -= (principalComponent + prepayment);
+                    newTotalInterest += interestComponent;
+                    new_n++;
+                    if (new_n > original_n * 2) break; // Safety net
+                }
+                
+                const interestSaved = originalTotalInterest - newTotalInterest;
+                const tenureReducedMonths = Math.max(0, original_n - new_n);
+                const yearsReduced = Math.floor(tenureReducedMonths / 12);
+                const monthsReduced = tenureReducedMonths % 12;
+
+                document.getElementById('repay-interest-saved').textContent = formatCurrency(interestSaved);
+                document.getElementById('repay-tenure-reduced').textContent = `${yearsReduced}y ${monthsReduced}m`;
+
+                createOrUpdateChart('repayment-chart', 'bar', {
+                    labels: ['Original Tenure', 'New Tenure'],
+                    datasets: [{
+                        label: 'Loan Tenure in Years',
+                        data: [N, new_n / 12],
+                        backgroundColor: ['#93c5fd', '#005A9C'],
+                    }]
+                }, { ...defaultChartOptions, indexAxis: 'y' });
+            }
+            repayCalculateBtn.addEventListener('click', calculateRepayment);
+
+            // Home Loan Early Repayment Calculator Logic (Lumpsum)
+            setupSlider('lumpsum-rate', 'lumpsum-rate-val', calculateLumpsum);
+            setupSlider('lumpsum-tenure', 'lumpsum-tenure-val', calculateLumpsum);
+            setupSlider('lumpsum-month', 'lumpsum-month-val', calculateLumpsum);
+
+            const lumpsumCalculateBtn = document.getElementById('lumpsum-calculate-btn');
+
+            function calculateLumpsum() {
+                const P = parseFloat(document.getElementById('lumpsum-principal').value);
+                const R = parseFloat(document.getElementById('lumpsum-rate').value) / 100;
+                const N_years = parseFloat(document.getElementById('lumpsum-tenure').value);
+                const lumpsumPayment = parseFloat(document.getElementById('lumpsum-payment').value);
+                const lumpsumMonth = parseInt(document.getElementById('lumpsum-month').value);
+                const repaymentOption = document.querySelector('input[name="repaymentOption"]:checked').value;
+
+                if (isNaN(P) || isNaN(R) || isNaN(N_years) || isNaN(lumpsumPayment) || isNaN(lumpsumMonth) || P <= 0 || R <= 0 || N_years <= 0 || lumpsumPayment <= 0 || lumpsumMonth < 1) {
+                    document.getElementById('lumpsum-interest-saved').textContent = formatCurrency(0);
+                    document.getElementById('lumpsum-new-tenure').textContent = `0y 0m`;
+                    document.getElementById('lumpsum-new-emi').textContent = formatCurrency(0);
+                    return;
+                }
+
+                const r = R / 12;
+                const original_n = N_years * 12;
+                
+                // Make sure lumpsum month is within original tenure
+                if (lumpsumMonth >= original_n) {
+                    document.getElementById('lumpsum-interest-saved').textContent = "Invalid Month";
+                    document.getElementById('lumpsum-new-tenure').textContent = "Invalid Month";
+                    document.getElementById('lumpsum-new-emi').textContent = "Invalid Month";
+                    return;
+                }
+
+                // Calculate original EMI and total interest
+                const originalEmi = (P * r * Math.pow(1 + r, original_n)) / (Math.pow(1 + r, original_n) - 1);
+                const originalTotalInterest = (originalEmi * original_n) - P;
+
+                // Calculate outstanding principal at the time of lumpsum payment
+                const remainingPrincipalBeforeLumpsum = P * Math.pow(1 + r, lumpsumMonth) - originalEmi * (Math.pow(1 + r, lumpsumMonth) - 1) / r;
+                
+                // If lumpsum payment is more than remaining principal, handle it.
+                if (lumpsumPayment >= remainingPrincipalBeforeLumpsum) {
+                    const interestSaved = originalTotalInterest; // Simplified for this case
+                    document.getElementById('lumpsum-interest-saved').textContent = formatCurrency(interestSaved);
+                    document.getElementById('lumpsum-new-tenure').textContent = "Loan Paid Off";
+                    document.getElementById('lumpsum-new-emi').textContent = formatCurrency(0);
+                    
+                    createOrUpdateChart('lumpsum-chart', 'bar', {
+                        labels: ['Original Tenure', 'New Tenure'],
+                        datasets: [{
+                            label: 'Loan Tenure in Years',
+                            data: [N_years, lumpsumMonth / 12],
+                            backgroundColor: ['#93c5fd', '#005A9C'],
+                        }]
+                    }, { ...defaultChartOptions, indexAxis: 'y' });
+                    return;
+                }
+                
+                const newPrincipal = remainingPrincipalBeforeLumpsum - lumpsumPayment;
+
+                let new_n = original_n;
+                let newEmi = originalEmi;
+                
+                if (repaymentOption === 'reduceTenure') {
+                    // Reduce Tenure option: EMI remains the same
+                    // Calculate new tenure based on the reduced principal
+                    if (originalEmi - newPrincipal * r > 0) {
+                         const newTenureMonthsAfterLumpsum = Math.log(originalEmi / (originalEmi - newPrincipal * r)) / Math.log(1 + r);
+                         new_n = lumpsumMonth + newTenureMonthsAfterLumpsum;
+                    }
+                    
+                } else if (repaymentOption === 'reduceEmi') {
+                    // Reduce EMI option: Tenure remains the same
+                    // Calculate new EMI based on the reduced principal and remaining tenure
+                    const remainingMonths = original_n - lumpsumMonth;
+                    if (remainingMonths > 0) {
+                        newEmi = (newPrincipal * r * Math.pow(1 + r, remainingMonths)) / (Math.pow(1 + r, remainingMonths) - 1);
+                    }
+                    new_n = original_n;
+                }
+
+                // Calculate new total interest based on the chosen option
+                const totalInterestPaidTillLumpsum = (originalEmi * lumpsumMonth) - (P - remainingPrincipalBeforeLumpsum);
+                const totalInterestPaidAfterLumpsum = (newEmi * (new_n - lumpsumMonth)) - newPrincipal;
+                const newTotalInterest = totalInterestPaidTillLumpsum + totalInterestPaidAfterLumpsum;
+                const interestSaved = originalTotalInterest - newTotalInterest;
+                
+                // Update output display
+                const tenureReducedMonths = Math.max(0, original_n - new_n);
+                const yearsReduced = Math.floor(tenureReducedMonths / 12);
+                const monthsReduced = Math.round(tenureReducedMonths % 12);
+
+                document.getElementById('lumpsum-new-tenure').textContent = `${Math.round(new_n / 12)} years (${Math.round(new_n)} months)`;
+                document.getElementById('lumpsum-new-emi').textContent = formatCurrency(newEmi);
+                document.getElementById('lumpsum-interest-saved').textContent = formatCurrency(interestSaved);
+
+                // Update chart based on the selected option
+                if (repaymentOption === 'reduceTenure') {
+                     createOrUpdateChart('lumpsum-chart', 'bar', {
+                        labels: ['Original Tenure', 'New Tenure'],
+                        datasets: [{
+                            label: 'Loan Tenure in Years',
+                            data: [N_years, new_n / 12],
+                            backgroundColor: ['#93c5fd', '#005A9C'],
+                        }]
+                    }, { ...defaultChartOptions, indexAxis: 'y' });
+                } else { // Reduce EMI
+                     const newPrincipal_2 = (newEmi * original_n) - newTotalInterest;
+                     createOrUpdateChart('lumpsum-chart', 'doughnut', {
+                        labels: ['Original EMI Total Interest', 'New EMI Total Interest'],
+                        datasets: [{
+                            data: [originalTotalInterest, newTotalInterest],
+                            backgroundColor: ['#93c5fd', '#005A9C'],
+                        }]
+                    }, defaultChartOptions);
+                }
+            }
+            lumpsumCalculateBtn.addEventListener('click', calculateLumpsum);
+
+
+            // Initialize all calculators on page load
+            const initialTab = tabs[tabs.length - 1]; // Select the last tab (Lumpsum)
+            switchTab(initialTab);
+            calculateLumpsum();
+        });
+    </script>
+</body>
+</html>

@@ -38,6 +38,9 @@
         .custom-shadow {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        .modal-overlay {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -145,33 +148,101 @@
                 <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/9152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:mvitaservices@gmail.com" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="text-sm">
-                <a href="#" class="hover:underline">Privacy Policy</a> |
-                <a href="#" class="hover:underline">Terms of Service</a>
+                <a href="javascript:void(0)" onclick="openModal('privacy-policy-modal')" class="hover:underline">Privacy Policy</a> |
+                <a href="javascript:void(0)" onclick="openModal('terms-of-service-modal')" class="hover:underline">Terms of Service</a>
             </div>
         </div>
     </footer>
 
     <!-- Message Modal for Contact Form -->
-    <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center">
+    <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white p-8 rounded-lg custom-shadow text-center max-w-sm">
             <h3 class="text-xl font-bold m-vita-blue-text mb-4">Email Client Opening</h3>
             <p class="text-gray-700 mb-6">Your message is ready to be sent. Please check your email client to send it.</p>
-            <button id="close-modal" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300">
+            <button id="close-modal-contact" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300">
                 Close
             </button>
         </div>
     </div>
 
-    <!-- JavaScript for Mobile Menu and Contact Form -->
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto custom-shadow relative">
+            <button onclick="closeModal('privacy-policy-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200 text-xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 m-vita-blue-text">Privacy Policy</h2>
+            <p class="text-sm text-gray-600 mb-4">
+                **Effective Date: August 11, 2024**
+            </p>
+            <p class="mb-4">
+                At M-Vita Services, we are committed to protecting your privacy. This policy outlines how we collect, use, and protect your personal information.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Information We Collect</h3>
+            <p class="mb-4">
+                We may collect personal information such as your name, contact details (email, phone number), financial information, and investment goals. This information is collected to provide you with tailored financial and insurance solutions.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">How We Use Your Information</h3>
+            <p class="mb-4">
+                Your information is used to:
+                <ul class="list-disc list-inside ml-4">
+                    <li>Provide personalized financial planning and advice.</li>
+                    <li>Process investment and insurance applications.</li>
+                    <li>Communicate with you about your portfolio and our services.</li>
+                    <li>Improve our services and offerings.</li>
+                </ul>
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Information Sharing</h3>
+            <p class="mb-4">
+                We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties without your consent, except as required by law or to trusted third parties who assist us in operating our business and providing services, so long as those parties agree to keep this information confidential.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Data Security</h3>
+            <p>
+                We implement a variety of security measures to maintain the safety of your personal information.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto modal-overlay flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto custom-shadow relative">
+            <button onclick="closeModal('terms-of-service-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200 text-xl">&times;</button>
+            <h2 class="text-2xl font-bold mb-4 m-vita-blue-text">Terms of Service</h2>
+            <p class="text-sm text-gray-600 mb-4">
+                **Effective Date: August 11, 2024**
+            </p>
+            <p class="mb-4">
+                Welcome to M-Vita Services. By using our website and services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Services Provided</h3>
+            <p class="mb-4">
+                M-Vita Services is a financial solutions firm offering investment and insurance products. Our guidance and recommendations are based on our professional judgment and the information you provide. The value of investments can fluctuate, and past performance is not indicative of future results. We do not guarantee any specific returns on your investments.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">User Responsibilities</h3>
+            <p class="mb-4">
+                You are responsible for ensuring that the information you provide is accurate and complete. You agree to use our services and website for lawful purposes only.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Intellectual Property</h3>
+            <p class="mb-4">
+                The content on this website, including text, graphics, logos, and images, is the property of M-Vita Services and is protected by copyright laws. You may not reproduce or distribute any content without our prior written consent.
+            </p>
+            <h3 class="font-semibold text-lg mb-2 m-vita-blue-text">Disclaimer</h3>
+            <p>
+                The information on this website is for general informational purposes only and does not constitute financial advice. We recommend consulting with a qualified professional before making any financial decisions.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu, Contact Form, and Modals -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const contactForm = document.getElementById('contact-form');
             const messageModal = document.getElementById('message-modal');
-            const closeModalButton = document.getElementById('close-modal');
+            const closeModalContactButton = document.getElementById('close-modal-contact');
 
             // Toggle mobile menu visibility
             mobileMenuButton.addEventListener('click', () => {
@@ -207,14 +278,14 @@
                 messageModal.classList.add('flex');
             });
 
-            // Close modal when clicking the close button
-            closeModalButton.addEventListener('click', () => {
+            // Close contact modal when clicking the close button
+            closeModalContactButton.addEventListener('click', () => {
                 messageModal.classList.add('hidden');
                 messageModal.classList.remove('flex');
                 contactForm.reset();
             });
 
-            // Optional: Close modal when clicking outside of it
+            // Optional: Close contact modal when clicking outside of it
             messageModal.addEventListener('click', (event) => {
                 if (event.target === messageModal) {
                     messageModal.classList.add('hidden');
@@ -223,6 +294,18 @@
                 }
             });
         });
+
+        // Function to open a modal
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+            document.body.classList.add('overflow-hidden'); // Prevent body from scrolling
+        }
+
+        // Function to close a modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+            document.body.classList.remove('overflow-hidden'); // Restore body scrolling
+        }
     </script>
 </body>
 </html>
