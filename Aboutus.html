@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | M-Vita Services</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <!-- Links are removed as this is a single page, but you can add them back with proper href values if you create more pages -->
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <!-- Links are removed as this is a single page -->
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- About the Founder -->
+        <section id="about" class="py-16 md:py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-12">
+                <div class="w-full lg:w-1/3 flex justify-center">
+                    <img src="Canva Shriram PP Size.jpg" alt="Shriram Samudra, Founder of M-Vita Services" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover custom-shadow">
+                </div>
+                <div class="w-full lg:w-2/3 text-center lg:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Meet Our Founder, Shriram Samudra</h2>
+                    <p class="text-lg font-light mb-6 text-gray-300">
+                        With over two decades of experience in the financial services industry, Shriram Samudra founded M-Vita Services with a vision to make expert financial advice accessible to everyone. His philosophy is rooted in a client-first approach, focusing on long-term wealth creation and protection through ethical and transparent practices.
+                    </p>
+                    <p class="text-lg font-light mb-6 text-gray-300">
+                        Shriram Samudra, a seasoned financial expert with a career spanning over 20 years, is the driving force behind M-Vita Services. His journey began with a simple belief: that everyone, regardless of their financial background, deserves access to sound, unbiased, and ethical financial advice. With a deep understanding of market dynamics and a commitment to continuous learning, Shriram has helped hundreds of clients navigate complex financial landscapes and build sustainable wealth. His expertise is not just in numbers but in understanding people's dreams and goals, and crafting personalized strategies to achieve them.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Client Testimonials -->
+        <section id="testimonials" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-12">What Our Clients Say</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-white p-6 rounded-lg custom-shadow">
+                        <p class="italic text-gray-600 mb-4">"M-Vita Services provided a clear and actionable plan for my family's future. We feel secure knowing our investments are in good hands."</p>
+                        <div class="font-semibold text-gray-900">- A satisfied Family</div>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-white p-6 rounded-lg custom-shadow">
+                        <p class="italic text-gray-600 mb-4">"Shriram's advice on retirement planning has been invaluable. I'm now confidently looking forward to my post-work life."</p>
+                        <div class="font-semibold text-gray-900">- A Retiree Client</div>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-white p-6 rounded-lg custom-shadow">
+                        <p class="italic text-gray-600 mb-4">"The team at M-Vita Services is highly professional and transparent. I trust them completely with my wealth creation goals."</p>
+                        <div class="font-semibold text-gray-900">- A High-Net-Worth Individual</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-sm">
+                <a href="#" class="hover:underline">Privacy Policy</a> |
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

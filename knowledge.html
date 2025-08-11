@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Center | M-Vita Services</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <!-- Links are removed as this is a single page, but you can add them back with proper href values if you create more pages -->
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <!-- Links are removed as this is a single page -->
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Blog Preview -->
+        <section id="blog-preview" class="py-16 md:py-24 bg-gray-100">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-12">Latest Insights from Our Blog</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <div class="bg-white rounded-lg custom-shadow">
+                        <img src="https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Financial Planning" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-semibold mb-2">How to Build a Strong Financial Foundation</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">A step-by-step guide to help you start your financial planning journey, from budgeting to investing.</p>
+                            <a href="https://mvitaservices.blogspot.com/" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 2 -->
+                    <div class="bg-white rounded-lg custom-shadow">
+                        <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2938&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Investment strategies" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-semibold mb-2">Understanding SIPs vs. Lump-sum Investments</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">We break down the pros and cons of Systematic Investment Plans and one-time investments.</p>
+                            <a href="https://mvitaservices.blogspot.com/" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 3 -->
+                    <div class="bg-white rounded-lg custom-shadow">
+                        <img src="https://images.unsplash.com/photo-1581452146039-4467d0224d08?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Insurance awareness" class="w-full h-48 object-cover rounded-t-lg">
+                        <div class="p-6 text-left">
+                            <h3 class="text-xl font-semibold mb-2">Why Health Insurance is a Must-Have</h3>
+                            <p class="text-gray-600 mb-4 line-clamp-3">Learn about the importance of health insurance and how to choose the right plan for your family.</p>
+                            <a href="https://mvitaservices.blogspot.com/" target="_blank" rel="noopener noreferrer" class="m-vita-blue-text font-medium hover:underline">Read More <i class="fas fa-arrow-right ml-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Knowledge Center -->
+        <section id="knowledge-center" class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text text-center mb-12">Knowledge Center</h2>
+
+                <div id="calculators" class="bg-white p-8 rounded-lg custom-shadow mb-12 text-center">
+                    <h3 class="text-2xl font-bold m-vita-blue-text mb-4">Financial Calculators</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                            <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-calculator"></i></div>
+                            <span class="text-sm font-semibold">SIP Calculator</span>
+                        </a>
+                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                            <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-user-friends"></i></div>
+                            <span class="text-sm font-semibold">Retirement Calculator</span>
+                        </a>
+                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                            <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-shield-alt"></i></div>
+                            <span class="text-sm font-semibold">Premium Calculator</span>
+                        </a>
+                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                            <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-bullseye"></i></div>
+                            <span class="text-sm font-semibold">Goal Planning</span>
+                        </a>
+                        <a href="#calculators" class="flex flex-col items-center p-4 bg-white rounded-lg custom-shadow hover:bg-gray-100 transition-colors duration-300">
+                            <div class="text-3xl m-vita-blue-text mb-2"><i class="fas fa-money-check-alt"></i></div>
+                            <span class="text-sm font-semibold">EMI Calculator</span>
+                        </a>
+                        <a href="#calculators" class="flex flex-col items-center p-4 m-vita-blue-bg text-white rounded-lg custom-shadow hover:bg-blue-700 transition-colors duration-300">
+                            <div class="text-3xl text-white mb-2"><i class="fas fa-external-link-alt"></i></div>
+                            <span class="text-sm font-semibold">View All</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg custom-shadow mb-12 text-center">
+                    <h3 class="text-2xl font-bold m-vita-blue-text mb-4">Video Gallery</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="relative group w-full aspect-video rounded-lg overflow-hidden custom-shadow">
+                            <img src="https://placehold.co/600x400/a2d3e9/ffffff?text=Video+1" alt="Video 1 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 group-hover:opacity-100">
+                                <i class="fas fa-play text-white text-4xl"></i>
+                            </div>
+                        </a>
+                        <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="relative group w-full aspect-video rounded-lg overflow-hidden custom-shadow">
+                            <img src="https://placehold.co/600x400/a2d3e9/ffffff?text=Video+2" alt="Video 2 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 group-hover:opacity-100">
+                                <i class="fas fa-play text-white text-4xl"></i>
+                            </div>
+                        </a>
+                        <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="relative group w-full aspect-video rounded-lg overflow-hidden custom-shadow">
+                            <img src="https://placehold.co/600x400/a2d3e9/ffffff?text=Video+3" alt="Video 3 Thumbnail" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110">
+                            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 group-hover:opacity-100">
+                                <i class="fas fa-play text-white text-4xl"></i>
+                            </div>
+                        </a>
+                    </div>
+                    <a href="http://youtube.com/@m-vitaservices/videos" target="_blank" rel="noopener noreferrer" class="mt-8 inline-block px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
+                        View All Videos
+                    </a>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg custom-shadow text-center">
+                    <h3 class="text-2xl font-bold m-vita-blue-text mb-4">Photo Gallery</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Events" alt="Events photo" class="w-full h-auto rounded-lg custom-shadow">
+                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Seminar" alt="Seminar photo" class="w-full h-auto rounded-lg custom-shadow">
+                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Client+Meeting" alt="Client meeting photo" class="w-full h-auto rounded-lg custom-shadow">
+                        <img src="https://placehold.co/400x300/a2d3e9/ffffff?text=Team+Photo" alt="Team photo" class="w-full h-auto rounded-lg custom-shadow">
+                    </div>
+                    <button class="mt-8 px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
+                        More Photos
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-sm">
+                <a href="#" class="hover:underline">Privacy Policy</a> |
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

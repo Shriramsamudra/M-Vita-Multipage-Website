@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | M-Vita Services</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <!-- Links are removed as this is a single page, but you can add them back with proper href values if you create more pages -->
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <!-- Links are removed as this is a single page -->
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-24 bg-gray-800 text-white">
+            <div class="container mx-auto px-4 text-center lg:text-left">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                        <p class="text-lg font-light mb-8 text-gray-300">
+                            Fill out the form below to send us an inquiry or schedule a free consultation.
+                        </p>
+                        <form id="contact-form" class="space-y-4">
+                            <input type="text" id="contact-name" placeholder="Your Name" class="w-full p-3 rounded-lg border-2 border-transparent focus:border-white focus:outline-none bg-white text-gray-800 transition-colors duration-300" required>
+                            <input type="email" id="contact-email" placeholder="Your Email" class="w-full p-3 rounded-lg border-2 border-transparent focus:border-white focus:outline-none bg-white text-gray-800 transition-colors duration-300" required>
+                            <textarea id="contact-message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border-2 border-transparent focus:border-white focus:outline-none bg-white text-gray-800 transition-colors duration-300" required></textarea>
+                            <button type="submit" class="w-full px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                    <div>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-4">Contact Information</h2>
+                        <div class="space-y-4 text-gray-300">
+                            <p class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-2xl mr-4 mt-1"></i>
+                                <span>Palava City, Kalyan Shil Road, Behind Xperia Mall, Dombivli, Maharashtra 421204, India</span>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-phone-alt text-2xl mr-4"></i>
+                                <a href="tel:+919152049967" class="hover:underline">+91 91520 49967</a>
+                            </p>
+                            <p class="flex items-center">
+                                <i class="fas fa-envelope text-2xl mr-4"></i>
+                                <a href="mailto:mvitaservices@gmail.com" class="hover:underline">mvitaservices@gmail.com</a>
+                            </p>
+                        </div>
+                        <div class="mt-8">
+                            <h3 class="text-2xl font-bold mb-4">Schedule an Appointment</h3>
+                            <p class="text-lg font-light mb-4 text-gray-300">
+                                Book a convenient time with Shriram Samudra to discuss your financial goals.
+                            </p>
+                            <a href="https://wa.me/919152049967" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
+                                Book Your Consultation
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-sm">
+                <a href="#" class="hover:underline">Privacy Policy</a> |
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Message Modal for Contact Form -->
+    <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center">
+        <div class="bg-white p-8 rounded-lg custom-shadow text-center max-w-sm">
+            <h3 class="text-xl font-bold m-vita-blue-text mb-4">Email Client Opening</h3>
+            <p class="text-gray-700 mb-6">Your message is ready to be sent. Please check your email client to send it.</p>
+            <button id="close-modal" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu and Contact Form -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const contactForm = document.getElementById('contact-form');
+            const messageModal = document.getElementById('message-modal');
+            const closeModalButton = document.getElementById('close-modal');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Handle contact form submission
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Prevent default form submission
+
+                // Get form values
+                const name = document.getElementById('contact-name').value;
+                const email = document.getElementById('contact-email').value;
+                const message = document.getElementById('contact-message').value;
+
+                // Construct the mailto link
+                const subject = encodeURIComponent('Website Inquiry from ' + name);
+                const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+                const mailtoLink = `mailto:mvitaservices@gmail.com?subject=${subject}&body=${body}`;
+
+                // Open the user's email client
+                window.location.href = mailtoLink;
+
+                // Show the modal to inform the user
+                messageModal.classList.remove('hidden');
+                messageModal.classList.add('flex');
+            });
+
+            // Close modal when clicking the close button
+            closeModalButton.addEventListener('click', () => {
+                messageModal.classList.add('hidden');
+                messageModal.classList.remove('flex');
+                contactForm.reset();
+            });
+
+            // Optional: Close modal when clicking outside of it
+            messageModal.addEventListener('click', (event) => {
+                if (event.target === messageModal) {
+                    messageModal.classList.add('hidden');
+                    messageModal.classList.remove('flex');
+                    contactForm.reset();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | M-Vita Services</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <!-- Links are removed as this is a single page, but you can add them back with proper href values if you create more pages -->
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <!-- Links are removed as this is a single page -->
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Services Overview -->
+        <section id="services" class="py-16 md:py-24">
+            <div class="container mx-auto px-4 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-4">Our Comprehensive Services</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
+                    We offer a full spectrum of financial services to help you secure your future.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service Card 1 -->
+                    <a href="#" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Mutual Funds</h3>
+                        <p class="text-gray-600">Expert guidance on SIPs, lump-sum investments, and portfolio management.</p>
+                    </a>
+                    <!-- Service Card 2 -->
+                    <a href="#" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-heartbeat"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Life Insurance</h3>
+                        <p class="text-gray-600">Protect your family's future with the right insurance policies.</p>
+                    </a>
+                    <!-- Service Card 3 -->
+                    <a href="#" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-car-side"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">General Insurance</h3>
+                        <p class="text-gray-600">Secure your assets with health, motor, and corporate insurance.</p>
+                    </a>
+                    <!-- Service Card 4 -->
+                    <a href="#" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Bonds & Fixed Income</h3>
+                        <p class="text-gray-600">Explore stable investment opportunities for consistent returns.</p>
+                    </a>
+                    <!-- Service Card 5 -->
+                    <a href="#" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-piggy-bank"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Pension Planning</h3>
+                        <p class="text-gray-600">Plan for a worry-free retirement with our tailored solutions.</p>
+                    </a>
+                    <!-- Service Card 6 -->
+                    <a href="#" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-book"></i></div>
+                        <h3 class="text-xl font-semibold mb-2">Financial Literacy</h3>
+                        <p class="text-gray-600">Access our blog and calculators to enhance your financial knowledge.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+            </div>
+            <div class="text-sm">
+                <a href="#" class="hover:underline">Privacy Policy</a> |
+                <a href="#" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
