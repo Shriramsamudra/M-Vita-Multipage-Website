@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Planning Roadmap</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Using jsPDF for reliable text-based PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: M-Vita Blue & Neutrals -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+        .brand-blue { color: #2E64B4; }
+        .bg-brand-blue { background-color: #2E64B4; }
+        .border-brand-blue { border-color: #2E64B4; }
+        .bg-brand-light { background-color: #f0f5fc; }
+        .transition-all { transition: all 0.5s ease-in-out; }
+        .step-card {
+            background-color: white;
+            border-left-width: 4px;
+            min-height: 12rem;
+        }
+        #roadmap-output {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        #pdf-loading-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <header class="text-center mb-8">
+            <img src="https://storage.googleapis.com/gemini-prod-us-central1-834123952265-4972/uploaded:M-Vita%20Name%202.jpg-9b0d107c-5dc4-4798-bd98-edef4e48a346" alt="M-Vita Logo" class="mx-auto h-20 w-auto mb-4" onerror="this.onerror=null; this.src='https://placehold.co/200x80/2E64B4/FFFFFF?text=M-Vita';">
+            <h1 class="text-3xl md:text-4xl font-bold brand-blue">Your Personal Financial Planning Roadmap</h1>
+            <p class="mt-2 text-lg text-gray-600">Create a tailored financial plan in seconds. Just tell us a bit about yourself to get started.</p>
+        </header>
+
+        <main>
+            <section id="input-section" class="transition-all max-w-4xl mx-auto bg-white p-6 sm:p-8 rounded-xl shadow-lg">
+                <form id="roadmap-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="age-group" class="block text-sm font-medium text-gray-700 mb-1">Age Group</label>
+                            <select id="age-group" name="age-group" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue">
+                                <option value="under25">Under 25</option>
+                                <option value="25-34">25 - 34</option>
+                                <option value="35-44">35 - 44</option>
+                                <option value="45-54">45 - 54</option>
+                                <option value="55plus">55+</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="income-slab" class="block text-sm font-medium text-gray-700 mb-1">Annual Income Slab (INR)</label>
+                            <select id="income-slab" name="income-slab" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue">
+                                <option value="low">Below ₹5 Lakh</option>
+                                <option value="mid">₹5 Lakh - ₹15 Lakh</option>
+                                <option value="high">₹15 Lakh - ₹30 Lakh</option>
+                                <option value="vhigh">Above ₹30 Lakh</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="financial-goal" class="block text-sm font-medium text-gray-700 mb-1">Primary Financial Goal</label>
+                            <select id="financial-goal" name="financial-goal" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue">
+                                <option value="emergency_fund">Build an Emergency Fund</option>
+                                <option value="debt_repayment">Debt Repayment</option>
+                                <option value="home_purchase">Buy a Home</option>
+                                <option value="retirement">Retirement Planning</option>
+                                <option value="child_education">Child's Education</option>
+                                <option value="wealth_creation">Wealth Creation</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="risk-level" class="block text-sm font-medium text-gray-700 mb-1">Risk Appetite</label>
+                            <select id="risk-level" name="risk-level" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-blue focus:border-brand-blue">
+                                <option value="low">Low (Capital Protection)</option>
+                                <option value="moderate">Moderate (Balanced Growth)</option>
+                                <option value="high">High (Aggressive Growth)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button type="submit" class="bg-brand-blue text-white font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors shadow-md">
+                            Generate My Roadmap
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <section id="roadmap-output" class="transition-all">
+                <div id="graphical-view" class="bg-brand-light p-6 sm:p-8 rounded-xl shadow-lg">
+                     <h2 class="text-2xl md:text-3xl font-bold brand-blue text-center mb-6">Your Personalized Roadmap</h2>
+                    <!-- New section for input summary cards -->
+                    <div id="input-summary-container" class="flex flex-wrap justify-center gap-4 mb-8"></div>
+                    <!-- End of new section -->
+                    
+                    <div id="roadmap-content">
+                        <div id="loading-spinner" class="hidden text-center py-10">
+                            <div class="animate-spin rounded-full h-12 w-12 border-4 border-t-4 border-brand-blue mx-auto mb-4"></div>
+                            <p class="text-gray-600">Generating your personalized roadmap...</p>
+                        </div>
+                        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="roadmap-grid">
+                            
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold text-center mb-4 text-gray-700">Phase 1: First 1-6 Months</h3>
+                                <div id="phase1-steps" class="space-y-4 flex-grow"></div>
+                            </div>
+                            
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold text-center mb-4 text-gray-700">Phase 2: Next 7-24 Months</h3>
+                                <div id="phase2-steps" class="space-y-4 flex-grow"></div>
+                            </div>
+
+                            <div class="flex flex-col">
+                                <h3 class="text-xl font-bold text-center mb-4 text-gray-700">Phase 3: For 3+ Years</h3>
+                                <div id="phase3-steps" class="space-y-4 flex-grow"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div id="action-buttons" class="mt-8 flex flex-wrap justify-center gap-4">
+                     <button id="download-pdf" class="bg-green-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-green-700 transition-colors shadow-md">Download as PDF</button>
+                     <button id="redesign-plan" class="bg-gray-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-700 transition-colors shadow-md">Redesign Plan</button>
+                </div>
+            </section>
+        </main>
+        
+        <div id="pdf-loading-message" class="text-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-4 border-t-4 border-brand-blue mx-auto mb-4"></div>
+            <p class="text-lg font-semibold text-gray-800">Generating your PDF...</p>
+        </div>
+
+        <footer class="mt-12 text-center">
+            <div class="flex justify-center gap-4 mb-6">
+                 <a href="knowledge.html" class="border-2 border-brand-blue text-brand-blue font-bold py-2 px-6 rounded-lg hover:bg-brand-blue hover:text-white transition-colors">Back to Website</a>
+                 <a href="https://wa.me/9152049967?text=Hello%20M-Vita,%20I'd%20like%20to%20discuss%20my%20financial%20roadmap." target="_blank" class="bg-brand-blue text-white font-bold py-2 px-6 rounded-lg hover:bg-opacity-90 transition-colors">Get in Touch</a>
+            </div>
+            <div class="text-xs text-gray-500 max-w-3xl mx-auto p-4 border-t border-gray-200">
+                <p class="font-bold">Disclaimer:</p>
+                <p>This financial roadmap is generated for informational and educational purposes only. It does not constitute personalized financial, investment, tax, or legal advice. The recommendations are based on generalized financial principles and the inputs you provide. Your actual financial situation is unique and may require tailored advice. Please consult with a qualified and registered financial advisor before making any investment decisions.</p>
+                <p class="mt-2 font-semibold">Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Past performance is not indicative of future returns.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // This is the new, dynamic logic that generates a unique plan for every input combination.
+        const planGenerator = {
+            // Foundational steps for all users
+            foundationalSteps: [
+                { icon: '📝', title: 'Track and Budget', text: 'Analyze your current income and expenses to create a realistic monthly budget. The 50/30/20 rule is a great place to start.' },
+                { icon: '🛡️', title: 'Build a Starter Emergency Fund', text: 'Set aside at least one month of your expenses in a separate, accessible account to handle unexpected costs.' },
+                { icon: '☂️', title: 'Review Insurance Coverage', text: 'Review your life and health insurance. Ensure your sum assured is adequate to cover your family’s needs and rising medical expenses based on your profile.' }
+            ],
+
+            // Step options based on user's financial goal
+            goalSteps: {
+                emergency_fund: {
+                    phase1: { icon: '💰', title: 'Systematic Savings', text: 'Automate transfers from your checking account to a high-yield savings account or a liquid fund to build your fund consistently.' },
+                    phase2: { icon: '🏦', title: 'Target Full Coverage', text: 'Aim to build a fund covering at least 6 months of your household expenses. Keep it liquid but separate from your daily money.' },
+                    phase3: { icon: '🎯', title: 'Plan for Long-Term Needs', text: 'Once your emergency fund is strong, focus on investing for bigger goals like retirement or a home purchase.' }
+                },
+                debt_repayment: {
+                    phase1: { icon: '💸', title: 'Prioritize High-Interest Debt', text: 'List all your debts and focus on paying off the one with the highest interest rate first. This saves you the most money in the long run.' },
+                    phase2: { icon: '✂️', title: 'Cut Non-Essential Spending', text: 'Redirect any extra cash from your budget towards accelerating your debt repayment. Every extra rupee helps.' },
+                    phase3: { icon: '🚀', title: 'Invest Once Debt-Free', text: 'After clearing debt, use the freed-up cash flow to start or increase investments and build wealth.' }
+                },
+                home_purchase: {
+                    phase1: { icon: '🏡', title: 'Calculate Your Down Payment', text: 'Determine the total cost of your desired home and calculate the required down payment, typically 10-20% of the home\'s value.' },
+                    phase2: { icon: '📈', title: 'Invest for Short-Term Growth', text: 'Start a SIP in a low-to-moderate risk hybrid fund to grow your down payment savings over the next 1-2 years.' },
+                    phase3: { icon: '🔑', title: 'Secure a Home Loan', text: 'After reaching your down payment goal, research and secure a home loan with the best possible interest rate.' }
+                },
+                retirement: {
+                    phase1: { icon: '👴', title: 'Start with NPS/PPF', text: 'Open a National Pension System (NPS) account and/or a Public Provident Fund (PPF) account to begin building a tax-efficient retirement corpus.' },
+                    phase2: { icon: '🚀', title: 'Increase Your SIPs Annually', text: 'Boost your Systematic Investment Plans (SIPs) in diversified mutual funds by at least 10% each year to leverage the power of compounding.' },
+                    phase3: { icon: '💰', title: 'Diversify and Rebalance', text: 'As you get closer to retirement, gradually shift your portfolio from high-risk equity to more stable debt funds.' }
+                },
+                child_education: {
+                    phase1: { icon: '🎓', title: 'Define the Goal', text: 'Estimate the cost of your child\'s future education by factoring in inflation. This gives you a clear investment target.' },
+                    phase2: { icon: '💼', title: 'Start a Dedicated SIP', text: 'Begin a dedicated Systematic Investment Plan (SIP) in a well-diversified equity fund, considering the long-term nature of this goal.' },
+                    phase3: { icon: '📚', title: 'Review and Adjust', text: 'Regularly review your child\'s education fund to ensure it is on track. Rebalance the portfolio as the goal approaches.' }
+                },
+                wealth_creation: {
+                    phase1: { icon: '📊', title: 'Invest a Fixed Percentage', text: 'Commit to investing a fixed percentage of your income every month. Consistency is the most powerful tool for wealth creation.' },
+                    phase2: { icon: '📈', title: 'Diversify Your Portfolio', text: 'Invest across different asset classes like equity, debt, and gold to mitigate risk and capture growth opportunities.' },
+                    phase3: { icon: '⭐', title: 'Maximize Returns', text: 'Continue to research and invest in high-growth opportunities, reviewing your portfolio annually to optimize for maximum returns.' }
+                }
+            },
+
+            // Step options based on user's age group
+            ageSteps: {
+                under25: {
+                    phase1: { icon: '🌱', title: 'Invest in Yourself', text: 'Your greatest asset is your potential. Focus on acquiring skills and certifications to increase your earning power.' },
+                    phase2: { icon: '🧭', title: 'Find Your Financial Direction', text: 'Experiment with small investments and different saving strategies to understand what works for you before committing to a long-term plan.' },
+                    phase3: { icon: '⏳', title: 'Let Compounding Work', text: 'Time is on your side. Start even a small SIP now to take full advantage of compounding interest over the next several decades.' }
+                },
+                '25-34': {
+                    phase1: { icon: '🚀', title: 'Begin Investing Aggressively', text: 'With a stable income and a long time horizon, now is the time to start high-growth SIPs in equity mutual funds.' },
+                    phase2: { icon: '💑', title: 'Plan with Your Partner', text: 'If you are in a relationship, discuss and align your financial goals and responsibilities. This is crucial for long-term success.' },
+                    phase3: { icon: '🏡', title: 'Consider a Home Down Payment', text: 'As your income grows, start saving a dedicated fund for a home down payment or other major life purchases.' }
+                },
+                '35-44': {
+                    phase1: { icon: '👨‍👩‍👧‍👦', title: 'Protect Your Family', text: 'Ensure you have adequate life insurance and health insurance for your family. Your dependents are your top priority.' },
+                    phase2: { icon: '🎯', title: 'Accelerate Your Goals', text: 'With higher income, increase your SIPs and contributions to your retirement and child\'s education funds to stay on track.' },
+                    phase3: { icon: '📈', title: 'Review Your Asset Allocation', text: 'Periodically review your portfolio to ensure your risk level and asset allocation still align with your long-term goals.' }
+                },
+                '45-54': {
+                    phase1: { icon: '💰', title: 'Optimize Tax Savings', text: 'Maximize your tax-saving investments in schemes like ELSS and NPS. At this income level, every rupee saved on tax is a rupee earned.' },
+                    phase2: { icon: ' ', title: 'De-risk Your Investments', text: 'Start gradually moving a small portion of your equity investments to more stable debt funds to protect your accumulated wealth.' },
+                    phase3: { icon: '📝', title: 'Plan for Retirement Income', text: 'Start planning for how you will generate income in retirement. Consider investments that provide a steady cash flow.' }
+                },
+                '55plus': {
+                    phase1: { icon: '📉', title: 'Eliminate All Debt', text: 'Enter retirement with a clean slate. Focus on paying off all outstanding debt, especially credit card or personal loans.' },
+                    phase2: { icon: '🏦', title: 'Secure Fixed Income', text: 'Move a majority of your funds to low-risk instruments like senior citizen savings schemes and fixed deposits to ensure a stable, predictable income.' },
+                    phase3: { icon: '❤️', title: 'Finalize Estate Planning', text: 'Ensure all your assets are properly nominated. Consult a professional to draft a will to protect your legacy.' }
+                }
+            },
+            
+            // Step options based on user's risk appetite
+            riskSteps: {
+                low: {
+                    phase1: { icon: '🛡️', title: 'Capital Protection is Key', text: 'Your investments should prioritize capital safety. Stick to high-interest savings, FDs, and government bonds for guaranteed returns.' },
+                    phase2: { icon: '💰', title: 'Explore Debt Funds', text: 'Consider investing in debt mutual funds, which are less volatile than equity funds and can provide a stable return.' },
+                    phase3: { icon: '💎', title: 'Diversify with Gold', text: 'Add a small portion of gold to your portfolio via Gold ETFs or Sovereign Gold Bonds for a hedge against inflation.' }
+                },
+                moderate: {
+                    phase1: { icon: '⚖️', title: 'Start with Hybrid Funds', text: 'A balanced portfolio is your best bet. Start a SIP in a hybrid fund that invests in a mix of both equity and debt.' },
+                    phase2: { icon: '📈', title: 'Gradually Increase Equity', text: 'As your understanding grows, gradually increase your exposure to equity funds. Large-cap and flexi-cap funds are good starting points.' },
+                    phase3: { icon: '🔄', title: 'Regular Rebalancing', text: 'Periodically rebalance your portfolio to maintain your desired mix of equity and debt and manage your risk level.' }
+                }
+                ,
+                high: {
+                    phase1: { icon: '🚀', title: 'Invest in High-Growth Funds', text: 'Start aggressive SIPs in small-cap and mid-cap equity mutual funds. You have the time to absorb short-term volatility.' },
+                    phase2: { icon: '⭐', title: 'Explore Aggressive Equity Funds', text: 'Instead of direct stocks, focus on aggressive equity mutual funds (e.g., small-cap or mid-cap funds) to get higher growth potential with professional management.' },
+                    phase3: { icon: '🎯', title: 'Aim for Maximum Returns', text: 'Your long-term goal is aggressive wealth creation. Maintain a high allocation to equity and review your portfolio regularly to maximize returns.' }
+                }
+            },
+
+            // Mapping for display text
+            displayMapping: {
+                ageGroup: {
+                    'under25': 'Under 25', '25-34': '25 - 34', '35-44': '35 - 44', '45-54': '45 - 54', '55plus': '55+'
+                },
+                incomeSlab: {
+                    'low': 'Below ₹5 Lakh', 'mid': '₹5 Lakh - ₹15 Lakh', 'high': '₹15 Lakh - ₹30 Lakh', 'vhigh': 'Above ₹30 Lakh'
+                },
+                financialGoal: {
+                    'emergency_fund': 'Build an Emergency Fund', 'debt_repayment': 'Debt Repayment', 'home_purchase': 'Buy a Home', 'retirement': 'Retirement Planning', 'child_education': 'Child\'s Education', 'wealth_creation': 'Wealth Creation'
+                },
+                riskLevel: {
+                    'low': 'Low (Capital Protection)', 'moderate': 'Moderate (Balanced Growth)', 'high': 'High (Aggressive Growth)'
+                },
+                icons: {
+                    'age-group': '🎂', 'income-slab': '💰', 'financial-goal': '🎯', 'risk-level': '📈'
+                }
+            }
+        };
+
+        const form = document.getElementById('roadmap-form');
+        const inputSection = document.getElementById('input-section');
+        const roadmapOutput = document.getElementById('roadmap-output');
+        const roadmapGrid = document.getElementById('roadmap-grid');
+        const loadingSpinner = document.getElementById('loading-spinner');
+        const downloadBtn = document.getElementById('download-pdf');
+        const redesignBtn = document.getElementById('redesign-plan');
+        const inputSummaryContainer = document.getElementById('input-summary-container');
+        const pdfLoadingMessage = document.getElementById('pdf-loading-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            loadingSpinner.classList.remove('hidden');
+            roadmapGrid.classList.add('hidden');
+
+            inputSection.style.opacity = '0';
+            inputSection.style.display = 'none';
+
+            roadmapOutput.style.display = 'block';
+            setTimeout(() => {
+                roadmapOutput.style.opacity = '1';
+                roadmapOutput.style.transform = 'translateY(0)';
+                generateRoadmap();
+
+                loadingSpinner.classList.add('hidden');
+                roadmapGrid.classList.remove('hidden');
+            }, 500);
+        });
+
+        redesignBtn.addEventListener('click', function() {
+            roadmapOutput.style.opacity = '0';
+            roadmapOutput.style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                roadmapOutput.style.display = 'none';
+                inputSummaryContainer.innerHTML = ''; // Clear the summary cards
+                inputSection.style.display = 'block';
+                setTimeout(() => {
+                    inputSection.style.opacity = '1';
+                }, 50);
+            }, 500);
+        });
+
+        downloadBtn.addEventListener('click', function() {
+            pdfLoadingMessage.style.display = 'block';
+            
+            // Wait a moment for the loading message to render before starting the intensive task
+            setTimeout(() => {
+                const planText = generateTextPlan();
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF();
+                
+                const pageWidth = doc.internal.pageSize.getWidth();
+                const pageHeight = doc.internal.pageSize.getHeight();
+                const margin = 15;
+                const textWidth = pageWidth - 2 * margin;
+                
+                let y = 20;
+
+                // Title
+                doc.setFontSize(18);
+                doc.setFont(undefined, 'bold');
+                doc.text("Financial Planning Roadmap", pageWidth / 2, y, { align: "center" });
+                y += 15;
+
+                // Profile Summary
+                doc.setFontSize(14);
+                doc.setFont(undefined, 'bold');
+                doc.text("Summary of Your Profile:", margin, y);
+                y += 8;
+                doc.setFontSize(12);
+                doc.setFont(undefined, 'normal');
+                const profileText = `
+Age Group: ${planGenerator.displayMapping.ageGroup[document.getElementById('age-group').value]}
+Annual Income: ${planGenerator.displayMapping.incomeSlab[document.getElementById('income-slab').value]}
+Primary Goal: ${planGenerator.displayMapping.financialGoal[document.getElementById('financial-goal').value]}
+Risk Appetite: ${planGenerator.displayMapping.riskLevel[document.getElementById('risk-level').value]}
+`;
+                const profileLines = doc.splitTextToSize(profileText, textWidth);
+                doc.text(profileLines, margin, y);
+                y += doc.getTextDimensions(profileLines).h + 10;
+                
+                // Add the roadmap content
+                const phases = [
+                    { title: "Phase 1: First 1-6 Months", steps: getRoadmapSteps(1) },
+                    { title: "Phase 2: Next 7-24 Months", steps: getRoadmapSteps(2) },
+                    { title: "Phase 3: For 3+ Years", steps: getRoadmapSteps(3) }
+                ];
+
+                phases.forEach(phase => {
+                    if (y + 10 > pageHeight - margin) {
+                        doc.addPage();
+                        y = margin;
+                    }
+                    doc.setFontSize(14);
+                    doc.setFont(undefined, 'bold');
+                    doc.text(phase.title, margin, y);
+                    y += 8;
+
+                    phase.steps.forEach(step => {
+                        if (y + 20 > pageHeight - margin) {
+                            doc.addPage();
+                            y = margin;
+                        }
+                        doc.setFontSize(12);
+                        doc.setFont(undefined, 'bold');
+                        doc.text(`${step.title}:`, margin, y);
+                        y += 5;
+                        doc.setFontSize(10);
+                        doc.setFont(undefined, 'normal');
+                        const stepLines = doc.splitTextToSize(step.text, textWidth);
+                        doc.text(stepLines, margin, y);
+                        y += doc.getTextDimensions(stepLines).h + 8;
+                    });
+                    y += 10;
+                });
+                
+                // Add the disclaimer
+                if (y + 30 > pageHeight - margin) {
+                    doc.addPage();
+                    y = margin;
+                }
+                doc.setFontSize(10);
+                doc.setFont(undefined, 'bold');
+                doc.text("Disclaimer:", margin, y);
+                y += 5;
+                doc.setFont(undefined, 'normal');
+                const disclaimerText = "This financial roadmap is for informational and educational purposes only. It does not constitute personalized financial, investment, tax, or legal advice. The recommendations are based on generalized financial principles and the inputs you provide. Your actual financial situation is unique and may require tailored advice. Please consult with a qualified and registered financial advisor before making any investment decisions. Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Past performance is not indicative of future returns.";
+                const disclaimerLines = doc.splitTextToSize(disclaimerText, textWidth);
+                doc.text(disclaimerLines, margin, y);
+
+                doc.save("Financial_Roadmap.pdf");
+                pdfLoadingMessage.style.display = 'none';
+            }, 100); // Small delay to show the loading message
+        });
+
+        function generateRoadmap() {
+            const age = document.getElementById('age-group').value;
+            const income = document.getElementById('income-slab').value;
+            const goal = document.getElementById('financial-goal').value;
+            const risk = document.getElementById('risk-level').value;
+
+            // Display the input summary cards
+            displayInputSummary(age, income, goal, risk);
+
+            const phase1Steps = getRoadmapSteps(1);
+            const phase2Steps = getRoadmapSteps(2);
+            const phase3Steps = getRoadmapSteps(3);
+
+            displaySteps('phase1-steps', phase1Steps);
+            displaySteps('phase2-steps', phase2Steps);
+            displaySteps('phase3-steps', phase3Steps);
+        }
+
+        // New function to display a summary of user inputs
+        function displayInputSummary(age, income, goal, risk) {
+            inputSummaryContainer.innerHTML = ''; // Clear previous cards
+            
+            const inputs = [
+                { type: 'age-group', value: planGenerator.displayMapping.ageGroup[age] },
+                { type: 'income-slab', value: planGenerator.displayMapping.incomeSlab[income] },
+                { type: 'financial-goal', value: planGenerator.displayMapping.financialGoal[goal] },
+                { type: 'risk-level', value: planGenerator.displayMapping.riskLevel[risk] }
+            ];
+
+            inputs.forEach(input => {
+                const card = `
+                    <div class="bg-white p-4 rounded-xl shadow-md flex items-center space-x-3 w-full sm:w-auto">
+                        <div class="text-xl">${planGenerator.displayMapping.icons[input.type]}</div>
+                        <div>
+                            <p class="text-xs font-semibold text-gray-500">${input.type.replace('-', ' ').split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}</p>
+                            <p class="text-sm font-bold text-gray-800">${input.value}</p>
+                        </div>
+                    </div>
+                `;
+                inputSummaryContainer.innerHTML += card;
+            });
+        }
+
+
+        // Helper function to get all roadmap steps for a given phase
+        function getRoadmapSteps(phase) {
+            const age = document.getElementById('age-group').value;
+            const income = document.getElementById('income-slab').value;
+            const goal = document.getElementById('financial-goal').value;
+            const risk = document.getElementById('risk-level').value;
+
+            const steps = [];
+
+            if (phase === 1) {
+                steps.push(...planGenerator.foundationalSteps.slice(0, 2));
+                steps.push(planGenerator.goalSteps[goal].phase1);
+                steps.push(planGenerator.ageSteps[age].phase1);
+                steps.push(...getIncomeSpecificSteps(income, 1));
+            } else if (phase === 2) {
+                steps.push(planGenerator.ageSteps[age].phase2);
+                steps.push(planGenerator.goalSteps[goal].phase2);
+                steps.push(planGenerator.riskSteps[risk].phase2);
+                steps.push(...getIncomeSpecificSteps(income, 2));
+            } else if (phase === 3) {
+                steps.push(planGenerator.ageSteps[age].phase3);
+                steps.push(planGenerator.goalSteps[goal].phase3);
+                steps.push(planGenerator.riskSteps[risk].phase3);
+                steps.push(planGenerator.foundationalSteps[2]);
+                steps.push(...getIncomeSpecificSteps(income, 3));
+            }
+
+            return steps;
+        }
+
+        // Helper function to generate income-specific steps dynamically
+        function getIncomeSpecificSteps(income, phase) {
+            const steps = [];
+            if (income === 'low') {
+                if (phase === 1) {
+                    steps.push({ icon: '💸', title: 'Focus on Increasing Income', text: 'At this income level, your primary goal should be to find new revenue streams to accelerate your financial growth.' });
+                }
+            } else if (income === 'mid') {
+                if (phase === 1) {
+                    steps.push({ icon: '💼', title: 'Start a Tax-Saving ELSS', text: 'Begin a small SIP in an ELSS fund to save tax under Section 80C and get exposure to equity markets.' });
+                }
+            } else if (income === 'high') {
+                if (phase === 2) {
+                    steps.push({ icon: '💰', title: 'Maximize NPS Contributions', text: 'Leverage the tax benefits of NPS to save an additional ₹50,000 under Section 80CCD(1B) while building your retirement corpus.' });
+                }
+            } else if (income === 'vhigh') {
+                 if (phase === 3) {
+                    steps.push({ icon: '🏦', title: 'Finalize Your Legacy Plan', text: 'With significant wealth, it is critical to consult a professional to structure your estate plan and protect your assets for the next generation.' });
+                }
+            }
+            return steps;
+        }
+
+        function displaySteps(containerId, steps) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            
+            steps.forEach(step => {
+                const card = `
+                    <div class="step-card border-brand-blue p-4 rounded-lg shadow-md flex items-start space-x-4">
+                        <div class="text-3xl">${step.icon}</div>
+                        <div>
+                            <h4 class="font-bold text-md text-gray-800">${step.title}</h4>
+                            <p class="text-sm text-gray-600">${step.text}</p>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function generateTextPlan() {
+            const age = document.getElementById('age-group').value;
+            const income = document.getElementById('income-slab').value;
+            const goal = document.getElementById('financial-goal').value;
+            const risk = document.getElementById('risk-level').value;
+
+            const phase1Steps = getRoadmapSteps(1);
+            const phase2Steps = getRoadmapSteps(2);
+            const phase3Steps = getRoadmapSteps(3);
+
+            const roadmapText = [
+                `Financial Planning Roadmap`,
+                `Summary of Your Profile:`,
+                `---------------------------------------------`,
+                `Age Group: ${planGenerator.displayMapping.ageGroup[age]}`,
+                `Annual Income: ${planGenerator.displayMapping.incomeSlab[income]}`,
+                `Primary Goal: ${planGenerator.displayMapping.financialGoal[goal]}`,
+                `Risk Appetite: ${planGenerator.displayMapping.riskLevel[risk]}`,
+                ``,
+                `---------------------------------------------`,
+                ``,
+                `Phase 1: First 1-6 Months`,
+                `---------------------------------------------`,
+                ...phase1Steps.map(step => `${step.title}: ${step.text}`),
+                ``,
+                `---------------------------------------------`,
+                ``,
+                `Phase 2: Next 7-24 Months`,
+                `---------------------------------------------`,
+                ...phase2Steps.map(step => `${step.title}: ${step.text}`),
+                ``,
+                `---------------------------------------------`,
+                ``,
+                `Phase 3: For 3+ Years`,
+                `---------------------------------------------`,
+                ...phase3Steps.map(step => `${step.title}: ${step.text}`),
+                ``,
+                `---------------------------------------------`,
+                ``,
+                `Disclaimer:`,
+                `This financial roadmap is for informational and educational purposes only. It does not constitute personalized financial, investment, tax, or legal advice. The recommendations are based on generalized financial principles and the inputs you provide. Your actual financial situation is unique and may require tailored advice. Please consult with a qualified and registered financial advisor before making any investment decisions. Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Past performance is not indicative of future returns.`
+            ].join('\n');
+
+            return roadmapText;
+        }
+
+    </script>
+</body>
+</html>
+ 
