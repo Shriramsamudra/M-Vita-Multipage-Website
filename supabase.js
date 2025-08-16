@@ -59,23 +59,22 @@ form.addEventListener('submit', async (e) => {
             uploadFile(aadharCardFile),
             uploadFile(chequeLeafFile)
         ]);
-        
-        const { data, error } = await supabase
-            .from('onboarding_data')
-            .insert([{
-                place_of_birth: formData.get('placeOfBirth'),
-                mother_name: formData.get('motherName'),
-                email: formData.get('email'),
-                mobile: formData.get('mobile'),
-                nominee_name: formData.get('nomineeName'),
-                nominee_dob: formData.get('nomineeDob'),
-                nominee_aadhar: formData.get('nomineeAadhar'),
-                nominee_mobile: formData.get('nomineeMobile'),
-                nominee_email: formData.get('nomineeEmail'),
-                pan_card_url: panUrl,
-                aadhar_card_url: aadharUrl,
-                cheque_leaf_url: chequeUrl
-            }]);
+
+        // Call the new database function instead of direct insert
+        const { data, error } = await supabase.rpc('add_onboarding_data', {
+            p_place_of_birth: formData.get('placeOfBirth'),
+            p_mother_name: formData.get('motherName'),
+            p_email: formData.get('email'),
+            p_mobile: formData.get('mobile'),
+            p_nominee_name: formData.get('nomineeName'),
+            p_nominee_dob: formData.get('nomineeDob'),
+            p_nominee_aadhar: formData.get('nomineeAadhar'),
+            p_nominee_mobile: formData.get('nomineeMobile'),
+            p_nominee_email: formData.get('nomineeEmail'),
+            p_pan_card_url: panUrl,
+            p_aadhar_card_url: aadharUrl,
+            p_cheque_leaf_url: chequeUrl
+        });
 
         if (error) {
             throw error;
