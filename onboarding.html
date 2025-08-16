@@ -417,7 +417,7 @@
                     faq3q: "वारसाचे तपशील देणे अनिवार्य आहे का?",
                     faq3a: "नाही, या टप्प्यावर वारसाचे तपशील अनिवार्य नाहीत. तथापि, आता ते प्रदान केल्याने भविष्यातील गैर-आर्थिक व्यवहार, जसे की तुमच्या खात्यातील किंवा पत्त्यातील बदल, सोपे होतात आणि नंतर ही माहिती पुन्हा सबमिट न करता सर्वसमावेशक विक्रीनंतरचे समर्थन सुनिश्चित होते.",
                     faq4q: "मला कोणती कागदपत्रे अपलोड करण्याची आवश्यकता आहे?",
-                    faq4a: "तुम्हाला तुमचे पॅन कार्ड, आधार कार्ड आणि चेक लीफ अपलोड करण्याची विनंती आहे. हे इमेज किंवा पीडीएफ स्वरूपात असू शकतात. प्रणाली जेपीजी, पीएनजी आणि टीआयएफएफ सारख्या सामान्य इमेज स्वरूपांना समर्थन देते.",
+faq4a: "तुम्हाला तुमचे पॅन कार्ड, आधार कार्ड आणि चेक लीफ अपलोड करण्याची विनंती आहे. हे इमेज किंवा पीडीएफ स्वरूपात असू शकतात. प्रणाली जेपीजी, पीएनजी आणि टीआयएफएफ सारख्या सामान्य इमेज स्वरूपांना समर्थन देते.",
                     backLink: "← म्युच्युअल फंडवर परत जा",
                     getHelp: "मदत मिळवा",
                 }
@@ -518,30 +518,6 @@
                     }
                 });
             });
-
-            const form = document.getElementById('onboarding-form');
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                let isValid = true;
-                
-                document.querySelectorAll('input[type="file"][required]').forEach(fileInput => {
-                    const errorElement = document.getElementById(`${fileInput.id}-error`);
-                    if (fileInput.files.length === 0) {
-                        isValid = false;
-                        errorElement.textContent = "Please upload a document.";
-                    }
-                });
-
-                if (isValid) {
-                    alert('Form submitted successfully!');
-                    form.reset();
-                    document.querySelectorAll('.upload-box img').forEach(img => img.classList.add('hidden'));
-                    document.getElementById('pan-placeholder').classList.remove('hidden');
-                    document.getElementById('aadhar-placeholder').classList.remove('hidden');
-                    document.getElementById('cheque-placeholder').classList.remove('hidden');
-                }
-            });
-
             setLanguage('en');
         });
     </script>
