@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Vita Services | Your Partner in Financial Well-being</title>
-    <!-- Use Tailwind CSS for a modern, responsive design -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -83,15 +80,12 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white custom-shadow fixed w-full z-50">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
             <a href="#" class="flex items-center">
                 <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
             </a>
 
-            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="#" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
@@ -101,7 +95,6 @@
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
             </div>
 
-            <!-- Mobile Navigation -->
             <div class="md:hidden flex items-center">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
@@ -109,7 +102,6 @@
             </div>
         </nav>
 
-        <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
@@ -122,7 +114,6 @@
 
     <main class="pt-20">
 
-        <!-- Home Hero Section -->
         <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -172,11 +163,7 @@
             @apply text-red-500 text-xs mt-1;
         }
     </style>
-    <!-- Chosen Palette: M-Vita Services Blue & Neutrals (Improved Contrast) -->
-    <!-- Application Structure Plan: A single-column, four-section vertical layout (Intro, Form, Support, Exit) was chosen to create a linear, guided user journey. This structure is ideal for a task-focused page, minimizing cognitive load for new investors by presenting information sequentially: understanding the purpose, completing the task, getting help, and navigating away. Key interactions like the language toggle, form inputs with visual feedback, and a collapsible FAQ section are designed to build trust and make the process feel manageable and reassuring. -->
-    <!-- Visualization & Content Choices: Report Info: Onboarding Form -> Goal: Data Collection -> Presentation: Grouped HTML form fields with clear labels and validation -> Interaction: Standard inputs with JS-powered file upload previews and form submission logic -> Justification: Grouping fields reduces cognitive load and validation ensures data quality; visual feedback on uploads is crucial for user confidence. | Report Info: FAQs -> Goal: Proactive Support -> Presentation: Accordion List -> Interaction: Click to expand -> Justification: Compactly presents information, allowing users to find answers without being overwhelmed. | Report Info: Language -> Goal: Accessibility -> Presentation: Toggle Buttons -> Interaction: Click to switch language -> Justification: Provides immediate user control over localization. All implemented with Vanilla JS and HTML5, ensuring a lightweight and universally compatible experience. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm" type="module"></script>
 <script type="module" src="supabase.js"></script>    
 <script>
         tailwind.config = {
@@ -324,7 +311,7 @@
                         <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                     </button>
                     <div class="faq-item-answer px-4 text-gray-600 bg-white border-l border-r border-b border-gray-200 rounded-b-lg">
-                        <p data-lang-key="faq1a">MF Utility (MFU) is an innovative "Shared Services" initiative by AMFI. It acts as a "Transaction Aggregation Portal" that allows you to transact in multiple mutual fund schemes using a single portal and a single payment.</p>
+                        <p data-lang-key="faq1a">MF Utility (MFU) is an innovative \"Shared Services\" initiative by AMFI. It acts as a \"Transaction Aggregation Portal\" that allows you to transact in multiple mutual fund schemes using a single portal and a single payment.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -532,7 +519,11 @@
                 });
             });
 
-            
+            const form = document.getElementById('onboarding-form');
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                let isValid = true;
+                
                 document.querySelectorAll('input[type="file"][required]').forEach(fileInput => {
                     const errorElement = document.getElementById(`${fileInput.id}-error`);
                     if (fileInput.files.length === 0) {
@@ -560,7 +551,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-4 md:mb-0">
@@ -568,25 +558,20 @@
                 <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
             </div>
             <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
-                <!-- Social Media Icons -->
                 <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
                 <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <!-- WhatsApp Icon -->
                 <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
-                <!-- Email Icon -->
                 <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="text-sm">
-                <!-- Links now trigger modals -->
                 <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
                 <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <!-- Privacy Policy Modal -->
     <div id="privacy-policy-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-close" id="privacy-policy-close">&times;</span>
@@ -622,7 +607,6 @@
         </div>
     </div>
 
-    <!-- Terms of Service Modal -->
     <div id="terms-of-service-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-close" id="terms-of-service-close">&times;</span>
@@ -652,7 +636,6 @@
         </div>
     </div>
 
-    <!-- JavaScript for Mobile Menu and Modals -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
