@@ -38,11 +38,9 @@
         .custom-shadow {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .bg-hero {
-            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
+        /* Updated hero section background */
+        .bg-hero-updated {
+            background: linear-gradient(to right, #001529, #002347, #1E65AE);
         }
         /* Modal styling */
         .modal-overlay {
@@ -88,7 +86,7 @@
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center">
-                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x64/1E65AE/FFFFFF?text=M-Vita';">
             </a>
 
             <!-- Desktop Navigation Links -->
@@ -123,14 +121,14 @@
     <main class="pt-20">
 
         <!-- Home Hero Section -->
-        <section id="home" class="bg-hero bg-opacity-70 text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
-            <div class="bg-black bg-opacity-50 p-8 md:p-12 rounded-lg max-w-4xl">
+        <section id="home" class="bg-hero-updated text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
+            <div class="bg-black bg-opacity-30 p-8 md:p-12 rounded-lg max-w-4xl">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Your Partner in Financial Well-being</h1>
                 <p class="text-lg md:text-xl font-light mb-8">
                     Empowering individuals and families to achieve their financial goals through various financial products and personalized solutions.
                 </p>
                 <a href="https://wa.me/919152049967" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full m-vita-blue-bg text-white font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 custom-shadow">
-                    Schedule a Free Consultation
+                    Let's Connect!
                 </a>
             </div>
         </section>
@@ -144,7 +142,7 @@
                 </p>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Service Card 1 -->
-                    <a href="sevices.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
+                    <a href="mf.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
                         <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-chart-line"></i></div>
                         <h3 class="text-xl font-semibold mb-2">Mutual Funds</h3>
                         <p class="text-gray-600">Expert guidance on SIPs, lump-sum investments, and portfolio management.</p>
@@ -184,6 +182,12 @@
         </section>
 
     </main>
+
+    <!-- Floating Action Button -->
+    <a href="onboarding.html" class="fixed bottom-8 right-8 bg-green-500 text-white px-6 py-3 rounded-full custom-shadow hover:bg-green-600 transition-colors duration-300 z-50 flex items-center">
+        <i class="fas fa-user-plus mr-2"></i>
+        Open your account
+    </a>
 
     <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12">
