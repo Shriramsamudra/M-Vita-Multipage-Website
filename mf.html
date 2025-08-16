@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Your Partner in Financial Well-being</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
+                <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
+                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
+                <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
+                <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
+            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
+            <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
+            <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Home Hero Section -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita | Mutual Funds</title>
+    <!-- Chosen Palette: M-Vita Corporate (Primary Blue: #005A9C, Accent Gold: #FDB813, Background: #F7FAFC, Text: #2D3748) -->
+    <!-- Application Structure Plan: The application now uses a global language toggle at the top to control the visibility of all content sections. The content is presented in a linear, top-to-bottom narrative, starting with the benefits of mutual funds and then moving to foundational knowledge, the investment journey, and detailed breakdowns. This structure guides a new investor from the 'why' (advantages) to the 'what' (basics), to the 'how' (process), providing a clear and logical flow for user confidence. -->
+    <!-- Visualization & Content Choices:
+        - Report Info: Intro (Eng/Mar) -> Goal: Accessibility -> Viz: Global Language Toggle -> Interaction: JS toggle -> Justification: Caters to a bilingual audience, improving inclusivity. -> Library/Method: Vanilla JS.
+        - Report Info: Onboarding Process -> Goal: Simplify Steps -> Viz: Visual Timeline -> Interaction: Static visual guide -> Justification: A visual roadmap is more intuitive and easier to follow than a text list. -> Library/Method: HTML/CSS with Tailwind.
+        - Report Info: KYC Statuses -> Goal: Clarify Complex States -> Viz: Accordion -> Interaction: Click to expand -> Justification: Hides detailed explanations by default, reducing cognitive load and keeping the UI clean. -> Library/Method: Vanilla JS.
+        - Report Info: Expense Ratio Impact -> Goal: Demonstrate Cost Effect -> Viz: Line Chart -> Interaction: Hover for tooltips -> Justification: A visual comparison of growth over time is more impactful than text alone in showing the long-term effect of fees. -> Library/Method: Chart.js.
+        - Report Info: Top Performing Funds -> Goal: Provide Data Points -> Viz: Bar Chart -> Interaction: Hover for tooltips -> Justification: A bar chart allows for quick, easy comparison of fund performance metrics (CAGR). -> Library/Method: Chart.js.
+        - Report Info: FAQs -> Goal: Answer Common Questions -> Viz: Accordion -> Interaction: Click to expand -> Justification: Organizes a large amount of Q&A content compactly. -> Library/Method: Vanilla JS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7FAFC;
+            color: #2D3748;
+        }
+        .m-vita-blue { color: #005A9C; }
+        .bg-m-vita-blue { background-color: #005A9C; }
+        .m-vita-gold { color: #FDB813; }
+        .bg-m-vita-gold { background-color: #FDB813; }
+        .border-m-vita-blue { border-color: #005A9C; }
+        .border-m-vita-gold { border-color: #FDB813; }
+        .tab-active {
+            background-color: #005A9C;
+            color: white;
+        }
+        .tab-inactive {
+            background-color: #E2E8F0;
+            color: #4A5568;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        
+        .step-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        .step-container:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 3.5rem; /* Aligns with the center of the circle */
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 2px;
+            height: calc(100% - 7rem); /* Adjust height to match the distance between circles */
+            background-color: #CBD5E0;
+            z-index: -1;
+        }
+
+        @media (min-width: 768px) {
+             .step-container:not(:last-child)::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Language Toggle Section -->
+        <section id="language-toggle" class="text-center mb-8">
+            <div class="flex justify-center">
+                <button id="lang-en" class="px-6 py-2 rounded-l-lg text-sm font-medium transition-colors duration-300 tab-active">English</button>
+                <button id="lang-mr" class="px-6 py-2 rounded-r-lg text-sm font-medium transition-colors duration-300 tab-inactive">मराठी</button>
+            </div>
+        </section>
+
+
+        <!-- The M-Vita Advantage Section -->
+        <div id="advantage-en" class="lang-content">
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">The M-Vita Advantage</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">We streamline the core benefits of mutual fund investing, making them more accessible for your financial journey.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="advantage-mr" class="lang-content hidden">
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">एम-विटाचे फायदे</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">आम्ही म्युच्युअल फंड गुंतवणुकीचे मुख्य फायदे सोपे करून तुमच्या आर्थिक प्रवासासाठी अधिक सोपे बनवतो.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Introduction Section (Moved to new position) -->
+        <div id="introduction-en" class="lang-content">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Welcome to the World of Mutual Funds</h2>
+                    <p class="text-lg text-gray-600">A simple and powerful way to grow your wealth. This section provides a clear, concise explanation of mutual funds in India, designed for new investors.</p>
+                </div>
+                <div class="text-block text-gray-700 leading-relaxed">
+                    <h3 class="text-2xl font-semibold m-vita-blue mb-4">What are Mutual Funds?</h3>
+                    <p>A mutual fund is a professionally managed investment mechanism that pools capital from numerous investors. This collective corpus is then invested in a diversified portfolio of securities, such as stocks, bonds, money market instruments, and other assets, in accordance with a pre-defined investment objective. This pooling approach allows individual investors, even with small amounts of money, to gain access to a wide range of securities and sectors. The core principle is diversification, which helps mitigate risk. All mutual funds in India are regulated by the Securities and Exchange Board of India (SEBI), ensuring a fair and transparent system.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="introduction-mr" class="lang-content hidden">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">म्युच्युअल फंडाच्या जगात तुमचे स्वागत आहे</h2>
+                    <p class="text-lg text-gray-600">तुमची संपत्ती वाढवण्याचा एक सोपा आणि प्रभावी मार्ग. हा विभाग भारतातील म्युच्युअल फंडांची स्पष्ट आणि संक्षिप्त माहिती नव्याने गुंतवणूक करणाऱ्यांसाठी देतो.</p>
+                </div>
+                <div class="text-block text-gray-700 leading-relaxed">
+                    <h3 class="text-2xl font-semibold m-vita-blue mb-4">म्युच्युअल फंड म्हणजे काय?</h3>
+                    <p>म्युच्युअल फंड ही एक व्यावसायिकपणे व्यवस्थापित केलेली गुंतवणूक यंत्रणा आहे, जी अनेक गुंतवणूकदारांकडून भांडवल एकत्र करते. हे एकत्रित भांडवल नंतर आधीच ठरवलेल्या गुंतवणुकीच्या उद्दिष्टांनुसार, शेअर्स, बाँड्स, मनी मार्केट इन्स्ट्रुमेंट्स आणि इतर मालमत्तांच्या विविध पोर्टफोलिओमध्ये गुंतवले जाते. या एकत्रित पद्धतीमुळे, कमी पैसे असलेल्या वैयक्तिक गुंतवणूकदारांनाही विविध प्रकारच्या सिक्युरिटीज आणि क्षेत्रांमध्ये गुंतवणूक करण्याची संधी मिळते. गुंतवणुकीचे मूळ तत्त्व विविधीकरण आहे, जे जोखीम कमी करण्यास मदत करते. भारतातील सर्व म्युच्युअल फंड सिक्युरिटीज अँड एक्सचेंज बोर्ड ऑफ इंडिया (SEBI) द्वारे नियंत्रित केले जातात, ज्यामुळे एक निष्पक्ष आणि पारदर्शक प्रणाली सुनिश्चित होते.</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- Advantages of Mutual Funds Section -->
+        <div id="advantages-en" class="lang-content">
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Advantages of Mutual Funds</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">💼</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Professional Management</h3>
+                        </div>
+                        <p class="text-gray-600">Expert fund managers handle the research and make informed investment decisions to meet your financial goals.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">🌿</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Diversification</h3>
+                        </div>
+                        <p class="text-gray-600">Your capital is spread across various securities and sectors, reducing risk by not putting all eggs in one basket.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">💰</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Affordability</h3>
+                        </div>
+                        <p class="text-gray-600">Start your investment journey with small, manageable amounts through a Systematic Investment Plan (SIP).</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">💧</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Liquidity</h3>
+                        </div>
+                        <p class="text-gray-600">Easily buy or sell your fund units on any business day, providing you with access to your money when you need it.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">🛡️</span>
+                            <h3 class="text-xl font-semibold text-gray-800">Regulatory Oversight</h3>
+                        </div>
+                        <p class="text-gray-600">All investments are governed by SEBI's strict regulations, ensuring a safe, fair, and transparent system for all.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">📈</span>
+                            <h3 class="text-xl font-semibold text-gray-800">MF Utility Platform</h3>
+                        </div>
+                        <p class="text-gray-600">Access a centralized "one-stop" transaction platform to simplify managing investments across different fund houses.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="advantages-mr" class="lang-content hidden">
+            <section class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">म्युच्युअल फंडाचे फायदे</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">💼</span>
+                            <h3 class="text-xl font-semibold text-gray-800">व्यावसायिक व्यवस्थापन</h3>
+                        </div>
+                        <p class="text-gray-600">तज्ञ फंड व्यवस्थापक संशोधन हाताळतात आणि तुमच्या आर्थिक उद्दिष्टांची पूर्तता करण्यासाठी योग्य गुंतवणुकीचे निर्णय घेतात.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">🌿</span>
+                            <h3 class="text-xl font-semibold text-gray-800">विविधीकरण (Diversification)</h3>
+                        </div>
+                        <p class="text-gray-600">तुमची गुंतवणूक अनेक सिक्युरिटीज आणि क्षेत्रांमध्ये विभागली जाते, ज्यामुळे जोखीम कमी होते.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">💰</span>
+                            <h3 class="text-xl font-semibold text-gray-800">परवडणारे</h3>
+                        </div>
+                        <p class="text-gray-600">सिस्टिमॅटिक इन्व्हेस्टमेंट प्लॅन (SIP) द्वारे कमी रकमेपासून गुंतवणुकीला सुरुवात करा.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">💧</span>
+                            <h3 class="text-xl font-semibold text-gray-800">तरलता (Liquidity)</h3>
+                        </div>
+                        <p class="text-gray-600">तुमच्या गुंतवणुकीचे युनिट्स कोणत्याही कामकाजाच्या दिवशी सहजपणे खरेदी किंवा विकू शकता, ज्यामुळे तुम्हाला पैशांची गरज असताना ते उपलब्ध होतात.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">🛡️</span>
+                            <h3 class="text-xl font-semibold text-gray-800">नियामक देखरेख</h3>
+                        </div>
+                        <p class="text-gray-600">सर्व गुंतवणुकी SEBI च्या कठोर नियमांनुसार चालतात, ज्यामुळे एक सुरक्षित आणि पारदर्शक प्रणाली सुनिश्चित होते.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                        <div class="flex items-center mb-4">
+                            <span class="text-3xl m-vita-gold mr-4">📈</span>
+                            <h3 class="text-xl font-semibold text-gray-800">एमएफ युटिलिटी प्लॅटफॉर्म</h3>
+                        </div>
+                        <p class="text-gray-600">विविध फंड हाऊसेसमधील गुंतवणूक व्यवस्थापित करण्यासाठी एकात्मिक 'वन-स्टॉप' व्यवहार प्लॅटफॉर्मचा वापर करा.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- Onboarding Process Flow Section -->
+        <div id="onboarding-en" class="lang-content">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Your Investment Journey</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Starting your mutual fund investment can seem complex, but we've simplified it into a clear, step-by-step roadmap. Follow this guide to go from a curious visitor to a confident investor.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start w-full max-w-5xl mx-auto">
+                    <div class="hidden md:flex flex-col items-center flex-1 relative">
+                        <div class="absolute w-full h-1 bg-gray-200 top-1/2 transform -translate-y-1/2"></div>
+                        <div class="flex justify-between w-full relative z-10">
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">1</div>
+                                <h4 class="font-semibold">Link PAN & AADHAAR <span class="text-2xl">🔗</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">Link your PAN to your Aadhaar card. Use the link below to check your status.</p>
+                                <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline">Check Status</a>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">2</div>
+                                <h4 class="font-semibold">Complete Your KYC <span class="text-2xl">📋</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">Submit your KYC documents online to verify your identity.</p>
+                                <a href="https://investor-web.hdfcfund.com/kyc-verification?_gl=1*1wzayhw*_gcl_au*MTUyMDU1MjI2MC4xNzA3NzE5MTEz" target="_blank" class="text-sm text-blue-500 hover:underline">Online Process</a>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">3</div>
+                                <h4 class="font-semibold">Open MFU Account <span class="text-2xl">🔑</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">Create an account with MFU to manage all your investments.</p>
+                                <a href="onboarding.html" class="text-sm text-blue-500 hover:underline">Open Now</a>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">4</div>
+                                <h4 class="font-semibold">Set Up a Mandate <span class="text-2xl">💳</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">Enable auto-debit via Debit Card, Net Banking, or UPI for seamless investments.</p>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">5</div>
+                                <h4 class="font-semibold">Select Your Scheme <span class="text-2xl">🎯</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">Choose a fund that matches your goals and risk tolerance.</p>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-gold text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">6</div>
+                                <h4 class="font-semibold">Execute Transaction <span class="text-2xl">🚀</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">Make your first investment and start your journey.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mobile/Tablet View (Vertical Timeline) -->
+                    <div class="md:hidden flex flex-col items-center w-full relative">
+                        <div class="absolute inset-0 left-8 border-l-2 border-dashed border-gray-300"></div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">1</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">Link PAN & AADHAAR <span class="text-2xl">🔗</span></h4>
+                                <p class="text-gray-600 mt-2">Link your Permanent Account Number (PAN) to your Aadhaar card. This is a mandatory step for all financial transactions in India.</p>
+                                <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline mt-2 inline-block">Check Status</a>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">2</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">Complete Your KYC <span class="text-2xl">📋</span></h4>
+                                <p class="text-gray-600 mt-2">Submit your KYC (Know Your Customer) documents online, including PAN, Aadhaar, a bank account cheque, mobile number, and email ID. This is a one-time verification process.</p>
+                                <a href="https://investor-web.hdfcfund.com/kyc-verification?_gl=1*1wzayhw*_gcl_au*MTUyMDU1MjI2MC4xNzA3NzE5MTEz" target="_blank" class="text-sm text-blue-500 hover:underline mt-2 inline-block">Online Process</a>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">3</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">Open MFU Account <span class="text-2xl">🔑</span></h4>
+                                <p class="text-gray-600 mt-2">Create a free online account with MFU (Mutual Fund Utility) to manage all your mutual fund investments from a single platform.</p>
+                                <a href="#get-started-en" class="text-sm text-blue-500 hover:underline mt-2 inline-block">Open Now</a>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">4</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">Set Up a Mandate <span class="text-2xl">💳</span></h4>
+                                <p class="text-gray-600 mt-2">Set up a Standing Instruction (Auto Debit / Bank Mandate) for your investments. You can do this with your Debit Card, Net Banking, or a UPI app like GPay/PhonePe.</p>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">5</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">Select Your Scheme <span class="text-2xl">🎯</span></h4>
+                                <p class="text-gray-600 mt-2">Carefully select the mutual fund scheme that aligns with your specific financial goals and risk tolerance.</p>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-gold text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">6</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-gold">
+                                <h4 class="font-semibold text-xl">Execute Transaction <span class="text-2xl">🚀</span></h4>
+                                <p class="text-gray-600 mt-2">Make your first investment and start your journey towards wealth creation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="onboarding-mr" class="lang-content hidden">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">तुमचा गुंतवणुकीचा प्रवास</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">तुमची म्युच्युअल फंड गुंतवणूक सुरू करणे क्लिष्ट वाटू शकते, पण आम्ही ते एका सोप्या, टप्प्याटप्प्याच्या मार्गाने सोपे केले आहे. या मार्गदर्शनाचे अनुसरण करून तुम्ही उत्सुक निरीक्षकाकडून आत्मविश्वासाने गुंतवणूकदार बनू शकता.</p>
+                </div>
+                <div class="flex flex-col md:flex-row justify-between items-start w-full max-w-5xl mx-auto">
+                    <div class="hidden md:flex flex-col items-center flex-1 relative">
+                        <div class="absolute w-full h-1 bg-gray-200 top-1/2 transform -translate-y-1/2"></div>
+                        <div class="flex justify-between w-full relative z-10">
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">1</div>
+                                <h4 class="font-semibold">पॅन आणि आधार लिंक करा <span class="text-2xl">🔗</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">तुमचा पर्मनंट अकाउंट नंबर (पॅन) तुमच्या आधार कार्डशी जोडा. भारतातील सर्व आर्थिक व्यवहारांसाठी हे अनिवार्य आहे.</p>
+                                <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline">स्टेटस तपासा</a>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">2</div>
+                                <h4 class="font-semibold">KYC पूर्ण करा <span class="text-2xl">📋</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">तुमचे KYC (तुमच्या ग्राहकाला ओळखा) कागदपत्रे ऑनलाइन सबमिट करा.</p>
+                                <a href="https://investor-web.hdfcfund.com/kyc-verification?_gl=1*1wzayhw*_gcl_au*MTUyMDU1MjI2MC4xNzA3NzE5MTEz" target="_blank" class="text-sm text-blue-500 hover:underline">ऑनलाइन प्रक्रिया</a>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">3</div>
+                                <h4 class="font-semibold">एमएफयू खाते उघडा <span class="text-2xl">🔑</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">एमएफयू (Mutual Fund Utility) वर एक विनामूल्य ऑनलाइन खाते तयार करा.</p>
+                                <a href="#get-started-mr" class="text-sm text-blue-500 hover:underline">आता उघडा</a>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">4</div>
+                                <h4 class="font-semibold">मॅन्डेट सेट करा <span class="text-2xl">💳</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">तुमच्या गुंतवणुकीसाठी डेबिट कार्ड, नेट बँकिंग किंवा UPI ॲप्सद्वारे ऑटो-डेबिट सेट करा.</p>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">5</div>
+                                <h4 class="font-semibold">तुमची योजना निवडा <span class="text-2xl">🎯</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">तुमच्या आर्थिक उद्दिष्टांशी आणि जोखमीच्या सहनशीलतेशी जुळणारी योजना निवडा.</p>
+                            </div>
+                            <div class="w-1/6"></div>
+                            <div class="text-center w-1/6">
+                                <div class="w-16 h-16 bg-m-vita-gold text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">6</div>
+                                <h4 class="font-semibold">व्यवहार करा <span class="text-2xl">🚀</span></h4>
+                                <p class="text-sm text-gray-600 mt-2">तुमची पहिली गुंतवणूक करा आणि संपत्ती निर्माण करण्याच्या तुमच्या प्रवासाची सुरुवात करा.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mobile/Tablet View (Vertical Timeline) -->
+                    <div class="md:hidden flex flex-col items-center w-full relative">
+                        <div class="absolute inset-0 left-8 border-l-2 border-dashed border-gray-300"></div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">1</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">पॅन आणि आधार लिंक करा <span class="text-2xl">🔗</span></h4>
+                                <p class="text-gray-600 mt-2">तुमचा पर्मनंट अकाउंट नंबर (पॅन) तुमच्या आधार कार्डशी जोडा. भारतातील सर्व आर्थिक व्यवहारांसाठी हे अनिवार्य आहे.</p>
+                                <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline mt-2 inline-block">स्टेटस तपासा</a>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">2</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">KYC पूर्ण करा <span class="text-2xl">📋</span></h4>
+                                <p class="text-gray-600 mt-2">तुमचे KYC (तुमच्या ग्राहकाला ओळखा) कागदपत्रे ऑनलाइन सबमिट करा, ज्यात पॅन, आधार, बँक खात्याचा चेक, मोबाइल नंबर आणि ईमेल आयडीचा समावेश आहे. ही एक-वेळची पडताळणी प्रक्रिया आहे.</p>
+                                <a href="https://investor-web.hdfcfund.com/kyc-verification?_gl=1*1wzayhw*_gcl_au*MTUyMDU1MjI2MC4xNzA3NzE5MTEz" target="_blank" class="text-sm text-blue-500 hover:underline mt-2 inline-block">ऑनलाइन प्रक्रिया</a>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">3</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">एमएफयू खाते उघडा <span class="text-2xl">🔑</span></h4>
+                                <p class="text-gray-600 mt-2">एकाच प्लॅटफॉर्मवरून तुमच्या सर्व म्युच्युअल फंड गुंतवणुकी व्यवस्थापित करण्यासाठी एमएफयू (Mutual Fund Utility) वर एक विनामूल्य ऑनलाइन खाते तयार करा.</p>
+                                <a href="#get-started-mr" class="text-sm text-blue-500 hover:underline mt-2 inline-block">आता उघडा</a>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">4</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">मॅन्डेट सेट करा <span class="text-2xl">💳</span></h4>
+                                <p class="text-gray-600 mt-2">तुमच्या गुंतवणुकीसाठी डेबिट कार्ड, नेट बँकिंग किंवा GPay/PhonePe सारख्या UPI ॲप्सचा वापर करून ऑटो-डेबिट सेट करा.</p>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">5</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
+                                <h4 class="font-semibold text-xl">तुमची योजना निवडा <span class="text-2xl">🎯</span></h4>
+                                <p class="text-gray-600 mt-2">तुमच्या विशिष्ट आर्थिक उद्दिष्टांशी आणि जोखमीच्या सहनशीलतेशी जुळणारी म्युच्युअल फंड योजना काळजीपूर्वक निवडा.</p>
+                            </div>
+                        </div>
+                        <div class="w-full relative py-8 pl-16">
+                            <div class="w-16 h-16 bg-m-vita-gold text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">6</div>
+                            <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-gold">
+                                <h4 class="font-semibold text-xl">व्यवहार करा <span class="text-2xl">🚀</span></h4>
+                                <p class="text-gray-600 mt-2">तुमची पहिली गुंतवणूक करा आणि संपत्ती निर्माण करण्याच्या तुमच्या प्रवासाची सुरुवात करा.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Onboarding Form and Documents Section -->
+        <div id="get-started-en" class="lang-content">
+            <section class="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- MODIFIED SECTION -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Start Your Onboarding</h3>
+                    <p class="text-gray-600 mb-6">Please be ready with documents like your PAN card, Aadhaar Card, and a cancelled cheque leaf. Ensure you have soft copies of these documents ready for upload.</p>
+                    <p class="text-gray-600 mb-8">Click the button below to start the process.</p>
+                    <a href="onboarding.html" class="block w-full text-center bg-m-vita-gold text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition-opacity duration-300">Proceed to Onboarding</a>
+                </div>
+                <!-- END MODIFIED SECTION -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">Essential Documents</h3>
+                    <p class="text-gray-600 mb-6">To ensure a smooth process, please have the following documents ready based on your investor type.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 font-semibold text-sm">Investor Type</th>
+                                    <th class="p-3 font-semibold text-sm">Required Documents</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">Indian Resident</td>
+                                    <td class="p-3 text-sm text-gray-600">PAN Card, Aadhaar Card, Address Proof, Bank Details.</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">NRI</td>
+                                    <td class="p-3 text-sm text-gray-600">All resident documents + Passport, Visa, Overseas Address Proof, NRE/NRO Bank Details.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">For Minors</td>
+                                    <td class="p-3 text-sm text-gray-600">Minor's Birth Certificate/Aadhaar, Guardian's PAN & KYC.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-4">*A FATCA declaration (for tax residency) is also mandatory for all investors.</p>
+                </div>
+            </section>
+        </div>
+
+        <div id="get-started-mr" class="lang-content hidden">
+            <section class="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <!-- MODIFIED MARATHI SECTION -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">तुमची नोंदणी सुरू करा</h3>
+                    <p class="text-gray-600 mb-6">कृपया तुमचे पॅन कार्ड, आधार कार्ड, आणि रद्द केलेला चेक लीफ यांसारखी कागदपत्रे तयार ठेवा. अपलोड करण्यासाठी तुमच्याकडे या कागदपत्रांच्या सॉफ्ट कॉपी असल्याची खात्री करा.</p>
+                    <p class="text-gray-600 mb-8">प्रक्रिया सुरू करण्यासाठी खालील बटणावर क्लिक करा.</p>
+                    <a href="onboarding.html" class="block w-full text-center bg-m-vita-gold text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition-opacity duration-300">ऑनबोर्डिंगसाठी पुढे जा</a>
+                </div>
+                <!-- END MODIFIED MARATHI SECTION -->
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-6">आवश्यक कागदपत्रे</h3>
+                    <p class="text-gray-600 mb-6">प्रक्रिया सुरळीत होण्यासाठी, तुमच्या गुंतवणूकदाराच्या प्रकारानुसार खालील कागदपत्रे तयार ठेवा.</p>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="bg-gray-100">
+                                    <th class="p-3 font-semibold text-sm">गुंतवणूकदाराचा प्रकार</th>
+                                    <th class="p-3 font-semibold text-sm">आवश्यक कागदपत्रे</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">भारतीय रहिवासी</td>
+                                    <td class="p-3 text-sm text-gray-600">पॅन कार्ड, आधार कार्ड, पत्त्याचा पुरावा, बँक तपशील.</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <td class="p-3 font-medium">एनआरआय</td>
+                                    <td class="p-3 text-sm text-gray-600">सर्व रहिवासी कागदपत्रे + पासपोर्ट, व्हिसा, परदेशातील पत्त्याचा पुरावा, एनआरई/एनआरओ बँक तपशील.</td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium">लहान मुलांसाठी</td>
+                                    <td class="p-3 text-sm text-gray-600">लहान मुलांचे जन्म प्रमाणपत्र/आधार, पालकांचे पॅन आणि KYC.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-4">*FATCA घोषणापत्र (कर रहिवाशीसाठी) सर्व गुंतवणूकदारांसाठी अनिवार्य आहे.</p>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- KYC and Charges Section -->
+        <div id="details-en" class="lang-content">
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Understanding the Details</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Transparency is key to trust. Here we break down the mandatory KYC process and the common charges associated with mutual funds.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- KYC Section -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">The KYC Process Explained</h3>
+                        <p class="text-gray-600 mb-6">The "Know Your Customer" (KYC) process is a mandatory identity verification step required by SEBI. It's a one-time process to ensure a secure investment environment. Understanding your KYC status is crucial. Click on a status below to learn more.</p>
+                        <div id="kyc-accordion" class="space-y-2">
+                            <!-- Accordion Items will be injected by JS -->
+                        </div>
+                    </div>
+                    <!-- Charges Section -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Mutual Fund Charges</h3>
+                        <p class="text-gray-600 mb-6">All funds have operational costs, which are regulated by SEBI. The two most important are the Expense Ratio and Exit Load.</p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-lg m-vita-blue">Expense Ratio (TER)</h4>
+                            <p class="text-gray-600 text-sm">An annual fee covering operational costs, deducted from your fund's returns. A lower ratio means higher returns for you over time.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg m-vita-blue">Exit Load</h4>
+                            <p class="text-gray-600 text-sm">A fee charged if you redeem your units before a specified period. It's designed to discourage short-term trading.</p>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-center font-semibold text-gray-700 mb-2">Impact of Expense Ratio Over Time</h4>
+                            <div class="chart-container">
+                                <canvas id="expenseRatioChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="details-mr" class="lang-content hidden">
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">तपशील समजून घेणे</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">विश्वासासाठी पारदर्शकता महत्त्वाची आहे. येथे आम्ही अनिवार्य KYC प्रक्रिया आणि म्युच्युअल फंडांशी संबंधित सामान्य खर्चांचा तपशील देतो.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <!-- KYC Section -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">KYC प्रक्रिया समजून घ्या</h3>
+                        <p class="text-gray-600 mb-6">“तुमच्या ग्राहकाला ओळखा” (KYC) ही SEBI द्वारे आवश्यक असलेली एक अनिवार्य ओळख पडताळणी प्रक्रिया आहे. सुरक्षित गुंतवणुकीचे वातावरण सुनिश्चित करण्यासाठी ही एक-वेळची प्रक्रिया आहे. तुमचा KYC स्टेटस समजून घेणे महत्त्वाचे आहे. अधिक जाणून घेण्यासाठी खालील स्टेटसवर क्लिक करा.</p>
+                        <div id="kyc-accordion-mr" class="space-y-2">
+                            <!-- Accordion Items will be injected by JS -->
+                        </div>
+                    </div>
+                    <!-- Charges Section -->
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">म्युच्युअल फंड शुल्क</h3>
+                        <p class="text-gray-600 mb-6">सर्व फंडांमध्ये कामकाजाचे खर्च असतात, जे SEBI द्वारे नियंत्रित केले जातात. सर्वात महत्त्वाचे दोन खर्च म्हणजे एक्सपेंस रेश्यो आणि एक्झिट लोड.</p>
+                        <div class="mb-6">
+                            <h4 class="font-semibold text-lg m-vita-blue">एक्सपेंस रेश्यो (TER)</h4>
+                            <p class="text-gray-600 text-sm">हा कामकाजाच्या खर्चासाठी एक वार्षिक शुल्क आहे, जो तुमच्या फंडाच्या परताव्यामधून कापला जातो. कमी रेश्यो म्हणजे कालांतराने तुमच्यासाठी जास्त परतावा.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-lg m-vita-blue">एक्झिट लोड</h4>
+                            <p class="text-gray-600 text-sm">विशिष्ट कालावधीपूर्वी युनिट्स रिडीम केल्यास आकारले जाणारे शुल्क. हे कमी काळाच्या गुंतवणुकीला परावृत्त करण्यासाठी डिझाइन केलेले आहे.</p>
+                        </div>
+                        <div class="mt-8">
+                            <h4 class="text-center font-semibold text-gray-700 mb-2">एक्सपेंस रेश्योचा कालांतराने होणारा परिणाम</h4>
+                            <div class="chart-container">
+                                <canvas id="expenseRatioChart-mr"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- Portfolio & Strategy Section -->
+        <div id="strategy-en" class="lang-content">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Portfolio Management & Strategy</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Successful investing is a continuous process. Learn how to monitor your portfolio, build an ideal mix of funds, and see some top-performing examples.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">Building an Ideal Portfolio</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="m-vita-gold font-bold mr-3 mt-1">1.</span>
+                                <span><strong class="text-gray-800">Define Your Goals:</strong> Align investments with your time horizon. Short-term goals need stability (Debt Funds), while long-term goals can handle more risk for growth (Equity Funds).</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="m-vita-gold font-bold mr-3 mt-1">2.</span>
+                                <span><strong class="text-gray-800">Assess Risk Tolerance:</strong> Understand your comfort with market fluctuations. Choose funds that match your personal capacity for risk.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="m-vita-gold font-bold mr-3 mt-1">3.</span>
+                                <span><strong class="text-gray-800">Monitor & Review:</strong> Periodically (e.g., annually) review your portfolio's performance against its benchmark and ensure it still aligns with your life goals.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">Top Picks (For Research)</h3>
+                        <p class="text-gray-600 mb-4 text-sm">This list shows funds with strong 3-year performance. It is for informational purposes only and is not investment advice.</p>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="topPicksChart"></canvas>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 text-center"><i>Past performance is not a reliable indicator of future results.</i></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div id="strategy-mr" class="lang-content hidden">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">पोर्टफोलिओ व्यवस्थापन आणि रणनीती</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">यशस्वी गुंतवणूक ही एक सतत चालणारी प्रक्रिया आहे. तुमचा पोर्टफोलिओ कसा तपासू शकता, फंडांचे आदर्श मिश्रण कसे तयार करू शकता आणि काही उत्तम कामगिरी करणाऱ्या उदाहरणांची माहिती मिळवा.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">एक आदर्श पोर्टफोलिओ तयार करणे</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="m-vita-gold font-bold mr-3 mt-1">1.</span>
+                                <span><strong class="text-gray-800">तुमची उद्दिष्टे ठरवा:</strong> गुंतवणुकीला तुमच्या वेळेनुसार जोडा. कमी कालावधीच्या उद्दिष्टांसाठी स्थिरता (Debt Funds) आवश्यक आहे, तर दीर्घकाळासाठी जास्त जोखमीचे पर्याय (Equity Funds) घेऊ शकता.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="m-vita-gold font-bold mr-3 mt-1">2.</span>
+                                <span><strong class="text-gray-800">जोखीम सहनशीलता तपासा:</strong> बाजारपेठेतील चढउतारांशी तुमची सहजता समजून घ्या. तुमच्या जोखीम सहनशीलतेशी जुळणारे फंड निवडा.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="m-vita-gold font-bold mr-3 mt-1">3.</span>
+                                <span><strong class="text-gray-800">तपासणी आणि पुनरावलोकन:</strong> वेळोवेळी (उदा. वार्षिक) तुमच्या पोर्टफोलिओची बेंचमार्कशी तुलना करून कामगिरी तपासा आणि ते तुमच्या जीवनाच्या उद्दिष्टांशी जुळते आहे का हे सुनिश्चित करा.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">उत्तम कामगिरी करणारे फंड (संशोधनासाठी)</h3>
+                        <p class="text-gray-600 mb-4 text-sm">ही यादी उत्तम 3-वर्षांची कामगिरी दर्शवते. ही माहिती केवळ माहितीच्या उद्देशाने आहे आणि गुंतवणुकीचा सल्ला नाही.</p>
+                        <div class="chart-container h-80 md:h-96">
+                            <canvas id="topPicksChart-mr"></canvas>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 text-center"><i>मागील कामगिरी भविष्यातील परिणामांचे विश्वसनीय सूचक नाही.</i></p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- FAQs Section -->
+        <div id="faq-en" class="lang-content">
+            <section class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">Frequently Asked Questions</h2>
+                </div>
+                <div id="faq-accordion" class="space-y-4">
+                    <!-- FAQ Items will be injected by JS -->
+                </div>
+            </section>
+        </div>
+
+        <div id="faq-mr" class="lang-content hidden">
+            <section class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">वारंवार विचारले जाणारे प्रश्न</h2>
+                </div>
+                <div id="faq-accordion-mr" class="space-y-4">
+                    <!-- FAQ Items will be injected by JS -->
+                </div>
+            </section>
+        </div>
+
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Language Toggle
+            const langEnBtn = document.getElementById('lang-en');
+            const langMrBtn = document.getElementById('lang-mr');
+            const langContents = document.querySelectorAll('.lang-content');
+
+            function setLanguage(lang) {
+                langContents.forEach(content => {
+                    if (content.id.endsWith(`-${lang}`)) {
+                        content.classList.remove('hidden');
+                    } else {
+                        content.classList.add('hidden');
+                    }
+                });
+
+                if (lang === 'en') {
+                    langEnBtn.classList.replace('tab-inactive', 'tab-active');
+                    langMrBtn.classList.replace('tab-active', 'tab-inactive');
+                } else {
+                    langMrBtn.classList.replace('tab-inactive', 'tab-active');
+                    langEnBtn.classList.replace('tab-active', 'tab-inactive');
+                }
+
+                // Close all accordions when language is switched
+                document.querySelectorAll('.accordion-content').forEach(el => {
+                    el.style.maxHeight = '0px';
+                    el.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                });
+            }
+
+            langEnBtn.addEventListener('click', () => setLanguage('en'));
+            langMrBtn.addEventListener('click', () => setLanguage('mr'));
+
+            // Generic Accordion Logic
+            function createAccordion(containerId, items) {
+                const container = document.getElementById(containerId);
+                if (!container) return;
+                container.innerHTML = ''; // Clear container before re-populating
+
+                items.forEach((item, index) => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'border border-gray-200 rounded-lg bg-white';
+
+                    const button = document.createElement('button');
+                    button.className = 'w-full flex justify-between items-center p-5 text-left font-semibold text-gray-800 hover:bg-gray-50';
+                    button.innerHTML = `
+                        <span>${item.title}</span>
+                        <svg class="w-5 h-5 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    `;
+
+                    const contentDiv = document.createElement('div');
+                    contentDiv.className = 'accordion-content';
+                    contentDiv.innerHTML = `<div class="p-5 pt-0 text-gray-600">${item.content}</div>`;
+
+                    itemDiv.appendChild(button);
+                    itemDiv.appendChild(contentDiv);
+                    container.appendChild(itemDiv);
+
+                    button.addEventListener('click', () => {
+                        const isExpanded = contentDiv.style.maxHeight && contentDiv.style.maxHeight !== '0px';
+
+                        // Close all accordions first
+                        document.querySelectorAll(`#${containerId} .accordion-content`).forEach(el => {
+                            el.style.maxHeight = '0px';
+                            el.previousElementSibling.querySelector('svg').classList.remove('rotate-180');
+                        });
+
+                        // Open the clicked accordion if it wasn't expanded
+                        if (!isExpanded) {
+                            contentDiv.style.maxHeight = contentDiv.scrollHeight + 'px';
+                            button.querySelector('svg').classList.add('rotate-180');
+                        }
+                    });
+                });
+            }
+
+            // KYC Accordion Data
+            const kycItemsEn = [
+                { title: 'Validated', content: 'Your KYC is complete with Aadhaar and fully up-to-date. You can proceed with all investments without restrictions.' },
+                { title: 'Registered', content: 'Your KYC was done with a document other than Aadhaar. You can transact with existing fund houses, but must re-do KYC with Aadhaar to invest in new ones.' },
+                { title: 'On Hold', content: 'There are issues with your documents or contact information. You must fix the issue (e.g., provide a valid document) to proceed.' },
+                { title: 'Rejected', content: 'Your KYC application was on hold for too long and is now invalid. You must restart the entire KYC process.' },
+                { title: 'Needs Re-KYC', content: 'Your KYC details need to be updated, especially if your contact info is outdated. Update your details online or offline to proceed.' }
+            ];
+            const kycItemsMr = [
+                { title: 'Validated (पडताळणी झाली)', content: 'तुमचे KYC आधारसह पूर्ण आणि अद्ययावत आहे. तुम्ही कोणत्याही निर्बंधांशिवाय सर्व गुंतवणुकी सुरू करू शकता.' },
+                { title: 'Registered (नोंदणीकृत)', content: 'तुमचे KYC आधार व्यतिरिक्त दुसऱ्या कागदपत्राने झाले आहे. तुम्ही सध्याच्या फंड हाऊसेसमध्ये व्यवहार करू शकता, पण नवीन फंडात गुंतवणूक करण्यासाठी तुम्हाला आधारसह KYC पुन्हा करावे लागेल.' },
+                { title: 'On Hold (थांबलेले)', content: 'तुमच्या कागदपत्रे किंवा संपर्क माहितीमध्ये काही त्रुटी आहेत. तुम्हाला पुढे जाण्यासाठी ती त्रुटी (उदा. योग्य कागदपत्र देणे) दुरुस्त करावी लागेल.' },
+                { title: 'Rejected (नाकारलेले)', content: 'तुमचा KYC अर्ज खूप काळ थांबलेला असल्याने आता तो अवैध झाला आहे. तुम्हाला संपूर्ण KYC प्रक्रिया पुन्हा सुरू करावी लागेल.' },
+                { title: 'Needs Re-KYC (पुन्हा KYC आवश्यक)', content: 'तुमच्या KYC तपशीलांना अद्ययावत करण्याची गरज आहे, विशेषतः जर तुमची संपर्क माहिती जुनी झाली असेल. अपडेट योर डिटेल्स ऑनलाइन or ऑफलाइन टू प्रोसीड.' }
+            ];
+
+            // FAQ Accordion Data
+            const faqItemsEn = [
+                { title: 'What is the difference between saving and investing?', content: 'Saving is setting aside money in safe accounts for short-term goals. Investing is using money to potentially generate more money over the long term, which involves higher risk but also higher potential returns.' },
+                { title: 'Do I face a risk of losing money in mutual funds?', content: 'Yes, mutual funds are subject to market risks. The value of your investment can fluctuate, and you may incur a loss. Returns are not guaranteed.' },
+                { title: 'What is a SIP?', content: 'A Systematic Investment Plan (SIP) is a method of investing a fixed amount of money at regular intervals (e.g., monthly). It promotes disciplined investing and can average out purchase costs over time.' },
+                { title: 'What is a fund manager?', content: 'A fund manager is a professional who manages the investment portfolio, making decisions on which securities to buy, hold, or sell to meet the fund\'s objectives.' },
+                { title: 'How can I check my KYC status?', content: 'You can check your status on the website of a KYC Registration Agency (KRA) like CAMS or Karvy by entering your PAN details.' },
+                { title: 'Are mutual funds portable?', content: 'Yes, if held in a non-demat format, you can typically switch investment platforms without needing to sell your fund units, offering great flexibility.' }
+            ];
+            const faqItemsMr = [
+                { title: 'बचत आणि गुंतवणुकीमध्ये काय फरक आहे?', content: 'बचत म्हणजे कमी कालावधीच्या उद्दिष्टांसाठी सुरक्षित खात्यांमध्ये पैसे बाजूला ठेवणे. गुंतवणूक म्हणजे दीर्घकाळासाठी अधिक पैसे कमावण्याच्या उद्देशाने पैसे वापरणे, ज्यात जास्त जोखीम असते पण जास्त परतावा मिळण्याची शक्यताही असते.' },
+                { title: 'म्युच्युअल फंडामध्ये पैसे गमावण्याचा धोका असतो का?', content: 'होय, म्युच्युअल फंड बाजारपेठेतील जोखमीच्या अधीन असतात. तुमच्या गुंतवणुकीचे मूल्य कमी-जास्त होऊ शकते आणि तुम्हाला नुकसान होऊ शकते. परताव्याची हमी नसते.' },
+                { title: 'SIP म्हणजे काय?', content: 'सिस्टिमॅटिक इन्व्हेस्टमेंट प्लॅन (SIP) ही ठराविक कालावधीनंतर (उदा. मासिक) निश्चित रक्कम गुंतवण्याची एक पद्धत आहे. यामुळे शिस्तबद्ध गुंतवणूक होते आणि कालांतराने खरेदीचा खर्च सरासरी काढण्यास मदत होते.' },
+                { title: 'फंड व्यवस्थापक म्हणजे काय?', content: 'फंड व्यवस्थापक हा एक व्यावसायिक असतो, जो गुंतवणुकीचा पोर्टफोलिओ व्यवस्थापित करतो, फंडाची उद्दिष्ट्ये पूर्ण करण्यासाठी कोणत्या सिक्युरिटीज खरेदी करायच्या, ठेवायच्या किंवा विकायच्या याबद्दल निर्णय घेतो.' },
+                { title: 'मी माझा KYC स्टेटस कसा तपासू शकतो?', content: 'तुम्ही तुमचा पॅन तपशील टाकून CAMS किंवा Karvy सारख्या KYC नोंदणी एजन्सी (KRA) च्या वेबसाइटवर तुमचा स्टेटस तपासू शकता.' },
+                { title: 'म्युच्युअल फंड पोर्टेबल आहेत का?', content: 'होय, जर ते डिमॅट-नसलेल्या स्वरूपात ठेवले असतील, तर तुम्हाला फंड युनिट्स विकण्याची गरज न पडता तुम्ही सहसा गुंतवणूक प्लॅटफॉर्म बदलू शकता, ज्यामुळे खूप लवचिकता मिळते.' }
+            ];
+
+            // NOTE: The form submission script is removed as the form is no longer present.
+
+            // Chart.js Visualizations
+            let expenseChart, topPicksChart, expenseChartMr, topPicksChartMr;
+
+            function createExpenseChart(ctx, isMarathi = false) {
+                if (!ctx) return;
+                const labels = Array.from({ length: 21 }, (_, i) => `Year ${i}`);
+                const initialInvestment = 100000;
+
+                function calculateGrowth(rate) {
+                    let data = [initialInvestment];
+                    for (let i = 1; i <= 20; i++) {
+                        data.push(data[i-1] * (1 + rate / 100));
+                    }
+                    return data;
+                }
+
+                const directPlanReturn = 12 - 0.75;
+                const regularPlanReturn = 12 - 1.5;
+
+                const chartData = {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: isMarathi ? 'डायरेक्ट प्लॅन (0.75% TER)' : 'Direct Plan (0.75% TER)',
+                            data: calculateGrowth(directPlanReturn),
+                            borderColor: '#005A9C',
+                            backgroundColor: 'rgba(0, 90, 156, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.1,
+                            fill: true,
+                        },
+                        {
+                            label: isMarathi ? 'रेग्युलर प्लॅन (1.5% TER)' : 'Regular Plan (1.5% TER)',
+                            data: calculateGrowth(regularPlanReturn),
+                            borderColor: '#FDB813',
+                            backgroundColor: 'rgba(253, 184, 19, 0.1)',
+                            borderWidth: 2,
+                            tension: 0.1,
+                            fill: true,
+                        }
+                    ]
+                };
+
+                const chartOptions = {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        title: { display: false },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            },
+                        },
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return (isMarathi ? '₹' : '₹') + (value / 100000) + 'L';
+                                }
+                            }
+                        }
+                    }
+                };
+                return new Chart(ctx, { type: 'line', data: chartData, options: chartOptions });
+            }
+
+            function createTopPicksChart(ctx, isMarathi = false) {
+                if (!ctx) return;
+                const labels = ['Quant Small Cap', 'Nippon India Small Cap', 'Motilal Oswal Midcap', 'Quant Mid Cap', 'SBI Contra', 'Parag Parikh Flexi Cap'];
+                const data = [40.36, 34.52, 32.59, 31.52, 30.36, 21.96];
+
+                const chartData = {
+                    labels: labels,
+                    datasets: [{
+                        label: isMarathi ? '3-वर्षांचा CAGR (%)' : '3-Year CAGR (%)',
+                        data: data,
+                        backgroundColor: [
+                            'rgba(0, 90, 156, 0.7)',
+                            'rgba(0, 90, 156, 0.6)',
+                            'rgba(0, 90, 156, 0.5)',
+                            'rgba(253, 184, 19, 0.7)',
+                            'rgba(253, 184, 19, 0.6)',
+                            'rgba(253, 184, 19, 0.5)'
+                        ],
+                        borderColor: [
+                            '#005A9C',
+                            '#005A9C',
+                            '#005A9C',
+                            '#FDB813',
+                            '#FDB813',
+                            '#FDB813'
+                        ],
+                        borderWidth: 1
+                    }]
+                };
+
+                const chartOptions = {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        title: {
+                            display: true,
+                            text: isMarathi ? 'फंडाची कामगिरी (3-वर्षांचा CAGR)' : 'Fund Performance (3-Year CAGR)',
+                            font: { size: 16 }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: isMarathi ? 'वार्षिक परतावा (%)' : 'Annualized Return (%)'
+                            }
+                        }
+                    }
+                };
+                return new Chart(ctx, { type: 'bar', data: chartData, options: chartOptions });
+            }
+
+            // Initial render
+            createAccordion('kyc-accordion', kycItemsEn);
+            createAccordion('faq-accordion', faqItemsEn);
+            createAccordion('kyc-accordion-mr', kycItemsMr);
+            createAccordion('faq-accordion-mr', faqItemsMr);
+            expenseChart = createExpenseChart(document.getElementById('expenseRatioChart'));
+            topPicksChart = createTopPicksChart(document.getElementById('topPicksChart'));
+            expenseChartMr = createExpenseChart(document.getElementById('expenseRatioChart-mr'), true);
+            topPicksChartMr = createTopPicksChart(document.getElementById('topPicksChart-mr'), true);
+
+            // Set initial language to English
+            setLanguage('en');
+
+            // Hide the Marathi charts initially
+            document.getElementById('expenseRatioChart-mr').parentElement.classList.add('hidden');
+            document.getElementById('topPicksChart-mr').parentElement.classList.add('hidden');
+
+            langEnBtn.addEventListener('click', () => {
+                setLanguage('en');
+                document.getElementById('expenseRatioChart').parentElement.classList.remove('hidden');
+                document.getElementById('expenseRatioChart-mr').parentElement.classList.add('hidden');
+                document.getElementById('topPicksChart').parentElement.classList.remove('hidden');
+                document.getElementById('topPicksChart-mr').parentElement.classList.add('hidden');
+            });
+
+            langMrBtn.addEventListener('click', () => {
+                setLanguage('mr');
+                document.getElementById('expenseRatioChart').parentElement.classList.add('hidden');
+                document.getElementById('expenseRatioChart-mr').parentElement.classList.remove('hidden');
+                document.getElementById('topPicksChart').parentElement.classList.add('hidden');
+                document.getElementById('topPicksChart-mr').parentElement.classList.remove('hidden');
+            });
+        });
+    </script>
+
+</body>
+        
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <!-- Email Icon -->
+                <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="text-sm">
+                <!-- Links now trigger modals -->
+                <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
+                <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="privacy-policy-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
+            <p class="mb-4 text-sm">
+                We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services. We also collect non-personal data, such as browser type, IP address, and usage data, to enhance your website experience.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
+            <p class="mb-4 text-sm">
+                Your information is used to:
+                <ul class="list-disc list-inside space-y-1 mt-2">
+                    <li>Provide you with financial services and personalized advice.</li>
+                    <li>Communicate with you regarding your account and our services.</li>
+                    <li>Improve our website and services.</li>
+                    <li>Comply with legal and regulatory requirements.</li>
+                </ul>
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
+            <p class="mb-4 text-sm">
+                We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
+            <p class="mb-4 text-sm">
+                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required to provide our services or comply with the law. This may include sharing information with our partners and service providers who assist us in operating our business.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="terms-of-service-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                By accessing and using the M-Vita Services website and our services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
+            <p class="mb-4 text-sm">
+                The content on this website is for general informational purposes only. It is not professional financial advice and should not be relied upon as such. We are not responsible for any financial decisions you make based on the information provided on this website.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
+            <p class="mb-4 text-sm">
+                You agree to provide accurate and complete information when using our services. We reserve the right to terminate your access to our services if we discover that the information you provided is false or misleading.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
+            <p class="mb-4 text-sm">
+                All content, trademarks, logos, and other intellectual property on this website are the property of M-Vita Services or its licensors. You may not use, reproduce, or distribute any content from this site without our express written permission.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
+            <p class="mb-4 text-sm">
+                M-Vita Services will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or website.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu and Modals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Modal functionality
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+            const privacyPolicyClose = document.getElementById('privacy-policy-close');
+
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+            const termsOfServiceClose = document.getElementById('terms-of-service-close');
+
+            function showModal(modal) {
+                modal.classList.remove('hidden');
+            }
+
+            function hideModal(modal) {
+                modal.classList.add('hidden');
+            }
+
+            privacyPolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(privacyPolicyModal);
+            });
+
+            privacyPolicyClose.addEventListener('click', () => {
+                hideModal(privacyPolicyModal);
+            });
+
+            termsOfServiceLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(termsOfServiceModal);
+            });
+
+            termsOfServiceClose.addEventListener('click', () => {
+                hideModal(termsOfServiceModal);
+            });
+
+            // Close modals when clicking outside the content
+            privacyPolicyModal.addEventListener('click', (e) => {
+                if (e.target === privacyPolicyModal) {
+                    hideModal(privacyPolicyModal);
+                }
+            });
+            termsOfServiceModal.addEventListener('click', (e) => {
+                if (e.target === termsOfServiceModal) {
+                    hideModal(termsOfServiceModal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

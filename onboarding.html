@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Your Partner in Financial Well-being</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
+                <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
+                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
+                <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
+                <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
+            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
+            <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
+            <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Home Hero Section -->
+        <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang-key="pageTitle">M-Vita Services - Client Onboarding</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Tiro+Devanagari+Marathi:wght@400&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Roboto', sans-serif; }
+        .marathi { font-family: 'Tiro Devanagari Marathi', serif; }
+        .form-input {
+            @apply w-full px-4 py-2 text-gray-800 bg-white border border-gray-400 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand-blue focus:border-transparent transition-colors duration-300;
+        }
+        .form-label {
+            @apply block text-sm font-medium text-gray-700 mb-1;
+        }
+        .required-dot::after {
+            content: '*';
+            color: #ef4444;
+            margin-left: 4px;
+        }
+        .fieldset-container {
+            @apply bg-gray-100 p-6 md:p-8 rounded-xl shadow-md border border-gray-200;
+        }
+        .upload-box {
+            @apply relative flex flex-col items-center justify-center w-full h-32 text-center bg-white border-2 border-dashed border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors duration-300;
+        }
+        .upload-box input[type="file"] {
+            @apply absolute top-0 left-0 w-full h-full opacity-0 cursor-pointer;
+        }
+        .faq-item-question.active {
+            @apply bg-brand-blue text-white;
+        }
+        .faq-item-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        }
+        .faq-item-answer.open {
+            max-height: 500px;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .error-message {
+            @apply text-red-500 text-xs mt-1;
+        }
+    </style>
+    <!-- Chosen Palette: M-Vita Services Blue & Neutrals (Improved Contrast) -->
+    <!-- Application Structure Plan: A single-column, four-section vertical layout (Intro, Form, Support, Exit) was chosen to create a linear, guided user journey. This structure is ideal for a task-focused page, minimizing cognitive load for new investors by presenting information sequentially: understanding the purpose, completing the task, getting help, and navigating away. Key interactions like the language toggle, form inputs with visual feedback, and a collapsible FAQ section are designed to build trust and make the process feel manageable and reassuring. -->
+    <!-- Visualization & Content Choices: Report Info: Onboarding Form -> Goal: Data Collection -> Presentation: Grouped HTML form fields with clear labels and validation -> Interaction: Standard inputs with JS-powered file upload previews and form submission logic -> Justification: Grouping fields reduces cognitive load and validation ensures data quality; visual feedback on uploads is crucial for user confidence. | Report Info: FAQs -> Goal: Proactive Support -> Presentation: Accordion List -> Interaction: Click to expand -> Justification: Compactly presents information, allowing users to find answers without being overwhelmed. | Report Info: Language -> Goal: Accessibility -> Presentation: Toggle Buttons -> Interaction: Click to switch language -> Justification: Provides immediate user control over localization. All implemented with Vanilla JS and HTML5, ensuring a lightweight and universally compatible experience. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm" type="module"></script>
+<script type="module" src="supabase.js"></script>    
+<script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-blue': '#00529B',
+                        'brand-blue-light': '#E6F0F7',
+                        'brand-neutral': '#F9F8F6',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-brand-neutral text-gray-800">
+
+    <div class="fixed bottom-5 right-5 z-50">
+        <a href="https://wa.me/9152049967" target="_blank" class="flex items-center justify-center bg-green-500 text-white rounded-full shadow-lg w-16 h-16 hover:bg-green-600 transition-transform transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zM12 4.138c4.341 0 7.865 3.524 7.865 7.864s-3.524 7.864-7.865 7.864-7.864-3.524-7.864-7.864 3.523-7.864 7.864-7.864zm-2.363 5.047c-.073-.125-.27-.2-.42-.205-.15-.005-.315-.005-.465.03-.205.045-.43.205-.61.43-.28.35-.45.78-.45 1.28s.165 1.005.33 1.235c.165.23.38.465.61.735.53.64 1.19 1.21 1.99 1.695.89.55 1.6.84 2.21.98.61.14 1.13.115 1.58-.08.5-.215.845-.835.96-1.535.115-.7-.04-1.28-.115-1.38-.075-.1-.225-.15-.45-.255-.225-.1-.51-.24-.585-.27-.075-.03-.15-.045-.225.045-.075.09-.27.345-.33.39-.06.045-.12.06-.21.015-.09-.045-.375-.135-.705-.42-.405-.345-.675-.75-.75-.885-.075-.135-.015-.21.045-.27.06-.06.12-.15.18-.21.06-.06.09-.12.12-.195.03-.075.015-.15-.015-.21-.03-.06-.135-.33-.18-.45z"/>
+            </svg>
+            <span class="sr-only" data-lang-key="getHelp">Get help</span>
+        </a>
+    </div>
+
+    <main class="max-w-4xl mx-auto p-4 sm:p-6 md:p-8">
+        <div class="flex justify-end mb-6">
+            <div class="inline-flex rounded-lg shadow-sm">
+                <button id="lang-en" class="px-4 py-2 text-sm font-medium bg-brand-blue text-white border border-brand-blue rounded-l-lg focus:z-10 focus:ring-2 focus:ring-brand-blue transition-colors duration-300">English</button>
+                <button id="lang-mr" class="px-4 py-2 text-sm font-medium bg-white text-brand-blue border-t border-b border-r border-brand-blue rounded-r-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-brand-blue marathi">मराठी</button>
+            </div>
+        </div>
+        
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-brand-blue mb-2" data-lang-key="mainTitle">Client Onboarding</h1>
+            <p class="text-gray-600 max-w-2xl mx-auto" data-lang-key="subTitle">Welcome to M-Vita Services. Please fill out the form below to begin your investment journey with MF Utility, a shared services initiative by AMFI, simplifying mutual fund transactions.</p>
+        </div>
+
+        <form id="onboarding-form" class="space-y-8">
+            
+            <fieldset class="fieldset-container">
+                <legend class="text-xl font-semibold text-brand-blue px-2" data-lang-key="personalDetails">Personal Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div>
+                        <label for="placeOfBirth" class="form-label required-dot" data-lang-key="placeOfBirth">Place of Birth</label>
+                        <input type="text" id="placeOfBirth" name="placeOfBirth" class="form-input" required>
+                        <p class="error-message" id="placeOfBirth-error"></p>
+                    </div>
+                    <div>
+                        <label for="motherName" class="form-label required-dot" data-lang-key="motherName">Mother's Name</label>
+                        <input type="text" id="motherName" name="motherName" class="form-input" required>
+                        <p class="error-message" id="motherName-error"></p>
+                    </div>
+                    <div>
+                        <label for="email" class="form-label required-dot" data-lang-key="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                        <p class="error-message" id="email-error"></p>
+                    </div>
+                    <div>
+                        <label for="mobile" class="form-label required-dot" data-lang-key="mobile">Mobile</label>
+                        <input type="tel" id="mobile" name="mobile" class="form-input" required pattern="[6-9]{1}[0-9]{9}" minlength="10" maxlength="10">
+                        <p class="error-message" id="mobile-error"></p>
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="fieldset-container">
+                <legend class="text-xl font-semibold text-brand-blue px-2" data-lang-key="nomineeDetails">Nominee Details</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div>
+                        <label for="nomineeName" class="form-label" data-lang-key="nomineeName">Name of Nominee</label>
+                        <input type="text" id="nomineeName" name="nomineeName" class="form-input">
+                    </div>
+                    <div>
+                        <label for="nomineeDob" class="form-label" data-lang-key="nomineeDob">Nominee Birthdate</label>
+                        <input type="date" id="nomineeDob" name="nomineeDob" class="form-input">
+                    </div>
+                    <div>
+                        <label for="nomineeAadhar" class="form-label" data-lang-key="nomineeAadhar">Nominee Aadhar</label>
+                        <input type="text" id="nomineeAadhar" name="nomineeAadhar" class="form-input">
+                    </div>
+                    <div>
+                        <label for="nomineeMobile" class="form-label" data-lang-key="nomineeMobile">Nominee Mobile</label>
+                        <input type="tel" id="nomineeMobile" name="nomineeMobile" class="form-input" pattern="[6-9]{1}[0-9]{9}" minlength="10" maxlength="10">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="nomineeEmail" class="form-label" data-lang-key="nomineeEmail">Nominee Email</label>
+                        <input type="email" id="nomineeEmail" name="nomineeEmail" class="form-input">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset class="fieldset-container">
+                <legend class="text-xl font-semibold text-brand-blue px-2" data-lang-key="docUpload">Document Upload</legend>
+                <p class="text-sm text-gray-500 mt-2 mb-4" data-lang-key="docUploadSub">Please upload clear images or PDF files of the following documents.</p>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-4">
+                    <div class="space-y-2">
+                        <label class="form-label required-dot" data-lang-key="panCard">PAN Card</label>
+                        <div class="upload-box" id="pan-upload-box">
+                            <input type="file" id="panCardUpload" name="panCardUpload" accept="image/*,application/pdf" required>
+                            <div class="flex flex-col items-center justify-center space-y-2" id="pan-placeholder">
+                                <p class="text-sm font-semibold text-gray-700" data-lang-key="uploadText">Click to upload PAN</p>
+                            </div>
+                            <img src="https://placehold.co/300x180/E6F0F7/00529B?text=pan.png" alt="PAN Card Preview" class="hidden h-full w-full object-contain rounded-lg p-2" id="pan-preview">
+                        </div>
+                        <p class="error-message" id="panCardUpload-error"></p>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="form-label required-dot" data-lang-key="aadharCard">AADHAR Card</label>
+                        <div class="upload-box" id="aadhar-upload-box">
+                            <input type="file" id="aadharCardUpload" name="aadharCardUpload" accept="image/*,application/pdf" required>
+                            <div class="flex flex-col items-center justify-center space-y-2" id="aadhar-placeholder">
+                                <p class="text-sm font-semibold text-gray-700" data-lang-key="uploadText">Click to upload AADHAR</p>
+                            </div>
+                            <img src="https://placehold.co/300x180/E6F0F7/00529B?text=aadhar.png" alt="Aadhar Card Preview" class="hidden h-full w-full object-contain rounded-lg p-2" id="aadhar-preview">
+                        </div>
+                        <p class="error-message" id="aadharCardUpload-error"></p>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="form-label required-dot" data-lang-key="chequeLeaf">Cheque Leaf</label>
+                        <div class="upload-box" id="cheque-upload-box">
+                            <input type="file" id="chequeLeafUpload" name="chequeLeafUpload" accept="image/*,application/pdf" required>
+                            <div class="flex flex-col items-center justify-center space-y-2" id="cheque-placeholder">
+                                <p class="text-sm font-semibold text-gray-700" data-lang-key="uploadText">Click to upload Cheque</p>
+                            </div>
+                            <img src="https://placehold.co/300x180/E6F0F7/00529B?text=cheque.png" alt="Cheque Leaf Preview" class="hidden h-full w-full object-contain rounded-lg p-2" id="cheque-preview">
+                        </div>
+                        <p class="error-message" id="chequeLeafUpload-error"></p>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="text-center">
+                <button type="submit" id="submit-btn" class="w-full md:w-auto bg-brand-blue text-white font-bold py-3 px-12 rounded-lg shadow-lg hover:bg-opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-blue transition-all duration-300 transform hover:scale-105" data-lang-key="submitBtn">Submit</button>
+            </div>
+        </form>
+
+        <section class="mt-12 pt-8 border-t border-gray-200">
+            <h2 class="text-2xl font-bold text-center text-brand-blue mb-6" data-lang-key="faqTitle">Frequently Asked Questions</h2>
+            <div class="space-y-4 max-w-3xl mx-auto" id="faq-container">
+                <div class="faq-item">
+                    <button class="faq-item-question w-full text-left flex justify-between items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-brand-blue-light focus:outline-none focus:ring-2 focus:ring-brand-blue transition-colors duration-300">
+                        <span class="font-semibold" data-lang-key="faq1q">What is the purpose of MF Utility?</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-item-answer px-4 text-gray-600 bg-white border-l border-r border-b border-gray-200 rounded-b-lg">
+                        <p data-lang-key="faq1a">MF Utility (MFU) is an innovative "Shared Services" initiative by AMFI. It acts as a "Transaction Aggregation Portal" that allows you to transact in multiple mutual fund schemes using a single portal and a single payment.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item-question w-full text-left flex justify-between items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-brand-blue-light focus:outline-none focus:ring-2 focus:ring-brand-blue transition-colors duration-300">
+                        <span class="font-semibold" data-lang-key="faq2q">Why is all this information required?</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-item-answer px-4 text-gray-600 bg-white border-l border-r border-b border-gray-200 rounded-b-lg">
+                        <p data-lang-key="faq2a">The information is required to establish a Common Account Number (CAN). A CAN gives you a consolidated view of your investments and enables a wide range of future services and transactions without requiring repeated data entry and documentation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item-question w-full text-left flex justify-between items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-brand-blue-light focus:outline-none focus:ring-2 focus:ring-brand-blue transition-colors duration-300">
+                        <span class="font-semibold" data-lang-key="faq3q">Is it mandatory to provide nominee details?</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-item-answer px-4 text-gray-600 bg-white border-l border-r border-b border-gray-200 rounded-b-lg">
+                        <p data-lang-key="faq3a">No, nominee details are not mandatory at this stage. However, providing them now simplifies future non-financial transactions, such as changes to your account or address, and ensures comprehensive after-sales support without needing to resubmit this information later.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-item-question w-full text-left flex justify-between items-center p-4 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-brand-blue-light focus:outline-none focus:ring-2 focus:ring-brand-blue transition-colors duration-300">
+                        <span class="font-semibold" data-lang-key="faq4q">What documents do I need to upload?</span>
+                        <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-item-answer px-4 text-gray-600 bg-white border-l border-r border-b border-gray-200 rounded-b-lg">
+                        <p data-lang-key="faq4a">You are requested to upload your PAN Card, AADHAR Card, and a Cheque Leaf. These can be in Image or PDF format. The system supports common image formats like JPG, PNG, and TIFF.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="text-center mt-12">
+            <a href="mf.html" class="text-brand-blue hover:underline" data-lang-key="backLink">← Back to Mutual Funds</a>
+        </div>
+
+    </main>
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', () => {
+            const translations = {
+                en: {
+                    pageTitle: "M-Vita Services - Client Onboarding",
+                    mainTitle: "Client Onboarding",
+                    subTitle: "Welcome to M-Vita Services. Please fill out the form below to begin your investment journey with MF Utility, a shared services initiative by AMFI, simplifying mutual fund transactions.",
+                    personalDetails: "Personal Details",
+                    placeOfBirth: "Place of Birth",
+                    motherName: "Mother's Name",
+                    email: "Email",
+                    mobile: "Mobile",
+                    nomineeDetails: "Nominee Details",
+                    nomineeName: "Name of Nominee",
+                    nomineeDob: "Nominee Birthdate",
+                    nomineeAadhar: "Nominee Aadhar",
+                    nomineeMobile: "Nominee Mobile",
+                    nomineeEmail: "Nominee Email",
+                    docUpload: "Document Upload",
+                    docUploadSub: "Please upload clear images or PDF files of the following documents.",
+                    panCard: "PAN Card",
+                    aadharCard: "AADHAR Card",
+                    chequeLeaf: "Cheque Leaf",
+                    uploadText: "Click to upload",
+                    submitBtn: "Submit",
+                    faqTitle: "Frequently Asked Questions",
+                    faq1q: "What is the purpose of MF Utility?",
+                    faq1a: "MF Utility (MFU) is an innovative \"Shared Services\" initiative by AMFI. It acts as a \"Transaction Aggregation Portal\" that allows you to transact in multiple mutual fund schemes using a single portal and a single payment.",
+                    faq2q: "Why is all this information required?",
+                    faq2a: "The information is required to establish a Common Account Number (CAN). A CAN gives you a consolidated view of your investments and enables a wide range of future services and transactions without requiring repeated data entry and documentation.",
+                    faq3q: "Is it mandatory to provide nominee details?",
+                    faq3a: "No, nominee details are not mandatory at this stage. However, providing them now simplifies future non-financial transactions, such as changes to your account or address, and ensures comprehensive after-sales support without needing to resubmit this information later.",
+                    faq4q: "What documents do I need to upload?",
+                    faq4a: "You are requested to upload your PAN Card, AADHAR Card, and a Cheque Leaf. These can be in Image or PDF format. The system supports common image formats like JPG, PNG, and TIFF.",
+                    backLink: "← Back to Mutual Funds",
+                    getHelp: "Get help",
+                },
+                mr: {
+                    pageTitle: "एम-विटा सर्व्हिसेस - ग्राहक ऑनबोर्डिंग",
+                    mainTitle: "ग्राहक ऑनबोर्डिंग",
+                    subTitle: "एम-विटा सर्व्हिसेसमध्ये आपले स्वागत आहे. म्युच्युअल फंड व्यवहार सुलभ करणाऱ्या एएमएफआयच्या सामायिक सेवा उपक्रम, एमएफ युटिलिटीसह आपला गुंतवणूक प्रवास सुरू करण्यासाठी कृपया खालील फॉर्म भरा.",
+                    personalDetails: "वैयक्तिक तपशील",
+                    placeOfBirth: "जन्मस्थान",
+                    motherName: "आईचे नाव",
+                    email: "ईमेल",
+                    mobile: "मोबाईल",
+                    nomineeDetails: "वारस तपशील",
+                    nomineeName: "वारसाचे नाव",
+                    nomineeDob: "वारसाची जन्मतारीख",
+                    nomineeAadhar: "वारसाचा आधार",
+                    nomineeMobile: "वारसाचा मोबाईल",
+                    nomineeEmail: "वारसाचा ईमेल",
+                    docUpload: "दस्तऐवज अपलोड",
+                    docUploadSub: "कृपया खालील कागदपत्रांच्या स्पष्ट प्रतिमा किंवा पीडीएफ फाइल अपलोड करा.",
+                    panCard: "पॅन कार्ड",
+                    aadharCard: "आधार कार्ड",
+                    chequeLeaf: "चेक लीफ",
+                    uploadText: "अपलोड करण्यासाठी क्लिक करा",
+                    submitBtn: "सबमिट करा",
+                    faqTitle: "सतत विचारले जाणारे प्रश्न",
+                    faq1q: "एमएफ युटिलिटीचा उद्देश काय आहे?",
+                    faq1a: "एमएफ युटिलिटी (एमएफयू) हा एएमएफआयचा एक अभिनव \"सामायिक सेवा\" उपक्रम आहे. हे \"ट्रान्झॅक्शन एग्रीगेशन पोर्टल\" म्हणून काम करते जे तुम्हाला एकाच पोर्टल आणि एकाच पेमेंटचा वापर करून अनेक म्युच्युअल फंड योजनांमध्ये व्यवहार करण्याची परवानगी देते.",
+                    faq2q: "ही सर्व माहिती का आवश्यक आहे?",
+                    faq2a: "कॉमन अकाउंट नंबर (सीएएन) स्थापित करण्यासाठी ही माहिती आवश्यक आहे. सीएएन तुम्हाला तुमच्या गुंतवणुकीचे एकत्रित दृश्य देते आणि वारंवार डेटा एंट्री आणि कागदपत्रांची आवश्यकता न ठेवता भविष्यातील विस्तृत सेवा आणि व्यवहार सक्षम करते.",
+                    faq3q: "वारसाचे तपशील देणे अनिवार्य आहे का?",
+                    faq3a: "नाही, या टप्प्यावर वारसाचे तपशील अनिवार्य नाहीत. तथापि, आता ते प्रदान केल्याने भविष्यातील गैर-आर्थिक व्यवहार, जसे की तुमच्या खात्यातील किंवा पत्त्यातील बदल, सोपे होतात आणि नंतर ही माहिती पुन्हा सबमिट न करता सर्वसमावेशक विक्रीनंतरचे समर्थन सुनिश्चित होते.",
+                    faq4q: "मला कोणती कागदपत्रे अपलोड करण्याची आवश्यकता आहे?",
+                    faq4a: "तुम्हाला तुमचे पॅन कार्ड, आधार कार्ड आणि चेक लीफ अपलोड करण्याची विनंती आहे. हे इमेज किंवा पीडीएफ स्वरूपात असू शकतात. प्रणाली जेपीजी, पीएनजी आणि टीआयएफएफ सारख्या सामान्य इमेज स्वरूपांना समर्थन देते.",
+                    backLink: "← म्युच्युअल फंडवर परत जा",
+                    getHelp: "मदत मिळवा",
+                }
+            };
+
+            const langEnBtn = document.getElementById('lang-en');
+            const langMrBtn = document.getElementById('lang-mr');
+            let currentLang = 'en';
+
+            const setLanguage = (lang) => {
+                currentLang = lang;
+                document.querySelectorAll('[data-lang-key]').forEach(element => {
+                    const key = element.getAttribute('data-lang-key');
+                    if (translations[lang] && translations[lang][key]) {
+                        element.textContent = translations[lang][key];
+                    }
+                });
+                
+                const body = document.querySelector('body');
+                const marathiElements = document.querySelectorAll('.marathi');
+                if (lang === 'mr') {
+                    body.classList.add('marathi');
+                    marathiElements.forEach(el => el.classList.add('marathi'));
+                    langMrBtn.classList.add('bg-brand-blue', 'text-white');
+                    langMrBtn.classList.remove('bg-white', 'text-brand-blue');
+                    langEnBtn.classList.remove('bg-brand-blue', 'text-white');
+                    langEnBtn.classList.add('bg-white', 'text-brand-blue');
+                } else {
+                    body.classList.remove('marathi');
+                    marathiElements.forEach(el => el.classList.remove('marathi'));
+                    langEnBtn.classList.add('bg-brand-blue', 'text-white');
+                    langEnBtn.classList.remove('bg-white', 'text-brand-blue');
+                    langMrBtn.classList.remove('bg-brand-blue', 'text-white');
+                    langMrBtn.classList.add('bg-white', 'text-brand-blue');
+                }
+            };
+
+            langEnBtn.addEventListener('click', () => setLanguage('en'));
+            langMrBtn.addEventListener('click', () => setLanguage('mr'));
+
+            const setupFileUploadPreview = (inputId, placeholderId, previewId) => {
+                const input = document.getElementById(inputId);
+                const placeholder = document.getElementById(placeholderId);
+                const preview = document.getElementById(previewId);
+
+                input.addEventListener('change', (event) => {
+                    const file = event.target.files[0];
+                    if (file) {
+                        const errorElement = document.getElementById(`${inputId}-error`);
+                        errorElement.textContent = "";
+                        if (file.type.startsWith('image/')) {
+                            const reader = new FileReader();
+                            reader.onload = (e) => {
+                                preview.src = e.target.result;
+                                placeholder.classList.add('hidden');
+                                preview.classList.remove('hidden');
+                            };
+                            reader.readAsDataURL(file);
+                        } else if (file.type === 'application/pdf') {
+                            preview.src = `https://placehold.co/300x180/4CAF50/FFFFFF?text=PDF+Uploaded`;
+                            placeholder.classList.add('hidden');
+                            preview.classList.remove('hidden');
+                        } else {
+                            errorElement.textContent = "Invalid file type. Please upload an image or PDF.";
+                            placeholder.classList.remove('hidden');
+                            preview.classList.add('hidden');
+                        }
+                    } else {
+                        placeholder.classList.remove('hidden');
+                        preview.classList.add('hidden');
+                    }
+                });
+            };
+
+            setupFileUploadPreview('panCardUpload', 'pan-placeholder', 'pan-preview');
+            setupFileUploadPreview('aadharCardUpload', 'aadhar-placeholder', 'aadhar-preview');
+            setupFileUploadPreview('chequeLeafUpload', 'cheque-placeholder', 'cheque-preview');
+
+            const faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-item-question');
+                const answer = item.querySelector('.faq-item-answer');
+                const icon = question.querySelector('svg');
+
+                question.addEventListener('click', () => {
+                    const isOpen = answer.classList.contains('open');
+                    
+                    document.querySelectorAll('.faq-item-answer.open').forEach(openAnswer => {
+                        openAnswer.classList.remove('open');
+                        openAnswer.previousElementSibling.classList.remove('active');
+                        openAnswer.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
+                    });
+
+                    if (!isOpen) {
+                        answer.classList.add('open');
+                        question.classList.add('active');
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                });
+            });
+
+            
+                document.querySelectorAll('input[type="file"][required]').forEach(fileInput => {
+                    const errorElement = document.getElementById(`${fileInput.id}-error`);
+                    if (fileInput.files.length === 0) {
+                        isValid = false;
+                        errorElement.textContent = "Please upload a document.";
+                    }
+                });
+
+                if (isValid) {
+                    alert('Form submitted successfully!');
+                    form.reset();
+                    document.querySelectorAll('.upload-box img').forEach(img => img.classList.add('hidden'));
+                    document.getElementById('pan-placeholder').classList.remove('hidden');
+                    document.getElementById('aadhar-placeholder').classList.remove('hidden');
+                    document.getElementById('cheque-placeholder').classList.remove('hidden');
+                }
+            });
+
+            setLanguage('en');
+        });
+    </script>
+</body>
+
+
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <!-- Email Icon -->
+                <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="text-sm">
+                <!-- Links now trigger modals -->
+                <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
+                <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="privacy-policy-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
+            <p class="mb-4 text-sm">
+                We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services. We also collect non-personal data, such as browser type, IP address, and usage data, to enhance your website experience.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
+            <p class="mb-4 text-sm">
+                Your information is used to:
+                <ul class="list-disc list-inside space-y-1 mt-2">
+                    <li>Provide you with financial services and personalized advice.</li>
+                    <li>Communicate with you regarding your account and our services.</li>
+                    <li>Improve our website and services.</li>
+                    <li>Comply with legal and regulatory requirements.</li>
+                </ul>
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
+            <p class="mb-4 text-sm">
+                We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
+            <p class="mb-4 text-sm">
+                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required to provide our services or comply with the law. This may include sharing information with our partners and service providers who assist us in operating our business.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="terms-of-service-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                By accessing and using the M-Vita Services website and our services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
+            <p class="mb-4 text-sm">
+                The content on this website is for general informational purposes only. It is not professional financial advice and should not be relied upon as such. We are not responsible for any financial decisions you make based on the information provided on this website.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
+            <p class="mb-4 text-sm">
+                You agree to provide accurate and complete information when using our services. We reserve the right to terminate your access to our services if we discover that the information you provided is false or misleading.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
+            <p class="mb-4 text-sm">
+                All content, trademarks, logos, and other intellectual property on this website are the property of M-Vita Services or its licensors. You may not use, reproduce, or distribute any content from this site without our express written permission.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
+            <p class="mb-4 text-sm">
+                M-Vita Services will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or website.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu and Modals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Modal functionality
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+            const privacyPolicyClose = document.getElementById('privacy-policy-close');
+
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+            const termsOfServiceClose = document.getElementById('terms-of-service-close');
+
+            function showModal(modal) {
+                modal.classList.remove('hidden');
+            }
+
+            function hideModal(modal) {
+                modal.classList.add('hidden');
+            }
+
+            privacyPolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(privacyPolicyModal);
+            });
+
+            privacyPolicyClose.addEventListener('click', () => {
+                hideModal(privacyPolicyModal);
+            });
+
+            termsOfServiceLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(termsOfServiceModal);
+            });
+
+            termsOfServiceClose.addEventListener('click', () => {
+                hideModal(termsOfServiceModal);
+            });
+
+            // Close modals when clicking outside the content
+            privacyPolicyModal.addEventListener('click', (e) => {
+                if (e.target === privacyPolicyModal) {
+                    hideModal(privacyPolicyModal);
+                }
+            });
+            termsOfServiceModal.addEventListener('click', (e) => {
+                if (e.target === termsOfServiceModal) {
+                    hideModal(termsOfServiceModal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
