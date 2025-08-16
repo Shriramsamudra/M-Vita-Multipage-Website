@@ -79,6 +79,55 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
+        
+        /* Scrolling ribbon styles */
+        .scrolling-ribbon {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+        }
+        .ribbon-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        .ribbon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 160px; /* Fixed width for each item */
+            height: 120px; /* Fixed height */
+            padding: 1rem;
+            margin: 0 1rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+        }
+        .ribbon-item img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+        .ribbon-item p {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #4A5568;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -88,7 +137,7 @@
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="#" class="flex items-center">
-                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x64/1E65AE/FFFFFF?text=M-Vita';">
             </a>
 
             <!-- Desktop Navigation Links -->
@@ -747,7 +796,7 @@
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Portfolio Management & Strategy</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Successful investing is a continuous process. Learn how to monitor your portfolio, build an ideal mix of funds, and see some top-performing examples.</p>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Successful investing is a continuous process. Learn how to monitor your portfolio and build an ideal mix of funds based on your risk appetite.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div>
@@ -767,14 +816,26 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- NEW SUB-SECTION -->
                     <div>
-                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">Top Picks (For Research)</h3>
-                        <p class="text-gray-600 mb-4 text-sm">This list shows funds with strong 3-year performance. It is for informational purposes only and is not investment advice.</p>
-                        <div class="chart-container h-80 md:h-96">
-                            <canvas id="topPicksChart"></canvas>
+                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">Ideal fund category combinations for different risk profiles</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Low Risk Profile:</h4>
+                                <p class="text-gray-600 text-sm">Liquid Funds (for emergency) + Short Duration Debt Funds (for stability and slightly better returns).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Moderate Risk Profile:</h4>
+                                <p class="text-gray-600 text-sm">Large Cap Index Funds (for core equity exposure) + Flexi Cap Funds (for diversification) + Short Duration Debt Funds (for balance).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">High Risk Profile:</h4>
+                                <p class="text-gray-600 text-sm">Mid Cap Funds + Small Cap Funds (for high growth potential) + Flexi Cap/Multi Cap Funds (for diversified equity) + a smaller allocation to Debt Funds for cushioning.</p>
+                            </div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-4 text-center"><i>Past performance is not a reliable indicator of future results.</i></p>
+                         <p class="text-xs text-gray-500 mt-4"><i>Disclaimer: This is for educational purposes only and not investment advice. Consult a financial advisor before investing.</i></p>
                     </div>
+                    <!-- END NEW SUB-SECTION -->
                 </div>
             </section>
         </div>
@@ -783,7 +844,7 @@
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">पोर्टफोलिओ व्यवस्थापन आणि रणनीती</h2>
-                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">यशस्वी गुंतवणूक ही एक सतत चालणारी प्रक्रिया आहे. तुमचा पोर्टफोलिओ कसा तपासू शकता, फंडांचे आदर्श मिश्रण कसे तयार करू शकता आणि काही उत्तम कामगिरी करणाऱ्या उदाहरणांची माहिती मिळवा.</p>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">यशस्वी गुंतवणूक ही एक सतत चालणारी प्रक्रिया आहे. तुमचा पोर्टफोलिओ कसा तपासावा आणि तुमच्या जोखीम क्षमतेनुसार फंडांचे आदर्श मिश्रण कसे तयार करावे हे शिका.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
                     <div>
@@ -803,17 +864,168 @@
                             </li>
                         </ul>
                     </div>
+                    <!-- NEW MARATHI SUB-SECTION -->
                     <div>
-                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">उत्तम कामगिरी करणारे फंड (संशोधनासाठी)</h3>
-                        <p class="text-gray-600 mb-4 text-sm">ही यादी उत्तम 3-वर्षांची कामगिरी दर्शवते. ही माहिती केवळ माहितीच्या उद्देशाने आहे आणि गुंतवणुकीचा सल्ला नाही.</p>
-                        <div class="chart-container h-80 md:h-96">
-                            <canvas id="topPicksChart-mr"></canvas>
+                        <h3 class="text-2xl font-semibold m-vita-blue mb-4">वेगवेगळ्या जोखीम प्रोफाइलसाठी आदर्श फंड श्रेणी संयोजन</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-gray-800">कमी जोखीम प्रोफाइल:</h4>
+                                <p class="text-gray-600 text-sm">लिक्विड फंड (आणीबाणीसाठी) + शॉर्ट ड्युरेशन डेट फंड (स्थिरता आणि थोड्या चांगल्या परताव्यासाठी).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">मध्यम जोखीम प्रोफाइल:</h4>
+                                <p class="text-gray-600 text-sm">लार्ज कॅप इंडेक्स फंड (मुख्य इक्विटी गुंतवणुकीसाठी) + फ्लेक्सी कॅप फंड (विविधतेसाठी) + शॉर्ट ड्युरेशन डेट फंड (संतुलनासाठी).</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">उच्च जोखीम प्रोफाइल:</h4>
+                                <p class="text-gray-600 text-sm">मिड कॅप फंड + स्मॉल कॅप फंड (उच्च वाढीच्या क्षमतेसाठी) + फ्लेक्सी कॅप/मल्टी कॅप फंड (विविध इक्विटीसाठी) + संरक्षणासाठी डेट फंडांमध्ये लहान गुंतवणूक.</p>
+                            </div>
                         </div>
-                        <p class="text-xs text-gray-500 mt-4 text-center"><i>मागील कामगिरी भविष्यातील परिणामांचे विश्वसनीय सूचक नाही.</i></p>
+                        <p class="text-xs text-gray-500 mt-4"><i>अस्वीकरण: ही माहिती केवळ शैक्षणिक हेतूंसाठी आहे आणि गुंतवणुकीचा सल्ला नाही. गुंतवणूक करण्यापूर्वी आर्थिक सल्लागाराचा सल्ला घ्या.</i></p>
+                    </div>
+                    <!-- END NEW MARATHI SUB-SECTION -->
+                </div>
+            </section>
+        </div>
+        
+        <!-- =================================================================== -->
+        <!-- ======================= NEW SECTION START ======================= -->
+        <!-- =================================================================== -->
+
+        <!-- Empaneled Companies Ribbon Section -->
+        <div id="empanelled-en" class="lang-content">
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">We are Empaneled with</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Partnering with India's leading Asset Management Companies to bring you a wide range of investment options.</p>
+                </div>
+                <div class="scrolling-ribbon">
+                    <div class="ribbon-track">
+                        <!-- List of AMCs (duplicated for seamless scroll) -->
+                        <script>
+                            const amcs = [
+                                { name: 'SBI Mutual Fund', logo: 'logos/sbimf.png' },
+                                { name: 'HDFC Mutual Fund', logo: 'logos/hdfcmf.png' },
+                                { name: 'ICICI Prudential', logo: 'logos/icicimf.png' },
+                                { name: 'Axis Mutual Fund', logo: 'logos/axismf.png' },
+                                { name: 'Kotak Mutual Fund', logo: 'logos/kotakmf.png' },
+                                { name: 'Nippon India', logo: 'logos/nipponmf.png' },
+                                { name: 'Mirae Asset', logo: 'logos/miraemf.png' },
+                                { name: 'UTI Mutual Fund', logo: 'logos/utimf.png' },
+                                { name: 'DSP Mutual Fund', logo: 'logos/dspmf.png' },
+                                { name: 'Aditya Birla Sun Life', logo: 'logos/birlamf.png' },
+                                { name: 'Canara Robeco', logo: 'logos/canaramf.png' },
+                                { name: 'Franklin Templeton', logo: 'logos/franklinmf.png' },
+                                { name: 'Tata Mutual Fund', logo: 'logos/tatamf.png' },
+                                { name: 'Bajaj FinServ Mutual Fund', logo: 'logos/bajajmf.png' },
+                                { name: 'Bandhan Mutual Fund', logo: 'logos/bandhanmf.png' },
+                                { name: 'Invesco Mutual Fund', logo: 'logos/invescomf.png' },
+                                { name: 'LIC Mutual Fund', logo: 'logos/licmf.png' },
+                                { name: 'Motilal Oswal Mutual Fund', logo: 'logos/motilalmf.png' },
+                                { name: 'PPFAS Mutual Fund', logo: 'logos/ppfasmf.png' },
+                                { name: 'Sundaram Mutual Fund', logo: 'logos/sundarammf.png' }
+
+                            ];
+                            const track = document.querySelector('.ribbon-track');
+                            // Duplicate the array to create a seamless loop
+                            [...amcs, ...amcs].forEach(amc => {
+                                track.innerHTML += `
+                                    <div class="ribbon-item">
+                                        <img src="${amc.logo}" alt="${amc.name} Logo" onerror="this.onerror=null;this.src='https://placehold.co/120x60/cccccc/000000?text=Logo';">
+                                        <p>${amc.name}</p>
+                                    </div>
+                                `;
+                            });
+                        </script>
                     </div>
                 </div>
             </section>
         </div>
+
+        <div id="empanelled-mr" class="lang-content hidden">
+            <section class="mb-16">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">आम्ही यांच्यासोबत पॅनेल्ड आहोत</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">तुम्हाला गुंतवणुकीचे विस्तृत पर्याय देण्यासाठी भारतातील अग्रगण्य मालमत्ता व्यवस्थापन कंपन्यांसोबत भागीदारी करत आहोत.</p>
+                </div>
+                 <div class="scrolling-ribbon">
+                    <div class="ribbon-track">
+                        <!-- Content is dynamically generated via the script above, so this will also be populated -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Compliance and Links Section -->
+        <div id="compliance-en" class="lang-content">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Important Links & Compliance</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">Access key regulatory websites, understand complaint mechanisms, and stay updated with the latest circulars.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
+                    <!-- Regulatory Bodies -->
+                    <div>
+                        <h3 class="text-xl font-semibold m-vita-blue mb-4">Regulatory Bodies</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://www.sebi.gov.in/" target="_blank" class="hover:underline text-blue-600">SEBI (Securities and Exchange Board of India)</a> - The primary regulator for the securities market in India.</li>
+                            <li><a href="https://www.amfiindia.com/" target="_blank" class="hover:underline text-blue-600">AMFI (Association of Mutual Funds in India)</a> - Dedicated to developing the Indian Mutual Fund Industry on professional and ethical lines.</li>
+                        </ul>
+                    </div>
+                    <!-- Complaint Mechanisms -->
+                    <div>
+                        <h3 class="text-xl font-semibold m-vita-blue mb-4">Grievance Redressal</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://scores.sebi.gov.in/" target="_blank" class="hover:underline text-blue-600">SEBI SCORES Portal</a> - File and track complaints online with SEBI against listed companies and intermediaries.</li>
+                            <li><p class="text-sm">For any complaints, please contact our Compliance Officer, Shriram Samudra, at <a href="mailto:mvitaservices@gmail.com" class="text-blue-600">mvitaservices@gmail.com</a>.</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-8">
+                    <h3 class="text-xl font-semibold m-vita-blue mb-4 text-center">Disclosures</h3>
+                    <p class="text-center text-sm text-gray-600 max-w-3xl mx-auto">
+                        Mutual fund investments are subject to market risks, read all scheme related documents carefully. The NAVs of the schemes may go up or down depending upon the factors and forces affecting the securities market including the fluctuations in the interest rates. The past performance of the mutual funds is not necessarily indicative of future performance of the schemes.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <div id="compliance-mr" class="lang-content hidden">
+            <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">महत्वाचे लिंक्स आणि अनुपालन</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">मुख्य नियामक वेबसाइट्सवर प्रवेश करा, तक्रार निवारण यंत्रणा समजून घ्या आणि नवीनतम परिपत्रकांसह अद्ययावत रहा.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
+                    <!-- Regulatory Bodies -->
+                    <div>
+                        <h3 class="text-xl font-semibold m-vita-blue mb-4">नियामक संस्था</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://www.sebi.gov.in/" target="_blank" class="hover:underline text-blue-600">SEBI (सिक्युरिटीज अँड एक्सचेंज बोर्ड ऑफ इंडिया)</a> - भारतातील सिक्युरिटीज मार्केटसाठी प्राथमिक नियामक.</li>
+                            <li><a href="https://www.amfiindia.com/" target="_blank" class="hover:underline text-blue-600">AMFI (असोसिएशन ऑफ म्युच्युअल फंड्स इन इंडिया)</a> - भारतीय म्युच्युअल फंड उद्योगाला व्यावसायिक आणि नैतिक मार्गांवर विकसित करण्यासाठी समर्पित.</li>
+                        </ul>
+                    </div>
+                    <!-- Complaint Mechanisms -->
+                    <div>
+                        <h3 class="text-xl font-semibold m-vita-blue mb-4">तक्रार निवारण</h3>
+                        <ul class="space-y-3">
+                            <li><a href="https://scores.gov.in/" target="_blank" class="hover:underline text-blue-600">SEBI SCORES पोर्टल</a> - सूचीबद्ध कंपन्या आणि मध्यस्थांविरुद्ध SEBI कडे ऑनलाइन तक्रारी दाखल करा आणि ट्रॅक करा.</li>
+                            <li><p class="text-sm">कोणत्याही तक्रारीसाठी, कृपया आमचे अनुपालन अधिकारी, श्रीराम समुद्र, यांच्याशी <a href="mailto:mvitaservices@gmail.com" class="text-blue-600">mvitaservices@gmail.com</a> येथे संपर्क साधा.</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-8 border-t pt-8">
+                    <h3 class="text-xl font-semibold m-vita-blue mb-4 text-center">प्रकटीकरण</h3>
+                    <p class="text-center text-sm text-gray-600 max-w-3xl mx-auto">
+                        म्युच्युअल फंडातील गुंतवणूक बाजाराच्या जोखमीच्या अधीन असते, योजनेशी संबंधित सर्व कागदपत्रे काळजीपूर्वक वाचा. व्याजदरातील चढउतारांसह सिक्युरिटीज मार्केटवर परिणाम करणाऱ्या घटक आणि शक्तींवर अवलंबून योजनांचे NAVs वर किंवा खाली जाऊ शकतात. म्युच्युअल फंडांची मागील कामगिरी ही योजनांच्या भविष्यातील कामगिरीचे सूचक असेलच असे नाही.
+                    </p>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================================================================= -->
+        <!-- ======================== NEW SECTION END ======================== -->
+        <!-- ================================================================= -->
 
 
         <!-- FAQs Section -->
@@ -956,7 +1168,7 @@
             // NOTE: The form submission script is removed as the form is no longer present.
 
             // Chart.js Visualizations
-            let expenseChart, topPicksChart, expenseChartMr, topPicksChartMr;
+            let expenseChart, expenseChartMr;
 
             function createExpenseChart(ctx, isMarathi = false) {
                 if (!ctx) return;
@@ -1033,99 +1245,30 @@
                 return new Chart(ctx, { type: 'line', data: chartData, options: chartOptions });
             }
 
-            function createTopPicksChart(ctx, isMarathi = false) {
-                if (!ctx) return;
-                const labels = ['Quant Small Cap', 'Nippon India Small Cap', 'Motilal Oswal Midcap', 'Quant Mid Cap', 'SBI Contra', 'Parag Parikh Flexi Cap'];
-                const data = [40.36, 34.52, 32.59, 31.52, 30.36, 21.96];
-
-                const chartData = {
-                    labels: labels,
-                    datasets: [{
-                        label: isMarathi ? '3-वर्षांचा CAGR (%)' : '3-Year CAGR (%)',
-                        data: data,
-                        backgroundColor: [
-                            'rgba(0, 90, 156, 0.7)',
-                            'rgba(0, 90, 156, 0.6)',
-                            'rgba(0, 90, 156, 0.5)',
-                            'rgba(253, 184, 19, 0.7)',
-                            'rgba(253, 184, 19, 0.6)',
-                            'rgba(253, 184, 19, 0.5)'
-                        ],
-                        borderColor: [
-                            '#005A9C',
-                            '#005A9C',
-                            '#005A9C',
-                            '#FDB813',
-                            '#FDB813',
-                            '#FDB813'
-                        ],
-                        borderWidth: 1
-                    }]
-                };
-
-                const chartOptions = {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        title: {
-                            display: true,
-                            text: isMarathi ? 'फंडाची कामगिरी (3-वर्षांचा CAGR)' : 'Fund Performance (3-Year CAGR)',
-                            font: { size: 16 }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}%`;
-                                }
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: isMarathi ? 'वार्षिक परतावा (%)' : 'Annualized Return (%)'
-                            }
-                        }
-                    }
-                };
-                return new Chart(ctx, { type: 'bar', data: chartData, options: chartOptions });
-            }
-
             // Initial render
             createAccordion('kyc-accordion', kycItemsEn);
             createAccordion('faq-accordion', faqItemsEn);
             createAccordion('kyc-accordion-mr', kycItemsMr);
             createAccordion('faq-accordion-mr', faqItemsMr);
             expenseChart = createExpenseChart(document.getElementById('expenseRatioChart'));
-            topPicksChart = createTopPicksChart(document.getElementById('topPicksChart'));
             expenseChartMr = createExpenseChart(document.getElementById('expenseRatioChart-mr'), true);
-            topPicksChartMr = createTopPicksChart(document.getElementById('topPicksChart-mr'), true);
-
+           
             // Set initial language to English
             setLanguage('en');
 
             // Hide the Marathi charts initially
             document.getElementById('expenseRatioChart-mr').parentElement.classList.add('hidden');
-            document.getElementById('topPicksChart-mr').parentElement.classList.add('hidden');
 
             langEnBtn.addEventListener('click', () => {
                 setLanguage('en');
                 document.getElementById('expenseRatioChart').parentElement.classList.remove('hidden');
                 document.getElementById('expenseRatioChart-mr').parentElement.classList.add('hidden');
-                document.getElementById('topPicksChart').parentElement.classList.remove('hidden');
-                document.getElementById('topPicksChart-mr').parentElement.classList.add('hidden');
             });
 
             langMrBtn.addEventListener('click', () => {
                 setLanguage('mr');
                 document.getElementById('expenseRatioChart').parentElement.classList.add('hidden');
                 document.getElementById('expenseRatioChart-mr').parentElement.classList.remove('hidden');
-                document.getElementById('topPicksChart').parentElement.classList.add('hidden');
-                document.getElementById('topPicksChart-mr').parentElement.classList.remove('hidden');
             });
         });
     </script>
@@ -1294,5 +1437,12 @@
             });
         });
     </script>
+    
+    <!-- Floating Action Button -->
+    <a href="onboarding.html" class="fixed bottom-8 right-8 bg-m-vita-gold text-white font-bold py-3 px-5 rounded-full shadow-lg hover:opacity-90 transition-opacity duration-300 z-50 flex items-center space-x-2">
+        <span>Open your account</span>
+        <i class="fas fa-arrow-right"></i>
+    </a>
+
 </body>
 </html>
