@@ -54,6 +54,10 @@ form.addEventListener('submit', async (e) => {
         const aadharCardFile = formData.get('aadharCardUpload');
         const chequeLeafFile = formData.get('chequeLeafUpload');
 
+        // Handle the nominee date field to send null if empty
+        const nomineeDobValue = formData.get('nomineeDob');
+        const nomineeDob = nomineeDobValue ? nomineeDobValue : null;
+
         const [panUrl, aadharUrl, chequeUrl] = await Promise.all([
             uploadFile(panCardFile),
             uploadFile(aadharCardFile),
@@ -67,7 +71,7 @@ form.addEventListener('submit', async (e) => {
             p_email: formData.get('email'),
             p_mobile: formData.get('mobile'),
             p_nominee_name: formData.get('nomineeName'),
-            p_nominee_dob: formData.get('nomineeDob'),
+            p_nominee_dob: nomineeDob, // Pass the corrected value
             p_nominee_aadhar: formData.get('nomineeAadhar'),
             p_nominee_mobile: formData.get('nomineeMobile'),
             p_nominee_email: formData.get('nomineeEmail'),
@@ -89,7 +93,7 @@ form.addEventListener('submit', async (e) => {
         
     } catch (error) {
         console.error('Error submitting form:', error.message);
-        alert('An error occurred during submission. Please try again.');
+        alert('An error occurred during submission. Please try again. Check the console for more details.');
     } finally {
         submitBtn.textContent = "Submit";
         submitBtn.disabled = false;
