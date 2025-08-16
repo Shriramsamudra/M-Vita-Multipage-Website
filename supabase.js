@@ -43,6 +43,12 @@ form.addEventListener('submit', async (e) => {
     submitBtn.disabled = true;
 
     try {
+        // Sign in anonymously to get a session with 'authenticated' role
+        const { data: { user }, error: authError } = await supabase.auth.signInAnonymously();
+        if (authError) {
+            throw authError;
+        }
+
         const formData = new FormData(form);
         const panCardFile = formData.get('panCardUpload');
         const aadharCardFile = formData.get('aadharCardUpload');
