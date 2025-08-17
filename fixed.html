@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Your Partner in Financial Well-being</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
+                <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
+                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
+                <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
+                <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
+            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
+            <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
+            <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Home Hero Section -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Income Products</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+        }
+        .section-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 10px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        @media (min-width: 768px) {
+            .section-card {
+                padding: 2.5rem;
+            }
+        }
+        .product-card {
+            background-color: #f9fafb;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem 0;
+            cursor: pointer;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #1f2937;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            color: #4b5563;
+            margin-top: 0.75rem;
+            display: none;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Language Toggle Styles */
+        .language-toggle-container {
+            display: flex;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            padding: 0.25rem;
+            gap: 0.5rem;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .language-toggle-btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            text-align: center;
+            color: #4b5563;
+        }
+        .language-toggle-btn.active {
+            background-color: #1a56b9;
+            color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        #chartCanvas {
+            max-height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container">
+        <!-- Main Title Section and Language Toggle -->
+        <div class="flex flex-col md:flex-row items-center justify-between my-8 md:my-12">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-[#1a56b9] leading-tight mb-4 md:mb-0" data-lang-key="mainTitle">Fixed Income Products</h1>
+            <div class="language-toggle-container">
+                <button id="language-toggle-en" class="language-toggle-btn active" data-lang="en">English</button>
+                <button id="language-toggle-mr" class="language-toggle-btn" data-lang="mr">मराठी</button>
+            </div>
+        </div>
+
+        <!-- Short Intro Section -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="introTitle">Our Fixed Income Offerings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="product-card">
+                    <h3 class="text-xl font-semibold text-[#1a56b9] mb-2" data-lang-key="bondsTitle">Bonds</h3>
+                    <p class="text-gray-600" data-lang-key="bondsText">Bonds are debt instruments where you lend money to an entity (government or corporation) for a defined period. In return, the issuer promises to pay a fixed or floating interest rate (coupon) and repay the principal at maturity.</p>
+                </div>
+                <div class="product-card">
+                    <h3 class="text-xl font-semibold text-[#1a56b9] mb-2" data-lang-key="fdsTitle">Fixed Deposits (FDs)</h3>
+                    <p class="text-gray-600" data-lang-key="fdsText">Fixed Deposits are a type of term deposit offered by banks and Non-Banking Financial Companies (NBFCs). They provide a higher interest rate than a regular savings account, with the funds locked in for a specified period.</p>
+                </div>
+                <div class="product-card">
+                    <h3 class="text-xl font-semibold text-[#1a56b9] mb-2" data-lang-key="smReitsTitle">SM REITs</h3>
+                    <p class="text-gray-600" data-lang-key="smReitsText">Small and Medium Real Estate Investment Trusts (SM REITs) allow retail investors to invest in a portfolio of income-generating real estate properties, offering potential returns from rental income and property value appreciation.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Onboarding Process & Documents -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="onboardingTitle">Onboarding Process</h2>
+            <p class="text-base md:text-lg text-gray-700 mb-4 md:mb-6" data-lang-key="onboardingSubtitle">Our seamless onboarding process is designed to get you started quickly and securely.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 text-center">
+                <div class="p-4 bg-blue-50 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-[#1a56b9] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mb-2 md:mb-4">1</div>
+                    <h4 class="text-lg md:text-xl font-semibold text-[#1a56b9]" data-lang-key="onboardingStep1">Create Account</h4>
+                    <p class="mt-1 md:mt-2 text-gray-600 text-sm md:text-base" data-lang-key="onboardingStep1Text">Register on our platform with your basic details.</p>
+                </div>
+                <div class="p-4 bg-blue-50 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-[#1a56b9] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mb-2 md:mb-4">2</div>
+                    <h4 class="text-lg md:text-xl font-semibold text-[#1a56b9]" data-lang-key="onboardingStep2">Complete KYC</h4>
+                    <p class="mt-1 md:mt-2 text-gray-600 text-sm md:text-base" data-lang-key="onboardingStep2Text">Verify your identity by uploading the required documents.</p>
+                </div>
+                <div class="p-4 bg-blue-50 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-[#1a56b9] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mb-2 md:mb-4">3</div>
+                    <h4 class="text-lg md:text-xl font-semibold text-[#1a56b9]" data-lang-key="onboardingStep3">Explore & Select</h4>
+                    <p class="mt-1 md:mt-2 text-gray-600 text-sm md:text-base" data-lang-key="onboardingStep3Text">Browse through our wide range of products and choose what's right for you.</p>
+                </div>
+                <div class="p-4 bg-blue-50 rounded-lg shadow-sm">
+                    <div class="w-12 h-12 md:w-16 md:h-16 mx-auto bg-[#1a56b9] text-white rounded-full flex items-center justify-center text-xl md:text-2xl font-bold mb-2 md:mb-4">4</div>
+                    <h4 class="text-lg md:text-xl font-semibold text-[#1a56b9]" data-lang-key="onboardingStep4">Invest</h4>
+                    <p class="mt-1 md:mt-2 text-gray-600 text-sm md:text-base" data-lang-key="onboardingStep4Text">Initiate your investment with a few simple clicks.</p>
+                </div>
+            </div>
+            <div class="mt-8 md:mt-10">
+                <h3 class="text-xl md:text-2xl font-bold text-[#1a56b9] mb-4" data-lang-key="documentsTitle">Required Documents for Onboarding</h3>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li data-lang-key="panCard">PAN Card</li>
+                    <li data-lang-key="aadhaarCard">Aadhaar Card or other address proof</li>
+                    <li data-lang-key="dematAccount">Demat Account (For Bonds) - Client Master List (CML)</li>
+                    <li data-lang-key="cancelledCheque">Cancelled Cheque</li>
+                </ul>
+            </div>
+            <div class="mt-6 md:mt-8 p-4 md:p-6 bg-blue-100 rounded-xl">
+                <h3 class="text-xl md:text-2xl font-bold text-[#1a56b9] mb-2" data-lang-key="kycTitle">Know Your Customer (KYC)</h3>
+                <p class="text-gray-700" data-lang-key="kycText">KYC is a mandatory process of verifying a client's identity and address. It helps us to ensure the security of your transactions and comply with regulatory requirements. Your documents are handled with the utmost confidentiality and security.</p>
+            </div>
+        </div>
+
+        <!-- Charges & Fees Section -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="chargesTitle">Charges & Commissions</h2>
+            <p class="text-gray-700 text-base md:text-lg" data-lang-key="chargesText1">
+                We believe in providing transparent and value-driven services. We <strong>do not charge any fees or commissions to our clients</strong> for transactions on our platform.
+            </p>
+            <p class="mt-2 md:mt-4 text-gray-700 text-base md:text-lg" data-lang-key="chargesText2">
+                Our business model is based on receiving a commission from the issuers of the products (e.g., companies issuing bonds or banks offering FDs). This ensures that you can invest without any additional costs on your end.
+            </p>
+        </div>
+
+        <!-- Bond Yield Calculator and Graph -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="calculatorTitle">Bond Yield Calculator</h2>
+            <p class="text-gray-700 text-base md:text-lg" data-lang-key="calculatorIntro">Calculate the current yield of a bond and see how price and yield are inversely related.</p>
+
+            <div class="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <!-- Calculator Inputs -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-inner">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="faceValue" class="block text-gray-700 font-medium" data-lang-key="faceValueLabel">Face Value (₹)</label>
+                            <input type="number" id="faceValue" value="1000" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2">
+                        </div>
+                        <div>
+                            <label for="couponRate" class="block text-gray-700 font-medium" data-lang-key="couponRateLabel">Coupon Rate (%)</label>
+                            <input type="number" id="couponRate" value="8" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm p-2">
+                        </div>
+                        <div>
+                            <label for="currentPrice" class="block text-gray-700 font-medium" data-lang-key="currentPriceLabel">Current Market Price (₹)</label>
+                            <input type="range" id="currentPrice" value="950" min="800" max="1500" step="1" class="mt-1 w-full">
+                            <span id="price-value" class="text-gray-600 text-sm">₹950</span>
+                        </div>
+                    </div>
+                    <div class="mt-6 p-4 bg-white rounded-lg shadow-sm border border-gray-200">
+                        <p class="text-gray-600 font-medium" data-lang-key="currentYieldOutput">Current Yield:</p>
+                        <p id="yield-output" class="text-3xl font-bold text-[#1a56b9] mt-1">8.42%</p>
+                    </div>
+                </div>
+
+                <!-- Graph Section -->
+                <div class="bg-blue-50 p-6 rounded-lg shadow-inner">
+                    <canvas id="yieldChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Bond & FD Ratings Section -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="ratingsTitle">Credit Ratings</h2>
+            <p class="text-gray-700 text-base md:text-lg" data-lang-key="ratingsIntro">
+                Credit ratings are an essential tool for evaluating the creditworthiness of a bond or a Fixed Deposit issuer. Agencies like CRISIL, ICRA, and CARE assign these ratings, which indicate the likelihood of the issuer meeting its financial obligations.
+            </p>
+            <div class="overflow-x-auto mt-4 md:mt-6">
+                <table class="w-full table-auto border-collapse border border-gray-300 rounded-lg">
+                    <thead class="bg-[#1a56b9] text-white">
+                        <tr>
+                            <th class="p-4 text-left border-r border-gray-400" data-lang-key="ratingTableHeading">Rating</th>
+                            <th class="p-4 text-left" data-lang-key="meaningTableHeading">Meaning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="bg-blue-50">
+                            <td class="p-4 font-bold border-r border-gray-300">AAA</td>
+                            <td class="p-4" data-lang-key="aaaMeaning">Highest Safety.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-4 font-bold border-r border-gray-300">AA</td>
+                            <td class="p-4" data-lang-key="aaMeaning">High Safety.</td>
+                        </tr>
+                        <tr class="bg-blue-50">
+                            <td class="p-4 font-bold border-r border-gray-300">A</td>
+                            <td class="p-4" data-lang-key="aMeaning">Adequate Safety.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-4 font-bold border-r border-gray-300">BBB</td>
+                            <td class="p-4" data-lang-key="bbbMeaning">Moderate Safety.</td>
+                        </tr>
+                        <tr class="bg-blue-50">
+                            <td class="p-4 font-bold border-r border-gray-300">BB</td>
+                            <td class="p-4" data-lang-key="bbMeaning">Inadequate Safety.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-4 font-bold border-r border-gray-300">B</td>
+                            <td class="p-4" data-lang-key="bMeaning">High Risk.</td>
+                        </tr>
+                        <tr class="bg-blue-50">
+                            <td class="p-4 font-bold border-r border-gray-300">C</td>
+                            <td class="p-4" data-lang-key="cMeaning">Substantial Risk.</td>
+                        </tr>
+                        <tr class="bg-white">
+                            <td class="p-4 font-bold border-r border-gray-300">D</td>
+                            <td class="p-4" data-lang-key="dMeaning">Default or Likely to Default.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4 md:mt-6">
+                <div class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h4 class="text-xl font-semibold text-[#1a56b9] mb-2" data-lang-key="bondsRatingsTitle">Bonds</h4>
+                    <p class="text-gray-600" data-lang-key="bondsRatingsText">High-rated bonds (e.g., AAA, AA) are considered to have low default risk and generally offer lower yields. Lower-rated bonds (e.g., BBB, BB) carry higher risk but may offer higher yields to compensate for the risk.</p>
+                </div>
+                <div class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h4 class="text-xl font-semibold text-[#1a56b9] mb-2" data-lang-key="fdsRatingsTitle">Fixed Deposits</h4>
+                    <p class="text-gray-600" data-lang-key="fdsRatingsText">FD ratings provide an opinion on the company or bank's ability to repay the principal and interest on time. They are crucial for investors looking for safety and predictability in their returns.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Monitoring & Review -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="monitoringTitle">Monitoring & Review</h2>
+            <p class="text-gray-700 text-base md:text-lg mb-4" data-lang-key="monitoringIntro">
+                We assist you in monitoring your investments and provide regular reviews to ensure your portfolio remains aligned with your financial goals. As an investor, you should keep an eye on the following:
+            </p>
+            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                <li data-lang-key="monitoringPoint1">Changes in Interest Rates: Monitor changes in the overall market interest rates, as this can affect the value of your existing bonds.</li>
+                <li data-lang-key="monitoringPoint2">Credit Rating Changes: Keep track of any upgrades or downgrades to the credit rating of your bond or FD issuer.</li>
+                <li data-lang-key="monitoringPoint3">Liquidity: Be aware of the liquidity of your investments, especially in case you need to sell your bonds before maturity.</li>
+                <li data-lang-key="monitoringPoint4">Inflation: Review your real rate of return by factoring in the inflation rate.</li>
+            </ul>
+        </div>
+
+        <!-- Ideal Strategy Section -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="strategyTitle">Ideal Selection Strategy</h2>
+            <p class="text-gray-700 text-base md:text-lg mb-4 md:mb-6" data-lang-key="strategyIntro">
+                Choosing the right product depends on your risk appetite, investment horizon, and financial goals. Here's a general guide:
+            </p>
+            <a href="riskcalc.html" class="inline-block bg-[#1a56b9] text-white font-bold py-3 px-6 rounded-full shadow-lg hover:bg-[#154699] transition-colors duration-300 mb-6" data-lang-key="riskReportLink">View Risk Appetite Report</a>
+            <ul class="space-y-4 md:space-y-6">
+                <li class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-[#1a56b9]" data-lang-key="bondsStrategyTitle">Bonds</h3>
+                    <p class="mt-2 text-gray-600" data-lang-key="bondsStrategyText"><strong>Ideal for:</strong> Investors looking for stable income and capital preservation. Good for diversification. Consider the credit rating and yield. A mix of high-rated and slightly lower-rated bonds can balance risk and return.</p>
+                </li>
+                <li class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-[#1a56b9]" data-lang-key="fdsStrategyTitle">Fixed Deposits</h3>
+                    <p class="mt-2 text-gray-600" data-lang-key="fdsStrategyText"><strong>Ideal for:</strong> Conservative investors prioritizing capital safety. Best for short to medium-term goals. Choose FDs from highly-rated banks or NBFCs. Compare interest rates and premature withdrawal penalties.</p>
+                </li>
+                <li class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-[#1a56b9]" data-lang-key="smReitsStrategyTitle">SM REITs</h3>
+                    <p class="mt-2 text-gray-600" data-lang-key="smReitsStrategyText"><strong>Ideal for:</strong> Investors seeking passive income from real estate without the hassle of direct ownership. Suitable for long-term investors with a moderate risk appetite. Diversify across different properties and locations.</p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Income Tax Implications -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="taxTitle">Income Tax Implications</h2>
+            <p class="text-gray-700 text-base md:text-lg mb-4" data-lang-key="taxIntro">
+                Understanding the tax implications of your investments is crucial for effective financial planning. Here is a general overview:
+            </p>
+            <ul class="space-y-4 md:space-y-6">
+                <li class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-[#1a56b9]" data-lang-key="bondsTaxTitle">Bonds</h3>
+                    <p class="mt-2 text-gray-600" data-lang-key="bondsTaxText">
+                        <strong>Interest Income:</strong> Interest earned from bonds is taxed as "Income from other sources" at your individual income tax slab rate.
+                        <br><br>
+                        <strong>Capital Gains:</strong> Capital gains on selling bonds are taxed based on the holding period. Short-term capital gains (if held for less than a year) are added to your income and taxed at your slab rate. Long-term capital gains (if held for more than a year) are taxed at a lower, specific rate.
+                    </p>
+                </li>
+                <li class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-[#1a56b9]" data-lang-key="fdsTaxTitle">Fixed Deposits (FDs)</h3>
+                    <p class="mt-2 text-gray-600" data-lang-key="fdsTaxText">
+                        <strong>Interest Income:</strong> Interest from FDs is fully taxable at your individual income tax slab rate. TDS (Tax Deducted at Source) may be applicable if the interest exceeds a certain threshold.
+                    </p>
+                </li>
+                <li class="p-6 bg-blue-50 rounded-lg shadow-sm">
+                    <h3 class="text-xl font-semibold text-[#1a56b9]" data-lang-key="smReitsTaxTitle">SM REITs</h3>
+                    <p class="mt-2 text-gray-600" data-lang-key="smReitsTaxText">
+                        <strong>Dividend Income:</strong> The dividend portion of the distribution from SM REITs is taxed at your individual income tax slab rate.
+                        <br><br>
+                        <strong>Capital Gains:</strong> Capital gains on selling SM REIT units are taxed as per the same rules as bonds (short-term vs. long-term).
+                    </p>
+                </li>
+            </ul>
+        </div>
+
+        <!-- FAQs Section -->
+        <div class="section-card">
+            <h2 class="text-2xl md:text-3xl font-bold text-[#1a56b9] mb-4 md:mb-6" data-lang-key="faqsTitle">Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq1q">What is the difference between a bond and a Fixed Deposit?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq1a">Bonds are typically tradable on a market and can be issued by governments or corporations. FDs are offered by banks and are not tradable. Bonds may have variable returns, while FDs offer fixed interest rates.</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq2q">Are my investments in SM REITs safe?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq2a">SM REITs are subject to market risks, and their value can fluctuate. However, they are regulated and invest in a portfolio of properties, which helps in diversification and risk management.</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq3q">How can I calculate the yield on a bond?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq3a">The simplest way is to calculate the Current Yield: (Annual Coupon Payment / Current Market Price) x 100. For a more accurate measure, the Yield to Maturity (YTM) calculation is used.</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq4q">What documents do I need for KYC?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq4a">Generally, you will need a PAN card, an Aadhaar card (or other valid address proof), and your bank account details.</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq5q">How is my privacy protected during the onboarding process?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq5a">We use robust security protocols to protect your personal information. All documents and data submitted for KYC are encrypted and stored securely, in compliance with data protection laws.</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq6q">What is the interest payment frequency?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq6a">The interest payment frequency depends on the specific product. For bonds, it can be annually, semi-annually, or quarterly. For Fixed Deposits, interest is typically paid at maturity or at regular intervals as per your choice.</span>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span data-lang-key="faq7q">How will I receive my interest payments?</span>
+                        <span class="faq-icon">&#9660;</span>
+                    </div>
+                    <div class="faq-answer">
+                        <span data-lang-key="faq7a">Interest payments are directly credited to the bank account linked with your investment account via electronic transfer methods like NEFT or RTGS. You will receive a notification each time an interest payment is made.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language Toggle and Translation Logic
+        const translations = {
+            en: {
+                mainTitle: "Fixed Income Products",
+                introTitle: "Our Fixed Income Offerings",
+                bondsTitle: "Bonds",
+                bondsText: "Bonds are debt instruments where you lend money to an entity (government or corporation) for a defined period. In return, the issuer promises to pay a fixed or floating interest rate (coupon) and repay the principal at maturity.",
+                fdsTitle: "Fixed Deposits (FDs)",
+                fdsText: "Fixed Deposits are a type of term deposit offered by banks and Non-Banking Financial Companies (NBFCs). They provide a higher interest rate than a regular savings account, with the funds locked in for a specified period.",
+                smReitsTitle: "SM REITs",
+                smReitsText: "Small and Medium Real Estate Investment Trusts (SM REITs) allow retail investors to invest in a portfolio of income-generating real estate properties, offering potential returns from rental income and property value appreciation.",
+                onboardingTitle: "Onboarding Process",
+                onboardingSubtitle: "Our seamless onboarding process is designed to get you started quickly and securely.",
+                onboardingStep1: "Create Account",
+                onboardingStep1Text: "Register on our platform with your basic details.",
+                onboardingStep2: "Complete KYC",
+                onboardingStep2Text: "Verify your identity by uploading the required documents.",
+                onboardingStep3: "Explore & Select",
+                onboardingStep3Text: "Browse through our wide range of products and choose what's right for you.",
+                onboardingStep4: "Invest",
+                onboardingStep4Text: "Initiate your investment with a few simple clicks.",
+                documentsTitle: "Required Documents for Onboarding",
+                panCard: "PAN Card",
+                aadhaarCard: "Aadhaar Card or other address proof",
+                dematAccount: "Demat Account (For Bonds) - Client Master List (CML)",
+                cancelledCheque: "Cancelled Cheque",
+                kycTitle: "Know Your Customer (KYC)",
+                kycText: "KYC is a mandatory process of verifying a client's identity and address. It helps us to ensure the security of your transactions and comply with regulatory requirements. Your documents are handled with the utmost confidentiality and security.",
+                chargesTitle: "Charges & Commissions",
+                chargesText1: "We believe in providing transparent and value-driven services. We <strong>do not charge any fees or commissions to our clients</strong> for transactions on our platform.",
+                chargesText2: "Our business model is based on receiving a commission from the issuers of the products (e.g., companies issuing bonds or banks offering FDs). This ensures that you can invest without any additional costs on your end.",
+                calculatorTitle: "Bond Yield Calculator",
+                calculatorIntro: "Calculate the current yield of a bond and see how price and yield are inversely related.",
+                faceValueLabel: "Face Value (₹)",
+                couponRateLabel: "Coupon Rate (%)",
+                currentPriceLabel: "Current Market Price (₹)",
+                currentYieldOutput: "Current Yield:",
+                ratingsTitle: "Credit Ratings",
+                ratingsIntro: "Credit ratings are an essential tool for evaluating the creditworthiness of a bond or a Fixed Deposit issuer. Agencies like CRISIL, ICRA, and CARE assign these ratings, which indicate the likelihood of the issuer meeting its financial obligations.",
+                ratingTableHeading: "Rating",
+                meaningTableHeading: "Meaning",
+                aaaMeaning: "Highest Safety.",
+                aaMeaning: "High Safety.",
+                aMeaning: "Adequate Safety.",
+                bbbMeaning: "Moderate Safety.",
+                bbMeaning: "Inadequate Safety.",
+                bMeaning: "High Risk.",
+                cMeaning: "Substantial Risk.",
+                dMeaning: "Default or Likely to Default.",
+                monitoringTitle: "Monitoring & Review",
+                monitoringIntro: "We assist you in monitoring your investments and provide regular reviews to ensure your portfolio remains aligned with your financial goals. As an investor, you should keep an eye on the following:",
+                monitoringPoint1: "Changes in Interest Rates: Monitor changes in the overall market interest rates, as this can affect the value of your existing bonds.",
+                monitoringPoint2: "Credit Rating Changes: Keep track of any upgrades or downgrades to the credit rating of your bond or FD issuer.",
+                monitoringPoint3: "Liquidity: Be aware of the liquidity of your investments, especially in case you need to sell your bonds before maturity.",
+                monitoringPoint4: "Inflation: Review your real rate of return by factoring in the inflation rate.",
+                strategyTitle: "Ideal Selection Strategy",
+                strategyIntro: "Choosing the right product depends on your risk appetite, investment horizon, and financial goals. Here's a general guide:",
+                riskReportLink: "View Risk Appetite Report",
+                bondsStrategyTitle: "Bonds",
+                bondsStrategyText: "<strong>Ideal for:</strong> Investors looking for stable income and capital preservation. Good for diversification. Consider the credit rating and yield. A mix of high-rated and slightly lower-rated bonds can balance risk and return.",
+                fdsStrategyTitle: "Fixed Deposits",
+                fdsStrategyText: "<strong>Ideal for:</strong> Conservative investors prioritizing capital safety. Best for short to medium-term goals. Choose FDs from highly-rated banks or NBFCs. Compare interest rates and premature withdrawal penalties.",
+                smReitsStrategyTitle: "SM REITs",
+                smReitsText: "<strong>Ideal for:</strong> Investors seeking passive income from real estate without the hassle of direct ownership. Suitable for long-term investors with a moderate risk appetite. Diversify across different properties and locations.",
+                taxTitle: "Income Tax Implications",
+                taxIntro: "Understanding the tax implications of your investments is crucial for effective financial planning. Here is a general overview:",
+                bondsTaxTitle: "Bonds",
+                bondsTaxText: "<strong>Interest Income:</strong> Interest earned from bonds is taxed as \"Income from other sources\" at your individual income tax slab rate.<br><br><strong>Capital Gains:</strong> Capital gains on selling bonds are taxed based on the holding period. Short-term capital gains (if held for less than a year) are added to your income and taxed at your slab rate. Long-term capital gains (if held for more than a year) are taxed at a lower, specific rate.",
+                fdsTaxTitle: "Fixed Deposits (FDs)",
+                fdsTaxText: "<strong>Interest Income:</strong> Interest from FDs is fully taxable at your individual income tax slab rate. TDS (Tax Deducted at Source) may be applicable if the interest exceeds a certain threshold.",
+                smReitsTaxTitle: "SM REITs",
+                smReitsTaxText: "<strong>Dividend Income:</strong> The dividend portion of the distribution from SM REITs is taxed at your individual income tax slab rate.<br><br><strong>Capital Gains:</strong> Capital gains on selling SM REIT units are taxed as per the same rules as bonds (short-term vs. long-term).",
+                faqsTitle: "Frequently Asked Questions",
+                faq1q: "What is the difference between a bond and a Fixed Deposit?",
+                faq1a: "Bonds are typically tradable on a market and can be issued by governments or corporations. FDs are offered by banks and are not tradable. Bonds may have variable returns, while FDs offer fixed interest rates.",
+                faq2q: "Are my investments in SM REITs safe?",
+                faq2a: "SM REITs are subject to market risks, and their value can fluctuate. However, they are regulated and invest in a portfolio of properties, which helps in diversification and risk management.",
+                faq3q: "How can I calculate the yield on a bond?",
+                faq3a: "The simplest way is to calculate the Current Yield: (Annual Coupon Payment / Current Market Price) x 100. For a more accurate measure, the Yield to Maturity (YTM) calculation is used.",
+                faq4q: "What documents do I need for KYC?",
+                faq4a: "Generally, you will need a PAN card, an Aadhaar card (or other valid address proof), and your bank account details.",
+                faq5q: "How is my privacy protected during the onboarding process?",
+                faq5a: "We use robust security protocols to protect your personal information. All documents and data submitted for KYC are encrypted and stored securely, in compliance with data protection laws.",
+                faq6q: "What is the interest payment frequency?",
+                faq6a: "The interest payment frequency depends on the specific product. For bonds, it can be annually, semi-annually, or quarterly. For Fixed Deposits, interest is typically paid at maturity or at regular intervals as per your choice.",
+                faq7q: "How will I receive my interest payments?",
+                faq7a: "Interest payments are directly credited to the bank account linked with your investment account via electronic transfer methods like NEFT or RTGS. You will receive a notification each time an interest payment is made."
+            },
+            mr: {
+                mainTitle: "निश्चित उत्पन्न उत्पादने",
+                introTitle: "आमच्या निश्चित उत्पन्नाच्या ऑफर",
+                bondsTitle: "बॉन्ड्स (रोखे)",
+                bondsText: "बॉन्ड्स हे कर्ज साधने आहेत जिथे तुम्ही एखाद्या संस्थेला (सरकार किंवा कॉर्पोरेशन) निश्चित कालावधीसाठी पैसे उधार देता. त्या बदल्यात, जारीकर्ता निश्चित किंवा फ्लोटिंग व्याज दर (कूपन) देण्याचे आणि मुदतपूर्तीवर मूळ रक्कम परत देण्याचे वचन देतो.",
+                fdsTitle: "मुदत ठेवी (FDs)",
+                fdsText: "मुदत ठेवी हे बँका आणि गैर-बँकिंग वित्तीय कंपन्या (NBFCs) द्वारे ऑफर केलेल्या मुदत ठेवीचा एक प्रकार आहे. ते नियमित बचत खात्यापेक्षा जास्त व्याज दर देतात, ज्यात निधी विशिष्ट कालावधीसाठी लॉक केला जातो.",
+                smReitsTitle: "एसएम आरईआयटी",
+                smReitsText: "लहान आणि मध्यम रिअल इस्टेट इन्व्हेस्टमेंट ट्रस्ट (SM REITs) किरकोळ गुंतवणूकदारांना उत्पन्न देणाऱ्या रिअल इस्टेट मालमत्तेच्या पोर्टफोलिओमध्ये गुंतवणूक करण्याची परवानगी देतात, जे भाड्याच्या उत्पन्नातून आणि मालमत्तेच्या मूल्याच्या वाढीमुळे संभाव्य परतावा देतात.",
+                onboardingTitle: "ऑनबोर्डिंग प्रक्रिया",
+                onboardingSubtitle: "आमची अखंड ऑनबोर्डिंग प्रक्रिया तुम्हाला जलद आणि सुरक्षितपणे सुरू करण्यासाठी डिझाइन केलेली आहे.",
+                onboardingStep1: "खाते तयार करा",
+                onboardingStep1Text: "आमच्या प्लॅटफॉर्मवर तुमच्या मूलभूत माहितीसह नोंदणी करा.",
+                onboardingStep2: "केवायसी पूर्ण करा",
+                onboardingStep2Text: "आवश्यक कागदपत्रे अपलोड करून तुमची ओळख सत्यापित करा.",
+                onboardingStep3: "एक्सप्लोर करा आणि निवडा",
+                onboardingStep3Text: "आमच्या उत्पादनांची विस्तृत श्रेणी ब्राउझ करा आणि तुमच्यासाठी योग्य ते निवडा.",
+                onboardingStep4: "गुंतवणूक करा",
+                onboardingStep4Text: "काही सोप्या क्लिकमध्ये तुमची गुंतवणूक सुरू करा.",
+                documentsTitle: "ऑनबोर्डिंगसाठी आवश्यक कागदपत्रे",
+                panCard: "पॅन कार्ड",
+                aadhaarCard: "आधार कार्ड किंवा इतर पत्त्याचा पुरावा",
+                dematAccount: "डिमॅट खाते (बॉन्ड्ससाठी) - क्लायंट मास्टर लिस्ट (CML)",
+                cancelledCheque: "रद्द केलेला धनादेश",
+                kycTitle: "तुमच्या ग्राहकाला जाणून घ्या (केवायसी)",
+                kycText: "केवायसी ही ग्राहकाची ओळख आणि पत्ता सत्यापित करण्याची एक अनिवार्य प्रक्रिया आहे. हे आम्हाला तुमच्या व्यवहारांची सुरक्षितता सुनिश्चित करण्यास आणि नियामक आवश्यकतांचे पालन करण्यास मदत करते. तुमची कागदपत्रे अत्यंत गुप्तता आणि सुरक्षिततेने हाताळली जातात.",
+                chargesTitle: "शुल्क आणि कमिशन",
+                chargesText1: "आम्ही पारदर्शक आणि मूल्य-चालित सेवा प्रदान करण्यावर विश्वास ठेवतो. आमच्या प्लॅटफॉर्मवरील व्यवहारांसाठी आम्ही आमच्या ग्राहकांकडून कोणतेही शुल्क किंवा कमिशन <strong>आकारत नाही</strong>.",
+                chargesText2: "आमचे व्यवसाय मॉडेल उत्पादनांच्या जारीकर्त्यांकडून (उदा. बॉन्ड्स जारी करणाऱ्या कंपन्या किंवा एफडी ऑफर करणाऱ्या बँका) कमिशन मिळवण्यावर आधारित आहे. यामुळे तुम्ही तुमच्या बाजूने कोणत्याही अतिरिक्त खर्चाशिवाय गुंतवणूक करू शकता.",
+                calculatorTitle: "बॉन्ड यील्ड कॅल्क्युलेटर",
+                calculatorIntro: "बॉन्डचे सध्याचे उत्पन्न (यील्ड) मोजा आणि किंमत आणि उत्पन्नाचा व्यस्त संबंध कसा आहे ते पहा.",
+                faceValueLabel: "दर्शनी मूल्य (₹)",
+                couponRateLabel: "कूपन दर (%)",
+                currentPriceLabel: "सध्याची बाजारभाव (₹)",
+                currentYieldOutput: "सध्याचे उत्पन्न:",
+                ratingsTitle: "क्रेडिट रेटिंग्ज",
+                ratingsIntro: "क्रेडिट रेटिंग्ज हे बॉन्ड किंवा मुदत ठेवी जारीकर्त्याच्या क्रेडिटपात्रतेचे मूल्यांकन करण्यासाठी एक आवश्यक साधन आहे. CRISIL, ICRA आणि CARE सारख्या एजन्सी या रेटिंग्ज देतात, ज्या जारीकर्त्याने त्याच्या आर्थिक जबाबदाऱ्या पूर्ण करण्याची शक्यता दर्शवितात.",
+                ratingTableHeading: "रेटिंग",
+                meaningTableHeading: "अर्थ",
+                aaaMeaning: "सर्वाधिक सुरक्षितता.",
+                aaMeaning: "उच्च सुरक्षितता.",
+                aMeaning: "पुरेशी सुरक्षितता.",
+                bbbMeaning: "मध्यम सुरक्षितता.",
+                bbMeaning: "अपुरे सुरक्षितता.",
+                bMeaning: "उच्च धोका.",
+                cMeaning: "समतोल धोका.",
+                dMeaning: "डिफॉल्ट किंवा डिफॉल्ट होण्याची शक्यता.",
+                monitoringTitle: "देखरेख आणि पुनरावलोकन",
+                monitoringIntro: "आम्ही तुम्हाला तुमच्या गुंतवणुकीवर लक्ष ठेवण्यास मदत करतो आणि तुमच्या पोर्टफोलिओ तुमच्या आर्थिक उद्दिष्टांशी संरेखित राहतो याची खात्री करण्यासाठी नियमित पुनरावलोकने देतो. एक गुंतवणूकदार म्हणून, तुम्ही खालील गोष्टींवर लक्ष ठेवले पाहिजे:",
+                monitoringPoint1: "व्याजदरातील बदल: एकूण बाजार व्याजदरातील बदलांवर लक्ष ठेवा, कारण यामुळे तुमच्या सध्याच्या बॉन्ड्सच्या मूल्यावर परिणाम होऊ शकतो.",
+                monitoringPoint2: "क्रेडिट रेटिंगमधील बदल: तुमच्या बॉन्ड किंवा एफडी जारीकर्त्याच्या क्रेडिट रेटिंगमधील कोणत्याही अपग्रेड किंवा डाउनग्रेडचा मागोवा ठेवा.",
+                monitoringPoint3: "तरलता: तुमच्या गुंतवणुकीच्या तरलतेबद्दल जागरूक रहा, विशेषतः तुम्हाला मुदतपूर्तीपूर्वी तुमचे बॉन्ड्स विकण्याची आवश्यकता असल्यास.",
+                monitoringPoint4: "महागाई: महागाईचा दर विचारात घेऊन तुमचा वास्तविक परतावा दर तपासा.",
+                strategyTitle: "आदर्श निवड धोरण",
+                strategyIntro: "योग्य उत्पादन निवडणे तुमच्या जोखमीच्या भूक, गुंतवणुकीची क्षितिज आणि आर्थिक उद्दिष्टांवर अवलंबून असते. येथे एक सामान्य मार्गदर्शक आहे:",
+                riskReportLink: "जोखीम भूक अहवाल पहा",
+                bondsStrategyTitle: "बॉन्ड्स (रोखे)",
+                bondsStrategyText: "<strong>यांच्यासाठी आदर्श:</strong> स्थिर उत्पन्न आणि भांडवल संरक्षण शोधणाऱ्या गुंतवणूकदारांसाठी. विविधीकरणासाठी चांगले. क्रेडिट रेटिंग आणि उत्पन्न विचारात घ्या. उच्च रेटेड आणि थोडे कमी रेटेड बॉन्ड्सचे मिश्रण धोका आणि परतावा संतुलित करू शकते.",
+                fdsStrategyTitle: "मुदत ठेवी (FDs)",
+                fdsStrategyText: "<strong>यांच्यासाठी आदर्श:</strong> भांडवल सुरक्षिततेला प्राधान्य देणाऱ्या पुराणमतवादी गुंतवणूकदारांसाठी. लहान ते मध्यम-मुदतीच्या उद्दिष्टांसाठी सर्वोत्तम. उच्च रेटेड बँका किंवा NBFCs च्या FDs निवडा. व्याज दर आणि मुदतपूर्व पैसे काढण्याच्या दंडाची तुलना करा.",
+                smReitsStrategyTitle: "एसएम आरईआयटी",
+                smReitsText: "<strong>यांच्यासाठी आदर्श:</strong> थेट मालकीच्या त्रासाशिवाय रिअल इस्टेटमधून निष्क्रिय उत्पन्न मिळवू इच्छिणाऱ्या गुंतवणूकदारांसाठी. मध्यम जोखीम भूक असलेल्या दीर्घकालीन गुंतवणूकदारांसाठी योग्य. विविध मालमत्ता आणि स्थानांमध्ये विविधता आणा.",
+                taxTitle: "उत्पन्न कराचे परिणाम",
+                taxIntro: "प्रभावी आर्थिक नियोजनासाठी तुमच्या गुंतवणुकीच्या कर परिणामांना समजून घेणे महत्त्वाचे आहे. येथे एक सामान्य विहंगावलोकन आहे:",
+                bondsTaxTitle: "बॉन्ड्स (रोखे)",
+                bondsTaxText: "<strong>व्याज उत्पन्न:</strong> बॉन्ड्समधून मिळालेल्या व्याजावर तुमच्या वैयक्तिक आयकर स्लॅब दराने 'इतर स्त्रोतांकडून उत्पन्न' म्हणून कर आकारला जातो.<br><br><strong>भांडवली नफा:</strong> बॉन्ड्स विकण्यावरील भांडवली नफा होल्डिंग कालावधीवर आधारित कर आकारला जातो. अल्प-मुदतीचा भांडवली नफा (एका वर्षापेक्षा कमी कालावधीसाठी ठेवल्यास) तुमच्या उत्पन्नात जोडला जातो आणि तुमच्या स्लॅब दराने कर आकारला जातो. दीर्घ-मुदतीचा भांडवली नफा (एका वर्षापेक्षा जास्त कालावधीसाठी ठेवल्यास) कमी, विशिष्ट दराने कर आकारला जातो.",
+                fdsTaxTitle: "मुदत ठेवी (FDs)",
+                fdsTaxText: "<strong>व्याज उत्पन्न:</strong> FDs मधून मिळणारे व्याज तुमच्या वैयक्तिक आयकर स्लॅब दराने पूर्णपणे करपात्र आहे. व्याजाने एका विशिष्ट मर्यादेपेक्षा जास्त असल्यास TDS (स्रोत कर कपात) लागू होऊ शकतो.",
+                smReitsTaxTitle: "एसएम आरईआयटी",
+                smReitsTaxText: "<strong>लाभांश उत्पन्न:</strong> एसएम आरईआयटीमधून वितरणाच्या लाभांशाच्या भागावर तुमच्या वैयक्तिक आयकर स्लॅब दराने कर आकारला जातो.<br><br><strong>भांडवली नफा:</strong> एसएम आरईआयटी युनिट्स विकण्यावरील भांडवली नफा बॉन्ड्सच्या नियमांनुसार कर आकारला जातो (अल्प-मुदत वि. दीर्घ-मुदत).",
+                faqsTitle: "नेहमी विचारले जाणारे प्रश्न",
+                faq1q: "बॉन्ड आणि मुदत ठेवीमध्ये काय फरक आहे?",
+                faq1a: "बॉन्ड्स सामान्यतः बाजारात व्यापारयोग्य असतात आणि सरकार किंवा कॉर्पोरेशन्सद्वारे जारी केले जाऊ शकतात. FDs बँकांद्वारे ऑफर केल्या जातात आणि व्यापारयोग्य नसतात. बॉन्ड्समध्ये परिवर्तनीय परतावा असू शकतो, तर FDs निश्चित व्याज दर देतात.",
+                faq2q: "एसएम आरईआयटीमधील माझी गुंतवणूक सुरक्षित आहे का?",
+                faq2a: "एसएम आरईआयटी बाजार जोखमींच्या अधीन आहेत, आणि त्यांचे मूल्य चढ-उतार करू शकते. तथापि, ते नियमन केलेले आहेत आणि मालमत्तेच्या पोर्टफोलिओमध्ये गुंतवणूक करतात, ज्यामुळे विविधीकरण आणि जोखीम व्यवस्थापनात मदत होते.",
+                faq3q: "बॉन्डवरील उत्पन्न (यील्ड) मी कसे मोजू शकतो?",
+                faq3a: "सर्वात सोपी पद्धत म्हणजे वर्तमान उत्पन्न (करंट यील्ड) मोजणे: (वार्षिक कूपन पेमेंट / वर्तमान बाजारभाव) x 100. अधिक अचूक मापनासाठी, यील्ड टू मॅच्युरिटी (YTM) गणना वापरली जाते.",
+                faq4q: "केवायसीसाठी मला कोणती कागदपत्रे लागतील?",
+                faq4a: "साधारणपणे, तुम्हाला पॅन कार्ड, आधार कार्ड (किंवा इतर वैध पत्त्याचा पुरावा), आणि तुमच्या बँक खात्याचा तपशील आवश्यक असेल.",
+                faq5q: "ऑनबोर्डिंग प्रक्रियेदरम्यान माझ्या गोपनीयतेचे संरक्षण कसे केले जाते?",
+                faq5a: "तुमच्या वैयक्तिक माहितीचे संरक्षण करण्यासाठी आम्ही मजबूत सुरक्षा प्रोटोकॉल वापरतो. केवायसीसाठी सादर केलेली सर्व कागदपत्रे आणि डेटा एन्क्रिप्टेड आणि सुरक्षितपणे संग्रहित केले जातात, डेटा संरक्षण कायद्यांचे पालन करून.",
+                faq6q: "व्याज देयकाची वारंवारता काय आहे?",
+                faq6a: "व्याज देयकाची वारंवारता विशिष्ट उत्पादनावर अवलंबून असते. बॉन्ड्ससाठी, ते वार्षिक, अर्ध-वार्षिक, किंवा त्रैमासिक असू शकते. मुदत ठेवीसाठी, व्याज सामान्यतः मुदतपूर्तीवर किंवा तुमच्या आवडीनुसार नियमित अंतराने दिले जाते.",
+                faq7q: "मला माझी व्याज देयके कशी मिळतील?",
+                faq7a: "व्याज देयके थेट तुमच्या गुंतवणूक खात्याशी जोडलेल्या बँक खात्यात इलेक्ट्रॉनिक हस्तांतरण पद्धती (NEFT किंवा RTGS) द्वारे जमा केली जातात. प्रत्येक वेळी व्याज भरल्यावर तुम्हाला एक सूचना मिळेल."
+            }
+        };
+
+        let currentLang = 'en';
+
+        function updateContent() {
+            const lang = currentLang;
+            const elements = document.querySelectorAll('[data-lang-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerHTML = translations[lang][key];
+                }
+            });
+        }
+
+        document.querySelectorAll('.language-toggle-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                currentLang = button.getAttribute('data-lang');
+                document.querySelectorAll('.language-toggle-btn').forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                updateContent();
+            });
+        });
+
+        // FAQ Toggle Logic
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+                const answer = item.querySelector('.faq-answer');
+                if (answer.style.display === 'block') {
+                    answer.style.display = 'none';
+                } else {
+                    answer.style.display = 'block';
+                }
+            });
+        });
+
+        // Bond Yield Calculator and Chart Logic
+        const faceValueInput = document.getElementById('faceValue');
+        const couponRateInput = document.getElementById('couponRate');
+        const currentPriceInput = document.getElementById('currentPrice');
+        const priceValueSpan = document.getElementById('price-value');
+        const yieldOutput = document.getElementById('yield-output');
+        const chartCanvas = document.getElementById('yieldChart').getContext('2d');
+
+        let myChart;
+
+        function calculateYield() {
+            const faceValue = parseFloat(faceValueInput.value);
+            const couponRate = parseFloat(couponRateInput.value);
+            const currentPrice = parseFloat(currentPriceInput.value);
+
+            const annualCouponPayment = faceValue * (couponRate / 100);
+            const currentYield = (annualCouponPayment / currentPrice) * 100;
+
+            if (isNaN(currentYield)) {
+                yieldOutput.textContent = 'Invalid Input';
+            } else {
+                yieldOutput.textContent = `${currentYield.toFixed(2)}%`;
+            }
+
+            priceValueSpan.textContent = `₹${currentPrice}`;
+            updateChart();
+        }
+
+        function updateChart() {
+            const faceValue = parseFloat(faceValueInput.value);
+            const couponRate = parseFloat(couponRateInput.value);
+            const currentPrice = parseFloat(currentPriceInput.value);
+
+            if (myChart) {
+                myChart.destroy();
+            }
+
+            // Data for the main line graph
+            const prices = [];
+            const yields = [];
+            for (let p = 800; p <= 1500; p += 1) { // Changed step to 1 for smoother line
+                const annualCouponPayment = faceValue * (couponRate / 100);
+                const currentYield = (annualCouponPayment / p) * 100;
+                prices.push(p);
+                yields.push(currentYield);
+            }
+
+            // Data for the single highlighted point
+            const currentAnnualCouponPayment = faceValue * (couponRate / 100);
+            const currentYieldValue = (currentAnnualCouponPayment / currentPrice) * 100;
+
+            myChart = new Chart(chartCanvas, {
+                type: 'line',
+                data: {
+                    labels: prices,
+                    datasets: [{
+                        label: 'Yield Curve',
+                        data: yields,
+                        borderColor: '#1a56b9',
+                        backgroundColor: 'rgba(26, 86, 185, 0.2)',
+                        tension: 0.3,
+                        pointRadius: 0, // Hide all points on the line
+                        fill: false
+                    }, {
+                        label: `Current Price: ₹${currentPrice}`,
+                        data: [{
+                            x: currentPrice,
+                            y: currentYieldValue
+                        }],
+                        borderColor: '#dc2626',
+                        backgroundColor: '#dc2626',
+                        pointRadius: 7, // Highlight the single point
+                        pointHoverRadius: 9,
+                        showLine: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Bond Price (₹)'
+                            },
+                            type: 'linear',
+                            position: 'bottom'
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Yield (%)'
+                            },
+                            min: 5,
+                            max: 12,
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                // Correctly handles the different data structures for each dataset
+                                label: function(context) {
+                                    if (context.datasetIndex === 1) {
+                                        // For the single point dataset, the data is an object with x and y
+                                        return `Current Yield: ${context.raw.y.toFixed(2)}%`;
+                                    }
+                                    // For the main line dataset, the data is just the y-value (yield)
+                                    // and the x-value (price) is found in context.parsed.x
+                                    return `Price: ₹${context.parsed.x.toFixed(0)}, Yield: ${context.raw.toFixed(2)}%`;
+                                },
+                                // Correctly handles the different data structures for each dataset
+                                title: function(context) {
+                                    if (context[0].datasetIndex === 1) {
+                                        // For the single point dataset, the data is an object with x and y
+                                        return `Current Price: ₹${context[0].raw.x.toFixed(0)}`;
+                                    }
+                                    return null;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        faceValueInput.addEventListener('input', calculateYield);
+        couponRateInput.addEventListener('input', calculateYield);
+        currentPriceInput.addEventListener('input', calculateYield);
+
+        // Initial setup
+        window.onload = function() {
+            updateContent();
+            calculateYield();
+        };
+
+    </script>
+</body>
+</html>
+
+    </main>
+
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="onboarding.html" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+            Open your account
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <!-- Email Icon -->
+                <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="text-sm">
+                <!-- Links now trigger modals -->
+                <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
+                <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="privacy-policy-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
+            <p class="mb-4 text-sm">
+                We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services. We also collect non-personal data, such as browser type, IP address, and usage data, to enhance your website experience.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
+            <p class="mb-4 text-sm">
+                Your information is used to:
+                <ul class="list-disc list-inside space-y-1 mt-2">
+                    <li>Provide you with financial services and personalized advice.</li>
+                    <li>Communicate with you regarding your account and our services.</li>
+                    <li>Improve our website and services.</li>
+                    <li>Comply with legal and regulatory requirements.</li>
+                </ul>
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
+            <p class="mb-4 text-sm">
+                We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
+            <p class="mb-4 text-sm">
+                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required to provide our services or comply with the law. This may include sharing information with our partners and service providers who assist us in operating our business.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="terms-of-service-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                By accessing and using the M-Vita Services website and our services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
+            <p class="mb-4 text-sm">
+                The content on this website is for general informational purposes only. It is not professional financial advice and should not be relied upon as such. We are not responsible for any financial decisions you make based on the information provided on this website.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
+            <p class="mb-4 text-sm">
+                You agree to provide accurate and complete information when using our services. We reserve the right to terminate your access to our services if we discover that the information you provided is false or misleading.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
+            <p class="mb-4 text-sm">
+                All content, trademarks, logos, and other intellectual property on this website are the property of M-Vita Services or its licensors. You may not use, reproduce, or distribute any content from this site without our express written permission.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
+            <p class="mb-4 text-sm">
+                M-Vita Services will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or website.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu and Modals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Modal functionality
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+            const privacyPolicyClose = document.getElementById('privacy-policy-close');
+
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+            const termsOfServiceClose = document.getElementById('terms-of-service-close');
+
+            function showModal(modal) {
+                modal.classList.remove('hidden');
+            }
+
+            function hideModal(modal) {
+                modal.classList.add('hidden');
+            }
+
+            privacyPolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(privacyPolicyModal);
+            });
+
+            privacyPolicyClose.addEventListener('click', () => {
+                hideModal(privacyPolicyModal);
+            });
+
+            termsOfServiceLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(termsOfServiceModal);
+            });
+
+            termsOfServiceClose.addEventListener('click', () => {
+                hideModal(termsOfServiceModal);
+            });
+
+            // Close modals when clicking outside the content
+            privacyPolicyModal.addEventListener('click', (e) => {
+                if (e.target === privacyPolicyModal) {
+                    hideModal(privacyPolicyModal);
+                }
+            });
+            termsOfServiceModal.addEventListener('click', (e) => {
+                if (e.target === termsOfServiceModal) {
+                    hideModal(termsOfServiceModal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
