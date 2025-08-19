@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Your Partner in Financial Well-being</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
+                <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
+                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
+                <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
+                <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
+            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
+            <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
+            <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+    <div class="fixed bottom-5 right-5 z-50">
+        <a href="https://wa.me/9152049967" target="_blank" class="flex items-center justify-center bg-green-500 text-white rounded-full shadow-lg w-16 h-16 hover:bg-green-600 transition-transform transform hover:scale-110">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zM12 4.138c4.341 0 7.865 3.524 7.865 7.864s-3.524 7.864-7.865 7.864-7.864-3.524-7.864-7.864 3.523-7.864 7.864-7.864zm-2.363 5.047c-.073-.125-.27-.2-.42-.205-.15-.005-.315-.005-.465.03-.205.045-.43.205-.61.43-.28.35-.45.78-.45 1.28s.165 1.005.33 1.235c.165.23.38.465.61.735.53.64 1.19 1.21 1.99 1.695.89.55 1.6.84 2.21.98.61.14 1.13.115 1.58-.08.5-.215.845-.835.96-1.535.115-.7-.04-1.28-.115-1.38-.075-.1-.225-.15-.45-.255-.225-.1-.51-.24-.585-.27-.075-.03-.15-.045-.225.045-.075.09-.27.345-.33.39-.06.045-.12.06-.21.015-.09-.045-.375-.135-.705-.42-.405-.345-.675-.75-.75-.885-.075-.135-.015-.21.045-.27.06-.06.12-.15.18-.21.06-.06.09-.12.12-.195.03-.075.015-.15-.015-.21-.03-.06-.135-.33-.18-.45z"/>
+            </svg>
+            <span class="sr-only" data-lang-key="getHelp">Get help</span>
+        </a>
+    </div>
+
+        <!-- Home Hero Section -->
+        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services - General Insurance</title>
+    <!-- Tailwind CSS CDN for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for a cleaner look and feel */
+        :root {
+            --primary-blue: #0A2E5B;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .text-\[var\(--primary-blue\)\] {
+            color: var(--primary-blue);
+        }
+
+        .bg-\[var\(--primary-blue\)\] {
+            background-color: var(--primary-blue);
+        }
+
+        /* Animation for fade-in effect on content change */
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50">
+
+    <!-- Language Toggle -->
+    <div class="flex justify-end pt-4 pb-4 md:py-8 container mx-auto p-4 sm:p-8">
+        <div class="flex bg-white rounded-full shadow-md border border-gray-200">
+            <button id="lang-en" class="py-2 px-4 rounded-full font-semibold transition-colors duration-200 bg-[var(--primary-blue)] text-white">
+                English
+            </button>
+            <button id="lang-mr" class="py-2 px-4 rounded-full font-semibold transition-colors duration-200 text-gray-700">
+                मराठी
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto space-y-16 bg-white p-6 sm:p-10 rounded-3xl shadow-2xl mb-8">
+        <!-- Intro Section -->
+        <section class="text-center space-y-8 py-8 md:py-12">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-[var(--primary-blue)]" id="main-title"></h1>
+            <div class="max-w-4xl mx-auto space-y-4 text-left">
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700" id="intro-p1"></p>
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700" id="intro-p2"></p>
+                <p class="text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 font-bold" id="intro-p3"></p>
+            </div>
+        </section>
+
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap justify-center border-b border-gray-300" id="tab-navigation"></div>
+
+        <!-- Tab Content will be injected here -->
+        <div id="tab-content" class="mt-8"></div>
+
+        <!-- Mandatory Links & Legal Disclaimer -->
+        <section class="space-y-4 text-center text-sm text-gray-600 py-8 border-t border-gray-200 mt-16">
+            <p id="irda-text"></p>
+            <p class="text-xs text-gray-500" id="disclaimer"></p>
+        </section>
+    </main>
+
+    <!-- JavaScript for dynamic content and interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Define the SVG icons for use in the HTML
+            const icons = {
+                Heart: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>`,
+                Car: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9L14 11.5v-9c0-.2-.1-.4-.3-.5L12 1h-.5c-.4 0-.8.3-.8.8s.3.8.8.8h.5l1 1v7.2L6 9.6c-1.2-.5-2.5-.5-3.6 0l-.3.1c-.6.2-1 .7-1 1.3v3c0 .6.4 1 1 1h2c-.6 0-1 .4-1 1s.4 1 1 1h16c.6 0 1-.4 1-1s-.4-1-1-1z"/></svg>`,
+                Home: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>`,
+                Briefcase: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/><path d="M12 12h8"/><path d="M12 12H4"/></svg>`,
+                PlusCircle: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 w-6 h-6 text-blue-600"><circle cx="12" cy="12" r="10"/><path d="M8 12h8"/><path d="M12 8v8"/></svg>`,
+                RefreshCw: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><path d="M21 12a9 9 0 0 0-9-9c-2.3 0-4.6.9-6.3 2.6L3 7"/><path d="M3 3v4h4"/><path d="M3 12a9 9 0 0 0 9 9c2.3 0 4.6-.9 6.3-2.6L21 17"/><path d="M21 21v-4h-4"/></svg>`,
+                ChevronDown: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-[var(--primary-blue)]"><path d="m6 9 6 6 6-6"/></svg>`,
+                User: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>`,
+                FileText: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 w-6 h-6 text-blue-600"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>`,
+                CheckCircle: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 w-6 h-6 text-blue-600"><path d="M22 11.08V12a10 10 0 1 1-5.93-8.13"/><polyline points="22 4 12 14.01 9 11.01"/></svg>`,
+                Factory: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><path d="M2 20a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-4"/><line x1="8" y1="12" x2="8" y2="20"/><line x1="16" y1="12" x2="16" y2="20"/><path d="M8 8V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/><path d="M8 12h8"/><path d="M12 12V4"/></svg>`,
+                Building: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-8 h-8 text-[var(--primary-blue)]"><rect x="3" y="2" width="18" height="20" rx="2" ry="2"/><line x1="12" y1="2" x2="12" y2="22"/><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>`,
+            };
+
+            // Main data structure in both English and Marathi
+            const content = {
+                en: {
+                    title: "General Insurance Services",
+                    intro: {
+                        p1: "With over 20 years of experience, we provide in-depth knowledge and hands-on expertise in all aspects of general insurance.",
+                        p2: "We have hands-on experience in the claims process, ensuring you receive timely and hassle-free support when you need it most.",
+                        p3: "As we have tie-ups with national distributors, we offer an unlimited choice of products from every insurance company in India, allowing you to select the best product for your specific needs.",
+                    },
+                    tabs: {
+                        health: "Health Insurance",
+                        vehicle: "Vehicle Insurance",
+                        property: "Property Insurance",
+                        other: "Other Products",
+                    },
+                    health: {
+                        intro: "A personal health insurance plan gives you the freedom to choose your doctor and hospital and provides continuous coverage even if you switch jobs, unlike a limited employer-provided plan. It is your primary shield against rising medical costs.",
+                        critical_illness_intro: "Critical illness is a separate product, not a rider. It provides a lump-sum payout upon diagnosis of a serious illness (such as cancer, heart attack, or stroke), which can be used to cover non-medical costs, replace lost income, or pay for specialized treatments. This is crucial for financial stability during a health crisis.",
+                        checkpoints: "What to Check Before Buying",
+                        checkpoints_list: [
+                            "Waiting periods for pre-existing diseases and specific illnesses.",
+                            "Cashless hospital network list and geographical coverage.",
+                            "Claim settlement ratio of the insurer.",
+                            "Co-payment and deductible clauses.",
+                            "Sub-limits on room rent and specific treatments.",
+                            "Availability of no-claim bonus (NCB) and restoration benefits."
+                        ],
+                        documents: "Required Documents",
+                        documents_list: [
+                            "Duly filled proposal form.",
+                            "Age proof (e.g., Aadhar Card, Passport).",
+                            "Identity proof (e.g., PAN Card, Voter ID).",
+                            "Address proof (e.g., Aadhar Card, Utility bill).",
+                            "Medical reports (if required by the insurer)."
+                        ],
+                        renewal: "Renewal & Benefits of Timely Renewal",
+                        renewal_info: "Timely renewal is crucial to maintain continuous coverage and not lose accumulated benefits like waiting period credits and no-claim bonuses. At renewal, we help you review your current sum insured against inflation and family needs. We also check for any changes in the policy terms or premium, ensuring you get the best value. Timely renewal prevents coverage lapse, which would require you to serve new waiting periods.",
+                        faqs: "15 FAQs for Health Insurance",
+                    },
+                    vehicle: {
+                        intro: "We provide comprehensive insurance solutions for all types of vehicles. From two-wheelers and three-wheelers to family cars and high-end transport vehicles, we ensure you are protected on the road. A well-chosen policy protects you from financial liability and damages to your own vehicle.",
+                        checkpoints: "What to Check Before Buying",
+                        checkpoints_list: [
+                            "Insured Declared Value (IDV) offered by different insurers.",
+                            "Available add-ons like Zero Depreciation, Engine Protection, and Roadside Assistance.",
+                            "No Claim Bonus (NCB) protection clause.",
+                            "Network of cashless garages for repairs.",
+                            "Coverage for personal accident of owner-driver.",
+                            "The insurer's claim settlement process and average time taken."
+                        ],
+                        documents: "Required Documents",
+                        documents_list: [
+                            "Vehicle registration certificate (RC).",
+                            "Previous policy number and details.",
+                            "Driving license copy of the owner-driver.",
+                            "Address and Identity proof.",
+                            "Duly filled proposal form."
+                        ],
+                        renewal: "Renewal & Benefits of Timely Renewal",
+                        renewal_info: "Renewing your vehicle insurance on time is mandatory by law and protects your No Claim Bonus (NCB). We provide timely reminders and a detailed guide on what to consider before renewing, including the impact of previous claims and any changes in premium. Timely renewal ensures you have continuous legal and financial protection on the road and prevents loss of your NCB.",
+                        faqs: "15 FAQs for Vehicle Insurance",
+                    },
+                    property: {
+                        intro: "Securing your assets against unforeseen events is crucial. Our expertise includes dealing with corporate clients for Plant and Factory Insurance, as well as providing insurance for their employees. We also specialize in society building and individual home insurance.",
+                        factory_intro: "Plant and Factory Insurance protects your valuable assets and machinery from significant financial losses due to fire, natural calamities, or other specified events. It ensures business continuity and protects your investment.",
+                        society_intro: "Society Building Insurance is a comprehensive policy that covers the common areas and structure of a residential or commercial complex, protecting it from fire, earthquake, or other disasters. It's a shared responsibility that protects all members.",
+                        home_intro: "Home Insurance protects your home and its contents from a wide range of perils, including fire, theft, flood, and natural disasters. It provides peace of mind and financial security for your most valuable asset.",
+                        checkpoints: "What to Check Before Buying",
+                        checkpoints_list_factory: [
+                            "The sum insured, ensuring it covers the full replacement value of the plant and machinery.",
+                            "Coverage for a wide range of risks including fire, explosions, and natural calamities.",
+                            "Specific clauses related to business interruption and loss of profit."
+                        ],
+                        checkpoints_list_society: [
+                            "The collective sum insured for the entire building structure and common areas.",
+                            "Coverage for events like fire, floods, and earthquakes.",
+                            "Inclusion of public liability cover for incidents within the society premises."
+                        ],
+                        checkpoints_list_home: [
+                            "Whether the policy covers the structure, contents, or both.",
+                            "Specific perils covered and exclusions (e.g., floods, terrorism).",
+                            "The sum insured for contents, ensuring it reflects the true value of your belongings."
+                        ],
+                        documents: "Required Documents",
+                        documents_list_factory: [
+                            "Proposal form with details of the factory building and machinery.",
+                            "Valuation report of assets.",
+                            "Fire safety audit report.",
+                            "Details of previous claims, if any."
+                        ],
+                        documents_list_society: [
+                            "Duly filled proposal form from the society's managing committee.",
+                            "Building valuation report.",
+                            "Details of common area assets (e.g., elevators, generators).",
+                            "Previous policy details, if any."
+                        ],
+                        documents_list_home: [
+                            "Duly filled proposal form.",
+                            "Address proof of the property.",
+                            "Valuation of the property or contents.",
+                            "Passport size photo of the applicant."
+                        ],
+                        renewal: "Renewal & Benefits of Timely Renewal",
+                        renewal_info: "Timely renewal of your property insurance is critical to avoid a coverage gap. A lapse in policy could leave your valuable assets exposed to financial risks. We help you reassess the sum insured to account for inflation and any new assets acquired. Timely renewal ensures your continuous financial security against unforeseen events.",
+                        faqs: "15 FAQs for Property Insurance",
+                    },
+                    other: {
+                        intro: "Beyond the major product categories, we offer a range of specialized insurance products to cover specific needs, including personal accident, group personal accident, and travel insurance. These products are designed to provide focused protection for you, your employees, or your travel plans.",
+                        subtabs: {
+                            personal_accident: "Personal Accident",
+                            group_personal_accident: "Group Personal Accident",
+                            travel: "Travel Insurance"
+                        },
+                        renewal: "Renewal & Benefits of Timely Renewal",
+                        renewal_info: "Renewing these specialized policies on time is key to ensuring you are always protected. For travel insurance, it's about making sure your next trip is covered. For personal accident and group policies, timely renewal prevents any gap in protection for you or your employees. We assist in reviewing policy benefits and identifying any changes to ensure continued value.",
+                    },
+                    personal_accident: {
+                        checkpoints: "What to Check Before Buying",
+                        checkpoints_list: [
+                            "The sum insured and coverage for different types of disabilities.",
+                            "Specific exclusions and clauses related to occupation.",
+                            "Whether the policy covers medical expenses in addition to lump sum payouts.",
+                            "The claim process and required documentation."
+                        ],
+                        documents: "Required Documents",
+                        documents_list: [
+                            "Duly filled proposal form.",
+                            "Age proof (e.g., Aadhar Card).",
+                            "Identity proof (e.g., PAN Card).",
+                            "Address proof (e.g., Utility bill).",
+                            "Passport size photo of the applicant."
+                        ],
+                        faqs: "15 FAQs for Personal Accident",
+                    },
+                    group_personal_accident: {
+                        checkpoints: "What to Check Before Buying",
+                        checkpoints_list: [
+                            "The policy terms for all employees and the claim process.",
+                            "The sum insured per employee and its calculation basis.",
+                            "Coverage for different categories of employees.",
+                            "Whether the policy covers on-duty and off-duty accidents."
+                        ],
+                        documents: "Required Documents",
+                        documents_list: [
+                            "Duly filled proposal form.",
+                            "List of all employees with their names and age.",
+                            "Company's registration details.",
+                            "Details of the nominee for each employee (optional but recommended)."
+                        ],
+                        faqs: "15 FAQs for Group Personal Accident",
+                    },
+                    travel: {
+                        checkpoints: "What to Check Before Buying",
+                        checkpoints_list: [
+                            "The extent of medical coverage, including emergency hospitalization.",
+                            "Baggage loss and delay limits.",
+                            "Trip cancellation and interruption clauses.",
+                            "Coverage for adventure sports, if applicable.",
+                            "Specific exclusions related to destination and activities."
+                        ],
+                        documents: "Required Documents",
+                        documents_list: [
+                            "Duly filled proposal form.",
+                            "Passport copies of all travelers.",
+                            "Confirmed travel itinerary.",
+                            "Visa details (if required by the insurer)."
+                        ],
+                        faqs: "15 FAQs for Travel Insurance",
+                    },
+                    health_faqs: [
+                        { q: "What is a waiting period in health insurance?", a: "A waiting period is a specific duration during which certain medical conditions or treatments are not covered by the policy. This can vary for different illnesses or pre-existing conditions." },
+                        { q: "Is it possible to port my health insurance policy?", a: "Yes, you can port your health insurance policy from one insurer to another. This allows you to retain the benefits you have accumulated, like the waiting period credit for pre-existing diseases." },
+                        { q: "What is a cashless claim in health insurance?", a: "A cashless claim allows you to receive medical treatment at a network hospital without paying cash. The insurer directly settles the bills with the hospital, simplifying the process for you." },
+                        { q: "What is a critical illness policy and how is it different?", a: "Health insurance covers hospitalization expenses on an indemnity basis. A critical illness policy pays a lump sum upon diagnosis of a covered illness, regardless of the actual medical cost, which can be used for any purpose, including loss of income." },
+                        { q: "What is a deductible in health insurance?", a: "A deductible is the amount you must pay out of pocket before your insurance company starts paying for the covered expenses. This helps in keeping the premium low but increases your out-of-pocket expense during a claim." },
+                        { q: "What is a co-payment clause?", a: "A co-payment clause requires you to pay a fixed percentage of the total claim amount, and the insurer pays the remaining portion. This helps in keeping the premium low but increases your out-of-pocket expense during a claim." },
+                        { q: "Why should I buy health insurance from an agent and not online?", a: "An agent provides personalized advice and helps you navigate complex policy terms. More importantly, they offer crucial support during the claims process, ensuring you receive your benefits efficiently, which can be challenging to manage on your own." },
+                        { q: "What is the claim settlement ratio (CSR)?", a: "CSR is the percentage of claims settled by an insurer in a financial year. A higher CSR indicates that the insurer is more reliable in settling claims. We recommend checking this before buying." },
+                        { q: "Are pre-existing diseases covered under health insurance?", a: "Yes, pre-existing diseases are covered after a specific waiting period, which varies from 2 to 4 years depending on the policy. It's crucial to disclose all conditions at the time of purchase." },
+                        { q: "Can I get a tax benefit on health insurance premiums?", a: "Yes, premiums paid for health insurance policies are eligible for a tax deduction under Section 80D of the Income Tax Act." },
+                        { q: "What is the difference between individual and family floater plans?", a: "An individual plan provides a separate sum insured for each member. A family floater plan provides a single sum insured that can be utilized by any member of the family, making it cost-effective for families." },
+                        { q: "What is a maternity benefit in health insurance?", a: "Maternity benefit covers expenses related to childbirth, including pre-natal and post-natal care. Most policies have a waiting period for this benefit, typically of 2 to 4 years." },
+                        { q: "Are Ayush treatments covered?", a: "Many modern health insurance policies now cover expenses for Ayush (Ayurveda, Yoga, Unani, Siddha, and Homoeopathy) treatments, subject to the policy terms and conditions." },
+                        { q: "What is reinstatement benefit?", a: "Some policies offer a reinstatement benefit, which automatically restores the sum insured to its original amount after it has been exhausted by a claim, ensuring you have continued coverage for the rest of the policy year." },
+                        { q: "What is a health card?", a: "A health card is issued by the insurer that contains your policy details. It is essential for availing cashless hospitalization at network hospitals." },
+                    ],
+                    vehicle_faqs: [
+                        { q: "What is an Insured Declared Value (IDV)?", a: "The IDV is the maximum sum insured for your vehicle in a comprehensive policy. It represents the current market value of your vehicle and is a crucial factor in determining your premium and claim amount." },
+                        { q: "What is a No Claim Bonus (NCB)?", a: "NCB is a discount on your renewal premium if you have not made any claims during the previous policy year. The discount percentage increases with each consecutive claim-free year." },
+                        { q: "What is the difference between Third-Party and Comprehensive motor insurance?", a: "A Third-Party insurance is mandatory and covers only damages or injuries caused by your vehicle to a third party. A Comprehensive policy, on the other hand, covers both third-party liabilities and damages to your own vehicle." },
+                        { q: "What is a zero-depreciation add-on?", a: "A zero-depreciation add-on, also known as 'bumper-to-bumper' cover, ensures that no depreciation is deducted from the value of plastic, metal, and fiber parts during a claim, giving you a higher claim amount." },
+                        { q: "Is it mandatory to have a personal accident cover for my vehicle?", a: "A personal accident cover for the owner-driver is mandatory by law in India, providing a fixed sum assured in case of accidental death or disability." },
+                        { q: "Can I transfer my NCB if I sell my car?", a: "Yes, the NCB belongs to you, not the vehicle. You can get an NCB certificate from your insurer and use it to get a discount on the premium for a new car you buy." },
+                        { q: "What happens if I forget to renew my policy on time?", a: "If your policy expires, you will lose your NCB. You will also have to get your vehicle re-inspected before a new policy can be issued, which can be time-consuming." },
+                        { q: "How is the premium for a car insurance calculated?", a: "The premium depends on several factors, including the IDV, engine capacity, age of the vehicle, geographical location, and the type of policy (third-party or comprehensive)." },
+                        { q: "Do all garages offer cashless service?", a: "No, only garages that have a tie-up with your insurance company offer cashless service. It's important to check the network of garages before buying a policy." },
+                        { q: "What is the difference between a claim and an accidental claim?", a: "A claim can be for any covered event, like theft or damage due to natural calamity. An accidental claim is specifically for damages or losses caused by a road accident." },
+                        { q: "What is an add-on cover?", a: "Add-on covers are optional benefits that you can add to your comprehensive policy by paying an extra premium. They enhance the coverage of your base policy." },
+                        { q: "What is Roadside Assistance cover?", a: "This add-on provides assistance in case of a breakdown or a flat tire on the road, including towing services, fuel delivery, and minor repairs." },
+                        { q: "What is a key and lock replacement cover?", a: "This add-on provides coverage for the cost of replacing your vehicle's keys and locks if they are lost, stolen, or damaged." },
+                        { q: "Does car insurance cover damages due to a flood?", a: "Yes, a comprehensive policy typically covers damages caused by natural disasters like floods, cyclones, and earthquakes. A third-party policy does not." },
+                        { q: "Can I cancel my car insurance policy?", a: "Yes, you can cancel your policy, but a cancellation fee and a portion of the premium for the period the policy was active will be deducted. It is not recommended to cancel without a new policy in place." },
+                    ],
+                    property_faqs: [
+                        { q: "What is included in Property Insurance?", a: "Property insurance typically covers damage to your building and its contents due to fire, lightning, explosion, riot, strike, and natural disasters like storms, floods, and earthquakes." },
+                        { q: "What is the difference between a home insurance and a fire insurance policy?", a: "A fire insurance policy specifically covers damage due to fire, lightning, and a few other allied perils. A home insurance policy is more comprehensive, covering a wider range of risks including theft, natural disasters, and in some cases, personal liability." },
+                        { q: "Is it mandatory to have property insurance?", a: "It is not mandatory by law in India, but it is highly recommended to protect your valuable assets. If you have a home loan, the bank may require you to have property insurance." },
+                        { q: "Does home insurance cover damages due to terrorism?", a: "Many modern home insurance policies offer terrorism cover as an add-on or as part of the base policy. You should check your policy document for this specific clause." },
+                        { q: "What is a reinstatement value in property insurance?", a: "Reinstatement value is the cost of rebuilding your property or replacing assets at today's cost, without any deduction for depreciation. This is the ideal way to get your property valued for insurance." },
+                        { q: "What is co-insurance in a property policy?", a: "Co-insurance is a clause that requires you to insure your property for a certain percentage (usually 80-90%) of its full value. If you don't, the insurer will pay only a partial amount of the claim." },
+                        { q: "Does a society building insurance cover individual flats?", a: "A society building insurance covers the common areas and the building structure but generally does not cover the contents or interior of individual flats. For that, individual owners need to buy a separate home insurance policy." },
+                        { q: "What is a 'Floater' policy for commercial property?", a: "A floater policy is a type of commercial property insurance that covers movable goods or stock across different locations under a single policy, rather than requiring separate policies for each location." },
+                        { q: "Does property insurance cover damages to gardens or external fences?", a: "This depends on the policy. Some comprehensive policies may include coverage for external structures and landscaped gardens, but many basic policies do not. It's important to check the policy wording." },
+                        { q: "How is the sum insured determined for a factory?", a: "The sum insured for a factory is determined based on the replacement value of the building, machinery, raw materials, and finished goods. A professional valuation is often required." },
+                        { q: "Does home insurance cover damages from a short circuit?", a: "Yes, damage to your property due to fire from a short circuit is typically covered under a standard fire and peril policy, which is a key component of a home insurance plan." },
+                        { q: "What is a business interruption cover?", a: "Business interruption is an add-on to a property policy for businesses, which covers the loss of income a business suffers after a disaster, allowing it to continue paying bills and salaries while the property is being repaired." },
+                        { q: "Is theft covered in home insurance?", a: "Yes, most comprehensive home insurance policies include coverage for losses due to burglary and theft. However, there might be specific clauses and sub-limits for valuable items like jewelry." },
+                        { q: "Can I get a separate policy for my factory machinery?", a: "Yes, you can get a separate Machinery Breakdown (MB) policy which covers sudden and unforeseen damages to machinery. It can be a standalone policy or a part of a larger property policy." },
+                        { q: "What is a Loss of Profit (LOP) policy?", a: "A Loss of Profit policy is an add-on that compensates the business for lost income or profit due to an interruption caused by a covered event, like a fire or flood. It helps in maintaining financial stability during a shutdown." },
+                    ],
+                    personal_accident_faqs: [
+                        { q: "What is the difference between life insurance and personal accident insurance?", a: "Life insurance provides a payout for death from any cause (except suicide in some cases). Personal accident insurance provides a payout specifically for death or disability caused by an accident." },
+                        { q: "Does personal accident insurance cover medical expenses?", a: "Some personal accident policies include a medical expenses benefit, but it is primarily a benefit policy that pays a lump sum for death or disability. For hospitalization, a health insurance policy is more appropriate." },
+                        { q: "How is the premium for a personal accident policy calculated?", a: "The premium is generally based on the sum insured and the nature of the occupation (e.g., higher risk occupations have higher premiums)." },
+                        { q: "What is a 'total and permanent disability' in a personal accident policy?", a: "This refers to an injury that prevents the insured from working in any capacity for the rest of their life. The policy will pay a lump-sum benefit as per the terms." },
+                        { q: "Can a family be covered under a personal accident policy?", a: "Yes, most insurers offer a family personal accident plan, which covers the main applicant and their family members under a single policy, often with a discounted premium." },
+                        { q: "Are terrorism-related incidents covered by personal accident insurance?", a: "For most personal accident policies, terrorism is an exclusion. However, it can be added as an optional cover or is included in some comprehensive policies for an extra premium." },
+                        { q: "What is a 'claim without documentation' in a policy?", a: "There is no such provision. All claims, big or small, require proper documentation as specified by the insurer to be processed." },
+                        { q: "Does personal accident insurance have a waiting period?", a: "Unlike health insurance, personal accident policies do not have a waiting period for new accidental injuries. They provide immediate coverage upon policy issuance." },
+                        { q: "Is personal accident insurance different from critical illness insurance?", a: "Yes. Personal accident insurance covers death and disability from accidents, while critical illness insurance pays a lump sum upon diagnosis of a life-threatening illness." },
+                        { q: "Can I renew a personal accident policy after it expires?", a: "Yes, you can renew an expired policy, but you will lose any accumulated benefits, and new waiting periods may apply if any exist. It is best to renew on time." },
+                        { q: "What is a permanent partial disability?", a: "This refers to an injury that results in a permanent loss of function of a body part, but does not render the insured completely unable to work. The policy will pay a percentage of the sum insured based on the severity." },
+                        { q: "Does a personal accident policy cover suicide?", a: "No, most personal accident policies do not cover death or disability from suicide or attempted suicide." },
+                        { q: "Is there a tax benefit on personal accident insurance premiums?", a: "Premiums paid for personal accident policies are generally not eligible for a tax deduction under Section 80D, which is specifically for health insurance." },
+                        { q: "Does a personal accident policy cover acts of war?", a: "No, acts of war, invasion, or civil commotion are typically excluded from personal accident policies." },
+                        { q: "What is a nominee in a personal accident policy?", a: "A nominee is the person you designate to receive the policy benefits in the event of your accidental death. It's crucial to name a nominee for a smooth claims process." },
+                    ],
+                    group_personal_accident_faqs: [
+                        { q: "Who is covered under a group personal accident policy?", a: "A group personal accident policy covers all the employees of an organization, providing them with a financial safety net in case of an accident, both on and off duty." },
+                        { q: "Is a medical check-up required for a group policy?", a: "No, medical check-ups are generally not required for group personal accident policies, making it easy to enroll all employees at once." },
+                        { q: "How is the premium for a group policy calculated?", a: "The premium for a group policy is typically based on the number of employees, their age group, and their occupation risk profile." },
+                        { q: "Can a company get a tax benefit on group personal accident premiums?", a: "Yes, the premiums paid by a company for a group personal accident policy are considered a business expense and are eligible for a tax deduction." },
+                        { q: "Does a group policy cover temporary staff?", a: "This depends on the policy terms. Some policies cover only permanent employees, while others can be extended to include temporary or contract staff." },
+                        { q: "What is the claim process for a group personal accident policy?", a: "The employee or their family needs to notify the employer, who will then coordinate with the insurer. Required documents include the claim form, medical reports, and identity proof." },
+                        { q: "Is there an age limit for a group personal accident policy?", a: "Yes, most policies have an age limit, typically from 18 to 65 or 70 years, but this can vary by insurer." },
+                        { q: "Can a group policy be customized?", a: "Yes, group policies are highly customizable. Companies can choose the sum insured, add-on covers, and other terms to meet their specific needs." },
+                        { q: "Does a group policy cover death by illness?", a: "No, a group personal accident policy only covers death or disability due to an accident. For death by illness, a group term life insurance policy is required." },
+                        { q: "What is a 'master policyholder' in a group policy?", a: "The master policyholder is the organization or company that purchases the policy on behalf of its employees." },
+                        { q: "Are family members of employees covered?", a: "Generally, no. A group personal accident policy covers only the employees. A separate family floater or personal accident policy is needed to cover family members." },
+                        { q: "Does a group policy cover international travel for employees?", a: "This is usually not included in a standard group policy. A specific add-on or a separate group travel insurance policy would be needed for international travel." },
+                        { q: "Can an employee continue the policy after leaving the company?", a: "No, the coverage ceases once an employee leaves the company as the policy is tied to the employment. They would need to purchase a new individual policy." },
+                        { q: "Is a group policy cheaper than individual policies?", a: "Yes, due to the large number of members, group policies are typically more cost-effective than buying individual policies for each employee." },
+                        { q: "Does a group policy have a co-payment clause?", a: "Most group personal accident policies do not have a co-payment clause. The insurer pays the full claim amount as per the policy terms." },
+                    ],
+                    travel_faqs: [
+                        { q: "Is travel insurance mandatory for international travel?", a: "Many countries now require visitors to have travel insurance, especially for visa applications. It's always advisable to have it to cover medical emergencies and other travel-related risks." },
+                        { q: "Does travel insurance cover flight delays or cancellations?", a: "Yes, most travel insurance policies provide coverage for flight delays or cancellations, which can help in reimbursing expenses for meals or accommodation incurred due to the delay." },
+                        { q: "What is a baggage loss cover in travel insurance?", a: "This cover compensates you for the loss or delay of your checked-in baggage by the airline, helping you purchase essential items until your luggage is found or a claim is settled." },
+                        { q: "Does travel insurance cover pre-existing medical conditions?", a: "Most standard travel insurance policies exclude pre-existing conditions. However, some insurers offer this as an add-on for an additional premium, subject to specific terms and conditions." },
+                        { q: "What is the difference between single trip and multi-trip travel insurance?", a: "A single-trip policy is for one specific journey. A multi-trip policy is for multiple trips taken within a one-year period, which is more cost-effective for frequent travelers." },
+                        { q: "Does travel insurance cover adventure sports?", a: "Standard travel insurance often excludes coverage for high-risk or adventure sports. You may need to buy a specific add-on or a specialized policy if you plan to participate in such activities." },
+                        { q: "What if I need to extend my travel insurance policy?", a: "Most insurers allow you to extend your policy while you are still traveling, as long as you request the extension before the policy expires. It is subject to approval from the insurer." },
+                        { q: "Does travel insurance cover acts of terrorism?", a: "Yes, many travel insurance policies today include coverage for death or injury due to acts of terrorism, but it's important to check the policy wording for any specific exclusions." },
+                        { q: "Is a medical check-up required for travel insurance?", a: "A medical check-up is generally not required for travel insurance, unless you are of a certain age or have a pre-existing medical condition that needs to be declared." },
+                        { q: "What is a 'sum insured' in travel insurance?", a: "The sum insured is the maximum amount the insurer will pay for all medical expenses or other covered losses during your trip. It's crucial to choose an adequate sum insured based on your destination." },
+                        { q: "Does travel insurance cover a trip for a business meeting?", a: "Yes, travel insurance is available for both leisure and business trips. You can choose a policy that suits your travel purpose." },
+                        { q: "What is a 'trip cancellation' cover?", a: "This cover reimburses non-refundable expenses like flights and hotel bookings if you have to cancel your trip due to a covered reason, such as a medical emergency." },
+                        { q: "Does travel insurance cover expenses if I lose my passport?", a: "Yes, most policies provide a benefit for loss of passport and can cover expenses for obtaining a new one or a temporary travel document." },
+                        { q: "Can I buy a travel policy at the airport?", a: "Yes, many insurers have counters at major airports where you can buy a last-minute travel policy, but it's recommended to purchase it in advance." },
+                        { q: "What is the claim process for travel insurance?", a: "The process involves notifying the insurer as soon as possible, filling out a claim form, and submitting all required documents like medical reports, invoices, and police reports (for theft)." },
+                    ],
+                },
+                mr: {
+                    title: "जनरल विमा सेवा",
+                    intro: {
+                        p1: "२० वर्षांपेक्षा जास्त अनुभवासह, आम्ही जनरल विम्याच्या सर्व पैलूंमध्ये सखोल ज्ञान आणि प्रत्यक्ष अनुभव प्रदान करतो.",
+                        p2: "दावे प्रक्रियेत आम्हाला प्रत्यक्ष अनुभव आहे, ज्यामुळे तुम्हाला सर्वाधिक गरज असताना वेळेवर आणि त्रास-मुक्त मदत मिळेल याची खात्री होते.",
+                        p3: "आमचे राष्ट्रीय वितरकांसोबत टाय-अप असल्यामुळे, आम्ही भारतातील प्रत्येक विमा कंपनीच्या उत्पादनांची अमर्याद निवड ऑफर करतो, ज्यामुळे तुम्ही तुमच्या विशिष्ट गरजांसाठी सर्वोत्तम उत्पादन निवडू शकता.",
+                    },
+                    tabs: {
+                        health: "आरोग्य विमा",
+                        vehicle: "वाहन विमा",
+                        property: "मालमत्ता विमा",
+                        other: "इतर उत्पादने",
+                    },
+                    health: {
+                        intro: "वैयक्तिक आरोग्य विमा योजना तुम्हाला तुमचा डॉक्टर आणि हॉस्पिटल निवडण्याचे स्वातंत्र्य देते आणि मर्यादित नियोक्ता-प्रदान केलेल्या योजनेच्या उलट, तुम्ही नोकरी बदलल्यास देखील सतत कव्हरेज प्रदान करते. वाढत्या वैद्यकीय खर्चापासून हे तुमचे प्राथमिक संरक्षण आहे.",
+                        critical_illness_intro: "गंभीर आजार ही एक स्वतंत्र पॉलिसी आहे, रायडर नाही. हे गंभीर आजारांच्या (जसे की कर्करोग, हृदयविकाराचा झटका किंवा स्ट्रोक) निदानावर एकरकमी भरपाई देते, ज्याचा उपयोग गैर-वैद्यकीय खर्च, उत्पन्नाचे नुकसान भरून काढण्यासाठी किंवा विशेष उपचारांसाठी केला जाऊ शकतो. आरोग्य संकटाच्या वेळी आर्थिक स्थैर्यासाठी हे महत्त्वाचे आहे.",
+                        checkpoints: "खरेदी करण्यापूर्वी काय तपासावे",
+                        checkpoints_list: [
+                            "आधीपासून असलेल्या आजारांसाठी आणि विशिष्ट आजारांसाठी प्रतीक्षा कालावधी.",
+                            "कॅशलेस हॉस्पिटल नेटवर्कची यादी आणि भौगोलिक कव्हरेज.",
+                            "विमा कंपनीचा दावा निपटारा प्रमाण.",
+                            "सह-भरणा आणि कपात करण्यायोग्य कलमे.",
+                            "रूमचे भाडे आणि विशिष्ट उपचारांवर उप-मर्यादा.",
+                            "नो-क्लेम बोनस (NCB) आणि पुनर्संचयन लाभांची उपलब्धता."
+                        ],
+                        documents: "आवश्यक कागदपत्रे",
+                        documents_list: [
+                            "योग्य प्रकारे भरलेला प्रस्ताव फॉर्म.",
+                            "वयाचा पुरावा (उदा. आधार कार्ड, पासपोर्ट).",
+                            "ओळख पुरावा (उदा. पॅन कार्ड, मतदार ओळखपत्र).",
+                            "पत्ता पुरावा (उदा. आधार कार्ड, युटिलिटी बिल).",
+                            "वैद्यकीय अहवाल (विमा कंपनीने आवश्यक असल्यास)."
+                        ],
+                        renewal: "नूतनीकरण आणि वेळेवर नूतनीकरणाचे फायदे",
+                        renewal_info: "सतत कव्हरेज टिकवून ठेवण्यासाठी आणि प्रतीक्षा कालावधी क्रेडिट्स आणि नो-क्लेम बोनससारखे जमा झालेले फायदे गमावू नये म्हणून वेळेवर नूतनीकरण करणे महत्त्वाचे आहे. नूतनीकरणाच्या वेळी, आम्ही तुम्हाला महागाई आणि कौटुंबिक गरजांच्या तुलनेत तुमची सध्याची विमा रक्कम तपासण्यात मदत करतो. आम्ही पॉलिसीच्या अटी किंवा प्रीमियममध्ये कोणतेही बदल तपासतो, ज्यामुळे तुम्हाला सर्वोत्तम मूल्य मिळेल याची खात्री होते. वेळेवर नूतनीकरण केल्याने कव्हरेजमध्ये खंड पडत नाही, ज्यामुळे तुम्हाला नवीन प्रतीक्षा कालावधीची पूर्तता करण्याची आवश्यकता नाही.",
+                        faqs: "आरोग्य विम्यासाठी १५ वारंवार विचारले जाणारे प्रश्न",
+                    },
+                    vehicle: {
+                        intro: "आम्ही सर्व प्रकारच्या वाहनांसाठी व्यापक विमा उपाय प्रदान करतो. दुचाकी आणि तीनचाकी वाहनांपासून ते कौटुंबिक कार आणि उच्च-स्तरीय वाहतूक वाहनांपर्यंत, आम्ही तुम्हाला रस्त्यावर सुरक्षित ठेवण्याची खात्री देतो. एक चांगल्या प्रकारे निवडलेली पॉलिसी तुम्हाला आर्थिक दायित्व आणि तुमच्या स्वतःच्या वाहनाच्या नुकसानीपासून संरक्षण देते.",
+                        checkpoints: "खरेदी करण्यापूर्वी काय तपासावे",
+                        checkpoints_list: [
+                            "वेगवेगळ्या विमा कंपन्यांनी देऊ केलेली विमा घोषित किंमत (IDV).",
+                            "झिरो डेप्रिसिएशन, इंजिन प्रोटेक्शन आणि रोडसाइड असिस्टन्स यांसारखे उपलब्ध ॲड-ऑन.",
+                            "नो क्लेम बोनस (NCB) संरक्षण कलम.",
+                            "दुरुस्तीसाठी कॅशलेस गॅरेजचे नेटवर्क.",
+                            "मालक-चालकाच्या वैयक्तिक अपघातासाठी कव्हरेज.",
+                            "विमा कंपनीची दावा निपटारा प्रक्रिया आणि लागणारा सरासरी वेळ."
+                        ],
+                        documents: "आवश्यक कागदपत्रे",
+                        documents_list: [
+                            "वाहन नोंदणी प्रमाणपत्र (RC).",
+                            "मागील पॉलिसी क्रमांक आणि तपशील.",
+                            "मालक-चालकाच्या ड्रायव्हिंग लायसन्सची प्रत.",
+                            "पत्ता आणि ओळख पुरावा.",
+                            "योग्य प्रकारे भरलेला प्रस्ताव फॉर्म."
+                        ],
+                        renewal: "नूतनीकरण आणि वेळेवर नूतनीकरणाचे फायदे",
+                        renewal_info: "तुमच्या वाहन विम्याचे वेळेवर नूतनीकरण करणे कायद्यानुसार अनिवार्य आहे आणि तुमच्या नो क्लेम बोनस (NCB) चे संरक्षण करते. आम्ही वेळेवर स्मरणपत्रे आणि नूतनीकरण करण्यापूर्वी काय विचारात घ्यावे याबद्दल तपशीलवार मार्गदर्शन प्रदान करतो, ज्यात मागील दाव्यांचा आणि प्रीमियममधील कोणत्याही बदलांचा समावेश आहे. वेळेवर नूतनीकरण केल्याने तुम्हाला रस्त्यावर सतत कायदेशीर आणि आर्थिक संरक्षण मिळते आणि तुमचा NCB गमावण्यापासून बचाव होतो.",
+                        faqs: "वाहन विम्यासाठी १५ वारंवार विचारले जाणारे प्रश्न",
+                    },
+                    property: {
+                        intro: "अप्रत्याशित घटनांपासून तुमच्या मालमत्तांचे संरक्षण करणे महत्त्वाचे आहे. आमच्या कौशल्यांमध्ये कॉर्पोरेट ग्राहकांसाठी प्लांट आणि फॅक्टरी विमा तसेच त्यांच्या कर्मचाऱ्यांसाठी विमा प्रदान करणे समाविष्ट आहे. आम्ही सोसायटी बिल्डिंग आणि वैयक्तिक घर विम्यामध्ये देखील विशेषज्ञ आहोत.",
+                        factory_intro: "प्लांट आणि फॅक्टरी विमा तुमच्या मौल्यवान मालमत्ता आणि यंत्रसामग्रीचे आग, नैसर्गिक आपत्त्या किंवा इतर निर्दिष्ट घटनांमुळे होणाऱ्या महत्त्वपूर्ण आर्थिक नुकसानीपासून संरक्षण करतो. हे व्यवसायाची निरंतरता सुनिश्चित करते आणि तुमच्या गुंतवणुकीचे संरक्षण करते.",
+                        society_intro: "सोसायटी बिल्डिंग विमा ही एक व्यापक पॉलिसी आहे जी निवासी किंवा व्यावसायिक संकुलाच्या सामान्य भागांना आणि संरचनेला कव्हर करते, आग, भूकंप किंवा इतर आपत्त्यांपासून त्याचे संरक्षण करते. ही एक सामायिक जबाबदारी आहे जी सर्व सदस्यांचे संरक्षण करते.",
+                        home_intro: "गृह विमा तुमच्या घराचे आणि त्यातील वस्तूंचे आग, चोरी, पूर आणि नैसर्गिक आपत्त्यांसह अनेक प्रकारच्या धोक्यांपासून संरक्षण करतो. हे तुमच्या सर्वात मौल्यवान मालमत्तेसाठी मनःशांती आणि आर्थिक सुरक्षा प्रदान करते.",
+                        checkpoints: "खरेदी करण्यापूर्वी काय तपासावे",
+                        checkpoints_list_factory: [
+                            "विमा रक्कम, जी प्लांट आणि यंत्रसामग्रीच्या संपूर्ण पुनर्स्थापनेच्या मूल्याला कव्हर करते याची खात्री करणे.",
+                            "आग, स्फोट आणि नैसर्गिक आपत्त्यांसह अनेक धोक्यांसाठी कव्हरेज.",
+                            "व्यवसाय खंडित आणि नफ्याच्या नुकसानीशी संबंधित विशिष्ट कलमे."
+                        ],
+                        checkpoints_list_society: [
+                            "संपूर्ण इमारतीच्या संरचनेसाठी आणि सामान्य भागांसाठी सामूहिक विमा रक्कम.",
+                            "आग, पूर आणि भूकंपासारख्या घटनांसाठी कव्हरेज.",
+                            "सोसायटीच्या आवारातील घटनांसाठी सार्वजनिक दायित्व कव्हरचा समावेश."
+                        ],
+                        checkpoints_list_home: [
+                            "पॉलिसी संरचना, वस्तू किंवा दोन्ही कव्हर करते की नाही.",
+                            "कव्हर केलेले विशिष्ट धोके आणि अपवाद (उदा. पूर, दहशतवाद).",
+                            "वस्तूंसाठी विमा रक्कम, जी तुमच्या वस्तूंचे खरे मूल्य दर्शवते याची खात्री करणे."
+                        ],
+                        documents: "आवश्यक कागदपत्रे",
+                        documents_list_factory: [
+                            "कारखाना इमारत आणि यंत्रसामग्रीच्या तपशीलांसह प्रस्ताव फॉर्म.",
+                            "मालमत्तांचा मूल्यांकन अहवाल.",
+                            "अग्निशमन सुरक्षा ऑडिट अहवाल.",
+                            "मागील दाव्यांचे तपशील, असल्यास."
+                        ],
+                        documents_list_society: [
+                            "सोसायटीच्या व्यवस्थापन समितीकडून योग्य प्रकारे भरलेला प्रस्ताव फॉर्म.",
+                            "इमारत मूल्यांकन अहवाल.",
+                            "सामान्य भागांच्या मालमत्तांचे तपशील (उदा. लिफ्ट, जनरेटर).",
+                            "मागील पॉलिसी तपशील, असल्यास."
+                        ],
+                        documents_list_home: [
+                            "योग्य प्रकारे भरलेला प्रस्ताव फॉर्म.",
+                            "मालमत्तेचा पत्ता पुरावा.",
+                            "मालमत्ता किंवा वस्तूंचे मूल्यांकन.",
+                            "अर्जदाराचा पासपोर्ट आकाराचा फोटो."
+                        ],
+                        renewal: "नूतनीकरण आणि वेळेवर नूतनीकरणाचे फायदे",
+                        renewal_info: "मालमत्ता विम्याचे वेळेवर नूतनीकरण करणे महत्त्वाचे आहे. पॉलिसीमध्ये खंड पडल्यास तुमच्या मौल्यवान मालमत्तांना आर्थिक धोक्यांचा सामना करावा लागू शकतो. आम्ही तुम्हाला महागाई आणि नवीन मिळवलेल्या मालमत्ता विचारात घेऊन विमा रक्कम पुन्हा तपासण्यात मदत करतो. वेळेवर नूतनीकरण केल्याने तुम्हाला अप्रत्याशित घटनांपासून सतत आर्थिक सुरक्षा मिळते.",
+                        faqs: "मालमत्ता विम्यासाठी १५ वारंवार विचारले जाणारे प्रश्न",
+                    },
+                    other: {
+                        intro: "प्रमुख उत्पादन श्रेणींच्या पलीकडे, आम्ही वैयक्तिक अपघात, समूह वैयक्तिक अपघात आणि प्रवास विमा यासारख्या विशिष्ट गरजा पूर्ण करण्यासाठी अनेक विशेष विमा उत्पादने ऑफर करतो. ही उत्पादने तुम्हाला, तुमच्या कर्मचाऱ्यांसाठी किंवा तुमच्या प्रवासाच्या योजनांसाठी केंद्रित संरक्षण प्रदान करण्यासाठी डिझाइन केलेली आहेत.",
+                        subtabs: {
+                            personal_accident: "वैयक्तिक अपघात",
+                            group_personal_accident: "समूह वैयक्तिक अपघात",
+                            travel: "प्रवास विमा"
+                        },
+                        renewal: "नूतनीकरण आणि वेळेवर नूतनीकरणाचे फायदे",
+                        renewal_info: "या विशेष पॉलिसींचे वेळेवर नूतनीकरण करणे हे तुम्ही नेहमी सुरक्षित असल्याची खात्री करण्यासाठी महत्त्वाचे आहे. प्रवास विम्यासाठी, तुमचा पुढचा प्रवास कव्हर झाला आहे याची खात्री करणे महत्त्वाचे आहे. वैयक्तिक अपघात आणि समूह पॉलिसींसाठी, वेळेवर नूतनीकरण केल्याने तुमच्या किंवा तुमच्या कर्मचाऱ्यांसाठी संरक्षणात कोणताही खंड पडत नाही. आम्ही पॉलिसीच्या लाभांचे पुनरावलोकन करण्यात आणि सतत मूल्य सुनिश्चित करण्यासाठी कोणत्याही बदलांची ओळख करण्यात मदत करतो.",
+                    },
+                    personal_accident: {
+                        checkpoints: "खरेदी करण्यापूर्वी काय तपासावे",
+                        checkpoints_list: [
+                            "विमा रक्कम आणि विविध प्रकारच्या अपंगत्वासाठी कव्हरेज.",
+                            "व्यवसायाशी संबंधित विशिष्ट अपवाद आणि कलमे.",
+                            "पॉलिसी एकरकमी भरणा व्यतिरिक्त वैद्यकीय खर्च कव्हर करते की नाही.",
+                            "दावे प्रक्रिया आणि आवश्यक कागदपत्रे."
+                        ],
+                        documents: "आवश्यक कागदपत्रे",
+                        documents_list: [
+                            "योग्य प्रकारे भरलेला प्रस्ताव फॉर्म.",
+                            "वयाचा पुरावा (उदा. आधार कार्ड).",
+                            "ओळख पुरावा (उदा. पॅन कार्ड).",
+                            "पत्ता पुरावा (उदा. युटिलिटी बिल).",
+                            "अर्जदाराचा पासपोर्ट आकाराचा फोटो."
+                        ],
+                        faqs: "वैयक्तिक अपघातासाठी १५ वारंवार विचारले जाणारे प्रश्न",
+                    },
+                    group_personal_accident: {
+                        checkpoints: "खरेदी करण्यापूर्वी काय तपासावे",
+                        checkpoints_list: [
+                            "सर्व कर्मचाऱ्यांसाठी पॉलिसीच्या अटी आणि दावे प्रक्रिया.",
+                            "प्रत्येक कर्मचाऱ्यासाठी विमा रक्कम आणि ती मोजण्याचा आधार.",
+                            "कर्मचाऱ्यांच्या विविध श्रेणींसाठी कव्हरेज.",
+                            "पॉलिसी कामावर असताना आणि कामाबाहेरील दोन्ही अपघातांना कव्हर करते की नाही."
+                        ],
+                        documents: "आवश्यक कागदपत्रे",
+                        documents_list: [
+                            "योग्य प्रकारे भरलेला प्रस्ताव फॉर्म.",
+                            "सर्व कर्मचाऱ्यांची नावे आणि वयाची यादी.",
+                            "कंपनीच्या नोंदणीचा ​​तपशील.",
+                            "प्रत्येक कर्मचाऱ्यासाठी नामनिर्देशित व्यक्तीचा तपशील (पर्यायी पण शिफारस केली जाते)."
+                        ],
+                        faqs: "समूह वैयक्तिक अपघातासाठी १५ वारंवार विचारले जाणारे प्रश्न",
+                    },
+                    travel: {
+                        checkpoints: "खरेदी करण्यापूर्वी काय तपासावे",
+                        checkpoints_list: [
+                            "वैद्यकीय कव्हरेजचा विस्तार, ज्यात आपत्कालीन रुग्णालयीकरण समाविष्ट आहे.",
+                            "सामानाचे नुकसान आणि विलंबासाठीच्या मर्यादा.",
+                            "ट्रिप रद्द करणे आणि व्यत्ययासाठीची कलमे.",
+                            "लागू असल्यास, साहसी खेळांसाठी कव्हरेज.",
+                            "गंतव्यस्थान आणि क्रियाकलापांशी संबंधित विशिष्ट अपवाद."
+                        ],
+                        documents: "आवश्यक कागदपत्रे",
+                        documents_list: [
+                            "योग्य प्रकारे भरलेला प्रस्ताव फॉर्म.",
+                            "सर्व प्रवाशांच्या पासपोर्टच्या प्रती.",
+                            "पुष्टि केलेली प्रवासाची योजना.",
+                            "व्हिसाचा तपशील (विमा कंपनीने आवश्यक असल्यास)."
+                        ],
+                        faqs: "प्रवास विम्यासाठी १५ वारंवार विचारले जाणारे प्रश्न",
+                    },
+                    health_faqs: [
+                        { q: "What is a waiting period in health insurance?", a: "A waiting period is a specific duration during which certain medical conditions or treatments are not covered by the policy. This can vary for different illnesses or pre-existing conditions." },
+                        { q: "Is it possible to port my health insurance policy?", a: "Yes, you can port your health insurance policy from one insurer to another. This allows you to retain the benefits you have accumulated, like the waiting period credit for pre-existing diseases." },
+                        { q: "What is a cashless claim in health insurance?", a: "A cashless claim allows you to receive medical treatment at a network hospital without paying cash. The insurer directly settles the bills with the hospital, simplifying the process for you." },
+                        { q: "What is a critical illness policy and how is it different?", a: "Health insurance covers hospitalization expenses on an indemnity basis. A critical illness policy pays a lump sum upon diagnosis of a covered illness, regardless of the actual medical cost, which can be used for any purpose, including loss of income." },
+                        { q: "What is a deductible in health insurance?", a: "A deductible is the amount you must pay out of pocket before your insurance company starts paying for the covered expenses. This helps in keeping the premium low but increases your out-of-pocket expense during a claim." },
+                        { q: "What is a co-payment clause?", a: "A co-payment clause requires you to pay a fixed percentage of the total claim amount, and the insurer pays the remaining portion. This helps in keeping the premium low but increases your out-of-pocket expense during a claim." },
+                        { q: "Why should I buy health insurance from an agent and not online?", a: "An agent provides personalized advice and helps you navigate complex policy terms. More importantly, they offer crucial support during the claims process, ensuring you receive your benefits efficiently, which can be challenging to manage on your own." },
+                        { q: "What is the claim settlement ratio (CSR)?", a: "CSR is the percentage of claims settled by an insurer in a financial year. A higher CSR indicates that the insurer is more reliable in settling claims. We recommend checking this before buying." },
+                        { q: "Are pre-existing diseases covered under health insurance?", a: "Yes, pre-existing diseases are covered after a specific waiting period, which varies from 2 to 4 years depending on the policy. It's crucial to disclose all conditions at the time of purchase." },
+                        { q: "Can I get a tax benefit on health insurance premiums?", a: "Yes, premiums paid for health insurance policies are eligible for a tax deduction under Section 80D of the Income Tax Act." },
+                        { q: "What is the difference between individual and family floater plans?", a: "An individual plan provides a separate sum insured for each member. A family floater plan provides a single sum insured that can be utilized by any member of the family, making it cost-effective for families." },
+                        { q: "What is a maternity benefit in health insurance?", a: "Maternity benefit covers expenses related to childbirth, including pre-natal and post-natal care. Most policies have a waiting period for this benefit, typically of 2 to 4 years." },
+                        { q: "Are Ayush treatments covered?", a: "Many modern health insurance policies now cover expenses for Ayush (Ayurveda, Yoga, Unani, Siddha, and Homoeopathy) treatments, subject to the policy terms and conditions." },
+                        { q: "What is reinstatement benefit?", a: "Some policies offer a reinstatement benefit, which automatically restores the sum insured to its original amount after it has been exhausted by a claim, ensuring you have continued coverage for the rest of the policy year." },
+                        { q: "What is a health card?", a: "A health card is issued by the insurer that contains your policy details. It is essential for availing cashless hospitalization at network hospitals." },
+                    ],
+                    vehicle_faqs: [
+                        { q: "What is an Insured Declared Value (IDV)?", a: "The IDV is the maximum sum insured for your vehicle in a comprehensive policy. It represents the current market value of your vehicle and is a crucial factor in determining your premium and claim amount." },
+                        { q: "What is a No Claim Bonus (NCB)?", a: "NCB is a discount on your renewal premium if you have not made any claims during the previous policy year. The discount percentage increases with each consecutive claim-free year." },
+                        { q: "What is the difference between Third-Party and Comprehensive motor insurance?", a: "A Third-Party insurance is mandatory and covers only damages or injuries caused by your vehicle to a third party. A Comprehensive policy, on the other hand, covers both third-party liabilities and damages to your own vehicle." },
+                        { q: "What is a zero-depreciation add-on?", a: "A zero-depreciation add-on, also known as 'bumper-to-bumper' cover, ensures that no depreciation is deducted from the value of plastic, metal, and fiber parts during a claim, giving you a higher claim amount." },
+                        { q: "Is it mandatory to have a personal accident cover for my vehicle?", a: "A personal accident cover for the owner-driver is mandatory by law in India, providing a fixed sum assured in case of accidental death or disability." },
+                        { q: "Can I transfer my NCB if I sell my car?", a: "Yes, the NCB belongs to you, not the vehicle. You can get an NCB certificate from your insurer and use it to get a discount on the premium for a new car you buy." },
+                        { q: "What happens if I forget to renew my policy on time?", a: "If your policy expires, you will lose your NCB. You will also have to get your vehicle re-inspected before a new policy can be issued, which can be time-consuming." },
+                        { q: "How is the premium for a car insurance calculated?", a: "The premium depends on several factors, including the IDV, engine capacity, age of the vehicle, geographical location, and the type of policy (third-party or comprehensive)." },
+                        { q: "Do all garages offer cashless service?", a: "No, only garages that have a tie-up with your insurance company offer cashless service. It's important to check the network of garages before buying a policy." },
+                        { q: "What is the difference between a claim and an accidental claim?", a: "A claim can be for any covered event, like theft or damage due to natural calamity. An accidental claim is specifically for damages or losses caused by a road accident." },
+                        { q: "What is an add-on cover?", a: "Add-on covers are optional benefits that you can add to your comprehensive policy by paying an extra premium. They enhance the coverage of your base policy." },
+                        { q: "What is Roadside Assistance cover?", a: "This add-on provides assistance in case of a breakdown or a flat tire on the road, including towing services, fuel delivery, and minor repairs." },
+                        { q: "What is a key and lock replacement cover?", a: "This add-on provides coverage for the cost of replacing your vehicle's keys and locks if they are lost, stolen, or damaged." },
+                        { q: "Does car insurance cover damages due to a flood?", a: "Yes, a comprehensive policy typically covers damages caused by natural disasters like floods, cyclones, and earthquakes. A third-party policy does not." },
+                        { q: "Can I cancel my car insurance policy?", a: "Yes, you can cancel your policy, but a cancellation fee and a portion of the premium for the period the policy was active will be deducted. It is not recommended to cancel without a new policy in place." },
+                    ],
+                    property_faqs: [
+                        { q: "What is included in Property Insurance?", a: "Property insurance typically covers damage to your building and its contents due to fire, lightning, explosion, riot, strike, and natural disasters like storms, floods, and earthquakes." },
+                        { q: "What is the difference between a home insurance and a fire insurance policy?", a: "A fire insurance policy specifically covers damage due to fire, lightning, and a few other allied perils. A home insurance policy is more comprehensive, covering a wider range of risks including theft, natural disasters, and in some cases, personal liability." },
+                        { q: "Is it mandatory to have property insurance?", a: "It is not mandatory by law in India, but it is highly recommended to protect your valuable assets. If you have a home loan, the bank may require you to have property insurance." },
+                        { q: "Does home insurance cover damages due to terrorism?", a: "Many modern home insurance policies offer terrorism cover as an add-on or as part of the base policy. You should check your policy document for this specific clause." },
+                        { q: "What is a reinstatement value in property insurance?", a: "Reinstatement value is the cost of rebuilding your property or replacing assets at today's cost, without any deduction for depreciation. This is the ideal way to get your property valued for insurance." },
+                        { q: "What is co-insurance in a property policy?", a: "Co-insurance is a clause that requires you to insure your property for a certain percentage (usually 80-90%) of its full value. If you don't, the insurer will pay only a partial amount of the claim." },
+                        { q: "Does a society building insurance cover individual flats?", a: "A society building insurance covers the common areas and the building structure but generally does not cover the contents or interior of individual flats. For that, individual owners need to buy a separate home insurance policy." },
+                        { q: "What is a 'Floater' policy for commercial property?", a: "A floater policy is a type of commercial property insurance that covers movable goods or stock across different locations under a single policy, rather than requiring separate policies for each location." },
+                        { q: "Does property insurance cover damages to gardens or external fences?", a: "This depends on the policy. Some comprehensive policies may include coverage for external structures and landscaped gardens, but many basic policies do not. It's important to check the policy wording." },
+                        { q: "How is the sum insured determined for a factory?", a: "The sum insured for a factory is determined based on the replacement value of the building, machinery, raw materials, and finished goods. A professional valuation is often required." },
+                        { q: "Does home insurance cover damages from a short circuit?", a: "Yes, damage to your property due to fire from a short circuit is typically covered under a standard fire and peril policy, which is a key component of a home insurance plan." },
+                        { q: "What is a business interruption cover?", a: "Business interruption is an add-on to a property policy for businesses, which covers the loss of income a business suffers after a disaster, allowing it to continue paying bills and salaries while the property is being repaired." },
+                        { q: "Is theft covered in home insurance?", a: "Yes, most comprehensive home insurance policies include coverage for losses due to burglary and theft. However, there might be specific clauses and sub-limits for valuable items like jewelry." },
+                        { q: "Can I get a separate policy for my factory machinery?", a: "Yes, you can get a separate Machinery Breakdown (MB) policy which covers sudden and unforeseen damages to machinery. It can be a standalone policy or a part of a larger property policy." },
+                        { q: "What is a Loss of Profit (LOP) policy?", a: "A Loss of Profit policy is an add-on that compensates the business for lost income or profit due to an interruption caused by a covered event, like a fire or flood. It helps in maintaining financial stability during a shutdown." },
+                    ],
+                    personal_accident_faqs: [
+                        { q: "जीवन विमा आणि वैयक्तिक अपघात विमा यांच्यात काय फरक आहे?", a: "जीवन विमा कोणत्याही कारणामुळे (काही प्रकरणांमध्ये आत्महत्या वगळून) मृत्यू झाल्यास भरणा प्रदान करतो. वैयक्तिक अपघात विमा विशेषतः अपघातामुळे झालेल्या मृत्यू किंवा अपंगत्वासाठी भरणा प्रदान करतो." },
+                        { q: "वैयक्तिक अपघात विमा वैद्यकीय खर्च कव्हर करतो का?", a: "काही वैयक्तिक अपघात पॉलिसींमध्ये वैद्यकीय खर्चाचा लाभ समाविष्ट असतो, परंतु ही प्रामुख्याने एक लाभ पॉलिसी आहे जी मृत्यू किंवा अपंगत्वासाठी एकरकमी भरणा देते. रुग्णालयीकरणासाठी, आरोग्य विमा पॉलिसी अधिक योग्य आहे." },
+                        { q: "वैयक्तिक अपघात पॉलिसीसाठी प्रीमियमची गणना कशी केली जाते?", a: "प्रीमियम सामान्यतः विमा रक्कम आणि व्यवसायाच्या स्वरूपानुसार (उदा. उच्च धोका असलेल्या व्यवसायांसाठी प्रीमियम जास्त असतो) निर्धारित केला जातो." },
+                        { q: "वैयक्तिक अपघात पॉलिसीमध्ये 'एकूण आणि कायमस्वरूपी अपंगत्व' म्हणजे काय?", a: "याचा अर्थ असा आहे की दुखापतीमुळे विमाधारक उर्वरित आयुष्यासाठी कोणत्याही क्षमतेत काम करू शकत नाही. पॉलिसी अटींनुसार एकरकमी लाभ देईल." },
+                        { q: "एका वैयक्तिक अपघात पॉलिसी अंतर्गत कुटुंबाला कव्हर केले जाऊ शकते का?", a: "होय, बहुतेक विमा कंपन्या कौटुंबिक वैयक्तिक अपघात योजना देतात, ज्यामध्ये मुख्य अर्जदार आणि त्यांच्या कुटुंबातील सदस्यांना एकाच पॉलिसी अंतर्गत कव्हर केले जाते, बहुतेकदा सवलतीच्या प्रीमियमसह." },
+                        { q: "वैयक्तिक अपघात विमा पॉलिसीद्वारे दहशतवाद-संबंधित घटना कव्हर केल्या जातात का?", a: "बहुतेक वैयक्तिक अपघात पॉलिसींसाठी, दहशतवाद हा एक अपवाद आहे. तथापि, अतिरिक्त प्रीमियम भरून तो एक पर्यायी कव्हर म्हणून जोडला जाऊ शकतो किंवा काही व्यापक पॉलिसींमध्ये समाविष्ट केला जातो." },
+                        { q: "पॉलिसीमध्ये 'कागदपत्रांशिवाय दावा' असे काही आहे का?", a: "असा कोणताही तरतूद नाही. लहान किंवा मोठा, कोणताही दावा प्रक्रिया करण्यासाठी विमा कंपनीने निर्दिष्ट केलेली योग्य कागदपत्रे आवश्यक असतात." },
+                        { q: "वैयक्तिक अपघात विमा पॉलिसीला प्रतीक्षा कालावधी असतो का?", a: "आरोग्य विम्याच्या विपरीत, वैयक्तिक अपघात पॉलिसींना नवीन अपघाती दुखापतींसाठी प्रतीक्षा कालावधी नसतो. पॉलिसी जारी केल्यावर ते तात्काळ कव्हरेज प्रदान करतात." },
+                        { q: "वैयक्तिक अपघात विमा गंभीर आजार विम्यापेक्षा वेगळा आहे का?", a: "होय. वैयक्तिक अपघात विमा अपघातांमुळे होणारे मृत्यू आणि अपंगत्व कव्हर करतो, तर गंभीर आजार विमा जीवघेण्या आजाराचे निदान झाल्यावर एकरकमी भरणा देतो." },
+                        { q: "पॉलिसीची मुदत संपल्यावर मी ती नूतनीकरण करू शकतो का?", a: "होय, तुम्ही मुदत संपलेली पॉलिसी नूतनीकरण करू शकता, परंतु तुम्ही जमा केलेले फायदे गमावाल, आणि नवीन प्रतीक्षा कालावधी लागू होऊ शकतात. वेळेवर नूतनीकरण करणे सर्वोत्तम आहे." },
+                        { q: "कायमस्वरूपी आंशिक अपंगत्व म्हणजे काय?", a: "याचा अर्थ असा आहे की शरीराच्या एका भागाच्या कार्याचे कायमस्वरूपी नुकसान, परंतु विमाधारकाला पूर्णपणे काम करण्यापासून अक्षम करत नाही. पॉलिसी गंभीरतेनुसार विमा रकमेचा काही टक्के भाग देईल." },
+                        { q: "वैयक्तिक अपघात पॉलिसी आत्महत्येला कव्हर करते का?", a: "नाही, बहुतेक वैयक्तिक अपघात पॉलिसी आत्महत्या किंवा आत्महत्येच्या प्रयत्नामुळे झालेल्या मृत्यू किंवा अपंगत्वाला कव्हर करत नाहीत." },
+                        { q: "वैयक्तिक अपघात विमा प्रीमियमवर कर लाभ मिळतो का?", a: "वैयक्तिक अपघात पॉलिसींसाठी भरलेला प्रीमियम सामान्यतः कलम 80D अंतर्गत कर कपातीसाठी पात्र नसतो, जे विशेषतः आरोग्य विम्यासाठी आहे." },
+                        { q: "वैयक्तिक अपघात पॉलिसी युद्धामुळे झालेल्या घटनांना कव्हर करते का?", a: "नाही, युद्ध, आक्रमण किंवा नागरी गोंधळ यांसारख्या घटनांना वैयक्तिक अपघात पॉलिसींमधून वगळले जाते." },
+                        { q: "वैयक्तिक अपघात पॉलिसीमध्ये 'नामनिर्देशित व्यक्ती' म्हणजे काय?", a: "नामनिर्देशित व्यक्ती अशी व्यक्ती आहे ज्याला तुमच्या अपघाती मृत्यूच्या घटनेत पॉलिसीचे फायदे मिळतील. सुलभ दावा प्रक्रियेसाठी नामनिर्देशित व्यक्तीचे नाव देणे महत्त्वाचे आहे." },
+                    ],
+                    group_personal_accident_faqs: [
+                        { q: "समूह वैयक्तिक अपघात पॉलिसी अंतर्गत कोण कव्हर असतो?", a: "समूह वैयक्तिक अपघात पॉलिसी एका संस्थेच्या सर्व कर्मचाऱ्यांना कव्हर करते, त्यांना कामावर असताना आणि कामाबाहेर दोन्ही अपघातांच्या बाबतीत आर्थिक सुरक्षा प्रदान करते." },
+                        { q: "समूह पॉलिसीसाठी वैद्यकीय तपासणी आवश्यक आहे का?", a: "नाही, समूह वैयक्तिक अपघात पॉलिसींसाठी सामान्यतः वैद्यकीय तपासणी आवश्यक नसते, ज्यामुळे सर्व कर्मचाऱ्यांना एकाच वेळी नोंदणी करणे सोपे होते." },
+                        { q: "समूह पॉलिसीसाठी प्रीमियमची गणना कशी केली जाते?", a: "समूह पॉलिसीसाठी प्रीमियम सामान्यतः कर्मचाऱ्यांची संख्या, त्यांचे वय गट आणि त्यांचा व्यवसाय धोका प्रोफाइल यावर आधारित असतो." },
+                        { q: "कंपनीला समूह वैयक्तिक अपघात प्रीमियमवर कर लाभ मिळू शकतो का?", a: "होय, कंपनीने समूह वैयक्तिक अपघात पॉलिसीसाठी भरलेला प्रीमियम व्यावसायिक खर्च मानला जातो आणि तो कर कपातीसाठी पात्र असतो." },
+                        { q: "समूह पॉलिसी तात्पुरत्या कर्मचाऱ्याना कव्हर करते का?", a: "हे पॉलिसीच्या अटींवर अवलंबून आहे. काही पॉलिसी फक्त कायमस्वरूपी कर्मचाऱ्यांना कव्हर करतात, तर इतरांना तात्पुरत्या किंवा करार कर्मचाऱ्यांना समाविष्ट करण्यासाठी वाढवता येते." },
+                        { q: "समूह वैयक्तिक अपघात पॉलिसीसाठी दावा प्रक्रिया काय आहे?", a: "दावा प्रक्रियेत कर्मचारी किंवा त्यांच्या कुटुंबाने नियोक्त्याला सूचित करणे आवश्यक आहे, जो नंतर विमा कंपनीशी समन्वय साधेल. आवश्यक कागदपत्रांमध्ये दावा फॉर्म, वैद्यकीय अहवाल आणि ओळख पुरावा यांचा समावेश असतो." },
+                        { q: "समूह वैयक्तिक अपघात पॉलिसीसाठी वयाची मर्यादा आहे का?", a: "होय, बहुतेक पॉलिसींना वयाची मर्यादा असते, सामान्यतः १८ ते ६५ किंवा ७० वर्षे, परंतु हे विमा कंपनीनुसार बदलू शकते." },
+                        { q: "समूह पॉलिसी सानुकूलित केली जाऊ शकते का?", a: "होय, समूह पॉलिसी अत्यंत सानुकूलित आहेत. कंपन्या त्यांच्या विशिष्ट गरजा पूर्ण करण्यासाठी विमा रक्कम, ॲड-ऑन कव्हर्स आणि इतर अटी निवडू शकतात." },
+                        { q: "समूह पॉलिसी आजारामुळे झालेल्या मृत्यूला कव्हर करते का?", a: "नाही, समूह वैयक्तिक अपघात पॉलिसी फक्त अपघातामुळे झालेल्या मृत्यू किंवा अपंगत्वाला कव्हर करते. आजारामुळे मृत्यूसाठी, समूह मुदत जीवन विमा पॉलिसी आवश्यक आहे." },
+                        { q: "समूह पॉलिसीमध्ये 'मास्टर पॉलिसीधारक' कोण असतो?", a: "मास्टर पॉलिसीधारक ती संस्था किंवा कंपनी आहे जी तिच्या कर्मचाऱ्यांच्या वतीने पॉलिसी खरेदी करते." },
+                        { q: "कर्मचाऱ्यांचे कुटुंबीय कव्हर असतात का?", a: "सामान्यतः, नाही. समूह वैयक्तिक अपघात पॉलिसी फक्त कर्मचाऱ्यांना कव्हर करते. कुटुंबातील सदस्यांना कव्हर करण्यासाठी एक स्वतंत्र कौटुंबिक फ्लोटर किंवा वैयक्तिक अपघात पॉलिसी आवश्यक आहे." },
+                        { q: "समूह पॉलिसी कर्मचाऱ्यांसाठी आंतरराष्ट्रीय प्रवासाला कव्हर करते का?", a: "हे सामान्यतः मानक समूह पॉलिसीमध्ये समाविष्ट नसते. आंतरराष्ट्रीय प्रवासासाठी एक विशिष्ट ॲड-ऑन किंवा स्वतंत्र समूह प्रवास विमा पॉलिसी आवश्यक असेल." },
+                        { q: "कंपनी सोडल्यानंतर कर्मचारी पॉलिसी सुरू ठेवू शकतो का?", a: "नाही, कर्मचारी कंपनी सोडल्यावर कव्हरेज संपते कारण पॉलिसी रोजगाराशी जोडलेली असते. त्यांना एक नवीन वैयक्तिक पॉलिसी खरेदी करावी लागेल." },
+                        { q: "समूह पॉलिसी वैयक्तिक पॉलिसींपेक्षा स्वस्त असते का?", a: "होय, मोठ्या संख्येने सदस्यांमुळे, समूह पॉलिसी सामान्यतः प्रत्येक कर्मचाऱ्यासाठी स्वतंत्र पॉलिसी खरेदी करण्यापेक्षा अधिक किफायतशीर असतात." },
+                        { q: "समूह पॉलिसीमध्ये सह-भरणा कलम असते का?", a: "बहुतेक समूह वैयक्तिक अपघात पॉलिसींमध्ये सह-भरणा कलम नसते. विमा कंपनी पॉलिसीच्या अटींनुसार पूर्ण दावा रक्कम देते." },
+                    ],
+                    travel_faqs: [
+                        { q: "आंतरराष्ट्रीय प्रवासासाठी प्रवास विमा अनिवार्य आहे का?", a: "अनेक देशांना आता व्हिसा अर्जासाठी प्रवास विमा आवश्यक आहे. वैद्यकीय आपत्कालीन परिस्थिती आणि इतर प्रवास-संबंधित धोके कव्हर करण्यासाठी तो नेहमीच घेणे सल्लादायक आहे." },
+                        { q: "प्रवास विमा फ्लाइट विलंब किंवा रद्द होण्याला कव्हर करतो का?", a: "होय, बहुतेक प्रवास विमा पॉलिसी फ्लाइट विलंब किंवा रद्द होण्याला कव्हरेज प्रदान करतात, ज्यामुळे विलंबामुळे होणाऱ्या भोजन किंवा निवास खर्चाची भरपाई करण्यास मदत होते." },
+                        { q: "प्रवास विम्यात सामानाचे नुकसान कव्हर म्हणजे काय?", a: "हे कव्हर विमाधारकाला एअरलाइनद्वारे तपासलेल्या सामानाचे नुकसान किंवा विलंबासाठी भरपाई देते, ज्यामुळे तुमचे सामान सापडत नाही किंवा दावा निकाली निघत नाही तोपर्यंत आवश्यक वस्तू खरेदी करण्यास मदत होते." },
+                        { q: "प्रवास विमा आधीपासून असलेल्या वैद्यकीय स्थितींना कव्हर करतो का?", a: "बहुतेक मानक प्रवास विमा पॉलिसी आधीपासून असलेल्या स्थितींना वगळतात. तथापि, काही विमा कंपन्या अतिरिक्त प्रीमियमसाठी हे एक ॲड-ऑन म्हणून ऑफर करतात, जे विशिष्ट नियम आणि अटींच्या अधीन असते." },
+                        { q: "एकल ट्रिप आणि मल्टी-ट्रिप प्रवास विमा यांच्यात काय फरक आहे?", a: "एकल ट्रिप पॉलिसी एका विशिष्ट प्रवासासाठी असते. मल्टी-ट्रिप पॉलिसी एका वर्षाच्या कालावधीत केलेल्या अनेक प्रवासांसाठी असते, जी वारंवार प्रवास करणाऱ्यांसाठी अधिक किफायतशीर असते." },
+                        { q: "प्रवास विमा साहसी खेळांना कव्हर करतो का?", a: "मानक प्रवास विमा अनेकदा उच्च-धोका किंवा साहसी खेळांना वगळतो. तुम्ही अशा क्रियाकलापांमध्ये भाग घेण्याची योजना करत असाल तर तुम्हाला एक विशिष्ट ॲड-ऑन किंवा विशेष पॉलिसी खरेदी करावी लागेल." },
+                        { q: "जर मला माझ्या प्रवास विमा पॉलिसीची मुदत वाढवायची असेल तर काय करावे?", a: "बहुतेक विमा कंपन्या तुम्हाला प्रवास करत असताना तुमच्या पॉलिसीची मुदत वाढवण्याची परवानगी देतात, जोपर्यंत तुम्ही पॉलिसीची मुदत संपण्यापूर्वी मुदतवाढीची विनंती करता. हे विमा कंपनीच्या मंजुरीच्या अधीन असते." },
+                        { q: "प्रवास विमा दहशतवादी घटनांना कव्हर करतो का?", a: "होय, आजच्या अनेक प्रवास विमा पॉलिसींमध्ये दहशतवादी कृत्यांमुळे झालेल्या मृत्यू किंवा दुखापतीसाठी कव्हरेज समाविष्ट आहे, परंतु कोणत्याही विशिष्ट अपवादांसाठी पॉलिसीचे मजकूर तपासणे महत्त्वाचे आहे." },
+                        { q: "प्रवास विमासाठी वैद्यकीय तपासणी आवश्यक आहे का?", a: "प्रवास विमासाठी सामान्यतः वैद्यकीय तपासणी आवश्यक नसते, जोपर्यंत तुम्ही विशिष्ट वयाचे नाही किंवा तुम्हाला आधीपासून असलेली वैद्यकीय स्थिती घोषित करण्याची आवश्यकता नाही." },
+                        { q: "प्रवास विम्यात 'विमा रक्कम' म्हणजे काय?", a: "विमा रक्कम ही कमाल रक्कम आहे जी विमा कंपनी तुमच्या प्रवासादरम्यान सर्व वैद्यकीय खर्च किंवा इतर कव्हर केलेल्या नुकसानीसाठी देईल. तुमच्या गंतव्यस्थानानुसार पुरेशी विमा रक्कम निवडणे महत्त्वाचे आहे." },
+                        { q: "प्रवास विमा व्यवसाय बैठकीसाठी प्रवासाला कव्हर करतो का?", a: "होय, प्रवास विमा आराम आणि व्यवसाय दोन्ही प्रवासांसाठी उपलब्ध आहे. तुम्ही तुमच्या प्रवासाच्या उद्देशानुसार पॉलिसी निवडू शकता." },
+                        { q: "ट्रिप रद्द करणे कव्हर म्हणजे काय?", a: "हे कव्हर तुम्हाला वैद्यकीय आपत्कालीन स्थितीसारख्या कव्हर केलेल्या कारणामुळे तुमचा प्रवास रद्द करावा लागल्यास नॉन-रिफंडेबल खर्चांची भरपाई करते, जसे की फ्लाइट्स आणि हॉटेल बुकिंग्स." },
+                        { q: "माझा पासपोर्ट हरवल्यास प्रवास विमा खर्च कव्हर करतो का?", a: "होय, बहुतेक पॉलिसी पासपोर्ट हरवल्यास लाभ देतात आणि नवीन पासपोर्ट किंवा तात्पुरते प्रवासाचे दस्तऐवज मिळवण्याच्या खर्चांना कव्हर करू शकतात." },
+                        { q: "मी विमानतळावर प्रवास पॉलिसी खरेदी करू शकतो का?", a: "होय, अनेक विमा कंपन्यांकडे प्रमुख विमानतळांवर काउंटर असतात जिथे तुम्ही शेवटच्या क्षणी प्रवास पॉलिसी खरेदी करू शकता, परंतु ती आधीच खरेदी करण्याची शिफारस केली जाते." },
+                        { q: "प्रवास विम्यासाठी दावा प्रक्रिया काय आहे?", a: "प्रक्रियेत विमा कंपनीला शक्य तितक्या लवकर सूचित करणे, दावा फॉर्म भरणे आणि सर्व आवश्यक कागदपत्रे जसे की वैद्यकीय अहवाल, बिले आणि पोलीस अहवाल (चोरीसाठी) सादर करणे समाविष्ट आहे." },
+                    ],
+                },
+            };
+
+            let currentLanguage = 'en';
+            let activeTab = 'health';
+            let activeSubTab = 'personal_accident';
+
+            // Function to render the main content of the page
+            const renderPage = () => {
+                const currentContent = content[currentLanguage];
+
+                // Update main intro section
+                document.getElementById('main-title').innerHTML = currentContent.title;
+                document.getElementById('intro-p1').innerHTML = currentContent.intro.p1;
+                document.getElementById('intro-p2').innerHTML = currentContent.intro.p2;
+                document.getElementById('intro-p3').innerHTML = currentContent.intro.p3;
+
+                // Update legal disclaimer
+                document.getElementById('irda-text').innerHTML = `
+                    ${currentLanguage === 'en' ? "For more information, visit the official website of the regulatory body:" : "अधिक माहितीसाठी, नियामक मंडळाच्या अधिकृत वेबसाइटला भेट द्या:"}
+                    <br class="hidden sm:block" />
+                    <a href="https://www.irdai.gov.in" target="_blank" class="text-[var(--primary-blue)] hover:underline font-medium">
+                        IRDAI (Insurance Regulatory and Development Authority of India)
+                    </a>
+                `;
+                document.getElementById('disclaimer').innerHTML = `
+                    <strong>${currentLanguage === 'en' ? "Disclaimer:" : "अस्वीकरण:"}</strong>
+                    ${currentLanguage === 'en' ? "This page provides general information and is not a substitute for professional financial advice. All insurance products are subject to the terms and conditions of the specific policy. It is recommended to read the policy document carefully before concluding the sale." : "हे पृष्ठ सामान्य माहिती प्रदान करते आणि व्यावसायिक आर्थिक सल्ल्याचा पर्याय नाही. सर्व विमा उत्पादने विशिष्ट पॉलिसीच्या नियम आणि अटींच्या अधीन आहेत. विक्री पूर्ण करण्यापूर्वी पॉलिसी दस्तऐवज काळजीपूर्वक वाचण्याची शिफारस केली जाते."}
+                `;
+
+                // Render tab navigation
+                const tabNav = document.getElementById('tab-navigation');
+                tabNav.innerHTML = Object.keys(currentContent.tabs).map(tabKey => `
+                    <button id="tab-${tabKey}"
+                        class="py-4 px-4 sm:px-6 font-medium text-lg border-b-4 transition-colors duration-300 ease-in-out
+                        ${activeTab === tabKey ? 'border-[var(--primary-blue)] text-[var(--primary-blue)]' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-400'}">
+                        ${currentContent.tabs[tabKey]}
+                    </button>
+                `).join('');
+
+                // Add event listeners to the new tab buttons
+                Object.keys(currentContent.tabs).forEach(tabKey => {
+                    document.getElementById(`tab-${tabKey}`).addEventListener('click', () => {
+                        activeTab = tabKey;
+                        renderPage();
+                    });
+                });
+
+                // Render active tab content
+                renderTabContent(activeTab, currentLanguage);
+            };
+
+            // Function to render content for the selected tab
+            const renderTabContent = (tab, lang) => {
+                const tabContentContainer = document.getElementById('tab-content');
+                const productContent = content[lang][tab];
+
+                if (!productContent) {
+                    tabContentContainer.innerHTML = '';
+                    return;
+                }
+
+                // Get the appropriate icon for the tab
+                let iconHtml = '';
+                switch(tab) {
+                    case 'health': iconHtml = icons.Heart; break;
+                    case 'vehicle': iconHtml = icons.Car; break;
+                    case 'property': iconHtml = icons.Home; break;
+                    case 'other': iconHtml = icons.Briefcase; break;
+                }
+
+                if (tab === 'other') {
+                    // Handle sub-tab rendering for "Other Products"
+                    renderOtherTabContent(lang);
+                } else {
+                    let html = `
+                        <div class="mt-8 space-y-12 animate-fade-in">
+                            <!-- Intro Section -->
+                            <section class="space-y-6">
+                                <div class="flex items-center space-x-2 mb-4">
+                                    ${iconHtml}
+                                    <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--primary-blue)]">${content[lang].tabs[tab]}</h3>
+                                </div>
+                                <p class="text-lg text-gray-700 leading-relaxed">${productContent.intro}</p>
+                                ${tab === 'health' ? `
+                                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                                        <h4 class="text-xl font-medium text-[var(--primary-blue)] flex items-center mb-2">
+                                            ${icons.PlusCircle}
+                                            ${lang === 'en' ? "Critical Illness as a Separate Product" : "गंभीर आजार ही एक स्वतंत्र पॉलिसी आहे"}
+                                        </h4>
+                                        <p class="text-gray-700 leading-relaxed">${productContent.critical_illness_intro}</p>
+                                    </div>
+                                ` : ''}
+                            </section>
+                            
+                            <!-- Checkpoints & Documents Section -->
+                            <section class="space-y-6">
+                                ${tab !== 'property' ? `
+                                    ${renderProductCheckpoints(productContent.checkpoints_list, lang, tab)}
+                                    ${renderProductDocuments(productContent.documents_list, lang, tab)}
+                                ` : `
+                                    <div class="space-y-8">
+                                        ${renderSubSection(lang === 'en' ? "Home Insurance" : "घर विमा", productContent.home_intro, productContent.checkpoints_list_home, productContent.documents_list_home, lang)}
+                                        ${renderSubSection(lang === 'en' ? "Factory Insurance" : "कारखाना विमा", productContent.factory_intro, productContent.checkpoints_list_factory, productContent.documents_list_factory, lang)}
+                                        ${renderSubSection(lang === 'en' ? "Society Building Insurance" : "सोसायटी बिल्डिंग विमा", productContent.society_intro, productContent.checkpoints_list_society, productContent.documents_list_society, lang, true)}
+                                    </div>
+                                `}
+                            </section>
+
+                            <!-- Renewal Section -->
+                            <section class="space-y-6">
+                                <div class="flex items-center space-x-2 mb-4">
+                                    ${icons.RefreshCw}
+                                    <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--primary-blue)]">${productContent.renewal}</h3>
+                                </div>
+                                <p class="text-lg text-gray-700 leading-relaxed bg-blue-50 p-6 rounded-xl border border-blue-200">
+                                    ${productContent.renewal_info}
+                                </p>
+                            </section>
+
+                            <!-- FAQs Section -->
+                            <section class="space-y-6">
+                                <div class="flex items-center space-x-2 mb-4">
+                                    ${icons.User}
+                                    <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--primary-blue)]">${productContent.faqs}</h3>
+                                </div>
+                                <div class="space-y-4" id="faq-container"></div>
+                            </section>
+                        </div>
+                    `;
+                    tabContentContainer.innerHTML = html;
+                    renderFaqs(tab);
+                }
+            };
+            
+            // Function to render the "Other Products" tab content with sub-tabs
+            const renderOtherTabContent = (lang) => {
+                const tabContentContainer = document.getElementById('tab-content');
+                const productContent = content[lang].other;
+                let subtabsHtml = Object.keys(productContent.subtabs).map(subTabKey => `
+                    <button id="subtab-${subTabKey}"
+                        class="py-4 px-4 sm:px-6 font-medium text-lg border-b-4 transition-colors duration-300 ease-in-out
+                        ${activeSubTab === subTabKey ? 'border-[var(--primary-blue)] text-[var(--primary-blue)]' : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-400'}">
+                        ${productContent.subtabs[subTabKey]}
+                    </button>
+                `).join('');
+
+                let html = `
+                    <div class="mt-8 space-y-12 animate-fade-in">
+                        <!-- Intro Section -->
+                        <section class="space-y-6">
+                            <div class="flex items-center space-x-2 mb-4">
+                                ${icons.Briefcase}
+                                <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--primary-blue)]">${content[lang].tabs.other}</h3>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed">${productContent.intro}</p>
+                        </section>
+                        
+                        <!-- Sub-tab Navigation -->
+                        <div class="flex flex-wrap justify-center border-b border-gray-300" id="subtab-navigation">
+                            ${subtabsHtml}
+                        </div>
+                        
+                        <!-- Sub-tab Content will be injected here -->
+                        <div id="subtab-content"></div>
+                        
+                        <!-- Renewal Section -->
+                        <section class="space-y-6">
+                            <div class="flex items-center space-x-2 mb-4">
+                                ${icons.RefreshCw}
+                                <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--primary-blue)]">${productContent.renewal}</h3>
+                            </div>
+                            <p class="text-lg text-gray-700 leading-relaxed bg-blue-50 p-6 rounded-xl border border-blue-200">
+                                ${productContent.renewal_info}
+                            </p>
+                        </section>
+                    </div>
+                `;
+                tabContentContainer.innerHTML = html;
+
+                Object.keys(productContent.subtabs).forEach(subTabKey => {
+                    document.getElementById(`subtab-${subTabKey}`).addEventListener('click', () => {
+                        activeSubTab = subTabKey;
+                        renderOtherTabContent(lang);
+                    });
+                });
+                
+                renderSubTabContent(activeSubTab, lang);
+            };
+
+            const renderSubTabContent = (subTab, lang) => {
+                const subtabContentContainer = document.getElementById('subtab-content');
+                const subProductContent = content[lang][subTab];
+                
+                let html = `
+                    <div class="mt-8 space-y-12 animate-fade-in">
+                        <section class="space-y-6">
+                            ${renderProductCheckpoints(subProductContent.checkpoints_list, lang, subTab)}
+                            ${renderProductDocuments(subProductContent.documents_list, lang, subTab)}
+                        </section>
+                        <section class="space-y-6">
+                            <div class="flex items-center space-x-2 mb-4">
+                                ${icons.User}
+                                <h3 class="text-2xl sm:text-3xl font-semibold text-[var(--primary-blue)]">${subProductContent.faqs}</h3>
+                            </div>
+                            <div class="space-y-4" id="faq-container"></div>
+                        </section>
+                    </div>
+                `;
+                subtabContentContainer.innerHTML = html;
+                renderFaqs(subTab);
+            };
+
+            // Helper function to render product checkpoints list
+            const renderProductCheckpoints = (list, lang, tab) => `
+                <div class="bg-gray-100 p-6 rounded-xl border border-gray-300">
+                    <h4 class="text-xl font-medium text-gray-800 mb-4">${content[lang][tab].checkpoints}</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        ${list.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Helper function to render product documents list
+            const renderProductDocuments = (list, lang, tab) => `
+                <div class="bg-gray-100 p-6 rounded-xl border border-gray-300">
+                    <h4 class="text-xl font-medium text-gray-800 mb-4">${content[lang][tab].documents}</h4>
+                    <ul class="list-disc list-inside text-gray-700 space-y-2">
+                        ${list.map(item => `<li>${item}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            
+            // Helper function to render subsections for property tab
+            const renderSubSection = (title, intro, checkpoints, documents, lang, showLink = false) => `
+                <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-gray-200">
+                    <h4 class="text-xl sm:text-2xl font-semibold text-[var(--primary-blue)] mb-4">${title}</h4>
+                    <p class="text-gray-700 leading-relaxed mb-4">${intro}</p>
+                    <div class="space-y-6">
+                        ${renderProductCheckpoints(checkpoints, lang, 'property')}
+                        ${renderProductDocuments(documents, lang, 'property')}
+                        ${showLink ? `
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfzMzqiBEHm0F-kCJm8fJtW7rrTUN0xOoZa01F_q03YjIOehQ/viewform" target="_blank" class="block w-full text-center mt-4 bg-blue-600 text-white font-medium px-6 py-3 rounded-full shadow-md hover:bg-blue-700 transition transform hover:scale-105 active:bg-blue-800">
+                                ${lang === 'en' ? 'Enquire Now' : 'आता चौकशी करा'}
+                            </a>
+                        ` : ''}
+                    </div>
+                </div>
+            `;
+
+            const renderFaqs = (tab) => {
+                const faqContainer = document.getElementById('faq-container');
+                const faqs = content[currentLanguage][`${tab}_faqs`];
+                if (faqs) {
+                    faqs.forEach((faq) => {
+                        const faqItem = document.createElement('div');
+                        faqItem.className = "bg-white rounded-2xl shadow-lg border border-gray-200 transition-all duration-300 ease-in-out";
+                        faqItem.innerHTML = `
+                            <button class="w-full text-left p-6 font-medium text-lg text-gray-900 flex justify-between items-center focus:outline-none">
+                                <span class="flex-1 pr-4">${faq.q}</span>
+                                <span class="transform transition-transform duration-300">
+                                    ${icons.ChevronDown}
+                                </span>
+                            </button>
+                            <div class="overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+                                <p class="px-6 pb-6 text-gray-700">${faq.a}</p>
+                            </div>
+                        `;
+                        faqContainer.appendChild(faqItem);
+                        
+                        // Add click event listener to toggle FAQ visibility
+                        faqItem.querySelector('button').addEventListener('click', () => {
+                            const answer = faqItem.querySelector('div');
+                            const icon = faqItem.querySelector('span:last-child');
+                            const isOpen = answer.classList.contains('max-h-96');
+                            
+                            if (isOpen) {
+                                answer.classList.remove('max-h-96', 'opacity-100');
+                                answer.classList.add('max-h-0', 'opacity-0');
+                                icon.classList.remove('rotate-180');
+                            } else {
+                                answer.classList.remove('max-h-0', 'opacity-0');
+                                answer.classList.add('max-h-96', 'opacity-100');
+                                icon.classList.add('rotate-180');
+                            }
+                        });
+                    });
+                }
+            };
+            
+            // Event listeners for language toggle buttons
+            document.getElementById('lang-en').addEventListener('click', () => {
+                currentLanguage = 'en';
+                document.getElementById('lang-en').classList.add('bg-[var(--primary-blue)]', 'text-white');
+                document.getElementById('lang-en').classList.remove('text-gray-700');
+                document.getElementById('lang-mr').classList.remove('bg-[var(--primary-blue)]', 'text-white');
+                document.getElementById('lang-mr').classList.add('text-gray-700');
+                renderPage();
+            });
+
+            document.getElementById('lang-mr').addEventListener('click', () => {
+                currentLanguage = 'mr';
+                document.getElementById('lang-mr').classList.add('bg-[var(--primary-blue)]', 'text-white');
+                document.getElementById('lang-mr').classList.remove('text-gray-700');
+                document.getElementById('lang-en').classList.remove('bg-[var(--primary-blue)]', 'text-white');
+                document.getElementById('lang-en').classList.add('text-gray-700');
+                renderPage();
+            });
+
+            // Initial render of the page
+            renderPage();
+        });
+    </script>
+
+</body>
+</html>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <!-- Email Icon -->
+                <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="text-sm">
+                <!-- Links now trigger modals -->
+                <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
+                <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="privacy-policy-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
+            <p class="mb-4 text-sm">
+                We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services. We also collect non-personal data, such as browser type, IP address, and usage data, to enhance your website experience.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
+            <p class="mb-4 text-sm">
+                Your information is used to:
+                <ul class="list-disc list-inside space-y-1 mt-2">
+                    <li>Provide you with financial services and personalized advice.</li>
+                    <li>Communicate with you regarding your account and our services.</li>
+                    <li>Improve our website and services.</li>
+                    <li>Comply with legal and regulatory requirements.</li>
+                </ul>
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
+            <p class="mb-4 text-sm">
+                We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
+            <p class="mb-4 text-sm">
+                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required to provide our services or comply with the law. This may include sharing information with our partners and service providers who assist us in operating our business.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="terms-of-service-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                By accessing and using the M-Vita Services website and our services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
+            <p class="mb-4 text-sm">
+                The content on this website is for general informational purposes only. It is not professional financial advice and should not be relied upon as such. We are not responsible for any financial decisions you make based on the information provided on this website.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
+            <p class="mb-4 text-sm">
+                You agree to provide accurate and complete information when using our services. We reserve the right to terminate your access to our services if we discover that the information you provided is false or misleading.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
+            <p class="mb-4 text-sm">
+                All content, trademarks, logos, and other intellectual property on this website are the property of M-Vita Services or its licensors. You may not use, reproduce, or distribute any content from this site without our express written permission.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
+            <p class="mb-4 text-sm">
+                M-Vita Services will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or website.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu and Modals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Modal functionality
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+            const privacyPolicyClose = document.getElementById('privacy-policy-close');
+
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+            const termsOfServiceClose = document.getElementById('terms-of-service-close');
+
+            function showModal(modal) {
+                modal.classList.remove('hidden');
+            }
+
+            function hideModal(modal) {
+                modal.classList.add('hidden');
+            }
+
+            privacyPolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(privacyPolicyModal);
+            });
+
+            privacyPolicyClose.addEventListener('click', () => {
+                hideModal(privacyPolicyModal);
+            });
+
+            termsOfServiceLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(termsOfServiceModal);
+            });
+
+            termsOfServiceClose.addEventListener('click', () => {
+                hideModal(termsOfServiceModal);
+            });
+
+            // Close modals when clicking outside the content
+            privacyPolicyModal.addEventListener('click', (e) => {
+                if (e.target === privacyPolicyModal) {
+                    hideModal(privacyPolicyModal);
+                }
+            });
+            termsOfServiceModal.addEventListener('click', (e) => {
+                if (e.target === termsOfServiceModal) {
+                    hideModal(termsOfServiceModal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
