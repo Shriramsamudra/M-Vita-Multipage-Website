@@ -12,6 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Supabase Client Library -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -50,7 +52,7 @@
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="flex items-center">
-                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+                <img src="https://placehold.co/200x50/1E65AE/FFFFFF?text=M-Vita" alt="M-Vita Services Logo" class="h-16 w-auto">
             </a>
 
             <!-- Desktop Navigation Links -->
@@ -97,8 +99,11 @@
                             <input type="text" id="contact-name" placeholder="Your Name" class="w-full p-3 rounded-lg border-2 border-transparent focus:border-white focus:outline-none bg-white text-gray-800 transition-colors duration-300" required>
                             <input type="email" id="contact-email" placeholder="Your Email" class="w-full p-3 rounded-lg border-2 border-transparent focus:border-white focus:outline-none bg-white text-gray-800 transition-colors duration-300" required>
                             <textarea id="contact-message" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg border-2 border-transparent focus:border-white focus:outline-none bg-white text-gray-800 transition-colors duration-300" required></textarea>
-                            <button type="submit" class="w-full px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
-                                Send Message
+                            <button type="submit" id="submit-button" class="w-full px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300 custom-shadow">
+                                <span id="button-text">Send Message</span>
+                                <span id="button-spinner" class="hidden">
+                                    <i class="fas fa-spinner fa-spin"></i> Sending...
+                                </span>
                             </button>
                         </form>
                     </div>
@@ -161,8 +166,8 @@
     <!-- Message Modal for Contact Form -->
     <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white p-8 rounded-lg custom-shadow text-center max-w-sm">
-            <h3 class="text-xl font-bold m-vita-blue-text mb-4">Email Client Opening</h3>
-            <p class="text-gray-700 mb-6">Your message is ready to be sent. Please check your email client to send it.</p>
+            <h3 id="modal-title" class="text-xl font-bold m-vita-blue-text mb-4"></h3>
+            <p id="modal-message" class="text-gray-700 mb-6"></p>
             <button id="close-modal-contact" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold hover:bg-blue-700 transition-colors duration-300">
                 Close
             </button>
@@ -249,6 +254,17 @@
             const contactForm = document.getElementById('contact-form');
             const messageModal = document.getElementById('message-modal');
             const closeModalContactButton = document.getElementById('close-modal-contact');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const submitButton = document.getElementById('submit-button');
+            const buttonText = document.getElementById('button-text');
+            const buttonSpinner = document.getElementById('button-spinner');
+
+            // --- Supabase Configuration ---
+            const supabaseUrl = 'https://uyntgocoxdrzdqumlwfe.supabase.co';
+            const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bnRnb2NveGRyemRxdW1sd2ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUxNzczMDMsImV4cCI6MjA3MDc1MzMwM30.xWK9IeeJcWqp-gaDR2yO_hqscAsVgbJQ5sxTo2AUvfU';
+            // FIX: Renamed the client instance to avoid conflict with the global 'supabase' object.
+            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
             // Toggle mobile menu visibility
             mobileMenuButton.addEventListener('click', () => {
@@ -262,33 +278,60 @@
                 });
             });
 
-            // Handle contact form submission
-            contactForm.addEventListener('submit', (event) => {
+            // --- Updated Handle contact form submission ---
+            contactForm.addEventListener('submit', async (event) => {
                 event.preventDefault(); // Prevent default form submission
+
+                // Show spinner and disable button
+                buttonText.classList.add('hidden');
+                buttonSpinner.classList.remove('hidden');
+                submitButton.disabled = true;
 
                 // Get form values
                 const name = document.getElementById('contact-name').value;
                 const email = document.getElementById('contact-email').value;
                 const message = document.getElementById('contact-message').value;
 
-                // Construct the mailto link
-                const subject = encodeURIComponent('Website Inquiry from ' + name);
-                const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-                const mailtoLink = `mailto:mvitaservices@gmail.com?subject=${subject}&body=${body}`;
+                try {
+                    // Insert data into the 'contacts' table in Supabase
+                    // FIX: Use the correctly named client instance 'supabaseClient'
+                    const { data, error } = await supabaseClient
+                        .from('contacts')
+                        .insert([
+                            { name: name, email: email, message: message },
+                        ]);
 
-                // Open the user's email client
-                window.location.href = mailtoLink;
+                    if (error) {
+                        // If there's an error, throw it to be caught by the catch block
+                        throw error;
+                    }
 
-                // Show the modal to inform the user
-                messageModal.classList.remove('hidden');
-                messageModal.classList.add('flex');
+                    // Show success message in the modal
+                    modalTitle.textContent = 'Success!';
+                    modalMessage.textContent = 'Your message has been sent successfully. We will get back to you shortly.';
+                    messageModal.classList.remove('hidden');
+                    messageModal.classList.add('flex');
+                    contactForm.reset(); // Clear the form
+
+                } catch (error) {
+                    // Show error message in the modal
+                    console.error('Error submitting form:', error.message);
+                    modalTitle.textContent = 'Error';
+                    modalMessage.textContent = 'Sorry, there was a problem sending your message. Please try again later.';
+                    messageModal.classList.remove('hidden');
+                    messageModal.classList.add('flex');
+                } finally {
+                    // Hide spinner and re-enable button
+                    buttonText.classList.remove('hidden');
+                    buttonSpinner.classList.add('hidden');
+                    submitButton.disabled = false;
+                }
             });
 
             // Close contact modal when clicking the close button
             closeModalContactButton.addEventListener('click', () => {
                 messageModal.classList.add('hidden');
                 messageModal.classList.remove('flex');
-                contactForm.reset();
             });
 
             // Optional: Close contact modal when clicking outside of it
@@ -296,7 +339,6 @@
                 if (event.target === messageModal) {
                     messageModal.classList.add('hidden');
                     messageModal.classList.remove('flex');
-                    contactForm.reset();
                 }
             });
         });
