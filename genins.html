@@ -79,6 +79,17 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
+        /* Styles for dropdown menu */
+        /* Updated to use opacity and visibility for smoother and more reliable hover behavior */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -95,7 +106,24 @@
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
-                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                
+                <!-- Services Dropdown Menu -->
+                <div class="relative group dropdown">
+                    <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
+                        Services
+                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
+                    <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                        <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
+                        <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
+                        <a href="genins.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
+                        <a href="fixed.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
+                        <a href="pension.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
+                        <a href="knowledge.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-md">Financial Literacy</a>
+                    </div>
+                </div>
+
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
@@ -113,22 +141,28 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
-            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            
+            <!-- Mobile Services Dropdown -->
+            <div x-data="{ open: false }" class="relative">
+                <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
+                    Services
+                    <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                </button>
+                <div x-show="open" x-collapse x-cloak class="bg-gray-50 border-t border-gray-200 py-2">
+                    <a href="mf.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Mutual Funds</a>
+                    <a href="Life.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
+                    <a href="genins.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
+                    <a href="fixed.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
+                    <a href="pension.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
+                    <a href="knowledge.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Financial Literacy</a>
+                </div>
+            </div>
+
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
         </div>
     </header>
-
-    <main class="pt-20">
-    <div class="fixed bottom-5 right-5 z-50">
-        <a href="https://wa.me/9152049967" target="_blank" class="flex items-center justify-center bg-green-500 text-white rounded-full shadow-lg w-16 h-16 hover:bg-green-600 transition-transform transform hover:scale-110">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.894 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zM12 4.138c4.341 0 7.865 3.524 7.865 7.864s-3.524 7.864-7.865 7.864-7.864-3.524-7.864-7.864 3.523-7.864 7.864-7.864zm-2.363 5.047c-.073-.125-.27-.2-.42-.205-.15-.005-.315-.005-.465.03-.205.045-.43.205-.61.43-.28.35-.45.78-.45 1.28s.165 1.005.33 1.235c.165.23.38.465.61.735.53.64 1.19 1.21 1.99 1.695.89.55 1.6.84 2.21.98.61.14 1.13.115 1.58-.08.5-.215.845-.835.96-1.535.115-.7-.04-1.28-.115-1.38-.075-.1-.225-.15-.45-.255-.225-.1-.51-.24-.585-.27-.075-.03-.15-.045-.225.045-.075.09-.27.345-.33.39-.06.045-.12.06-.21.015-.09-.045-.375-.135-.705-.42-.405-.345-.675-.75-.75-.885-.075-.135-.015-.21.045-.27.06-.06.12-.15.18-.21.06-.06.09-.12.12-.195.03-.075.015-.15-.015-.21-.03-.06-.135-.33-.18-.45z"/>
-            </svg>
-            <span class="sr-only" data-lang-key="getHelp">Get help</span>
-        </a>
-    </div>
 
         <!-- Home Hero Section -->
         

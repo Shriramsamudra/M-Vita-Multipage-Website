@@ -79,54 +79,16 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
-        
-        /* Scrolling ribbon styles */
-        .scrolling-ribbon {
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
-            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+        /* Styles for dropdown menu */
+        /* Updated to use opacity and visibility for smoother and more reliable hover behavior */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
         }
-        .ribbon-track {
-            display: flex;
-            width: max-content;
-            animation: scroll 40s linear infinite;
-        }
-        .ribbon-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 160px; /* Fixed width for each item */
-            height: 120px; /* Fixed height */
-            padding: 1rem;
-            margin: 0 1rem;
-            background-color: white;
-            border-radius: 0.75rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-            flex-shrink: 0;
-        }
-        .ribbon-item img {
-            max-height: 60px;
-            width: auto;
-            object-fit: contain;
-            margin-bottom: 0.5rem;
-        }
-        .ribbon-item p {
-            font-size: 0.75rem;
-            text-align: center;
-            color: #4A5568;
-            font-weight: 500;
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
     </style>
 </head>
@@ -137,14 +99,31 @@
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
             <!-- Logo -->
             <a href="index.html" class="flex items-center">
-                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto" onerror="this.onerror=null;this.src='https://placehold.co/200x64/1E65AE/FFFFFF?text=M-Vita';">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
             </a>
 
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
-                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                
+                <!-- Services Dropdown Menu -->
+                <div class="relative group dropdown">
+                    <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
+                        Services
+                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
+                    <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                        <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
+                        <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
+                        <a href="genins.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
+                        <a href="fixed.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
+                        <a href="pension.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
+                        <a href="knowledge.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-md">Financial Literacy</a>
+                    </div>
+                </div>
+
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
@@ -160,9 +139,25 @@
 
         <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
-            <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
-            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            
+            <!-- Mobile Services Dropdown -->
+            <div x-data="{ open: false }" class="relative">
+                <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
+                    Services
+                    <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                </button>
+                <div x-show="open" x-collapse x-cloak class="bg-gray-50 border-t border-gray-200 py-2">
+                    <a href="mf.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Mutual Funds</a>
+                    <a href="Life.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
+                    <a href="genins.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
+                    <a href="fixed.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
+                    <a href="pension.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
+                    <a href="knowledge.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Financial Literacy</a>
+                </div>
+            </div>
+
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>

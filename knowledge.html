@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Center | M-Vita Services</title>
+    <title>M-Vita Services | Your Partner in Financial Well-being</title>
     <!-- Use Tailwind CSS for a modern, responsive design -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
@@ -38,8 +38,57 @@
         .custom-shadow {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Modal styling */
         .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        /* Styles for dropdown menu */
+        /* Updated to use opacity and visibility for smoother and more reliable hover behavior */
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+        .dropdown-menu {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
     </style>
 </head>
@@ -55,10 +104,27 @@
 
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="index.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Home</a>
+                <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
-                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
-                <a href="knowledge.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Knowledge Center</a>
+                
+                <!-- Services Dropdown Menu -->
+                <div class="relative group dropdown">
+                    <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
+                        Services
+                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                    </button>
+                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
+                    <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                        <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
+                        <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
+                        <a href="genins.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
+                        <a href="fixed.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
+                        <a href="pension.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
+                        <a href="knowledge.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-md">Financial Literacy</a>
+                    </div>
+                </div>
+
+                <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
             </div>
@@ -75,8 +141,24 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
-            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
-            <a href="knowledge.html" class="block px-4 py-2 m-vita-blue-text font-semibold hover:bg-gray-100">Knowledge Center</a>
+            
+            <!-- Mobile Services Dropdown -->
+            <div x-data="{ open: false }" class="relative">
+                <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
+                    Services
+                    <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
+                </button>
+                <div x-show="open" x-collapse x-cloak class="bg-gray-50 border-t border-gray-200 py-2">
+                    <a href="mf.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Mutual Funds</a>
+                    <a href="Life.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
+                    <a href="genins.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
+                    <a href="fixed.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
+                    <a href="pension.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
+                    <a href="knowledge.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Financial Literacy</a>
+                </div>
+            </div>
+
+            <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
         </div>
