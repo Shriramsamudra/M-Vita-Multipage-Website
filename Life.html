@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Your Partner in Financial Well-being</title>
+    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc; /* Very light gray background */
+        }
+        /* Define a custom color for the primary blue from the logo */
+        .m-vita-blue-bg {
+            background-color: #1E65AE;
+        }
+        .m-vita-blue-text {
+            color: #1E65AE;
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #1E65AE;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .bg-hero {
+            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        /* Modal styling */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0.75rem;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            position: relative;
+            animation: fadeIn 0.3s ease-out;
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #555;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white custom-shadow fixed w-full z-50">
+        <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="index.html" class="flex items-center">
+                <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
+                <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
+                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
+                <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
+                <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
+                <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
+            </div>
+
+            <!-- Mobile Navigation -->
+            <div class="md:hidden flex items-center">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
+            <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
+            <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
+            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
+            <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
+            <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
+            <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+        </div>
+    </header>
+
+    <main class="pt-20">
+
+        <!-- Home Hero Section -->
+        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Insurance - M-Vita Services</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+        }
+        /* Custom color from the M-Vita logo */
+        .mvita-blue { color: #1a5fb4; }
+        .bg-mvita-blue { background-color: #1a5fb4; }
+        .border-mvita-blue { border-color: #1a5fb4; }
+
+        /* Accordion styles */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .accordion-button.active + .accordion-content {
+            max-height: 500px; /* Adjust as needed */
+        }
+        .accordion-button .icon {
+            transition: transform 0.3s ease-out;
+        }
+        .accordion-button.active .icon {
+            transform: rotate(180deg);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .modal-close {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+            line-height: 1;
+        }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+
+        <!-- Language Toggle (Scrollable with content) -->
+        <div id="language-switcher-container" class="flex justify-center mb-12">
+            <div class="flex bg-white rounded-full p-1 shadow-inner">
+                <button id="lang-en" class="px-4 py-2 text-sm font-semibold rounded-full bg-mvita-blue text-white transition-colors duration-200" data-lang="en">English</button>
+                <button id="lang-mr" class="px-4 py-2 text-sm font-semibold rounded-full text-slate-600 hover:bg-slate-100 transition-colors duration-200" data-lang="mr">मराठी</button>
+            </div>
+        </div>
+
+        <!-- Section 1: Introduction to Life Insurance -->
+        <section id="intro" class="mb-16">
+            <div class="text-center">
+                <h1 class="text-4xl md:text-5xl font-bold mvita-blue mb-4" data-translate-key="introTitle">Secure Your Family's Future with Life Insurance</h1>
+                <p class="max-w-3xl mx-auto text-lg text-slate-600" data-translate-key="introText">
+                    Life insurance is a crucial financial tool that provides a safety net for your loved ones in your absence. It ensures that your family can maintain their standard of living, meet their financial goals, and handle any outstanding liabilities without financial strain. It's not just a policy; it's a promise to protect those who matter most.
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Main Focus - Term Plan -->
+        <section id="term-plan" class="bg-white p-8 rounded-2xl shadow-lg mb-16">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4" data-translate-key="termPlanTitle">Our Focus: The Pure Protection of a Term Plan</h2>
+                    <p class="text-slate-600 mb-4">
+                        <span data-translate-key="termPlanIntroPrefix">At M-Vita Services, we believe in providing clear, effective, and affordable solutions. That's why we strongly recommend a </span><strong class="font-semibold mvita-blue" data-translate-key="termPlanIntroStrong">Term Insurance Plan</strong><span data-translate-key="termPlanIntroSuffix"> as the foundation of your financial protection strategy.</span>
+                    </p>
+                    <ul class="space-y-3 text-slate-600">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span data-translate-key="termBenefit1"><strong class="font-semibold text-slate-700">High Coverage, Low Premium:</strong> Get a substantial life cover (e.g., ₹1 Crore) for a very affordable premium, ensuring maximum protection without straining your budget.</span>
+                        </li>
+                        <li class="flex items-start">
+                             <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <span data-translate-key="termBenefit2"><strong class="font-semibold text-slate-700">Simplicity and Transparency:</strong> Term plans are straightforward. You pay a premium, and your family receives the sum assured in case of an unfortunate event during the policy term. No complex investment calculations.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-green-500 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></path></svg>
+                            <span data-translate-key="termBenefit3"><strong class="font-semibold text-slate-700">Financial Goal Alignment:</strong> By separating insurance from investment, you can secure your family with a term plan and invest the savings in better-performing assets to achieve your long-term goals like retirement or children's education.</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="flex justify-center">
+                    <img src="logos/lifefamily.png" class="rounded-xl object-cover">
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Calculate Your Existing Life Policy Returns -->
+        <section id="policy-calculator" class="bg-slate-100 p-8 rounded-2xl shadow-lg mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-2" data-translate-key="cagrCalcTitle">Analyze Your Existing Policy</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto" data-translate-key="cagrCalcIntro">Is your current insurance policy also an investment? Use our calculator to understand its real returns in terms of CAGR (Compound Annual Growth Rate).</p>
+            <div class="max-w-2xl mx-auto bg-white p-6 rounded-xl shadow-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="total-premium" class="block text-sm font-medium text-slate-700" data-translate-key="cagrLabel1">Total Annual Premium (₹)</label>
+                        <input type="number" id="total-premium" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="cagrPlaceholder1" placeholder="e.g., 50000">
+                    </div>
+                    <div>
+                        <label for="policy-term" class="block text-sm font-medium text-slate-700" data-translate-key="cagrLabel2">Policy Term (Years)</label>
+                        <input type="number" id="policy-term" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="cagrPlaceholder2" placeholder="e.g., 20">
+                    </div>
+                    <div class="md:col-span-2">
+                        <label for="maturity-amount" class="block text-sm font-medium text-slate-700" data-translate-key="cagrLabel3">Guaranteed Maturity Amount (₹)</label>
+                        <input type="number" id="maturity-amount" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="cagrPlaceholder3" placeholder="e.g., 2500000">
+                    </div>
+                </div>
+                <button id="calculate-cagr-btn" class="mt-6 w-full bg-mvita-blue text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 transition-colors" data-translate-key="cagrButton">Calculate Returns</button>
+                <div id="cagr-result" class="mt-6 text-center hidden">
+                    <p class="text-slate-600"><span data-translate-key="cagrResult1">Total Amount Invested:</span> <strong id="total-invested" class="text-slate-800"></strong></p>
+                    <p class="text-lg font-semibold mt-2" data-translate-key="cagrResult2">Your Policy's Estimated CAGR is:</p>
+                    <p id="cagr-value" class="text-4xl font-bold mvita-blue"></p>
+                    <p class="text-sm text-slate-500 mt-2" data-translate-key="cagrResult3">(This is the approximate annual return your investment has generated.)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Other Types of Life Insurance -->
+        <section id="other-plans" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8" data-translate-key="otherPlansTitle">Other Common Life Insurance Plans</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Endowment Plan -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="text-xl font-bold mvita-blue mb-2" data-translate-key="endowmentTitle">Endowment Plan</h3>
+                    <p class="text-slate-600" data-translate-key="endowmentText">A combination of insurance and savings. It provides a lump sum amount on maturity or on the policyholder's death. Premiums are higher than term plans.</p>
+                </div>
+                <!-- Card 2: ULIP -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="text-xl font-bold mvita-blue mb-2" data-translate-key="ulipTitle">Unit Linked Insurance Plan (ULIP)</h3>
+                    <p class="text-slate-600" data-translate-key="ulipText">A mix of insurance and investment where part of the premium goes to life cover and the rest is invested in market-linked funds (equity or debt).</p>
+                </div>
+                <!-- Card 3: Money Back Plan -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-shadow">
+                    <h3 class="text-xl font-bold mvita-blue mb-2" data-translate-key="moneyBackTitle">Money Back Plan</h3>
+                    <p class="text-slate-600" data-translate-key="moneyBackText">A type of endowment plan that provides periodic payouts (survival benefits) during the policy term, with the remaining sum assured paid at maturity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Our Partner - ICICI Prudential -->
+        <section id="partner" class="bg-mvita-blue text-white p-8 rounded-2xl shadow-lg mb-16">
+            <div class="grid md:grid-cols-3 gap-8 items-center">
+                <div class="md:col-span-1 flex justify-center">
+                    <img src="logos/iciciprulife.jpeg" alt="ICICI Prudential Life Insurance Logo" class="bg-white p-4 rounded-lg">
+                </div>
+                <div class="md:col-span-2">
+                    <h2 class="text-3xl font-bold mb-4" data-translate-key="partnerTitle">Our Trusted Partner: ICICI Prudential Life Insurance</h2>
+                    <p class="opacity-90" data-translate-key="partnerText">
+                        We have partnered with ICICI Prudential, one of India's leading and most trusted private life insurance companies. Their commitment to customer-centricity, high claim settlement ratio, and innovative product suite allows us to offer you the best-in-class life insurance solutions tailored to your needs.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Onboarding Process -->
+        <section id="onboarding" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-10" data-translate-key="onboardingTitle">Our Simple Onboarding Process</h2>
+            <div class="relative">
+                <!-- Dotted line for desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-300 border-t-2 border-dashed border-slate-400" style="transform: translateY(-50%);"></div>
+                <div class="relative grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+                    <!-- Step 1 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-mvita-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 z-10 border-4 border-white shadow-md">1</div>
+                        <h3 class="font-semibold text-lg mb-1" data-translate-key="onboardingStep1Title">Consultation</h3>
+                        <p class="text-slate-600 text-sm" data-translate-key="onboardingStep1Text">We understand your needs, goals, and financial situation.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-mvita-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 z-10 border-4 border-white shadow-md">2</div>
+                        <h3 class="font-semibold text-lg mb-1" data-translate-key="onboardingStep2Title">Plan Selection</h3>
+                        <p class="text-slate-600 text-sm" data-translate-key="onboardingStep2Text">We recommend the most suitable plan and coverage for you.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-mvita-blue text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 z-10 border-4 border-white shadow-md">3</div>
+                        <h3 class="font-semibold text-lg mb-1" data-translate-key="onboardingStep3Title">Documentation</h3>
+                        <p class="text-slate-600 text-sm" data-translate-key="onboardingStep3Text">We assist you in completing the application and submitting documents.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="flex flex-col items-center">
+                        <div class="w-16 h-16 bg-green-500 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-4 z-10 border-4 border-white shadow-md">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <h3 class="font-semibold text-lg mb-1" data-translate-key="onboardingStep4Title">Policy Issued</h3>
+                        <p class="text-slate-600 text-sm" data-translate-key="onboardingStep4Text">Your policy is issued, and your family's future is secured.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Human Life Value Calculator -->
+        <section id="hlv-calculator" class="bg-white p-8 rounded-2xl shadow-lg mb-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-2" data-translate-key="hlvCalcTitle">How Much Life Insurance Do You Need?</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto" data-translate-key="hlvCalcIntro">Calculate your Human Life Value (HLV) to get an estimate of the ideal insurance cover for your family.</p>
+            <div class="max-w-2xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="annual-income" class="block text-sm font-medium text-slate-700" data-translate-key="hlvLabel1">Your Current Annual Income (₹)</label>
+                        <input type="number" id="annual-income" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="hlvPlaceholder1" placeholder="e.g., 1000000">
+                    </div>
+                     <div>
+                        <label for="age" class="block text-sm font-medium text-slate-700" data-translate-key="hlvLabel2">Your Current Age</label>
+                        <input type="number" id="age" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="hlvPlaceholder2" placeholder="e.g., 30">
+                    </div>
+                    <div>
+                        <label for="existing-liabilities" class="block text-sm font-medium text-slate-700" data-translate-key="hlvLabel3">Total Outstanding Loans (₹)</label>
+                        <input type="number" id="existing-liabilities" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="hlvPlaceholder3" placeholder="e.g., 2000000">
+                    </div>
+                    <div>
+                        <label for="existing-savings" class="block text-sm font-medium text-slate-700" data-translate-key="hlvLabel4">Total Savings & Investments (₹)</label>
+                        <input type="number" id="existing-savings" class="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-mvita-blue focus:ring-mvita-blue sm:text-sm" data-translate-key="hlvPlaceholder4" placeholder="e.g., 500000">
+                    </div>
+                </div>
+                <button id="calculate-hlv-btn" class="mt-6 w-full bg-mvita-blue text-white font-bold py-3 px-4 rounded-lg hover:bg-opacity-90 transition-colors" data-translate-key="hlvButton">Calculate My Insurance Need</button>
+                <div id="hlv-result" class="mt-6 text-center hidden p-6 bg-slate-50 rounded-lg">
+                    <p class="text-lg font-semibold" data-translate-key="hlvResult1">Your Recommended Life Insurance Cover is:</p>
+                    <p id="hlv-value" class="text-4xl font-bold mvita-blue"></p>
+                    <p class="text-sm text-slate-500 mt-2" data-translate-key="hlvResult2">(This amount aims to replace your future income and cover liabilities.)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Link to other calculators -->
+        <div class="text-center mb-16">
+            <a href="Calculators.html" class="text-mvita-blue font-semibold hover:underline" data-translate-key="otherCalculatorsLink">Our other calculators</a>
+        </div>
+
+
+        <!-- Section 8: Required Documents -->
+        <section id="documents" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8" data-translate-key="docTitle">Required Documents</h2>
+            <div class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-4 bg-white p-8 rounded-xl shadow-md">
+                <div class="font-semibold" data-translate-key="docIdTitle">Proof of Identity (Any One)</div>
+                <div class="text-slate-600" data-translate-key="docIdList">PAN Card, Aadhaar Card, Passport, Voter ID, Driving License</div>
+                <div class="md:col-span-2"><hr class="my-2"></div>
+                <div class="font-semibold" data-translate-key="docAddressTitle">Proof of Address (Any One)</div>
+                <div class="text-slate-600" data-translate-key="docAddressList">Aadhaar Card, Passport, Utility Bills (latest), Bank Statement</div>
+                 <div class="md:col-span-2"><hr class="my-2"></div>
+                <div class="font-semibold" data-translate-key="docIncomeTitle">Proof of Income</div>
+                <div class="text-slate-600" data-translate-key="docIncomeList">Latest 3 months' Salary Slips, Bank Statement, ITR/Form 16</div>
+                 <div class="md:col-span-2"><hr class="my-2"></div>
+                 <div class="font-semibold" data-translate-key="docPhotoTitle">Photographs</div>
+                <div class="text-slate-600" data-translate-key="docPhotoList">Recent passport-sized photographs</div>
+            </div>
+        </section>
+
+        <!-- Section 9: Reviewing Your Insurance -->
+        <section id="review" class="bg-slate-100 p-8 rounded-2xl shadow-lg mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-4" data-translate-key="reviewTitle">When Should You Review Your Life Insurance?</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-2xl mx-auto" data-translate-key="reviewText">Your life insurance needs are not static. It's essential to review your policy at major life milestones to ensure your coverage remains adequate.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-mvita-blue text-white px-4 py-2 rounded-full font-semibold" data-translate-key="reviewMilestone1">Marriage</span>
+                <span class="bg-mvita-blue text-white px-4 py-2 rounded-full font-semibold" data-translate-key="reviewMilestone2">Childbirth</span>
+                <span class="bg-mvita-blue text-white px-4 py-2 rounded-full font-semibold" data-translate-key="reviewMilestone3">Significant Salary Increase</span>
+                <span class="bg-mvita-blue text-white px-4 py-2 rounded-full font-semibold" data-translate-key="reviewMilestone4">Taking a Large Loan</span>
+                <span class="bg-mvita-blue text-white px-4 py-2 rounded-full font-semibold" data-translate-key="reviewMilestone5">Starting a Business</span>
+            </div>
+        </section>
+
+        <!-- Section 10: FAQs -->
+        <section id="faq" class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8" data-translate-key="faqTitle">Frequently Asked Questions</h2>
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ 1 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-800" data-translate-key="faq1Title">
+                        <span>What is the right age to buy a term plan?</span>
+                        <svg class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4 text-slate-600">
+                        <p data-translate-key="faq1Text">The best time to buy a term plan is as early as possible. When you are young and healthy, the premiums are significantly lower and remain fixed for the entire policy term. Delaying the purchase can lead to higher premiums.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-800" data-translate-key="faq2Title">
+                        <span>Can I have more than one life insurance policy?</span>
+                        <svg class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4 text-slate-600">
+                        <p data-translate-key="faq2Text">Yes, you can have multiple life insurance policies. However, you must disclose all existing policies to the insurer when applying for a new one. The total sum assured across all policies should be justifiable based on your income and financial profile.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-800" data-translate-key="faq3Title">
+                        <span>What happens if I stop paying premiums?</span>
+                        <svg class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4 text-slate-600">
+                        <p data-translate-key="faq3Text">If you stop paying premiums for a term plan, the policy will lapse after the grace period, and all benefits will cease. For investment-linked plans, the policy might acquire a paid-up value or be surrendered, depending on the terms and conditions.</p>
+                    </div>
+                </div>
+                 <!-- FAQ 4 -->
+                <div class="bg-white rounded-lg shadow-sm">
+                    <button class="accordion-button w-full flex justify-between items-center text-left p-4 font-semibold text-slate-800" data-translate-key="faq4Title">
+                        <span>Are life insurance maturity proceeds taxable?</span>
+                        <svg class="icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="accordion-content px-4 pb-4 text-slate-600">
+                        <p data-translate-key="faq4Text">As per Section 10(10D) of the Income Tax Act, the sum assured received on maturity or death is generally tax-free. However, conditions apply, especially for policies issued after April 1, 2012, where the annual premium should not exceed 10% of the sum assured.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 11: Mandatory Links & Disclaimer -->
+        <footer id="legal" class="text-center text-xs text-slate-500 border-t pt-8">
+            <div class="mb-4">
+                <p class="font-semibold" data-translate-key="legalLinksTitle">Mandatory Links:</p>
+                <a href="https://www.irdai.gov.in/" target="_blank" rel="noopener noreferrer" class="text-mvita-blue hover:underline" data-translate-key="legalLinkText">IRDAI Official Website</a>
+            </div>
+            <p class="mb-2" data-translate-key="legalDisclaimer1">
+                <strong>Disclaimer:</strong> M-Vita Services is a registered distributor of insurance products. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the sales brochure carefully before concluding a sale. The contract of insurance is between the insurer and the insured, and not between the distributor and the insured.
+            </p>
+            <p data-translate-key="legalDisclaimer2">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+        </footer>
+    </main>
+
+    <!-- Modal for messages -->
+    <div id="messageModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="modal-close">&times;</span>
+        <p id="modalMessage" class="text-lg font-semibold text-slate-800"></p>
+        <button id="modalOkBtn" class="mt-4 bg-mvita-blue text-white font-bold py-2 px-4 rounded-lg hover:bg-opacity-90 transition-colors">OK</button>
+      </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // Translations object
+            const translations = {
+                en: {
+                    pageTitle: "Life Insurance - M-Vita Services",
+                    introTitle: "Secure Your Family's Future with Life Insurance",
+                    introText: "Life insurance is a crucial financial tool that provides a safety net for your loved ones in your absence. It ensures that your family can maintain their standard of living, meet their financial goals, and handle any outstanding liabilities without financial strain. It's not just a policy; it's a promise to protect those who matter most.",
+                    termPlanTitle: "Our Focus: The Pure Protection of a Term Plan",
+                    termPlanIntroPrefix: "At M-Vita Services, we believe in providing clear, effective, and affordable solutions. That's why we strongly recommend a ",
+                    termPlanIntroStrong: "Term Insurance Plan",
+                    termPlanIntroSuffix: " as the foundation of your financial protection strategy.",
+                    termBenefit1: "High Coverage, Low Premium: Get a substantial life cover (e.g., ₹1 Crore) for a very affordable premium, ensuring maximum protection without straining your budget.",
+                    termBenefit2: "Simplicity and Transparency: Term plans are straightforward. You pay a premium, and your family receives the sum assured in case of an unfortunate event during the policy term. No complex investment calculations.",
+                    termBenefit3: "Financial Goal Alignment: By separating insurance from investment, you can secure your family with a term plan and invest the savings in better-performing assets to achieve your long-term goals like retirement or children's education.",
+                    cagrCalcTitle: "Analyze Your Existing Policy",
+                    cagrCalcIntro: "Is your current insurance policy also an investment? Use our calculator to understand its real returns in terms of CAGR (Compound Annual Growth Rate).",
+                    cagrLabel1: "Total Annual Premium (₹)",
+                    cagrPlaceholder1: "e.g., 50000",
+                    cagrLabel2: "Policy Term (Years)",
+                    cagrPlaceholder2: "e.g., 20",
+                    cagrLabel3: "Guaranteed Maturity Amount (₹)",
+                    cagrPlaceholder3: "e.g., 2500000",
+                    cagrButton: "Calculate Returns",
+                    cagrResult1: "Total Amount Invested:",
+                    cagrResult2: "Your Policy's Estimated CAGR is:",
+                    cagrResult3: "(This is the approximate annual return your investment has generated.)",
+                    otherPlansTitle: "Other Common Life Insurance Plans",
+                    endowmentTitle: "Endowment Plan",
+                    endowmentText: "A combination of insurance and savings. It provides a lump sum amount on maturity or on the policyholder's death. Premiums are higher than term plans.",
+                    ulipTitle: "Unit Linked Insurance Plan (ULIP)",
+                    ulipText: "A mix of insurance and investment where part of the premium goes to life cover and the rest is invested in market-linked funds (equity or debt).",
+                    moneyBackTitle: "Money Back Plan",
+                    moneyBackText: "A type of endowment plan that provides periodic payouts (survival benefits) during the policy term, with the remaining sum assured paid at maturity.",
+                    partnerTitle: "Our Trusted Partner: ICICI Prudential Life Insurance",
+                    partnerText: "We have partnered with ICICI Prudential, one of India's leading and most trusted private life insurance companies. Their commitment to customer-centricity, high claim settlement ratio, and innovative product suite allows us to offer you the best-in-class life insurance solutions tailored to your needs.",
+                    onboardingTitle: "Our Simple Onboarding Process",
+                    onboardingStep1Title: "Consultation",
+                    onboardingStep1Text: "We understand your needs, goals, and financial situation.",
+                    onboardingStep2Title: "Plan Selection",
+                    onboardingStep2Text: "We recommend the most suitable plan and coverage for you.",
+                    onboardingStep3Title: "Documentation",
+                    onboardingStep3Text: "We assist you in completing the application and submitting documents.",
+                    onboardingStep4Title: "Policy Issued",
+                    onboardingStep4Text: "Your policy is issued, and your family's future is secured.",
+                    hlvCalcTitle: "How Much Life Insurance Do You Need?",
+                    hlvCalcIntro: "Calculate your Human Life Value (HLV) to get an estimate of the ideal insurance cover for your family.",
+                    hlvLabel1: "Your Current Annual Income (₹)",
+                    hlvPlaceholder1: "e.g., 1000000",
+                    hlvLabel2: "Your Current Age",
+                    hlvPlaceholder2: "e.g., 30",
+                    hlvLabel3: "Total Outstanding Loans (₹)",
+                    hlvPlaceholder3: "e.g., 2000000",
+                    hlvLabel4: "Total Savings & Investments (₹)",
+                    hlvPlaceholder4: "e.g., 500000",
+                    hlvButton: "Calculate My Insurance Need",
+                    hlvResult1: "Your Recommended Life Insurance Cover is:",
+                    hlvResult2: "(This amount aims to replace your future income and cover liabilities.)",
+                    otherCalculatorsLink: "Our other calculators",
+                    docTitle: "Required Documents",
+                    docIdTitle: "Proof of Identity (Any One)",
+                    docIdList: "PAN Card, Aadhaar Card, Passport, Voter ID, Driving License",
+                    docAddressTitle: "Proof of Address (Any One)",
+                    docAddressList: "Aadhaar Card, Passport, Utility Bills (latest), Bank Statement",
+                    docIncomeTitle: "Proof of Income",
+                    docIncomeList: "Latest 3 months' Salary Slips, Bank Statement, ITR/Form 16",
+                    docPhotoTitle: "Photographs",
+                    docPhotoList: "Recent passport-sized photographs",
+                    reviewTitle: "When Should You Review Your Life Insurance?",
+                    reviewText: "Your life insurance needs are not static. It's essential to review your policy at major life milestones to ensure your coverage remains adequate.",
+                    reviewMilestone1: "Marriage",
+                    reviewMilestone2: "Childbirth",
+                    reviewMilestone3: "Significant Salary Increase",
+                    reviewMilestone4: "Taking a Large Loan",
+                    reviewMilestone5: "Starting a Business",
+                    faqTitle: "Frequently Asked Questions",
+                    faq1Title: "What is the right age to buy a term plan?",
+                    faq1Text: "The best time to buy a term plan is as early as possible. When you are young and healthy, the premiums are significantly lower and remain fixed for the entire policy term. Delaying the purchase can lead to higher premiums.",
+                    faq2Title: "Can I have more than one life insurance policy?",
+                    faq2Text: "Yes, you can have multiple life insurance policies. However, you must disclose all existing policies to the insurer when applying for a new one. The total sum assured across all policies should be justifiable based on your income and financial profile.",
+                    faq3Title: "What happens if I stop paying premiums?",
+                    faq3Text: "If you stop paying premiums for a term plan, the policy will lapse after the grace period, and all benefits will cease. For investment-linked plans, the policy might acquire a paid-up value or be surrendered, depending on the terms and conditions.",
+                    faq4Title: "Are life insurance maturity proceeds taxable?",
+                    faq4Text: "As per Section 10(10D) of the Income Tax Act, the sum assured received on maturity or death is generally tax-free. However, conditions apply, especially for policies issued after April 1, 2012, where the annual premium should not exceed 10% of the sum assured.",
+                    legalDisclaimerStrong: "Disclaimer:",
+                    legalLinkText: "IRDAI Official Website",
+                    legalDisclaimer1: "M-Vita Services is a registered distributor of insurance products. Insurance is the subject matter of solicitation. For more details on risk factors, terms and conditions, please read the sales brochure carefully before concluding a sale. The contract of insurance is between the insurer and the insured, and not between the distributor and the insured.",
+                    legalDisclaimer2: "© 2024 M-Vita Services. All Rights Reserved.",
+                    modalValidInput: "Please enter valid positive numbers in all fields.",
+                    modalValidIncome: "Please enter a valid income and age."
+                },
+                mr: {
+                    pageTitle: "जीवन विमा - एम-विटा सेवा",
+                    introTitle: "जीवन विम्याने तुमच्या कुटुंबाचे भविष्य सुरक्षित करा",
+                    introText: "जीवन विमा हे एक महत्त्वाचे आर्थिक साधन आहे जे तुमच्या अनुपस्थितीत तुमच्या प्रियजनांना आर्थिक आधार देते. हे सुनिश्चित करते की तुमचे कुटुंब त्यांची जीवनशैली टिकवून ठेवू शकेल, त्यांची आर्थिक उद्दिष्टे पूर्ण करू शकेल आणि कोणत्याही आर्थिक अडचणीशिवाय कोणतीही थकीत देयके हाताळू शकेल. ही फक्त एक पॉलिसी नाही; हे तुमच्यासाठी सर्वात महत्त्वाच्या असलेल्या व्यक्तींचे संरक्षण करण्याचे वचन आहे.",
+                    termPlanTitle: "आमचे लक्ष: टर्म प्लॅनचे शुद्ध संरक्षण",
+                    termPlanIntroPrefix: "एम-विटा सेवा मध्ये, आम्ही स्पष्ट, प्रभावी आणि परवडणारे उपाय प्रदान करण्यावर विश्वास ठेवतो. म्हणूनच आम्ही तुमच्या आर्थिक संरक्षण धोरणाचा पाया म्हणून ",
+                    termPlanIntroStrong: "टर्म इन्शुरन्स प्लॅन",
+                    termPlanIntroSuffix: " ची शिफारस करतो.",
+                    termBenefit1: "उच्च विमा संरक्षण, कमी प्रीमियम: अत्यंत परवडणाऱ्या प्रीमियमवर मोठे जीवन विमा संरक्षण (उदा. ₹1 कोटी) मिळवा, ज्यामुळे तुमच्या बजेटवर ताण न येता जास्तीत जास्त संरक्षण सुनिश्चित होते.",
+                    termBenefit2: "साधेपणा आणि पारदर्शकता: टर्म प्लॅन सोपे आहेत. तुम्ही प्रीमियम भरता आणि पॉलिसीच्या मुदतीदरम्यान दुर्दैवी घटना घडल्यास तुमच्या कुटुंबाला विम्याची रक्कम मिळते. यात कोणतीही गुंतागुंतीची गुंतवणूक गणना नाही.",
+                    termBenefit3: "आर्थिक उद्दिष्टांशी संरेखण: विमा आणि गुंतवणूक वेगळे करून, तुम्ही टर्म प्लॅनने तुमच्या कुटुंबाला सुरक्षित करू शकता आणि तुमच्या दीर्घकालीन उद्दिष्टांसाठी (उदा. निवृत्ती किंवा मुलांचे शिक्षण) अधिक चांगला परतावा देणाऱ्या मालमत्तांमध्ये बचत गुंतवू शकता.",
+                    cagrCalcTitle: "तुमच्या सध्याच्या पॉलिसीचे विश्लेषण करा",
+                    cagrCalcIntro: "तुमची सध्याची विमा पॉलिसी ही गुंतवणूक देखील आहे का? सीएजीआर (चक्रवाढ वार्षिक वाढ दर) च्या दृष्टीने तिचा खरा परतावा समजून घेण्यासाठी आमच्या कॅल्क्युलेटरचा वापर करा.",
+                    cagrLabel1: "एकूण वार्षिक प्रीमियम (₹)",
+                    cagrPlaceholder1: "उदा., ५००००",
+                    cagrLabel2: "पॉलिसीची मुदत (वर्षे)",
+                    cagrPlaceholder2: "उदा., २०",
+                    cagrLabel3: "हमीची मुदतपूर्ती रक्कम (₹)",
+                    cagrPlaceholder3: "उदा., २५०००००",
+                    cagrButton: "परताव्याची गणना करा",
+                    cagrResult1: "गुंतवलेली एकूण रक्कम:",
+                    cagrResult2: "तुमच्या पॉलिसीचा अंदाजित सीएजीआर आहे:",
+                    cagrResult3: "(हा तुमच्या गुंतवणुकीने निर्माण केलेला अंदाजित वार्षिक परतावा आहे.)",
+                    otherCalculatorsLink: "आमचे इतर कॅल्क्युलेटर",
+                    otherPlansTitle: "इतर सामान्य जीवन विमा योजना",
+                    endowmentTitle: "एन्डोमेंट प्लॅन",
+                    endowmentText: "विमा आणि बचतीचे संयोजन. हे मुदतपूर्ती झाल्यावर किंवा पॉलिसीधारकाच्या मृत्यूनंतर एकरकमी रक्कम प्रदान करते. याचा प्रीमियम टर्म प्लॅनपेक्षा जास्त असतो.",
+                    ulipTitle: "युनिट लिंक्ड इन्शुरन्स प्लॅन (युलीप)",
+                    ulipText: "विमा आणि गुंतवणुकीचे मिश्रण जिथे प्रीमियमचा काही भाग जीवन विम्यासाठी जातो आणि उर्वरित भाग बाजाराशी जोडलेल्या फंडांमध्ये (इक्विटी किंवा कर्ज) गुंतवला जातो.",
+                    moneyBackTitle: "मनी बॅक प्लॅन",
+                    moneyBackText: "हा एक प्रकारचा एन्डोमेंट प्लॅन आहे जो पॉलिसीच्या मुदतीदरम्यान नियतकालिक पेआउट (जगण्याचे फायदे) प्रदान करतो, आणि उर्वरित विमा रक्कम मुदतपूर्ती झाल्यावर दिली जाते.",
+                    partnerTitle: "आमचे विश्वसनीय भागीदार: आयसीआयसीआय प्रुडेंशियल लाइफ इन्शुरन्स",
+                    partnerText: "आम्ही आयसीआयसीआय प्रुडेंशियल, भारतातील सर्वात अग्रगण्य आणि विश्वसनीय खाजगी जीवन विमा कंपन्यांपैकी एक, सोबत भागीदारी केली आहे. त्यांची ग्राहक-केंद्रितता, उच्च क्लेम सेटलमेंट रेश्यो, आणि नाविन्यपूर्ण उत्पादन श्रेणी आम्हाला तुमच्या गरजांनुसार सर्वोत्तम जीवन विमा उपाय प्रदान करण्यास सक्षम करते.",
+                    onboardingTitle: "आमची सोपी ऑनबोर्डिंग प्रक्रिया",
+                    onboardingStep1Title: "सल्ला",
+                    onboardingStep1Text: "आम्ही तुमच्या गरजा, उद्दिष्टे आणि आर्थिक परिस्थिती समजून घेतो.",
+                    onboardingStep2Title: "प्लॅन निवड",
+                    onboardingStep2Text: "आम्ही तुमच्यासाठी सर्वात योग्य प्लॅन आणि विमा संरक्षणची शिफारस करतो.",
+                    onboardingStep3Title: "दस्तऐवजीकरण",
+                    onboardingStep3Text: "अर्ज पूर्ण करण्यासाठी आणि कागदपत्रे सादर करण्यासाठी आम्ही तुम्हाला मदत करतो.",
+                    onboardingStep4Title: "पॉलिसी जारी",
+                    onboardingStep4Text: "तुमची पॉलिसी जारी होते आणि तुमच्या कुटुंबाचे भविष्य सुरक्षित होते.",
+                    hlvCalcTitle: "तुम्हाला किती जीवन विम्याची गरज आहे?",
+                    hlvCalcIntro: "तुमच्या कुटुंबासाठी आदर्श विमा संरक्षणाचा अंदाज घेण्यासाठी तुमच्या मानवी जीवन मूल्याची (HLV) गणना करा.",
+                    hlvLabel1: "तुमचे सध्याचे वार्षिक उत्पन्न (₹)",
+                    hlvPlaceholder1: "उदा., १००००००",
+                    hlvLabel2: "तुमचे सध्याचे वय",
+                    hlvPlaceholder2: "उदा., ३०",
+                    hlvLabel3: "एकूण थकीत कर्जे (₹)",
+                    hlvPlaceholder3: "उदा., २००००००",
+                    hlvLabel4: "एकूण बचत आणि गुंतवणूक (₹)",
+                    hlvPlaceholder4: "उदा., ५०००००",
+                    hlvButton: "माझ्या विम्याची गरज मोजा",
+                    hlvResult1: "तुमचे शिफारस केलेले जीवन विमा संरक्षण आहे:",
+                    hlvResult2: "(ही रक्कम तुमचे भविष्यातील उत्पन्न बदलून आणि दायित्वे कव्हर करण्याचा उद्देश ठेवते.)",
+                    docTitle: "आवश्यक कागदपत्रे",
+                    docIdTitle: "ओळखीचा पुरावा (कोणताही एक)",
+                    docIdList: "पॅन कार्ड, आधार कार्ड, पासपोर्ट, मतदार ओळखपत्र, वाहन परवाना",
+                    docAddressTitle: "पत्त्याचा पुरावा (कोणताही एक)",
+                    docAddressList: "आधार कार्ड, पासपोर्ट, नवीनतम उपयुक्तता बिले, बँक स्टेटमेंट",
+                    docIncomeTitle: "उत्पन्नाचा पुरावा",
+                    docIncomeList: "मागील ३ महिन्यांची वेतन स्लिप, बँक स्टेटमेंट, ITR/फॉर्म १६",
+                    docPhotoTitle: "छायाचित्रे",
+                    docPhotoList: "अलीकडील पासपोर्ट-आकाराचे छायाचित्रे",
+                    reviewTitle: "तुम्ही तुमच्या जीवन विम्याचा आढावा कधी घ्यावा?",
+                    reviewText: "तुमच्या जीवन विम्याची गरज स्थिर नसते. हे सुनिश्चित करण्यासाठी की तुमचे विमा संरक्षण पुरेसे आहे, प्रमुख जीवन टप्प्यांवर तुमच्या पॉलिसीचा आढावा घेणे आवश्यक आहे.",
+                    reviewMilestone1: "विवाह",
+                    reviewMilestone2: "मुलाचा जन्म",
+                    reviewMilestone3: "महत्त्वाची पगारवाढ",
+                    reviewMilestone4: "मोठे कर्ज घेणे",
+                    reviewMilestone5: "व्यवसाय सुरू करणे",
+                    faqTitle: "वारंवार विचारले जाणारे प्रश्न",
+                    faq1Title: "टर्म प्लॅन खरेदी करण्यासाठी योग्य वय कोणते आहे?",
+                    faq1Text: "टर्म प्लॅन खरेदी करण्याची सर्वोत्तम वेळ शक्य तितकी लवकर आहे. जेव्हा तुम्ही तरुण आणि निरोगी असता, तेव्हा प्रीमियम लक्षणीयरीत्या कमी असतो आणि संपूर्ण पॉलिसी मुदतीसाठी तो स्थिर राहतो. खरेदी करण्यास उशीर केल्यास प्रीमियम वाढू शकतो.",
+                    faq2Title: "माझ्याकडे एकापेक्षा जास्त जीवन विमा पॉलिसी असू शकतात का?",
+                    faq2Text: "होय, तुमच्याकडे अनेक जीवन विमा पॉलिसी असू शकतात. तथापि, नवीन पॉलिसीसाठी अर्ज करताना तुम्ही सर्व विद्यमान पॉलिसींची माहिती विमा कंपनीला देणे आवश्यक आहे. सर्व पॉलिसींमधील एकूण विमा रक्कम तुमच्या उत्पन्न आणि आर्थिक प्रोफाईलवर आधारित योग्य असावी.",
+                    faq3Title: "मी प्रीमियम भरणे थांबवल्यास काय होते?",
+                    faq3Text: "जर तुम्ही टर्म प्लॅनचा प्रीमियम भरणे थांबवल्यास, ग्रेस कालावधीनंतर पॉलिसी लॅप्स होईल आणि सर्व फायदे बंद होतील. गुंतवणूक-संबंधित प्लॅनसाठी, पॉलिसीला 'पेड-अप व्हॅल्यू' मिळू शकते किंवा ती सरेंडर केली जाऊ शकते, हे नियम आणि अटींवर अवलंबून असते.",
+                    faq4Title: "जीवन विमा मुदतपूर्तीची रक्कम करपात्र आहे का?",
+                    faq4Text: "आयकर कायद्याच्या कलम १०(१०डी) नुसार, मुदतपूर्ती किंवा मृत्यूनंतर मिळालेली विमा रक्कम सामान्यतः करमुक्त असते. तथापि, काही अटी लागू होतात, विशेषतः १ एप्रिल, २०१२ नंतर जारी केलेल्या पॉलिसींसाठी, जिथे वार्षिक प्रीमियम विमा रकमेच्या १०% पेक्षा जास्त नसावा.",
+                    legalDisclaimerStrong: "अस्वीकरण:",
+                    legalLinkText: "आयआरडीएआयची अधिकृत वेबसाइट",
+                    legalDisclaimer1: "एम-विटा सेवा ही विमा उत्पादनांची नोंदणीकृत वितरक आहे. विमा हे आग्रहपूर्वक केलेल्या विनंतीचा विषय आहे. जोखीम घटक, नियम आणि अटींबद्दल अधिक तपशील जाणून घेण्यासाठी, कृपया विक्रीची पूर्तता करण्यापूर्वी विक्री माहितीपत्र काळजीपूर्वक वाचा. विम्याचा करार विमा कंपनी आणि विमाधारकामध्ये असतो, वितरक आणि विमाधारकामध्ये नाही.",
+                    legalDisclaimer2: "© २०२४ एम-विटा सेवा. सर्व हक्क राखीव.",
+                    modalValidInput: "कृपया सर्व फील्डमध्ये वैध सकारात्मक संख्या प्रविष्ट करा.",
+                    modalValidIncome: "कृपया वैध उत्पन्न आणि वय प्रविष्ट करा."
+                }
+            };
+
+            const allElements = document.querySelectorAll('[data-translate-key]');
+            const langButtons = document.querySelectorAll('#language-switcher-container button');
+            const pageTitle = document.querySelector('title');
+
+            // --- Modal Functions ---
+            const modal = document.getElementById('messageModal');
+            const modalMessage = document.getElementById('modalMessage');
+            const closeModalBtn = document.getElementById('closeModal');
+            const modalOkBtn = document.getElementById('modalOkBtn');
+
+            function showModal(message) {
+                modalMessage.textContent = message;
+                modal.style.display = 'flex';
+            }
+
+            function hideModal() {
+                modal.style.display = 'none';
+            }
+
+            closeModalBtn.addEventListener('click', hideModal);
+            modalOkBtn.addEventListener('click', hideModal);
+            window.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideModal();
+                }
+            });
+
+
+            // --- Language Switcher Logic ---
+            function setLanguage(lang) {
+                const currentTranslations = translations[lang];
+
+                // Update page title
+                pageTitle.textContent = currentTranslations.pageTitle;
+
+                // Update all translatable elements
+                allElements.forEach(el => {
+                    const key = el.getAttribute('data-translate-key');
+                    if (currentTranslations[key]) {
+                        if (el.tagName === 'INPUT' && el.type === 'number') {
+                            el.placeholder = currentTranslations[key];
+                        } else {
+                            el.textContent = currentTranslations[key];
+                        }
+                    }
+                });
+
+                // Handle special cases with structured text
+                // Term Plan Intro sentence
+                const termPlanPrefixEl = document.querySelector('[data-translate-key="termPlanIntroPrefix"]');
+                const termPlanStrongEl = document.querySelector('[data-translate-key="termPlanIntroStrong"]');
+                const termPlanSuffixEl = document.querySelector('[data-translate-key="termPlanIntroSuffix"]');
+                if (termPlanPrefixEl && termPlanStrongEl && termPlanSuffixEl) {
+                    termPlanPrefixEl.textContent = currentTranslations.termPlanIntroPrefix;
+                    termPlanStrongEl.textContent = currentTranslations.termPlanIntroStrong;
+                    termPlanSuffixEl.textContent = currentTranslations.termPlanIntroSuffix;
+                }
+
+                // Disclaimer strong tag
+                const legalDisclaimerEl = document.querySelector('[data-translate-key="legalDisclaimer1"]');
+                if (legalDisclaimerEl) {
+                    legalDisclaimerEl.innerHTML = `<strong>${currentTranslations.legalDisclaimerStrong}</strong> ${currentTranslations.legalDisclaimer1}`;
+                }
+
+                // Update active button state
+                langButtons.forEach(btn => {
+                    btn.classList.remove('bg-mvita-blue', 'text-white', 'hover:bg-slate-100');
+                    btn.classList.add('text-slate-600', 'hover:bg-slate-100');
+                    if (btn.getAttribute('data-lang') === lang) {
+                        btn.classList.add('bg-mvita-blue', 'text-white');
+                        btn.classList.remove('text-slate-600', 'hover:bg-slate-100');
+                    }
+                });
+
+                // Store language preference in local storage
+                localStorage.setItem('lang', lang);
+            }
+
+            // Set initial language from local storage or default to English
+            const initialLang = localStorage.getItem('lang') || 'en';
+            setLanguage(initialLang);
+
+            // Add event listeners to language buttons
+            langButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    setLanguage(e.target.getAttribute('data-lang'));
+                });
+            });
+
+
+            // --- CAGR Calculator Logic ---
+            const calculateCagrBtn = document.getElementById('calculate-cagr-btn');
+            if (calculateCagrBtn) {
+                calculateCagrBtn.addEventListener('click', () => {
+                    const premium = parseFloat(document.getElementById('total-premium').value);
+                    const term = parseFloat(document.getElementById('policy-term').value);
+                    const maturity = parseFloat(document.getElementById('maturity-amount').value);
+                    const resultDiv = document.getElementById('cagr-result');
+                    const currentLang = localStorage.getItem('lang') || 'en';
+
+                    if (isNaN(premium) || isNaN(term) || isNaN(maturity) || premium <= 0 || term <= 0 || maturity <= 0) {
+                        showModal(translations[currentLang].modalValidInput);
+                        return;
+                    }
+
+                    const totalInvested = premium * term;
+                    const cagr = (Math.pow((maturity / totalInvested), (1 / term)) - 1) * 100;
+
+                    document.getElementById('total-invested').textContent = `₹ ${totalInvested.toLocaleString('en-IN')}`;
+                    document.getElementById('cagr-value').textContent = `${cagr.toFixed(2)}%`;
+                    resultDiv.classList.remove('hidden');
+                });
+            }
+
+            // --- HLV Calculator Logic ---
+            const calculateHlvBtn = document.getElementById('calculate-hlv-btn');
+            if (calculateHlvBtn) {
+                calculateHlvBtn.addEventListener('click', () => {
+                    const income = parseFloat(document.getElementById('annual-income').value);
+                    const age = parseInt(document.getElementById('age').value);
+                    const liabilities = parseFloat(document.getElementById('existing-liabilities').value) || 0;
+                    const savings = parseFloat(document.getElementById('existing-savings').value) || 0;
+                    const resultDiv = document.getElementById('hlv-result');
+                    const currentLang = localStorage.getItem('lang') || 'en';
+
+                    if (isNaN(income) || isNaN(age) || income <= 0 || age <= 0) {
+                        showModal(translations[currentLang].modalValidIncome);
+                        return;
+                    }
+
+                    // Simple HLV logic: 15x for under 40, 12x for 40-50, 10x for over 50
+                    let multiplier = 10;
+                    if (age < 40) {
+                        multiplier = 15;
+                    } else if (age <= 50) {
+                        multiplier = 12;
+                    }
+
+                    const idealCover = (income * multiplier) + liabilities - savings;
+
+                    // Ensure cover is not negative
+                    const finalCover = Math.max(0, idealCover);
+
+                    document.getElementById('hlv-value').textContent = `₹ ${finalCover.toLocaleString('en-IN')}`;
+                    resultDiv.classList.remove('hidden');
+                });
+            }
+
+            // --- FAQ Accordion Logic ---
+            const accordion = document.getElementById('faq-accordion');
+            if (accordion) {
+                accordion.addEventListener('click', function (e) {
+                    const button = e.target.closest('.accordion-button');
+                    if (button) {
+                        // Close all other accordions
+                        const allButtons = accordion.querySelectorAll('.accordion-button');
+                        allButtons.forEach(btn => {
+                            if (btn !== button) {
+                                btn.classList.remove('active');
+                            }
+                        });
+
+                        // Toggle the clicked one
+                        button.classList.toggle('active');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
+    </main>
+    <!-- Floating Action Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="onboarding.html" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+            Open your account
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-white text-gray-600 py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+            <div class="mb-4 md:mb-0">
+                <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
+                <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+            <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
+                <!-- Social Media Icons -->
+                <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
+                <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
+                <!-- Email Icon -->
+                <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="text-sm">
+                <!-- Links now trigger modals -->
+                <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
+                <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacy-policy-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="privacy-policy-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
+            <p class="mb-4 text-sm">
+                We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services. We also collect non-personal data, such as browser type, IP address, and usage data, to enhance your website experience.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
+            <p class="mb-4 text-sm">
+                Your information is used to:
+                <ul class="list-disc list-inside space-y-1 mt-2">
+                    <li>Provide you with financial services and personalized advice.</li>
+                    <li>Communicate with you regarding your account and our services.</li>
+                    <li>Improve our website and services.</li>
+                    <li>Comply with legal and regulatory requirements.</li>
+                </ul>
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
+            <p class="mb-4 text-sm">
+                We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
+            <p class="mb-4 text-sm">
+                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required to provide our services or comply with the law. This may include sharing information with our partners and service providers who assist us in operating our business.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="terms-of-service-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <span class="modal-close" id="terms-of-service-close">&times;</span>
+            <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
+            <p class="mb-4 text-sm">
+                **Last Updated: August 11, 2024**
+            </p>
+            <p class="mb-4 text-sm">
+                By accessing and using the M-Vita Services website and our services, you agree to comply with and be bound by the following terms and conditions.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
+            <p class="mb-4 text-sm">
+                The content on this website is for general informational purposes only. It is not professional financial advice and should not be relied upon as such. We are not responsible for any financial decisions you make based on the information provided on this website.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
+            <p class="mb-4 text-sm">
+                You agree to provide accurate and complete information when using our services. We reserve the right to terminate your access to our services if we discover that the information you provided is false or misleading.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
+            <p class="mb-4 text-sm">
+                All content, trademarks, logos, and other intellectual property on this website are the property of M-Vita Services or its licensors. You may not use, reproduce, or distribute any content from this site without our express written permission.
+            </p>
+            <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
+            <p class="mb-4 text-sm">
+                M-Vita Services will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or website.
+            </p>
+        </div>
+    </div>
+
+    <!-- JavaScript for Mobile Menu and Modals -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            // Toggle mobile menu visibility
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu on link click
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Modal functionality
+            const privacyPolicyLink = document.getElementById('privacy-policy-link');
+            const privacyPolicyModal = document.getElementById('privacy-policy-modal');
+            const privacyPolicyClose = document.getElementById('privacy-policy-close');
+
+            const termsOfServiceLink = document.getElementById('terms-of-service-link');
+            const termsOfServiceModal = document.getElementById('terms-of-service-modal');
+            const termsOfServiceClose = document.getElementById('terms-of-service-close');
+
+            function showModal(modal) {
+                modal.classList.remove('hidden');
+            }
+
+            function hideModal(modal) {
+                modal.classList.add('hidden');
+            }
+
+            privacyPolicyLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(privacyPolicyModal);
+            });
+
+            privacyPolicyClose.addEventListener('click', () => {
+                hideModal(privacyPolicyModal);
+            });
+
+            termsOfServiceLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showModal(termsOfServiceModal);
+            });
+
+            termsOfServiceClose.addEventListener('click', () => {
+                hideModal(termsOfServiceModal);
+            });
+
+            // Close modals when clicking outside the content
+            privacyPolicyModal.addEventListener('click', (e) => {
+                if (e.target === privacyPolicyModal) {
+                    hideModal(privacyPolicyModal);
+                }
+            });
+            termsOfServiceModal.addEventListener('click', (e) => {
+                if (e.target === termsOfServiceModal) {
+                    hideModal(termsOfServiceModal);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
