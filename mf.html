@@ -90,6 +90,55 @@
             visibility: hidden;
             transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
+/* Scrolling ribbon styles */
+        .scrolling-ribbon {
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            -webkit-mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+            mask-image: linear-gradient(to right, transparent, white 10%, white 90%, transparent);
+        }
+        .ribbon-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 40s linear infinite;
+        }
+        .ribbon-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 160px; /* Fixed width for each item */
+            height: 120px; /* Fixed height */
+            padding: 1rem;
+            margin: 0 1rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+        }
+        .ribbon-item img {
+            max-height: 60px;
+            width: auto;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+        }
+        .ribbon-item p {
+            font-size: 0.75rem;
+            text-align: center;
+            color: #4A5568;
+            font-weight: 500;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
     </style>
 </head>
 <body class="text-gray-800">

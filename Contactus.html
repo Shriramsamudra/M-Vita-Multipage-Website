@@ -4,13 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Vita Services | Your Partner in Financial Well-being</title>
-    <!-- Use Tailwind CSS for a modern, responsive design -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -94,26 +92,21 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white custom-shadow fixed w-full z-50">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
             <a href="index.html" class="flex items-center">
                 <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
             </a>
 
-            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
-                
-                <!-- Services Dropdown Menu -->
+
                 <div class="relative group dropdown">
                     <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
                         Services
                         <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
                     <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                         <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
                         <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
@@ -129,7 +122,6 @@
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
             </div>
 
-            <!-- Mobile Navigation -->
             <div class="md:hidden flex items-center">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
@@ -137,12 +129,10 @@
             </div>
         </nav>
 
-        <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
-            
-            <!-- Mobile Services Dropdown -->
+
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
                     Services
@@ -166,7 +156,6 @@
 
     <main class="pt-20">
 
-        <!-- Contact Section -->
         <section id="contact" class="py-16 md:py-24 bg-gray-800 text-white">
             <div class="container mx-auto px-4 text-center lg:text-left">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -220,7 +209,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-4 md:mb-0">
@@ -228,7 +216,6 @@
                 <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
             </div>
             <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
-                <!-- Social Media Icons -->
                 <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
                 <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
@@ -243,7 +230,6 @@
         </div>
     </footer>
 
-    <!-- Message Modal for Contact Form -->
     <div id="message-modal" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden items-center justify-center z-50">
         <div class="bg-white p-8 rounded-lg custom-shadow text-center max-w-sm">
             <h3 id="modal-title" class="text-xl font-bold m-vita-blue-text mb-4"></h3>
@@ -254,7 +240,6 @@
         </div>
     </div>
 
-    <!-- Privacy Policy Modal -->
     <div id="privacy-policy-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto modal-overlay flex items-center justify-center p-4">
         <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto custom-shadow relative">
             <button onclick="closeModal('privacy-policy-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200 text-xl">&times;</button>
@@ -290,7 +275,6 @@
         </div>
     </div>
 
-    <!-- Terms of Service Modal -->
     <div id="terms-of-service-modal" class="hidden fixed inset-0 z-[100] overflow-y-auto modal-overlay flex items-center justify-center p-4">
         <div class="bg-white rounded-lg p-6 w-full max-w-2xl max-h-[80vh] overflow-y-auto custom-shadow relative">
             <button onclick="closeModal('terms-of-service-modal')" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors duration-200 text-xl">&times;</button>
@@ -326,7 +310,6 @@
         </a>
     </div>
 
-    <!-- JavaScript for Mobile Menu, Contact Form, and Modals -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -343,8 +326,8 @@
             // --- Supabase Configuration ---
             const supabaseUrl = 'https://uyntgocoxdrzdqumlwfe.supabase.co';
             const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bnRnb2NveGRyemRxdW1sd2ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUxNzczMDMsImV4cCI6MjA3MDc1MzMwM30.xWK9IeeJcWqp-gaDR2yO_hqscAsVgbJQ5sxTo2AUvfU';
-            // FIX: Renamed the client instance to avoid conflict with the global 'supabase' object.
-            const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+            const { createClient } = supabase;
+            const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
             // Toggle mobile menu visibility
             mobileMenuButton.addEventListener('click', () => {
@@ -374,7 +357,6 @@
 
                 try {
                     // Insert data into the 'contacts' table in Supabase
-                    // FIX: Use the correctly named client instance 'supabaseClient'
                     const { data, error } = await supabaseClient
                         .from('contacts')
                         .insert([
