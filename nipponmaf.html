@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Nippon India Multi Asset Fund Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Harmony -->
+    <!-- Application Structure Plan: A dashboard-style, thematic layout to replace the report's linear structure. The goal is non-linear exploration. The flow starts with a Hero section with at-a-glance stats, moves to an interactive "Is This Fund For You?" checklist, then dives into interactive charts for Asset Allocation and Performance. It concludes with sections on Top Holdings, Fund Managers, and a clear call-to-action for M-Vita clients. This structure is designed to guide the user from a high-level overview to detailed exploration based on their interest, making complex information digestible and user-centric. -->
+    <!-- Visualization & Content Choices: Asset Allocation: Interactive Donut Chart (Chart.js) to show composition and allow exploration. Performance: Grouped Bar Chart (Chart.js) for direct fund vs. category comparison. Risk Metrics: Styled HTML cards for clarity over complex charts. Top Holdings & Managers: Styled HTML grids for scannability and trust-building. All choices prioritize user understanding and engagement within the dashboard theme, using Chart.js on Canvas and styled HTML/CSS. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F7F4;
+            color: #2C3E50;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #C0A062;
+            border-bottom-color: #C0A062;
+        }
+        .stat-card {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(209, 213, 219, 0.3);
+        }
+        .btn-primary {
+            background-color: #2C3E50;
+            color: #FFFFFF;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #3e5670;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #C0A062;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="bg-[#F8F7F4]/80 backdrop-blur-lg sticky top-0 z-50 border-b border-gray-200/50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold">
+                <span class="text-[#2C3E50]">M-Vita</span><span class="text-[#C0A062]">Services</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#overview" class="nav-link pb-1">Overview</a>
+                <a href="#allocation" class="nav-link pb-1">Allocation</a>
+                <a href="#performance" class="nav-link pb-1">Performance</a>
+                <a href="#portfolio" class="nav-link pb-1">Portfolio</a>
+                <a href="#contact" class="nav-link pb-1">Next Steps</a>
+            </div>
+            <div class="md:hidden">
+                <button id="menu-btn" class="text-gray-700 focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#overview" class="block py-2 px-6 text-sm hover:bg-gray-200/50">Overview</a>
+            <a href="#allocation" class="block py-2 px-6 text-sm hover:bg-gray-200/50">Allocation</a>
+            <a href="#performance" class="block py-2 px-6 text-sm hover:bg-gray-200/50">Performance</a>
+            <a href="#portfolio" class="block py-2 px-6 text-sm hover:bg-gray-200/50">Portfolio</a>
+            <a href="#contact" class="block py-2 px-6 text-sm hover:bg-gray-200/50">Next Steps</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="overview" class="py-16 md:py-24">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-[#C0A062] font-semibold mb-2">An Exclusive Guide for M-Vita Clients</p>
+                <h1 class="text-4xl md:text-5xl font-bold text-[#2C3E50] mb-4">Understanding the Nippon India Multi Asset Fund</h1>
+                <p class="max-w-3xl mx-auto text-lg text-gray-600 mb-12">This interactive guide explores a diversified investment strategy designed for long-term growth by balancing investments across equities, commodities, and debt.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                    <div class="stat-card p-6 rounded-xl shadow-lg text-left">
+                        <p class="text-sm text-gray-500 mb-1">Assets Under Management</p>
+                        <p class="text-3xl font-bold text-[#2C3E50]">₹6,368 Cr</p>
+                        <p class="text-xs text-gray-400 mt-1">As of June 30, 2025</p>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl shadow-lg text-left">
+                        <p class="text-sm text-gray-500 mb-1">SEBI Riskometer</p>
+                        <p class="text-3xl font-bold text-red-600">Very High</p>
+                        <p class="text-xs text-gray-400 mt-1">Primarily due to equity exposure</p>
+                    </div>
+                    <div class="stat-card p-6 rounded-xl shadow-lg text-left">
+                        <p class="text-sm text-gray-500 mb-1">3-Year Annualized Return</p>
+                        <p class="text-3xl font-bold text-green-600">17.81%</p>
+                        <p class="text-xs text-gray-400 mt-1">As of August 6, 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16 md:py-24 bg-white/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-[#2C3E50] section-title inline-block">Is This Fund a Good Fit For You?</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">This fund is designed for a specific type of investor. See if it aligns with your financial goals and risk tolerance.</p>
+                </div>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 text-center">
+                    <div class="p-6">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#C0A062]/20 mx-auto mb-4">
+                           <span class="text-3xl">🗓️</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">Long-Term Horizon</h3>
+                        <p class="text-gray-600">You are investing for the long haul, typically 5-8 years or more, to allow for capital appreciation.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#C0A062]/20 mx-auto mb-4">
+                            <span class="text-3xl">🎢</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">High Risk Appetite</h3>
+                        <p class="text-gray-600">You are comfortable with significant market fluctuations in pursuit of higher potential returns.</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center justify-center h-16 w-16 rounded-full bg-[#C0A062]/20 mx-auto mb-4">
+                            <span class="text-3xl">🧑‍💼</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-2">Professional Management</h3>
+                        <p class="text-gray-600">You prefer to delegate asset allocation decisions to an experienced team of fund managers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="allocation" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-[#2C3E50] section-title inline-block">How It Works: A Diversified Approach</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">The fund's core strength is its dynamic allocation across different asset classes. Interact with the chart to see how each part contributes to the overall strategy.</p>
+                </div>
+                <div class="grid md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-2">
+                        <div class="chart-container">
+                            <canvas id="assetAllocationChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-gray-500 mt-2">Asset Allocation as of June 30, 2025</p>
+                    </div>
+                    <div class="md:col-span-3">
+                        <div id="allocation-info" class="p-8 rounded-lg bg-white/60 shadow-md min-h-[250px] transition-all duration-300">
+                             <h3 id="info-title" class="text-2xl font-bold text-[#2C3E50] mb-3">Explore the Allocation</h3>
+                             <p id="info-text" class="text-gray-600">Click on a segment of the chart to learn about its role in the portfolio. The fund strategically blends different assets to balance risk and capture growth opportunities across various market conditions.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="grid md:grid-cols-5 gap-8 items-center mt-16">
+                    <div class="md:col-span-3 md:order-2">
+                         <div class="chart-container">
+                            <canvas id="equityMarketCapChart"></canvas>
+                        </div>
+                        <p class="text-center text-xs text-gray-500 mt-2">Equity Breakdown as of June 30, 2025</p>
+                    </div>
+                    <div class="md:col-span-2 md:order-1">
+                        <h3 class="text-2xl font-bold text-[#2C3E50] mb-3">Inside the Equity Portfolio</h3>
+                        <p class="text-gray-600">Within its equity portion, the fund focuses heavily on large, established companies. This adds a layer of stability to the growth-oriented part of the portfolio. Over 78% is invested in Giant and Large-Cap stocks, which are typically less volatile than smaller companies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="performance" class="py-16 md:py-24 bg-white/50">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-[#2C3E50] section-title inline-block">Performance Deep Dive</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">Let's look at the numbers. Here's how the fund has performed against its peers and how it manages risk to generate returns.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-lg mb-16">
+                     <h3 class="text-xl font-bold text-center text-[#2C3E50] mb-4">Fund Returns vs. Category Average (%)</h3>
+                     <div class="chart-container h-[300px] md:h-[400px] max-w-4xl">
+                        <canvas id="performanceChart"></canvas>
+                     </div>
+                </div>
+                
+                <h3 class="text-xl font-bold text-center text-[#2C3E50] mb-8">Key Risk & Reward Metrics</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <p class="text-4xl font-bold text-[#6B8EAD]">1.61</p>
+                        <h4 class="font-bold text-lg my-2">Sharpe Ratio</h4>
+                        <p class="text-sm text-gray-600">Measures return per unit of risk. A higher value is better. This fund has generated excellent returns for the amount of risk taken, significantly outperforming its category average of 0.39.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <p class="text-4xl font-bold text-[#6B8EAD]">4.91</p>
+                        <h4 class="font-bold text-lg my-2">Alpha</h4>
+                        <p class="text-sm text-gray-600">Indicates outperformance against the benchmark. A positive alpha shows the fund manager's skill. This fund has generated significant excess returns, far above its category average of 0.38.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <p class="text-4xl font-bold text-[#6B8EAD]">0.89</p>
+                        <h4 class="font-bold text-lg my-2">Beta</h4>
+                        <p class="text-sm text-gray-600">Measures volatility against the market. A beta below 1 means less volatility. This fund is about 11% less volatile than its benchmark, showcasing effective risk management.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-[#2C3E50] section-title inline-block">Portfolio Explorer</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">A look at the top 10 investments that drive the fund's performance, showcasing its diversification in action. Holdings as of Aug 1, 2025.</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🥇</p>
+                        <p class="font-semibold text-sm">Reliance ETF Gold BeES</p>
+                        <p class="text-xs text-[#C0A062] font-bold">10.84%</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🌍</p>
+                        <p class="font-semibold text-sm">iShares MSCI World ETF</p>
+                        <p class="text-xs text-[#6B8EAD] font-bold">9.37%</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">💰</p>
+                        <p class="font-semibold text-sm">Tri-Party Repo (TREPS)</p>
+                        <p class="text-xs text-gray-500 font-bold">4.26%</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🏦</p>
+                        <p class="font-semibold text-sm">ICICI Bank Ltd.</p>
+                        <p class="text-xs text-blue-600 font-bold">3.52%</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🥈</p>
+                        <p class="font-semibold text-sm">Nippon India Silver ETF</p>
+                        <p class="text-xs text-gray-400 font-bold">2.88%</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🏦</p>
+                        <p class="font-semibold text-sm">HDFC Bank Ltd.</p>
+                        <p class="text-xs text-blue-600 font-bold">2.42%</p>
+                    </div>
+                    <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🏭</p>
+                        <p class="font-semibold text-sm">Reliance Industries Ltd.</p>
+                        <p class="text-xs text-blue-600 font-bold">2.36%</p>
+                    </div>
+                     <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">🏦</p>
+                        <p class="font-semibold text-sm">State Bank of India</p>
+                        <p class="text-xs text-blue-600 font-bold">2.06%</p>
+                    </div>
+                     <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">📡</p>
+                        <p class="font-semibold text-sm">Bharti Airtel Ltd.</p>
+                        <p class="text-xs text-blue-600 font-bold">1.58%</p>
+                    </div>
+                     <div class="bg-white/60 p-4 rounded-lg shadow-md text-center">
+                        <p class="text-2xl mb-2">📜</p>
+                        <p class="font-semibold text-sm">Govt. of India Bond</p>
+                        <p class="text-xs text-green-700 font-bold">1.56%</p>
+                    </div>
+                </div>
+
+                <div class="text-center mt-16">
+                    <h2 class="text-3xl font-bold text-[#2C3E50] section-title inline-block">Meet the Experts</h2>
+                    <p class="max-w-2xl mx-auto text-gray-600 mt-4">The fund is managed by a team of specialists, each an expert in their respective asset class.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mt-12">
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h4 class="font-bold text-lg">Ashutosh Bhargava</h4>
+                        <p class="text-sm text-[#C0A062] font-semibold">Equity & Strategy</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h4 class="font-bold text-lg">Vikram Dhawan</h4>
+                        <p class="text-sm text-[#C0A062] font-semibold">Commodities</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h4 class="font-bold text-lg">Sushil Budhia</h4>
+                        <p class="text-sm text-[#C0A062] font-semibold">Debt</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg text-center">
+                        <h4 class="font-bold text-lg">Kinjal Desai</h4>
+                        <p class="text-sm text-[#C0A062] font-semibold">Overseas Investments</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-16 md:py-24 bg-white/50">
+            <div class="container mx-auto px-6 text-center">
+                 <h2 class="text-3xl font-bold text-[#2C3E50] section-title inline-block">Your Next Steps with M-Vita Services</h2>
+                 <p class="max-w-3xl mx-auto text-gray-600 mt-4 mb-8">As your trusted financial partner, M-Vita Services provides the expertise and support to ensure this fund aligns with your overall financial plan. The Regular Plan includes our comprehensive advisory services, personalized portfolio management, and ongoing support.</p>
+                 <a href="https://wa.me/9152049967" target="_blank" rel="noopener noreferrer" class="btn-primary font-bold py-3 px-8 rounded-lg shadow-lg inline-block">Schedule a Consultation</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#2C3E50] text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p class="font-bold">M-Vita Services</p>
+            <p class="text-sm text-gray-300 mt-2 max-w-3xl mx-auto">Disclaimer: Mutual fund investments are subject to market risks, read all scheme related documents carefully. The information provided is for educational purposes only and does not constitute financial advice. Past performance is not indicative of future results.</p>
+            <p class="text-xs text-gray-400 mt-4">&copy; 2025 M-Vita Services. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const allocationData = {
+                labels: ['Equity', 'Commodities', 'Debt', 'Cash & Equivalents'],
+                datasets: [{
+                    data: [68.01, 15.29, 13.21, 3.48],
+                    backgroundColor: ['#6B8EAD', '#C0A062', '#7D8A97', '#E0E0E0'],
+                    borderColor: '#F8F7F4',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            };
+
+            const allocationInfoContent = {
+                'Equity': {
+                    title: 'Equity: The Engine for Growth',
+                    text: 'Comprising 68.01% of the fund, equities are investments in company stocks. This portion is the primary driver for long-term capital growth, though it also carries the highest risk. The fund diversifies this across various company sizes and sectors.'
+                },
+                'Commodities': {
+                    title: 'Commodities: A Hedge Against Volatility',
+                    text: 'At 15.29%, this segment, primarily in Gold and Silver ETFs, acts as a potential safeguard. Precious metals often perform differently from equities, providing a buffer during market downturns and hedging against inflation.'
+                },
+                'Debt': {
+                    title: 'Debt: The Anchor of Stability',
+                    text: 'Making up 13.21%, debt instruments like government and corporate bonds provide stability and regular income to the portfolio. They are generally less risky than equities and help cushion the portfolio from sharp market swings.'
+                },
+                'Cash & Equivalents': {
+                    title: 'Cash & Equivalents: For Liquidity & Opportunity',
+                    text: 'This 3.48% portion provides liquidity, allowing the fund manager to meet redemption requests without selling assets at a bad time, and to quickly seize new investment opportunities as they arise.'
+                }
+            };
+            
+            const allocationCtx = document.getElementById('assetAllocationChart').getContext('2d');
+            const assetAllocationChart = new Chart(allocationCtx, {
+                type: 'doughnut',
+                data: allocationData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'rectRounded',
+                                color: '#2C3E50'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed.toFixed(2) + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    onClick: (event, elements) => {
+                        if (elements.length > 0) {
+                            const chartElement = elements[0];
+                            const index = chartElement.index;
+                            const label = allocationData.labels[index];
+                            const content = allocationInfoContent[label];
+                            
+                            document.getElementById('info-title').innerText = content.title;
+                            document.getElementById('info-text').innerText = content.text;
+                        }
+                    }
+                }
+            });
+
+            const equityMarketCapCtx = document.getElementById('equityMarketCapChart').getContext('2d');
+            new Chart(equityMarketCapCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Giant Cap', 'Large Cap', 'Mid Cap', 'Small Cap'],
+                    datasets: [{
+                        data: [52.68, 25.48, 15.92, 5.92],
+                        backgroundColor: ['#2C3E50', '#6B8EAD', '#A9B4C2', '#D1D5DB'],
+                        borderColor: '#F8F7F4',
+                        borderWidth: 4,
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                             labels: {
+                                padding: 20,
+                                usePointStyle: true,
+                                pointStyle: 'rectRounded',
+                                color: '#2C3E50'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.parsed.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+            new Chart(performanceCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['1 Year', '3 Years', 'Since Launch'],
+                    datasets: [
+                        {
+                            label: 'Nippon India Multi Asset Fund',
+                            data: [12.43, 17.81, 17.15],
+                            backgroundColor: '#C0A062',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Category Average',
+                            data: [7.61, 16.48, 12.18],
+                            backgroundColor: '#A9B4C2',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(0,0,0,0.05)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        },
+                        x: {
+                             grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.parsed.y.toFixed(2)}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>

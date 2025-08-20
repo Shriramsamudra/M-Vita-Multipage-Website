@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Start Your Choti SIP of ₹250 Today</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Harmony (Neutrals with Green Accent) -->
+    <!-- Application Structure Plan: A narrative, single-page flow designed to guide a new investor from awareness to action. The structure starts with a compelling hook (Hero), explains the 'What' and 'Why' (Features, Benefits with an interactive chart), clarifies the 'How' (Process, Eligibility), builds trust (About, FAQ, Disclaimer), and drives conversion (CTAs). This user-centric journey breaks down complex information into digestible, interactive sections, making it less intimidating and more engaging than a traditional report format. -->
+    <!-- Visualization & Content Choices: 
+        1. Report Info: Potential long-term growth from small, regular investments. Goal: Motivate. Viz: Interactive Line Chart (Chart.js). Interaction: Slider to adjust investment duration and see compounding effect. Justification: Makes the abstract concept of "compounding" tangible and personalized, increasing user engagement.
+        2. Report Info: Eligibility criteria and rules. Goal: Inform clearly. Presentation: Interactive Tabbed "Do's & Don'ts" section. Interaction: User clicks tabs to switch between allowed and disallowed actions. Justification: Organizes complex rules into simple, scannable lists, preventing cognitive overload.
+        3. Report Info: How to start. Goal: Guide action. Presentation: 3-Step visual process flow (HTML/CSS). Interaction: Static visual guide. Justification: Simplifies the onboarding journey into clear, manageable steps.
+        4. Report Info: Common questions. Goal: Address concerns. Presentation: Accordion FAQ (JS). Interaction: Click to expand/collapse answers. Justification: Keeps the UI clean while making detailed information accessible on demand. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm Neutral */
+            color: #374151;
+        }
+        .bg-primary { background-color: #10B981; } /* Accent Green */
+        .text-primary { color: #10B981; }
+        .bg-secondary { background-color: #E5E7EB; }
+        .bg-light { background-color: #F9FAFB; }
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.2;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .section-subtitle {
+            font-size: 1.125rem;
+            text-align: center;
+            color: #6B7280;
+            max-width: 48rem;
+            margin: 0 auto 3rem auto;
+        }
+        .cta-button {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #10B981;
+            color: white;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        .cta-button:hover {
+            background-color: #059669;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        .tab-button.active {
+            background-color: #10B981;
+            color: white;
+            border-color: #10B981;
+        }
+        .tab-button:not(.active) {
+            background-color: #F3F4F6;
+            color: #4B5563;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Hero Section -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold text-gray-800">
+                M-Vita <span class="text-primary">Services</span>
+            </div>
+            <a href="https://wa.me/9152049967?text=Hi! I'm interested in the Choti SIP." target="_blank" class="cta-button hidden md:inline-block">Start Investing Now</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <p class="text-primary font-semibold mb-2">Introducing SEBI's Choti SIP Initiative</p>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">Start Your Investment Journey with Just <span class="text-primary">₹250</span> a Month.</h1>
+                <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">Take the first, easiest step towards wealth creation. M-Vita Services, your AMFI Registered Mutual Fund Distributor, is here to guide you through the simple and powerful Choti SIP.</p>
+                <div class="flex justify-center items-center gap-4">
+                    <a href="https://wa.me/9152049967?text=Hi! I'm interested in the Choti SIP." target="_blank" class="cta-button">
+                        <span class="mr-2">💬</span> Chat on WhatsApp
+                    </a>
+                    <a href="#learn-more" class="font-semibold text-gray-700 hover:text-primary transition">Learn More &darr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- What is Choti SIP? -->
+        <section id="learn-more" class="py-16 bg-light">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">What is a Choti SIP?</h2>
+                <p class="section-subtitle">The Choti SIP is a simple, disciplined way for new investors to enter the world of mutual funds. It's designed to be affordable, easy, and focused on long-term growth. This section breaks down the core features that make it the perfect starting point.</p>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="text-5xl mb-4">💰</div>
+                        <h3 class="text-xl font-bold mb-2">Fixed ₹250 Monthly</h3>
+                        <p class="text-gray-600">Invest a small, fixed amount every month. No complex calculations, just a simple start to building a disciplined saving habit.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="text-5xl mb-4">📈</div>
+                        <h3 class="text-xl font-bold mb-2">Focus on Growth</h3>
+                        <p class="text-gray-600">Your investment goes into growth-oriented mutual fund plans, aiming for capital appreciation over the long term.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-sm">
+                        <div class="text-5xl mb-4">👤</div>
+                        <h3 class="text-xl font-bold mb-2">For New Investors</h3>
+                        <p class="text-gray-600">Exclusively designed for individuals (non-minors) making their first investment, ensuring a guided and simple entry.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Growth Chart -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">See Your Small Savings Grow</h2>
+                <p class="section-subtitle">Ever wondered how a small, regular investment can become a significant amount over time? This is the power of compounding. Use the slider below to see a potential growth projection for your ₹250 monthly Choti SIP. This is an illustration to help you understand the concept.</p>
+                <div class="bg-white p-6 md:p-8 rounded-lg shadow-md">
+                    <div class="chart-container">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <label for="yearsSlider" class="block font-medium text-gray-700">Investment Duration: <span id="yearsLabel" class="font-bold text-primary">10</span> years</label>
+                        <input id="yearsSlider" type="range" min="1" max="30" value="10" class="w-full max-w-md h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer mt-2">
+                        <div class="mt-4 text-lg">
+                            <p>Total Investment: <span id="totalInvestment" class="font-bold">₹30,000</span></p>
+                            <p>Estimated Value: <span id="estimatedValue" class="font-bold text-primary">₹50,700</span></p>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-2">Based on an assumed 12% annual return. This is for illustrative purposes only. Mutual fund returns are not guaranteed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eligibility & Rules -->
+        <section class="py-16 bg-light">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Is the Choti SIP Right for You?</h2>
+                <p class="section-subtitle">The Choti SIP has specific guidelines to ensure it serves its purpose of helping new investors get started. This section provides a clear checklist of what's allowed and what's not, helping you quickly determine your eligibility and understand the framework.</p>
+                <div class="max-w-4xl mx-auto">
+                    <div class="flex justify-center mb-8 space-x-2">
+                        <button id="dosBtn" class="tab-button active">What You Can Do (✅)</button>
+                        <button id="dontsBtn" class="tab-button">What to Keep in Mind (🚫)</button>
+                    </div>
+                    <div id="rulesContent" class="bg-white p-8 rounded-lg shadow-sm transition-opacity duration-300">
+                        <!-- Do's Content -->
+                        <div id="dosContent">
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                                    <div><span class="font-semibold">Be a New Individual Investor:</span> This opportunity is exclusively for adults starting their mutual fund journey.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                                    <div><span class="font-semibold">Invest Exactly ₹250 Monthly:</span> A fixed, disciplined amount makes it simple.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                                    <div><span class="font-semibold">Start up to 3 Choti SIPs:</span> You can diversify by choosing up to three different fund houses (one SIP each).</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                                    <div><span class="font-semibold">Use Aadhaar for KYC:</span> If investing without a PAN, Aadhaar is all you need for investments up to ₹50,000/year.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                                    <div><span class="font-semibold">Automate with UPI/NACH:</span> Set up automatic payments for a hassle-free experience.</div>
+                                </li>
+                                 <li class="flex items-start">
+                                    <span class="text-green-500 mr-3 mt-1">✔</span>
+                                    <div><span class="font-semibold">Withdraw if Needed:</span> While a 5-year commitment is encouraged, you can redeem your money early (exit loads may apply).</div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Don'ts Content -->
+                        <div id="dontsContent" class="hidden">
+                             <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-3 mt-1">✖</span>
+                                    <div><span class="font-semibold">No Other Simultaneous Investments:</span> To qualify, you cannot start other SIPs or make lump sum investments at the same time.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-3 mt-1">✖</span>
+                                    <div><span class="font-semibold">No SIP Top-ups:</span> The investment amount is fixed at ₹250 and cannot be increased.</div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-3 mt-1">✖</span>
+                                    <div><span class="font-semibold">Limited Fund Types:</span> Investments are not allowed in debt, sectoral/thematic, mid-cap, or small-cap funds. Only growth plans.</div>
+                                </li>
+                                 <li class="flex items-start">
+                                    <span class="text-red-500 mr-3 mt-1">✖</span>
+                                    <div><span class="font-semibold">No Transaction Fees for MFDs:</span> We don't charge any transaction fees for bringing you this opportunity.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Start -->
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Start in 3 Simple Steps</h2>
+                 <p class="section-subtitle">Getting started with your Choti SIP is designed to be as easy as possible. We've broken down the entire process into three straightforward steps. M-Vita Services will guide you at every stage to ensure a smooth and quick onboarding experience.</p>
+                <div class="relative">
+                    <!-- Dotted line for desktop -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-gray-200 border-t-2 border-dashed"></div>
+                    <div class="relative grid md:grid-cols-3 gap-12">
+                        <div class="text-center">
+                            <div class="relative mb-4">
+                                <div class="mx-auto w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center text-3xl font-bold shadow-lg">1</div>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Complete Your KYC</h3>
+                            <p class="text-gray-600">Finish your one-time KYC digitally. It's fast, paperless, and can be done with just your Aadhaar if you don't have a PAN.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="relative mb-4">
+                                <div class="mx-auto w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center text-3xl font-bold shadow-lg">2</div>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Set Up AutoPay</h3>
+                            <p class="text-gray-600">Automate your monthly ₹250 investment using UPI AutoPay or NACH. Set it once and let your investments grow consistently.</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="relative mb-4">
+                                <div class="mx-auto w-20 h-20 rounded-full bg-primary text-white flex items-center justify-center text-3xl font-bold shadow-lg">3</div>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Start Investing!</h3>
+                            <p class="text-gray-600">That's it! You're now an investor. We'll help you select the right growth fund and you can track your investments with ease.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-16 bg-light">
+            <div class="container mx-auto px-6">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">We understand you might have questions, especially if you're new to investing. This section addresses the most common queries about the Choti SIP to provide you with clear and direct answers, helping you invest with confidence.</p>
+                <div class="max-w-3xl mx-auto space-y-4" id="faq-container">
+                    <!-- FAQ items will be injected here by JS -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">M-Vita Services</h3>
+                    <p class="text-gray-400 mb-2">AMFI Registered Mutual Fund Distributor</p>
+                    <p class="text-gray-400">Your trusted partner in starting your investment journey.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Get in Touch</h3>
+                    <a href="https://wa.me/9152049967?text=Hi! I'm interested in the Choti SIP." target="_blank" class="block text-primary hover:underline mb-2">WhatsApp: +91 91520 49967</a>
+                    <a href="mailto:mvitaservices@gmail.com" class="block text-primary hover:underline">Email: mvitaservices@gmail.com</a>
+                </div>
+                <div class="text-center md:text-right">
+                     <a href="#home" class="cta-button">Start Your Choti SIP</a>
+                </div>
+            </div>
+            <div class="mt-12 pt-8 border-t border-gray-700">
+                <h4 class="font-semibold text-gray-300 mb-2">Disclaimer:</h4>
+                <p class="text-xs text-gray-400">
+                    Mutual Fund investments are subject to market risks, read all scheme related documents carefully. The information provided on this webpage is for awareness and informational purposes only and should not be construed as investment advice or a solicitation of business. The returns or potential returns of a mutual fund product cannot be guaranteed. A mutual fund scheme is NOT a DEPOSIT product and is not an obligation of, or guaranteed, or insured by the mutual fund or its AMC. Past performance is not indicative of future results. Please consult your financial advisor before making any investment decisions. M-Vita Services does not charge any transaction fees for Choti SIP investments.
+                </p>
+                <p class="text-center text-gray-500 mt-8 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Growth Chart Logic
+            const ctx = document.getElementById('growthChart').getContext('2d');
+            const yearsSlider = document.getElementById('yearsSlider');
+            const yearsLabel = document.getElementById('yearsLabel');
+            const totalInvestmentEl = document.getElementById('totalInvestment');
+            const estimatedValueEl = document.getElementById('estimatedValue');
+            const monthlyInvestment = 250;
+            const annualReturnRate = 0.12; // 12%
+
+            let growthChart;
+
+            function calculateGrowth(years) {
+                const months = years * 12;
+                const monthlyRate = annualReturnRate / 12;
+                let futureValue = 0;
+                
+                for (let i = 0; i < months; i++) {
+                    futureValue = (futureValue + monthlyInvestment) * (1 + monthlyRate);
+                }
+                
+                const totalInvested = monthlyInvestment * months;
+                return {
+                    totalInvested: totalInvested,
+                    futureValue: futureValue
+                };
+            }
+            
+            function updateChart(years) {
+                const labels = Array.from({ length: years + 1 }, (_, i) => `Year ${i}`);
+                const data = labels.map((_, i) => calculateGrowth(i).futureValue);
+
+                if (growthChart) {
+                    growthChart.data.labels = labels;
+                    growthChart.data.datasets[0].data = data;
+                    growthChart.update();
+                } else {
+                    growthChart = new Chart(ctx, {
+                        type: 'line',
+                        data: {
+                            labels: labels,
+                            datasets: [{
+                                label: 'Investment Value',
+                                data: data,
+                                borderColor: '#10B981',
+                                backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                                fill: true,
+                                tension: 0.4,
+                                pointBackgroundColor: '#10B981',
+                                pointBorderColor: '#fff',
+                                pointHoverRadius: 7,
+                                pointHoverBackgroundColor: '#fff',
+                                pointHoverBorderColor: '#10B981',
+                            }]
+                        },
+                        options: {
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {
+                                legend: {
+                                    display: false
+                                },
+                                tooltip: {
+                                    callbacks: {
+                                        label: function(context) {
+                                            return `Estimated Value: ₹${Math.round(context.raw).toLocaleString('en-IN')}`;
+                                        }
+                                    }
+                                }
+                            },
+                            scales: {
+                                y: {
+                                    beginAtZero: true,
+                                    ticks: {
+                                        callback: function(value) {
+                                            return '₹' + (value / 1000) + 'k';
+                                        }
+                                    }
+                                },
+                                x: {
+                                    grid: {
+                                        display: false
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+            }
+
+            function updateDisplay(years) {
+                yearsLabel.textContent = years;
+                const { totalInvested, futureValue } = calculateGrowth(years);
+                totalInvestmentEl.textContent = `₹${Math.round(totalInvested).toLocaleString('en-IN')}`;
+                estimatedValueEl.textContent = `₹${Math.round(futureValue).toLocaleString('en-IN')}`;
+                updateChart(years);
+            }
+
+            yearsSlider.addEventListener('input', (e) => {
+                updateDisplay(parseInt(e.target.value));
+            });
+
+            updateDisplay(parseInt(yearsSlider.value));
+
+            // Rules Tabs Logic
+            const dosBtn = document.getElementById('dosBtn');
+            const dontsBtn = document.getElementById('dontsBtn');
+            const dosContent = document.getElementById('dosContent');
+            const dontsContent = document.getElementById('dontsContent');
+            const rulesContent = document.getElementById('rulesContent');
+
+            dosBtn.addEventListener('click', () => {
+                dosBtn.classList.add('active');
+                dontsBtn.classList.remove('active');
+                rulesContent.style.opacity = 0;
+                setTimeout(() => {
+                    dosContent.classList.remove('hidden');
+                    dontsContent.classList.add('hidden');
+                    rulesContent.style.opacity = 1;
+                }, 150);
+            });
+
+            dontsBtn.addEventListener('click', () => {
+                dontsBtn.classList.add('active');
+                dosBtn.classList.remove('active');
+                rulesContent.style.opacity = 0;
+                setTimeout(() => {
+                    dontsContent.classList.remove('hidden');
+                    dosContent.classList.add('hidden');
+                    rulesContent.style.opacity = 1;
+                }, 150);
+            });
+
+            // FAQ Logic
+            const faqs = [
+                {
+                    question: "Can I really withdraw my money before 5 years?",
+                    answer: "Yes, you can. While a 5-year (60 installments) commitment is encouraged to see meaningful growth, you are allowed to redeem your money earlier. However, be aware that an exit load (a small fee) might be applicable depending on the fund's policy."
+                },
+                {
+                    question: "Are there any hidden fees? What about M-Vita's fees?",
+                    answer: "The Choti SIP initiative mandates that Mutual Fund Distributors (like M-Vita Services) cannot charge any transaction fees. The only costs are the standard expense ratio charged by the Mutual Fund company itself, which is a very small percentage of your investment. There are no hidden charges."
+                },
+                {
+                    question: "What happens if I miss a monthly payment?",
+                    answer: "Thanks to UPI AutoPay and NACH, missed payments are rare. If a payment does fail, your SIP is usually paused. You won't be penalized, but it's best to ensure your bank account is funded to maintain disciplined investing."
+                },
+                {
+                    question: "Do I need a PAN card to start?",
+                    answer: "Not necessarily. For investments up to ₹50,000 per financial year per mutual fund, you can complete your KYC using just your Aadhaar card. Since a Choti SIP amounts to only ₹3,000 a year, you can easily start without a PAN."
+                },
+                {
+                    question: "Why can I only invest in 'growth' plans?",
+                    answer: "This is a protective measure by SEBI for new investors. Growth plans focus on long-term capital appreciation by reinvesting profits, which aligns with the goal of wealth creation. This simplifies your choice and directs you towards a suitable long-term strategy."
+                }
+            ];
+
+            const faqContainer = document.getElementById('faq-container');
+            faqs.forEach((faq, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.className = 'bg-white rounded-lg shadow-sm overflow-hidden';
+                faqItem.innerHTML = `
+                    <button class="w-full text-left p-4 flex justify-between items-center font-semibold text-gray-800 focus:outline-none" data-faq-toggle="${index}">
+                        <span>${faq.question}</span>
+                        <span class="transform transition-transform duration-300 faq-arrow-down">↓</span>
+                    </button>
+                    <div class="px-4 pb-4 text-gray-600 hidden" data-faq-content="${index}">
+                        <p>${faq.answer}</p>
+                    </div>
+                `;
+                faqContainer.appendChild(faqItem);
+            });
+
+            faqContainer.addEventListener('click', (e) => {
+                const button = e.target.closest('[data-faq-toggle]');
+                if (button) {
+                    const index = button.dataset.faq-toggle;
+                    const content = document.querySelector(`[data-faq-content="${index}"]`);
+                    const arrow = button.querySelector('span:last-child');
+                    
+                    const isHidden = content.classList.contains('hidden');
+                    
+                    if(isHidden) {
+                        content.classList.remove('hidden');
+                        arrow.classList.remove('faq-arrow-down');
+                        arrow.classList.add('faq-arrow-up');
+                        arrow.style.transform = 'rotate(180deg)';
+                    } else {
+                        content.classList.add('hidden');
+                        arrow.classList.remove('faq-arrow-up');
+                        arrow.classList.add('faq-arrow-down');
+                        arrow.style.transform = 'rotate(0deg)';
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

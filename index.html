@@ -90,6 +90,27 @@
             visibility: hidden;
             transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
+
+        /* Styles for the scrolling ribbon */
+        @keyframes scroll-left {
+            /* Start the text immediately visible at the beginning of the ribbon */
+            0% {
+                transform: translateX(0);
+            }
+            /* Scroll half the width of the content, creating a seamless loop */
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .scrolling-ribbon-content {
+            white-space: nowrap;
+            width: max-content;
+            /* Doubled the animation duration to make it half the speed */
+            animation: scroll-left 40s linear infinite;
+        }
+        .scrolling-ribbon-content:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="text-gray-800">
@@ -164,7 +185,40 @@
         </div>
     </header>
 
-    <main class="pt-20">
+    <!-- Scrolling Ribbon -->
+</br>
+</br>
+</br>
+    <div class="scrolling-ribbon-container bg-black h-[1cm] flex items-center overflow-hidden fixed top-[96px] w-full z-40">
+        <div class="scrolling-ribbon-content flex items-center space-x-10 px-4">
+            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+            <span class="text-white">|</span>
+            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+            <span class="text-white">|</span>
+            <a href="Calculators.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Check out our Financial Calulators section</a>
+            <span class="text-white">|</span>
+            <a href="riskcalc.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Know and download your "Risk Appetite" report</a>
+            <span class="text-white">|</span>
+            <a href="Roadmap.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Know your Financial Roadmap</a>
+            <span class="text-white">|</span>
+            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+            <span class="text-white">|</span>
+            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+            <span class="text-white">|</span>
+            <a href="onboarding.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Open your account with us</a>
+            <span class="text-white">|</span>
+            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+            <span class="text-white">|</span>
+            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+            <span class="text-white">|</span>
+            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+            <span class="text-white">|</span>
+            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+        </div>
+    </div>
+
+
+    <main class="pt-[134px]">
 
         <!-- Home Hero Section -->
         
