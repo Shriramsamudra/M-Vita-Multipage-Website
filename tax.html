@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Interactive Guide to Investment Taxation in India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Updated Palette: Clean, Professional Blues and Neutrals -->
+    <!-- Application Structure Plan: A top-down, thematic single-page application. The structure starts with a high-level overview (Key Principles & Tax Regimes), allowing users to make a foundational choice. It then flows into specific 'Asset Class' deep-dives. This is more intuitive than the report's linear structure, as users can jump directly to assets relevant to them. A dedicated 'Client Profiles' section provides tailored scenarios. This task-oriented flow (Understand Basics -> Explore My Investments -> See My Situation) is designed for maximum usability and quick information retrieval. -->
+    <!-- Visualization & Content Choices:
+        - Tax Regimes: Goal: Compare. Method: Interactive side-by-side comparison table with a dynamic calculator. Interaction: User inputs income, sees tax liability in both regimes instantly. Justification: This is the most critical decision for a user; an interactive tool provides immediate, personalized value. Method: HTML/JS.
+        - Capital Gains: Goal: Inform & Compare. Method: Interactive card-based layout for different assets. Interaction: User clicks an asset (e.g., 'Equity'), a modal or dedicated view shows STCG vs LTCG rules with a simple bar chart visualizing the tax rate difference. Justification: Simplifies complex rules into digestible chunks. Library: Chart.js for visualization.
+        - Client Profiles: Goal: Organize & Inform. Method: Tabbed interface for Salaried, Senior Citizen, NRI. Interaction: Clicking a tab reveals specific rules, benefits, and TDS rates for that profile. Justification: Prevents information overload by segmenting content logically for different user personas. Method: HTML/JS.
+        - Insurance Taxation: Goal: Inform. Method: Flowchart-style diagram built with HTML/CSS. Interaction: Hovering over steps reveals details on premium caps and taxability conditions. Justification: Visually explains the decision tree of insurance tax rules, which is clearer than dense text. Method: HTML/CSS/JS.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC; /* Cool Neutral Background (slate-50) */
+            color: #4A4A4A;
+        }
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #2563EB; /* Primary Blue (blue-600) */
+            border-bottom-color: #2563EB;
+        }
+        .card {
+            background-color: #FFFFFF;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .btn-primary {
+            background-color: #1E40AF; /* Darker Blue (blue-800) */
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #17328B;
+        }
+        .btn-secondary {
+            background-color: #BFDBFE; /* Lighter Blue (blue-200) */
+            color: #1E40AF;
+            transition: background-color 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background-color: #93C5FD;
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            background-color: #1E40AF;
+            color: white;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        [x-cloak] { display: none !important; }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="antialiased" x-data="{ activeSection: 'home' }">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-gray-800">
+                <span style="color: #2563EB;">M-Vita</span> Services
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" @click="activeSection = 'home'" :class="{ 'active': activeSection === 'home' }" class="nav-link font-medium pb-1">Home</a>
+                <a href="#regimes" @click="activeSection = 'regimes'" :class="{ 'active': activeSection === 'regimes' }" class="nav-link font-medium pb-1">Tax Regimes</a>
+                <a href="#assets" @click="activeSection = 'assets'" :class="{ 'active': activeSection === 'assets' }" class="nav-link font-medium pb-1">Asset Classes</a>
+                <a href="#profiles" @click="activeSection = 'profiles'" :class="{ 'active': activeSection === 'profiles' }" class="nav-link font-medium pb-1">Client Profiles</a>
+                <a href="#insurance" @click="activeSection = 'insurance'" :class="{ 'active': activeSection === 'insurance' }" class="nav-link font-medium pb-1">Insurance</a>
+                <a href="#tools" @click="activeSection = 'tools'" :class="{ 'active': activeSection === 'tools' }" class="nav-link font-medium pb-1">Tools & Tips</a>
+            </div>
+            <div class="md:hidden">
+                <select @change="document.getElementById($event.target.value).scrollIntoView({ behavior: 'smooth' })" class="bg-white border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <option value="home">Home</option>
+                    <option value="regimes">Tax Regimes</option>
+                    <option value="assets">Asset Classes</option>
+                    <option value="profiles">Client Profiles</option>
+                    <option value="insurance">Insurance</option>
+                    <option value="tools">Tools & Tips</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section id="home" class="text-center min-h-[60vh] flex flex-col justify-center items-center">
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">Navigate Indian Investment Taxes with Confidence</h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">An interactive guide by M-Vita Services, designed to demystify the latest tax laws and empower you to make smarter investment decisions for optimal post-tax returns.</p>
+            <a href="#regimes" @click="activeSection = 'regimes'" class="btn-primary font-bold py-3 px-8 rounded-full text-lg">Start Exploring</a>
+        </section>
+
+        <section id="regimes" class="py-16" x-data="{
+                income: null,
+                deductions: null,
+                isSalaried: false,
+                oldTax: 0,
+                newTax: 0,
+                recommendation: '',
+
+                calculateTaxes() {
+                    if (!this.income || this.income <= 0) {
+                        this.oldTax = 0;
+                        this.newTax = 0;
+                        this.recommendation = '';
+                        return;
+                    }
+
+                    // Old Regime Calculation
+                    let oldTaxableIncome = this.income - (this.deductions || 0);
+                    if (this.isSalaried) {
+                        oldTaxableIncome -= 50000;
+                    }
+                    this.oldTax = this.calculateOldRegimeTax(Math.max(0, oldTaxableIncome));
+
+                    // New Regime Calculation (with standard deduction for salaried)
+                    let newTaxableIncome = this.income;
+                    if (this.isSalaried) {
+                         newTaxableIncome -= 50000;
+                    }
+                    this.newTax = this.calculateNewRegimeTax(Math.max(0, newTaxableIncome));
+
+                    // Recommendation
+                    if (this.oldTax < this.newTax) {
+                        this.recommendation = 'Old';
+                    } else if (this.newTax < this.oldTax) {
+                        this.recommendation = 'New';
+                    } else {
+                        this.recommendation = 'Both regimes result in similar tax liability. The New Regime offers simplicity.';
+                    }
+                },
+
+                // Corrected logic for Old Regime tax calculation
+                calculateOldRegimeTax(income) {
+                    let tax = 0;
+                    
+                    if (income <= 250000) {
+                        tax = 0;
+                    } else if (income <= 500000) {
+                        tax = (income - 250000) * 0.05;
+                    } else if (income <= 1000000) {
+                        tax = 12500 + (income - 500000) * 0.20;
+                    } else {
+                        tax = 112500 + (income - 1000000) * 0.30;
+                    }
+
+                    // Apply tax rebate u/s 87A for income up to ₹5 lakh
+                    if (income <= 500000) {
+                        tax = 0;
+                    }
+
+                    // Add 4% health and education cess
+                    return Math.round(tax * 1.04);
+                },
+
+                // Corrected logic for New Regime tax calculation
+                calculateNewRegimeTax(income) {
+                    let tax = 0;
+
+                    if (income <= 300000) {
+                        tax = 0;
+                    } else if (income <= 600000) {
+                        tax = (income - 300000) * 0.05;
+                    } else if (income <= 900000) {
+                        tax = 15000 + (income - 600000) * 0.10;
+                    } else if (income <= 1200000) {
+                        tax = 45000 + (income - 900000) * 0.15;
+                    } else if (income <= 1500000) {
+                        tax = 90000 + (income - 1200000) * 0.20;
+                    } else {
+                        tax = 150000 + (income - 1500000) * 0.30;
+                    }
+
+                    // Apply tax rebate u/s 87A for income up to ₹7 lakh
+                    if (income <= 700000) {
+                        tax = 0;
+                    }
+
+                    // Add 4% health and education cess
+                    return Math.round(tax * 1.04);
+                }
+            }">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Old vs. New Tax Regime: Which is Right for You?</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">The most crucial decision in tax planning is choosing your regime. The old regime offers deductions but has higher rates, while the new regime offers lower rates with fewer deductions. Use our interactive calculator to see which regime might save you more based on your income.</p>
+            </div>
+
+            <div class="card p-6 md:p-8 max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Tax Calculator</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="income" class="block text-sm font-medium text-gray-700">Your Annual Taxable Income (₹)</label>
+                                <input type="number" id="income" x-model.number="income" @input.debounce.500ms="calculateTaxes()" placeholder="e.g., 1500000" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            </div>
+                            <div>
+                                <label for="deductions" class="block text-sm font-medium text-gray-700">Your Total Deductions (₹)</label>
+                                <input type="number" id="deductions" x-model.number="deductions" @input.debounce.500ms="calculateTaxes()" placeholder="e.g., 250000" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                                <p class="text-xs text-gray-500 mt-1">Includes 80C, 80D, HRA, home loan interest, etc.</p>
+                            </div>
+                             <div>
+                                <label for="isSalaried" class="flex items-center text-sm font-medium text-gray-700">
+                                    <input type="checkbox" id="isSalaried" x-model="isSalaried" @change="calculateTaxes()" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                    <span class="ml-2">Are you a salaried employee?</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-4 text-center">
+                        <div>
+                            <p class="text-lg font-medium text-gray-600">Tax Under <span class="font-bold text-blue-800">Old Regime</span></p>
+                            <p class="text-3xl font-bold text-blue-800" x-text="`₹ ${oldTax.toLocaleString('en-IN')}`"></p>
+                        </div>
+                        <div>
+                            <p class="text-lg font-medium text-gray-600">Tax Under <span class="font-bold text-gray-600">New Regime</span></p>
+                            <p class="text-3xl font-bold text-gray-600" x-text="`₹ ${newTax.toLocaleString('en-IN')}`"></p>
+                        </div>
+                        <div x-show="recommendation" x-cloak class="p-4 rounded-lg" :class="{ 'bg-blue-100 text-blue-900': recommendation === 'Old', 'bg-gray-100 text-gray-900': recommendation === 'New' }">
+                            <p class="font-semibold">Recommendation:</p>
+                            <p x-text="recommendation === 'Old' ? 'The Old Regime seems more beneficial for you.' : 'The New Regime appears to be the better choice.'"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="assets" class="py-16" x-data="{ activeAsset: 'equity' }">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Taxation by Asset Class</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Different investments have different tax rules. The holding period is key to determining your tax liability. Select an asset class below to understand its specific Short-Term (STCG) and Long-Term (LTCG) capital gains tax implications.</p>
+            </div>
+            
+            <div class="flex justify-center space-x-2 md:space-x-4 mb-8 bg-blue-100/50 p-2 rounded-full max-w-2xl mx-auto">
+                <button @click="activeAsset = 'equity'" :class="{ 'active': activeAsset === 'equity' }" class="tab-button w-full md:w-auto px-4 py-2 rounded-full font-semibold">Equity & MFs</button>
+                <button @click="activeAsset = 'debt'" :class="{ 'active': activeAsset === 'debt' }" class="tab-button w-full md:w-auto px-4 py-2 rounded-full font-semibold">Debt & FDs</button>
+                <button @click="activeAsset = 'property'" :class="{ 'active': activeAsset === 'property' }" class="tab-button w-full md:w-auto px-4 py-2 rounded-full font-semibold">Real Estate</button>
+                <button @click="activeAsset = 'gold'" :class="{ 'active': activeAsset === 'gold' }" class="tab-button w-full md:w-auto px-4 py-2 rounded-full font-semibold">Gold</button>
+            </div>
+
+            <div class="card p-6 md:p-8 max-w-5xl mx-auto">
+                <div x-show="activeAsset === 'equity'">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Equity & Equity Mutual Funds</h3>
+                            <p class="text-gray-600 mb-4">Taxation hinges on a 12-month holding period. Recent changes have increased the STCG rate to discourage short-term speculation.</p>
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong class="font-semibold text-red-700">STCG (≤ 12 months):</strong> Taxed at a flat <strong class="text-xl">20%</strong>.</p>
+                                <p><strong class="font-semibold text-green-700">LTCG (> 12 months):</strong> Taxed at <strong class="text-xl">12.5%</strong> on gains exceeding the annual exemption of ₹1.25 lakh.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="chart-container">
+                                <canvas id="equityChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="activeAsset === 'debt'" x-cloak>
+                     <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Debt Instruments & Fixed Deposits</h3>
+                            <p class="text-gray-600 mb-4">A major tax reform has aligned the treatment of new debt fund investments with FDs, removing the previous tax arbitrage.</p>
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong class="font-semibold text-blue-700">Fixed Deposits:</strong> Interest is fully taxable at your <strong class="text-xl">income slab rate</strong>.</p>
+                                <p><strong class="font-semibold text-red-700">Debt MFs (Post Apr 1, 2023):</strong> All gains are treated as STCG and taxed at your <strong class="text-xl">income slab rate</strong>.</p>
+                                <p class="text-sm text-gray-500">Note: Older debt fund investments (pre-April 2023) retain LTCG benefits if held over 24 months.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="chart-container">
+                                <canvas id="debtChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="activeAsset === 'property'" x-cloak>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Real Estate</h3>
+                            <p class="text-gray-600 mb-4">The holding period for property is 24 months. A key distinction exists for properties acquired before and after July 23, 2024, regarding the indexation benefit.</p>
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong class="font-semibold text-red-700">STCG (≤ 24 months):</strong> Gains are added to income and taxed at your <strong class="text-xl">slab rate</strong>.</p>
+                                <p><strong class="font-semibold text-green-700">LTCG (> 24 months):</strong> Taxed at <strong class="text-xl">12.5%</strong> without indexation for new properties. Older properties have an option for 20% with indexation.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="chart-container">
+                                <canvas id="propertyChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div x-show="activeAsset === 'gold'" x-cloak>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-2xl font-semibold text-gray-800 mb-2">Gold & Sovereign Gold Bonds (SGBs)</h3>
+                            <p class="text-gray-600 mb-4">Physical gold and ETFs are taxed based on a 24-month holding period. SGBs offer a unique tax advantage if held to maturity.</p>
+                            <div class="space-y-3 text-gray-700">
+                                <p><strong class="font-semibold text-red-700">Physical Gold (STCG ≤ 24 months):</strong> Taxed at your <strong class="text-xl">slab rate</strong>.</p>
+                                <p><strong class="font-semibold text-slate-700">Physical Gold (LTCG > 24 months):</strong> Taxed at <strong class="text-xl">12.5%</strong> without indexation.</p>
+                                <p><strong class="font-semibold text-green-700">SGBs (Held to Maturity - 8 yrs):</strong> Capital gains are completely <strong class="text-xl">Tax-Exempt</strong>.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="chart-container">
+                                <canvas id="goldChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="profiles" class="py-16" x-data="{ activeProfile: 'resident' }">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Tax Strategies for Different Profiles</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Tax laws aren't one-size-fits-all. Special provisions and rates apply to different types of taxpayers. Select a profile to see key tax considerations, benefits, and TDS rules relevant to you.</p>
+            </div>
+            
+            <div class="flex justify-center space-x-2 md:space-x-4 mb-8 bg-blue-100/50 p-2 rounded-full max-w-lg mx-auto">
+                <button @click="activeProfile = 'resident'" :class="{ 'active': activeProfile === 'resident' }" class="tab-button w-full px-4 py-2 rounded-full font-semibold">Resident</button>
+                <button @click="activeProfile = 'senior'" :class="{ 'active': activeProfile === 'senior' }" class="tab-button w-full px-4 py-2 rounded-full font-semibold">Senior Citizen</button>
+                <button @click="activeProfile = 'nri'" :class="{ 'active': activeProfile === 'nri' }" class="tab-button w-full px-4 py-2 rounded-full font-semibold">Non-Resident Indian (NRI)</button>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6" x-show="activeProfile === 'resident' || window.innerWidth >= 768" x-transition>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Resident Individual</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>Basic Exemption (Old):</strong> ₹2.5 lakh</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>TDS on FD Interest:</strong> 10% on interest over ₹50,000 (FY 25-26)</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>Dividend Tax:</strong> Taxed at slab rates; 10% TDS over ₹10,000</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>Equity LTCG:</strong> 12.5% over ₹1.25 lakh exemption</span></li>
+                    </ul>
+                </div>
+                <div class="card p-6" x-show="activeProfile === 'senior' || window.innerWidth >= 768" x-transition>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Senior Citizen (60+)</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-1">●</span><span><strong>Basic Exemption (Old):</strong> ₹3 lakh</span></li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-1">●</span><span><strong>TDS on FD Interest:</strong> Higher threshold of ₹1 lakh (FY 25-26)</span></li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-1">●</span><span><strong>Interest Deduction (80TTB):</strong> Up to ₹50,000 on all bank interest</span></li>
+                        <li class="flex items-start"><span class="text-green-600 mr-2 mt-1">●</span><span><strong>Health Insurance (80D):</strong> Higher deduction limits for premiums</span></li>
+                    </ul>
+                </div>
+                <div class="card p-6" x-show="activeProfile === 'nri' || window.innerWidth >= 768" x-transition>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Non-Resident Indian (NRI)</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>Tax Liability:</strong> Only on income earned or accrued in India</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>NRE Accounts:</strong> Interest income is completely tax-free</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>Higher TDS Rates:</strong> 30% on FD interest, 20% on dividends</span></li>
+                        <li class="flex items-start"><span class="text-blue-600 mr-2 mt-1">●</span><span><strong>DTAA Benefit:</strong> Can claim relief to avoid double taxation</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="insurance" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">The Role of Insurance in Your Tax Portfolio</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Insurance is a tool for both risk management and tax planning. However, recent regulations have changed the tax treatment of high-premium policies, shifting their role from pure tax-saving instruments to protection-focused products.</p>
+            </div>
+            <div class="card p-6 md:p-8 max-w-5xl mx-auto">
+                <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Is Your Insurance Maturity Amount Taxable?</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-xl text-gray-700 mb-3">Traditional & Endowment Policies</h4>
+                        <p class="text-gray-600 mb-4">For policies issued after April 1, 2023, the maturity proceeds become taxable if the total annual premium you pay across all such policies exceeds ₹5 lakh.</p>
+                        <div class="p-4 bg-red-50 border-l-4 border-red-500 text-red-800 rounded-r-lg">
+                            <strong class="font-bold">Key Cap: ₹5,00,000</strong> aggregate annual premium.
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-xl text-gray-700 mb-3">Unit-Linked Insurance Plans (ULIPs)</h4>
+                        <p class="text-gray-600 mb-4">For ULIPs issued after Feb 1, 2021, maturity proceeds are taxed as capital gains if the total annual premium for all your ULIPs exceeds ₹2.5 lakh.</p>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-500 text-blue-800 rounded-r-lg">
+                            <strong class="font-bold">Key Cap: ₹2,50,000</strong> aggregate annual premium.
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 p-4 bg-green-50 border-l-4 border-green-500 text-green-800 rounded-r-lg">
+                    <strong class="font-bold">Universal Exemption:</strong> The death benefit paid to the nominee is <strong class="underline">always fully tax-exempt</strong>, regardless of the premium amount. This reinforces the primary purpose of life insurance as a protection tool.
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="py-16">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Advanced Tools & Compliance Tips</h2>
+                <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">Effective tax management involves proactive strategies and diligent compliance. Here are some key concepts to help you optimize your returns and stay compliant.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">The Art of Tax-Loss Harvesting</h3>
+                    <p class="text-gray-600 mb-4">This is a legal strategy to reduce your tax liability. By selling investments at a loss, you can offset gains from other investments. This transforms a market loss into a tangible tax saving.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><strong class="font-semibold">Short-Term Loss:</strong> Can be set off against both Short-Term and Long-Term Gains.</li>
+                        <li><strong class="font-semibold">Long-Term Loss:</strong> Can only be set off against Long-Term Gains.</li>
+                        <li><strong class="font-semibold">Carry Forward:</strong> Unused losses can be carried forward for up to 8 assessment years.</li>
+                    </ul>
+                </div>
+                <div class="card p-6 md:p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Choosing the Correct ITR Form</h3>
+                    <p class="text-gray-600 mb-4">Your investment choices directly impact your compliance requirements. Filing the correct Income Tax Return (ITR) form is crucial.</p>
+                    <ul class="space-y-2 text-gray-700">
+                        <li><strong class="font-semibold">ITR-1 (Sahaj):</strong> For simple cases - salary, one house property, and interest income up to ₹50 lakh.</li>
+                        <li><strong class="font-semibold">ITR-2:</strong> Required if you have any capital gains, income from more than one house, or foreign assets.</li>
+                        <li><strong class="font-semibold">ITR-3:</strong> For individuals with income from a business or profession, including F&O trading.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <a href="index.html" class="text-2xl font-bold">
+                <span style="color: #2563EB;">M-Vita</span> Services
+            </a>
+            <p class="mt-2 text-gray-400">Your Partner in Financial Clarity and Growth.</p>
+            <p class="mt-4 text-sm text-gray-500">&copy; 2025 M-Vita Services. All Rights Reserved. This guide is for informational purposes only and does not constitute financial advice. Please consult with a qualified professional.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const chartConfig = (labels, data, backgroundColors, borderColors) => ({
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Tax Rate (%)',
+                        data: data,
+                        backgroundColor: backgroundColors,
+                        borderColor: borderColors,
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%'
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            new Chart(document.getElementById('equityChart'), chartConfig(
+                ['STCG (≤ 12 mo)', 'LTCG (> 12 mo)'],
+                [20, 12.5],
+                ['rgba(220, 38, 38, 0.2)', 'rgba(22, 163, 74, 0.2)'],
+                ['rgb(220, 38, 38)', 'rgb(22, 163, 74)']
+            ));
+
+            new Chart(document.getElementById('debtChart'), chartConfig(
+                ['FD Interest', 'New Debt MF Gains'],
+                [30, 30], // Assuming highest slab rate for visualization
+                ['rgba(59, 130, 246, 0.2)', 'rgba(220, 38, 38, 0.2)'],
+                ['rgb(59, 130, 246)', 'rgb(220, 38, 38)']
+            )).options.scales.y.ticks.callback = function(value) { return 'Slab Rate' };
+
+
+            new Chart(document.getElementById('propertyChart'), chartConfig(
+                ['STCG (≤ 24 mo)', 'LTCG (> 24 mo)'],
+                [30, 12.5], // Assuming highest slab rate for STCG
+                ['rgba(220, 38, 38, 0.2)', 'rgba(22, 163, 74, 0.2)'],
+                ['rgb(220, 38, 38)', 'rgb(22, 163, 74)']
+            ));
+            
+            new Chart(document.getElementById('goldChart'), chartConfig(
+                ['Physical Gold LTCG', 'SGB at Maturity'],
+                [12.5, 0],
+                ['rgba(71, 85, 105, 0.2)', 'rgba(22, 163, 74, 0.2)'],
+                ['rgb(71, 85, 105)', 'rgb(22, 163, 74)']
+            ));
+
+            const sections = document.querySelectorAll('main section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute('id');
+                        document.querySelector('.nav-link.active')?.classList.remove('active');
+                        document.querySelector(`.nav-link[href="#${id}"]`)?.classList.add('active');
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
