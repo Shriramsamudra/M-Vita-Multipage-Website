@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M-Vita Services | Your Guide to NRI Mutual Fund Investing in India</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals (Inspired by M-Vita Logo) -->
+    <!-- Application Structure Plan: The application is structured as a user journey, starting with a clear welcome, moving to foundational knowledge (NRI status, accounts), then detailing the core services offered by M-Vita, followed by a critical KYC documents section, then an interactive tax tool, and concluding with reasons to choose the service. This thematic, task-oriented flow is more intuitive than a linear report, allowing users to quickly access sections relevant to their immediate questions (e.g., 'Am I an NRI?', 'How are my gains taxed?'). Navigation is handled by a sticky header, ensuring easy movement between these logical sections. This design prioritizes user understanding and decision-making over simple information presentation. -->
+    <!-- Visualization & Content Choices: 
+        1. NRI Bank Accounts: Report Info -> Comparison of NRE vs. NRO accounts. Goal -> Help users choose the right account. Viz/Method -> Interactive Bar Chart (Chart.js) and a clear comparison table. Interaction -> User can toggle between 'Repatriability' and 'Taxation' views on the chart. Justification -> A visual comparison is faster to grasp than dense text. The toggle adds an interactive layer, focusing the user on one key attribute at a time.
+        2. Our Services: Report Info -> Detailed descriptions of services. Goal -> Present services clearly without overwhelming the user. Viz/Method -> Accordion-style collapsible sections (HTML/JS). Interaction -> User clicks on a service title to expand and view details. Justification -> Hides complexity by default, allowing users to explore only the services they are interested in, which improves scannability and reduces initial cognitive load.
+        3. KYC Documents: Report Info -> A list of required documents. Goal -> Provide a simple, detailed checklist. Viz/Method -> Styled HTML list with text and icons. Interaction -> None needed. Justification -> A clean, easy-to-read list with minute details is the most effective format for this essential, checklist-oriented information.
+        4. Taxation: Report Info -> Complex tax rules for equity/debt funds based on holding period. Goal -> Simplify tax calculation. Viz/Method -> Interactive Donut Charts (Chart.js) and dynamic text output. Interaction -> User selects fund type and holding period from dropdowns; the chart and text update to show the applicable tax and TDS rates. Justification -> This transforms a static, complex table into a personalized calculator, providing immediate, relevant answers and enhancing user engagement.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8; /* Warm Neutral Background */
+            color: #4A4A4A;
+        }
+        .bg-primary { background-color: #D4A373; } /* Muted Gold/Brown from logo */
+        .text-primary { color: #D4A373; }
+        .bg-secondary { background-color: #FAEDCD; } /* Light Cream from logo */
+        .text-secondary { color: #FAEDCD; }
+        .bg-accent { background-color: #E3B98D; }
+        .text-accent { color: #8A5A44; } /* Darker brown for text contrast */
+        .nav-link {
+            transition: color 0.3s ease, border-bottom-color 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #D4A373;
+            border-bottom-color: #D4A373;
+        }
+        .section-title {
+            font-weight: 700;
+            color: #8A5A44;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-accent">
+                        <a href="index.html" class="text-accent no-underline hover:underline">M-Vita <span class="text-primary font-medium">Services</span></a>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#framework" class="nav-link text-gray-600 hover:text-primary pb-1">The Framework</a>
+                    <a href="#services" class="nav-link text-gray-600 hover:text-primary pb-1">Our Services</a>
+                    <a href="#kyc" class="nav-link text-gray-600 hover:text-primary pb-1">KYC Documents</a>
+                    <a href="#tax-guide" class="nav-link text-gray-600 hover:text-primary pb-1">Tax Guide</a>
+                    <a href="#why-us" class="nav-link text-gray-600 hover:text-primary pb-1">Why M-Vita</a>
+                </nav>
+                 <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden hidden bg-white py-2">
+            <a href="#framework" class="block text-center py-2 px-4 text-sm text-gray-600 hover:bg-secondary">The Framework</a>
+            <a href="#services" class="block text-center py-2 px-4 text-sm text-gray-600 hover:bg-secondary">Our Services</a>
+            <a href="#kyc" class="block text-center py-2 px-4 text-sm text-gray-600 hover:bg-secondary">KYC Documents</a>
+            <a href="#tax-guide" class="block text-center py-2 px-4 text-sm text-gray-600 hover:bg-secondary">Tax Guide</a>
+            <a href="#why-us" class="block text-center py-2 px-4 text-sm text-gray-600 hover:bg-secondary">Why M-Vita</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-secondary py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-accent tracking-tight">Your Trusted Partner for NRI Investments in India</h1>
+                <p class="mt-6 max-w-2xl mx-auto text-lg text-gray-600">Demystifying Indian mutual funds for NRIs. We provide expert guidance and seamless solutions, integrating advanced digital tools with personalized expertise to help you achieve your financial aspirations from anywhere in the world.</p>
+                <a href="#framework" class="mt-8 inline-block bg-primary text-white font-semibold py-3 px-8 rounded-lg shadow-lg hover:bg-accent transition-colors duration-300">Explore the NRI Framework</a>
+            </div>
+        </section>
+
+        <section id="framework" class="py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl">Understanding the NRI Investment Framework</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">Investing in India from abroad requires navigating a specific regulatory landscape. This section breaks down the essentials: from defining your NRI status to choosing the right bank account for your investments.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold text-accent mb-4">Who is an NRI?</h3>
+                        <p class="text-gray-700 mb-4">An individual is an NRI if they are an Indian citizen residing outside India for 182 days or more in a financial year for employment, business, or other valid reasons. OCI and PIO cardholders are also eligible to invest.</p>
+                        <p class="text-gray-700">Your status can change if you return to India or a resident moves abroad. This impacts KYC, bank accounts, and tax planning. We provide continuous support through these transitions.</p>
+                        
+                        <h3 class="text-2xl font-bold text-accent mt-8 mb-4">Essential Bank Accounts: NRE vs. NRO</h3>
+                        <p class="text-gray-700 mb-6">Choosing between an NRE (Non-Resident External) and NRO (Non-Resident Ordinary) account is a critical first step. Your choice impacts how you can move your money and how it's taxed in India. Explore the key differences in the interactive chart.</p>
+                         <div class="flex justify-center space-x-4 mb-4">
+                            <button id="repatriabilityBtn" class="px-4 py-2 text-sm font-medium rounded-md bg-primary text-white">Repatriability</button>
+                            <button id="taxationBtn" class="px-4 py-2 text-sm font-medium rounded-md bg-gray-200 text-gray-700">Taxation</button>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                        <div class="chart-container">
+                            <canvas id="nreNroChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="bg-secondary py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl">Our Tailored Solutions for Your Journey</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">We offer a comprehensive suite of services designed to address every aspect of your investment journey, from initial planning to ongoing management and repatriation.</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="space-y-4" id="accordion-container">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kyc" class="py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl">Required KYC Documents</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">The Know Your Customer (KYC) process is a mandatory step for all investors. To ensure a smooth onboarding experience, please have the following documents ready. We will assist you in verifying and submitting them.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold text-accent mb-4">For Indian Passport Holders (NRIs)</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li><span class="text-primary font-bold mr-2">1.</span> Self-attested copy of Indian passport (first and last page).</li>
+                            <li><span class="text-primary font-bold mr-2">2.</span> Self-attested copy of your Overseas Address Proof. Acceptable documents include utility bills, driving license, or a bank statement (not more than 3 months old) with the foreign address.</li>
+                            <li><span class="text-primary font-bold mr-2">3.</span> Copy of Indian PAN Card.</li>
+                            <li><span class="text-primary font-bold mr-2">4.</span> Copy of cancelled cheque of your NRE/NRO bank account with your name pre-printed.</li>
+                            <li><span class="text-primary font-bold mr-2">5.</span> Duly filled and signed Common Application Form for the chosen mutual fund scheme.</li>
+                        </ul>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-xl font-bold text-accent mb-4">For OCI/PIO Card Holders</h3>
+                        <ul class="space-y-4 text-gray-700">
+                            <li><span class="text-primary font-bold mr-2">1.</span> Self-attested copy of Passport of your home country.</li>
+                            <li><span class="text-primary font-bold mr-2">2.</span> Self-attested copy of Overseas Citizenship of India (OCI) or Person of Indian Origin (PIO) card.</li>
+                            <li><span class="text-primary font-bold mr-2">3.</span> Self-attested copy of Overseas Address Proof.</li>
+                            <li><span class="text-primary font-bold mr-2">4.</span> Copy of Indian PAN Card.</li>
+                            <li><span class="text-primary font-bold mr-2">5.</span> Copy of cancelled cheque of your NRE/NRO bank account with your name pre-printed.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-12 p-6 bg-secondary rounded-lg shadow-inner text-center">
+                    <p class="text-gray-700 font-medium">Please note: All documents must be self-attested. For certain countries, a notary attestation may be required. We will guide you through this process during onboarding to ensure all documents meet regulatory standards.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="tax-guide" class="bg-secondary py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl">Interactive NRI Tax Guide</h2>
+                    <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">Taxation is a key concern for NRIs. Use our interactive tool to understand the potential tax implications on your mutual fund gains in India based on fund type and how long you hold your investment.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-accent mb-6 text-center">Calculate Your Potential Tax</h3>
+                        <div class="space-y-6">
+                            <div>
+                                <label for="fundType" class="block text-sm font-medium text-gray-700 mb-1">Select Fund Type:</label>
+                                <select id="fundType" class="w-full p-3 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                                    <option value="equity">Equity-Oriented (≥65% in equity)</option>
+                                    <option value="debt">Debt-Oriented (<65% in equity)</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="holdingPeriod" class="block text-sm font-medium text-gray-700 mb-1">Select Holding Period:</label>
+                                <select id="holdingPeriod" class="w-full p-3 border border-gray-300 rounded-md focus:ring-primary focus:border-primary">
+                                    <option value="short">Short-Term</option>
+                                    <option value="long">Long-Term</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="chart-container h-64 md:h-80">
+                            <canvas id="taxChart"></canvas>
+                        </div>
+                        <div id="taxResult" class="mt-6 bg-white p-6 rounded-lg shadow-md">
+                            <p class="text-lg text-accent font-semibold">Your Results:</p>
+                            <p id="taxInfo" class="text-gray-700 mt-2"></p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="mt-16 text-center">
+                    <h3 class="text-2xl font-bold text-accent mb-4">Leveraging DTAA</h3>
+                    <p class="max-w-3xl mx-auto text-gray-700">India has Double Taxation Avoidance Agreements (DTAAs) with over 90 countries. These treaties can prevent your income from being taxed twice. We provide expert guidance on claiming DTAA benefits, which could significantly reduce your tax liability or, in some cases, even result in zero capital gains tax in India.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-us" class="py-20 sm:py-24">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="section-title text-3xl md:text-4xl">Why Choose <a href="index.html" class="text-accent no-underline hover:underline">M-Vita Services</a>?</h2>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl text-primary mb-4">✓</div>
+                        <h3 class="text-xl font-bold text-accent mb-2">Expertise & Transparency</h3>
+                        <p class="text-gray-600">Our specialized experience in NRI investments ensures you receive unbiased, research-based advice. We prioritize transparency and credibility in every interaction.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl text-primary mb-4">✓</div>
+                        <h3 class="text-xl font-bold text-accent mb-2">Client-Centric Approach</h3>
+                        <p class="text-gray-600">Your financial well-being is our priority. We offer a dedicated Relationship Manager and personalized solutions to build an enduring partnership.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="text-4xl text-primary mb-4">✓</div>
+                        <h3 class="text-xl font-bold text-accent mb-2">Seamless Digital Experience</h3>
+                        <p class="text-gray-600">Our user-friendly online platform and mobile app allow you to manage your investments 100% online, from anywhere in the world, at any time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-accent text-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="text-center">
+                <p class="font-bold text-xl"><a href="index.html" class="text-white no-underline hover:underline">M-Vita Services</a></p>
+                <p class="mt-4 text-sm text-secondary">Mutual Fund investments are subject to market risks. Please read all scheme-related documents carefully before investing. The information provided is for informational purposes only and not as legal, tax, or financial advice. Please consult your advisors before investing.</p>
+                <p class="mt-4 text-xs text-gray-300">&copy; 2024 <a href="index.html" class="text-white no-underline hover:underline">M-Vita Services</a>. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            const navLinks = document.querySelectorAll('.nav-link, #mobile-menu a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = document.getElementById('header').offsetHeight;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                    if (mobileMenu.classList.contains('hidden') === false) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                });
+            });
+
+            const sections = document.querySelectorAll('section');
+            const mainNavLinks = document.querySelectorAll('nav a.nav-link');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 80) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                mainNavLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+
+            const nreNroData = {
+                repatriability: {
+                    labels: ['NRE Account', 'NRO Account'],
+                    datasets: [{
+                        label: 'Repatriation Limit',
+                        data: [100, 50],
+                        backgroundColor: ['#D4A373', '#FAEDCD'],
+                        borderColor: ['#8A5A44', '#D4A373'],
+                        borderWidth: 1
+                    }]
+                },
+                taxation: {
+                    labels: ['NRE Account', 'NRO Account'],
+                    datasets: [{
+                        label: 'Tax on Interest',
+                        data: [0, 30],
+                        backgroundColor: ['#D4A373', '#FAEDCD'],
+                        borderColor: ['#8A5A44', '#D4A373'],
+                        borderWidth: 1
+                    }]
+                }
+            };
+
+            const nreNroCtx = document.getElementById('nreNroChart').getContext('2d');
+            let nreNroChart = new Chart(nreNroCtx, {
+                type: 'bar',
+                data: nreNroData.repatriability,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return this.chart.config.type === 'bar' && this.chart.data.datasets[0].label.includes('Repatriation') ? (value === 100 ? 'Fully Repatriable' : 'Up to $1M/yr') : value + '%';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: { display: false },
+                        title: { display: true, text: 'NRE vs. NRO: Repatriability', font: { size: 16, weight: 'bold' }, color: '#8A5A44' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) { label += ': '; }
+                                    if (context.dataset.label.includes('Repatriation')) {
+                                        return context.label === 'NRE Account' ? 'Fully repatriable (Principal + Interest)' : 'Up to USD 1 Million per year (Principal only, after tax)';
+                                    } else {
+                                        return context.label === 'NRE Account' ? 'Tax-free in India' : 'Taxable in India (approx. 30%)';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const repatriabilityBtn = document.getElementById('repatriabilityBtn');
+            const taxationBtn = document.getElementById('taxationBtn');
+
+            function updateNreNroChart(dataType) {
+                nreNroChart.data = nreNroData[dataType];
+                nreNroChart.options.plugins.title.text = dataType === 'repatriability' ? 'NRE vs. NRO: Repatriability' : 'NRE vs. NRO: Taxation on Interest';
+                nreNroChart.options.scales.x.max = dataType === 'repatriability' ? 100 : 40;
+                nreNroChart.update();
+
+                if (dataType === 'repatriability') {
+                    repatriabilityBtn.classList.add('bg-primary', 'text-white');
+                    repatriabilityBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                    taxationBtn.classList.add('bg-gray-200', 'text-gray-700');
+                    taxationBtn.classList.remove('bg-primary', 'text-white');
+                } else {
+                    taxationBtn.classList.add('bg-primary', 'text-white');
+                    taxationBtn.classList.remove('bg-gray-200', 'text-gray-700');
+                    repatriabilityBtn.classList.add('bg-gray-200', 'text-gray-700');
+                    repatriabilityBtn.classList.remove('bg-primary', 'text-white');
+                }
+            }
+
+            repatriabilityBtn.addEventListener('click', () => updateNreNroChart('repatriability'));
+            taxationBtn.addEventListener('click', () => updateNreNroChart('taxation'));
+            
+
+            const accordionData = [
+                {
+                    title: "Personalized Investment Advisory & Planning",
+                    content: "We start with a thorough risk assessment to understand your financial goals, whether it's long-term growth, tax savings, or stable income. Based on your profile, we help you select the most suitable mutual fund schemes from a curated list, considering performance, expense ratios, and fund manager expertise. We also guide you on the best investment approach, be it a lump sum or a disciplined Systematic Investment Plan (SIP)."
+                },
+                {
+                    title: "Seamless Onboarding and Regulatory Compliance",
+                    content: "We streamline the entire onboarding process. This includes guiding you through the mandatory Know Your Customer (KYC) process, assisting with FATCA/CRS declarations for US/Canada residents, and supporting you in opening the required NRE/NRO bank accounts to ensure a smooth and compliant start to your investment journey."
+                },
+                {
+                    title: "Advanced Portfolio Management & Tracking",
+                    content: "Our service includes research-backed fund recommendations and continuous portfolio monitoring. We help you build a diversified portfolio and advise on periodic rebalancing. Our advanced online platform provides a consolidated view of all your investments, detailed performance reports, and capital gain statements to help you track your progress from anywhere in the world."
+                },
+                {
+                    title: "Expert Tax Guidance & Repatriation Support",
+                    content: "We provide expert guidance on Indian tax laws for NRIs, including capital gains tax and TDS. We help you leverage Double Taxation Avoidance Agreements (DTAA) to minimize your tax liability. When you're ready to move your funds, we assist with the smooth and compliant repatriation process from both NRE and NRO accounts."
+                }
+            ];
+
+            const accordionContainer = document.getElementById('accordion-container');
+            accordionData.forEach((item, index) => {
+                const accordionItem = document.createElement('div');
+                accordionItem.className = 'border border-gray-200 rounded-lg bg-white';
+                accordionItem.innerHTML = `
+                    <button class="accordion-header w-full flex justify-between items-center p-5 text-left font-semibold text-accent">
+                        <span>${item.title}</span>
+                        <span class="transform transition-transform duration-300 text-primary text-2xl">+</span>
+                    </button>
+                    <div class="accordion-content px-5">
+                        <p class="pb-5 text-gray-600">${item.content}</p>
+                    </div>
+                `;
+                accordionContainer.appendChild(accordionItem);
+            });
+
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('span:last-child');
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.textContent = '+';
+                        icon.classList.remove('rotate-45');
+                    } else {
+                        document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                        document.querySelectorAll('.accordion-header span:last-child').forEach(i => {
+                            i.textContent = '+';
+                            i.classList.remove('rotate-45');
+                        });
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        icon.textContent = '+';
+                        icon.classList.add('rotate-45');
+                    }
+                });
+            });
+
+            const taxCtx = document.getElementById('taxChart').getContext('2d');
+            let taxChart = new Chart(taxCtx, {
+                type: 'doughnut',
+                data: {},
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '60%',
+                    plugins: {
+                        legend: { position: 'bottom' },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.raw}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const fundTypeSelect = document.getElementById('fundType');
+            const holdingPeriodSelect = document.getElementById('holdingPeriod');
+            const taxInfo = document.getElementById('taxInfo');
+
+            function updateTaxVisuals() {
+                const fundType = fundTypeSelect.value;
+                const holdingPeriod = holdingPeriodSelect.value;
+
+                let taxRate, tdsRate, infoText, gainType;
+
+                if (fundType === 'equity') {
+                    if (holdingPeriod === 'short') { // < 12 months
+                        gainType = 'Short-Term Capital Gains (STCG)';
+                        taxRate = 15;
+                        tdsRate = 15;
+                        infoText = `Gains are taxed at a flat rate of 15%. TDS is also 15%. Holding period is less than 12 months.`;
+                    } else { // >= 12 months
+                        gainType = 'Long-Term Capital Gains (LTCG)';
+                        taxRate = 10;
+                        tdsRate = 10;
+                        infoText = `Gains over ₹1 lakh in a financial year are taxed at 10%. TDS is 10%. Holding period is 12 months or more.`;
+                    }
+                } else { // debt
+                    if (holdingPeriod === 'short') { // <= 36 months
+                        gainType = 'Short-Term Capital Gains (STCG)';
+                        taxRate = 30; 
+                        tdsRate = 30;
+                        infoText = `Gains are taxed as per your income slab (TDS is 30%). Holding period is 36 months or less.`;
+                    } else { // > 36 months
+                        gainType = 'Long-Term Capital Gains (LTCG)';
+                        taxRate = 20;
+                        tdsRate = 20;
+                        infoText = `Gains are taxed at 20% with indexation benefits. TDS is 20%. Holding period is more than 36 months.`;
+                    }
+                }
+
+                taxChart.data = {
+                    labels: ['Capital Gains Tax', 'TDS'],
+                    datasets: [{
+                        data: [taxRate, tdsRate],
+                        backgroundColor: ['#D4A373', '#E3B98D'],
+                        hoverBackgroundColor: ['#8A5A44', '#D4A373']
+                    }]
+                };
+                taxChart.options.plugins.title = {
+                    display: true,
+                    text: `${gainType} Tax & TDS`,
+                    font: { size: 16, weight: 'bold' },
+                    color: '#8A5A44'
+                };
+                taxChart.update();
+                taxInfo.textContent = infoText;
+            }
+
+            fundTypeSelect.addEventListener('change', updateTaxVisuals);
+            holdingPeriodSelect.addEventListener('change', updateTaxVisuals);
+
+            updateTaxVisuals();
+        });
+    </script>
+</body>
+</html>

@@ -44,6 +44,14 @@
             background-position: center;
             background-repeat: no-repeat;
         }
+        /* --- START: Improved Hero Overlay Style --- */
+        .bg-hero-overlay {
+            background-image: linear-gradient(to right, rgba(20, 63, 107, 0.7), rgba(30, 101, 174, 0.5));
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px); /* For Safari support */
+        }
+        /* --- END: Improved Hero Overlay Style --- */
+        
         /* Modal styling */
         .modal-overlay {
             position: fixed;
@@ -51,7 +59,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 100, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -80,7 +88,6 @@
             to { opacity: 1; transform: scale(1); }
         }
         /* Styles for dropdown menu */
-        /* Updated to use opacity and visibility for smoother and more reliable hover behavior */
         .dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
@@ -93,24 +100,18 @@
 
         /* Styles for the scrolling ribbon */
         @keyframes scroll-left {
-            /* Start the text immediately visible at the beginning of the ribbon */
-            0% {
-                transform: translateX(0);
-            }
-            /* Scroll half the width of the content, creating a seamless loop */
-            100% {
-                transform: translateX(-50%);
-            }
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
         }
         .scrolling-ribbon-content {
             white-space: nowrap;
             width: max-content;
-            /* Doubled the animation duration to make it half the speed */
             animation: scroll-left 40s linear infinite;
         }
         .scrolling-ribbon-content:hover {
             animation-play-state: paused;
         }
+
     </style>
 </head>
 <body class="text-gray-800">
@@ -134,7 +135,6 @@
                         Services
                         <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
                     <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                         <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
                         <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
@@ -148,6 +148,11 @@
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
+                <!-- START: Added NRI Button to Header -->
+                <a href="nri.html" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow flex items-center">
+                    <i class="fas fa-globe mr-2"></i>NRI Section
+                </a>
+                <!-- END: Added NRI Button to Header -->
             </div>
 
             <!-- Mobile Navigation -->
@@ -182,48 +187,52 @@
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+            <!-- START: Added NRI Button to Mobile Menu -->
+            <a href="nri.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">NRI Section</a>
+            <!-- END: Added NRI Button to Mobile Menu -->
         </div>
     </header>
 
     <!-- Scrolling Ribbon -->
-</br>
-</br>
-</br>
-    <div class="scrolling-ribbon-container bg-black h-[1cm] flex items-center overflow-hidden fixed top-[96px] w-full z-40">
-        <div class="scrolling-ribbon-content flex items-center space-x-10 px-4">
-            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
-            <span class="text-white">|</span>
-            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-            <span class="text-white">|</span>
-            <a href="Calculators.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Check out our Financial Calulators section</a>
-            <span class="text-white">|</span>
-            <a href="riskcalc.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Know and download your "Risk Appetite" report</a>
-            <span class="text-white">|</span>
-            <a href="Roadmap.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Know your Financial Roadmap</a>
-            <span class="text-white">|</span>
-            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
-            <span class="text-white">|</span>
-            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-            <span class="text-white">|</span>
-            <a href="onboarding.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Open your account with us</a>
-            <span class="text-white">|</span>
-            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-            <span class="text-white">|</span>
-            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
-            <span class="text-white">|</span>
-            <a href="nipponmaf.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-            <span class="text-white">|</span>
-            <a href="chhotisip.html" target="_blank" class="text-white hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+    <div style="padding-top: 96px;"> <!-- Spacer to push content below fixed header -->
+        <!-- START: Updated Scrolling Ribbon -->
+        <div class="scrolling-ribbon-container bg-white h-[1cm] flex items-center overflow-hidden w-full z-40 border-b border-gray-200">
+            <div class="scrolling-ribbon-content flex items-center space-x-10 px-4">
+                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+                <span class="text-gray-400">|</span>
+                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+                <span class="text-gray-400">|</span>
+                <a href="Calculators.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check out our Financial Calulators section</a>
+                <span class="text-gray-400">|</span>
+                <a href="riskcalc.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know and download your "Risk Appetite" report</a>
+                <span class="text-gray-400">|</span>
+                <a href="Roadmap.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know your Financial Roadmap</a>
+                <span class="text-gray-400">|</span>
+                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+                <span class="text-gray-400">|</span>
+                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+                <span class="text-gray-400">|</span>
+                <a href="onboarding.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Open your account with us</a>
+                <span class="text-gray-400">|</span>
+                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+                <span class="text-gray-400">|</span>
+                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+                <span class="text-gray-400">|</span>
+                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
+                <span class="text-gray-400">|</span>
+                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
+            </div>
         </div>
+        <!-- END: Updated Scrolling Ribbon -->
     </div>
 
 
-    <main class="pt-[134px]">
+    <main>
 
         <!-- Home Hero Section -->
-        
-<section id="home" class="bg-hero-updated text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
-            <div class="bg-black bg-opacity-30 p-8 md:p-12 rounded-lg max-w-4xl">
+        <section id="home" class="bg-hero text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
+            <!-- START: Updated Hero Overlay Box -->
+            <div class="bg-hero-overlay p-8 md:p-12 rounded-lg max-w-4xl custom-shadow">
                 <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Your Partner in Financial Well-being</h1>
                 <p class="text-lg md:text-xl font-light mb-8">
                     Empowering individuals and families to achieve their financial goals through various financial products and personalized solutions.
@@ -232,6 +241,7 @@
                     Let's Connect!
                 </a>
             </div>
+            <!-- END: Updated Hero Overlay Box -->
         </section>
 
         <!-- Services Overview -->
@@ -281,10 +291,6 @@
                 </div>
             </div>
         </section>
-
-    </main>
-
-
 
     </main>
 

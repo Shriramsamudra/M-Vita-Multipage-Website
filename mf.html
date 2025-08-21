@@ -4,13 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Vita Services | Your Partner in Financial Well-being</title>
-    <!-- Use Tailwind CSS for a modern, responsive design -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
@@ -143,26 +140,21 @@
 </head>
 <body class="text-gray-800">
 
-    <!-- Header & Navigation -->
     <header class="bg-white custom-shadow fixed w-full z-50">
         <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
-            <!-- Logo -->
             <a href="index.html" class="flex items-center">
                 <img src="M-Vita Name 2.jpg" alt="M-Vita Services Logo" class="h-16 w-auto">
             </a>
 
-            <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
                 
-                <!-- Services Dropdown Menu -->
                 <div class="relative group dropdown">
                     <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
                         Services
                         <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
                     <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                         <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
                         <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
@@ -176,9 +168,12 @@
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
-            </div>
+                <!-- START: Added NRI Button to Header -->
+                <a href="nri.html" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow flex items-center">
+                    <i class="fas fa-globe mr-2"></i>NRI Section</a>
+                <!-- END: Added NRI Button to Header -->            
+</div>
 
-            <!-- Mobile Navigation -->
             <div class="md:hidden flex items-center">
                 <button id="mobile-menu-button" class="text-gray-600 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
@@ -186,12 +181,10 @@
             </div>
         </nav>
 
-        <!-- Mobile Menu (hidden by default) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
             
-            <!-- Mobile Services Dropdown -->
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
                     Services
@@ -210,28 +203,20 @@
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
+ <!-- START: Added NRI Button to Mobile Menu -->
+            <a href="nri.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">NRI Section</a>
+            <!-- END: Added NRI Button to Mobile Menu -->
         </div>
+
     </header>
 
     <main class="pt-20">
 
-        <!-- Home Hero Section -->
-<html lang="en">
+        <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Vita | Mutual Funds</title>
-    <!-- Chosen Palette: M-Vita Corporate (Primary Blue: #005A9C, Accent Gold: #FDB813, Background: #F7FAFC, Text: #2D3748) -->
-    <!-- Application Structure Plan: The application now uses a global language toggle at the top to control the visibility of all content sections. The content is presented in a linear, top-to-bottom narrative, starting with the benefits of mutual funds and then moving to foundational knowledge, the investment journey, and detailed breakdowns. This structure guides a new investor from the 'why' (advantages) to the 'what' (basics), to the 'how' (process), providing a clear and logical flow for user confidence. -->
-    <!-- Visualization & Content Choices:
-        - Report Info: Intro (Eng/Mar) -> Goal: Accessibility -> Viz: Global Language Toggle -> Interaction: JS toggle -> Justification: Caters to a bilingual audience, improving inclusivity. -> Library/Method: Vanilla JS.
-        - Report Info: Onboarding Process -> Goal: Simplify Steps -> Viz: Visual Timeline -> Interaction: Static visual guide -> Justification: A visual roadmap is more intuitive and easier to follow than a text list. -> Library/Method: HTML/CSS with Tailwind.
-        - Report Info: KYC Statuses -> Goal: Clarify Complex States -> Viz: Accordion -> Interaction: Click to expand -> Justification: Hides detailed explanations by default, reducing cognitive load and keeping the UI clean. -> Library/Method: Vanilla JS.
-        - Report Info: Expense Ratio Impact -> Goal: Demonstrate Cost Effect -> Viz: Line Chart -> Interaction: Hover for tooltips -> Justification: A visual comparison of growth over time is more impactful than text alone in showing the long-term effect of fees. -> Library/Method: Chart.js.
-        - Report Info: Top Performing Funds -> Goal: Provide Data Points -> Viz: Bar Chart -> Interaction: Hover for tooltips -> Justification: A bar chart allows for quick, easy comparison of fund performance metrics (CAGR). -> Library/Method: Chart.js.
-        - Report Info: FAQs -> Goal: Answer Common Questions -> Viz: Accordion -> Interaction: Click to expand -> Justification: Organizes a large amount of Q&A content compactly. -> Library/Method: Vanilla JS.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -306,7 +291,6 @@
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
 
-        <!-- Language Toggle Section -->
         <section id="language-toggle" class="text-center mb-8">
             <div class="flex justify-center">
                 <button id="lang-en" class="px-6 py-2 rounded-l-lg text-sm font-medium transition-colors duration-300 tab-active">English</button>
@@ -315,7 +299,6 @@
         </section>
 
 
-        <!-- The M-Vita Advantage Section -->
         <div id="advantage-en" class="lang-content">
             <section class="mb-16">
                 <div class="text-center mb-12">
@@ -334,7 +317,6 @@
             </section>
         </div>
 
-        <!-- Introduction Section (Moved to new position) -->
         <div id="introduction-en" class="lang-content">
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-8">
@@ -361,7 +343,6 @@
             </section>
         </div>
 
-        <!-- Advantages of Mutual Funds Section -->
         <div id="advantages-en" class="lang-content">
             <section class="mb-16">
                 <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Advantages of Mutual Funds</h3>
@@ -463,7 +444,6 @@
         </div>
 
 
-        <!-- Onboarding Process Flow Section -->
         <div id="onboarding-en" class="lang-content">
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-12">
@@ -476,52 +456,51 @@
                         <div class="flex justify-between w-full relative z-10">
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">1</div>
-                                <h4 class="font-semibold mt-4">Link PAN & AADHAAR <span class="text-2xl">🔗</span></h4>
+                                <h4 class="font-semibold mt-8">Link PAN & AADHAAR <span class="text-2xl">🔗</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">Link your PAN to your Aadhaar card. Use the link below to check your status.</p>
                                 <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline">Check Status</a>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">2</div>
-                                <h4 class="font-semibold mt-4">Complete Your KYC <span class="text-2xl">📋</span></h4>
+                                <h4 class="font-semibold mt-8">Complete Your KYC <span class="text-2xl">📋</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">Submit your KYC documents online to verify your identity.</p>
                                 <a href="https://investor-web.hdfcfund.com/kyc-verification?_gl=1*1wzayhw*_gcl_au*MTUyMDU1MjI2MC4xNzA3NzE5MTEz" target="_blank" class="text-sm text-blue-500 hover:underline">Online Process</a>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">3</div>
-                                <h4 class="font-semibold mt-4">Open MFU Account <span class="text-2xl">🔑</span></h4>
+                                <h4 class="font-semibold mt-8">Open MFU Account <span class="text-2xl">🔑</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">Create an account with MFU to manage all your investments.</p>
                                 <a href="onboarding.html" class="text-sm text-blue-500 hover:underline">Open Now</a>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">4</div>
-                                <h4 class="font-semibold mt-4">Set Up a Mandate <span class="text-2xl">💳</span></h4>
+                                <h4 class="font-semibold mt-8">Set Up a Mandate <span class="text-2xl">💳</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">Enable auto-debit via Debit Card, Net Banking, or UPI for seamless investments.</p>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">5</div>
-                                <h4 class="font-semibold mt-4">Select Your Scheme <span class="text-2xl">🎯</span></h4>
+                                <h4 class="font-semibold mt-8">Select Your Scheme <span class="text-2xl">🎯</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">Choose a fund that matches your goals and risk tolerance.</p>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-gold text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">6</div>
-                                <h4 class="font-semibold mt-4">Execute Transaction <span class="text-2xl">🚀</span></h4>
+                                <h4 class="font-semibold mt-8">Execute Transaction <span class="text-2xl">🚀</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">Make your first investment and start your journey.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Mobile/Tablet View (Vertical Timeline) -->
                     <div class="md:hidden flex flex-col items-center w-full relative">
                         <div class="absolute inset-0 left-8 border-l-2 border-dashed border-gray-300"></div>
                         <div class="w-full relative py-8 pl-16">
                             <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center absolute left-0 top-6 text-2xl font-bold">1</div>
                             <div class="p-4 bg-white rounded-lg shadow-md border-l-4 border-m-vita-blue">
-                                <h4 class="font-semibold text-xl">Link PAN & AADHAAR <span class="text-2xl">🔗</span></h4>
+                                <h4 class="font-semibold text-5xl">Link PAN & AADHAAR <span class="text-2xl">🔗</span></h4>
                                 <p class="text-gray-600 mt-2">Link your Permanent Account Number (PAN) to your Aadhaar card. This is a mandatory step for all financial transactions in India.</p>
                                 <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline mt-2 inline-block">Check Status</a>
                             </div>
@@ -580,45 +559,44 @@
                         <div class="flex justify-between w-full relative z-10">
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">1</div>
-                                <h4 class="font-semibold mt-4">पॅन आणि आधार लिंक करा <span class="text-2xl">🔗</span></h4>
+                                <h4 class="font-semibold mt-8">पॅन आणि आधार लिंक करा <span class="text-2xl">🔗</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">तुमचा पर्मनंट अकाउंट नंबर (पॅन) तुमच्या आधार कार्डशी जोडा. भारतातील सर्व आर्थिक व्यवहारांसाठी हे अनिवार्य आहे.</p>
                                 <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/link-aadhaar-status" target="_blank" class="text-sm text-blue-500 hover:underline">स्टेटस तपासा</a>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">2</div>
-                                <h4 class="font-semibold mt-4">KYC पूर्ण करा <span class="text-2xl">📋</span></h4>
+                                <h4 class="font-semibold mt-8">KYC पूर्ण करा <span class="text-2xl">📋</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">तुमचे KYC (तुमच्या ग्राहकाला ओळखा) कागदपत्रे ऑनलाइन सबमिट करा.</p>
                                 <a href="https://investor-web.hdfcfund.com/kyc-verification?_gl=1*1wzayhw*_gcl_au*MTUyMDU1MjI2MC4xNzA3NzE5MTEz" target="_blank" class="text-sm text-blue-500 hover:underline">ऑनलाइन प्रक्रिया</a>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">3</div>
-                                <h4 class="font-semibold mt-4">एमएफयू खाते उघडा <span class="text-2xl">🔑</span></h4>
+                                <h4 class="font-semibold mt-8">एमएफयू खाते उघडा <span class="text-2xl">🔑</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">एमएफयू (Mutual Fund Utility) वर एक विनामूल्य ऑनलाइन खाते तयार करा.</p>
                                 <a href="#get-started-mr" class="text-sm text-blue-500 hover:underline">आता उघडा</a>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">4</div>
-                                <h4 class="font-semibold mt-4">मॅन्डेट सेट करा <span class="text-2xl">💳</span></h4>
+                                <h4 class="font-semibold mt-8">मॅन्डेट सेट करा <span class="text-2xl">💳</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">तुमच्या गुंतवणुकीसाठी डेबिट कार्ड, नेट बँकिंग किंवा UPI ॲप्सद्वारे ऑटो-डेबिट सेट करा.</p>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-blue text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">5</div>
-                                <h4 class="font-semibold mt-4">तुमची योजना निवडा <span class="text-2xl">🎯</span></h4>
+                                <h4 class="font-semibold mt-8">तुमची योजना निवडा <span class="text-2xl">🎯</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">तुमच्या आर्थिक उद्दिष्टांशी आणि जोखमीच्या सहनशीलतेशी जुळणारी योजना निवडा.</p>
                             </div>
                             <div class="w-1/6"></div>
                             <div class="text-center w-1/6">
                                 <div class="w-16 h-16 bg-m-vita-gold text-white rounded-full flex items-center justify-center mx-auto text-2xl font-bold mb-2">6</div>
-                                <h4 class="font-semibold mt-4">व्यवहार करा <span class="text-2xl">🚀</span></h4>
+                                <h4 class="font-semibold mt-8">व्यवहार करा <span class="text-2xl">🚀</span></h4>
                                 <p class="text-sm text-gray-600 mt-2">तुमची पहिली गुंतवणूक करा आणि संपत्ती निर्माण करण्याच्या तुमच्या प्रवासाची सुरुवात करा.</p>
                             </div>
                         </div>
                     </div>
-                    <!-- Mobile/Tablet View (Vertical Timeline) -->
                     <div class="md:hidden flex flex-col items-center w-full relative">
                         <div class="absolute inset-0 left-8 border-l-2 border-dashed border-gray-300"></div>
                         <div class="w-full relative py-8 pl-16">
@@ -671,17 +649,14 @@
             </section>
         </div>
 
-        <!-- Onboarding Form and Documents Section -->
         <div id="get-started-en" class="lang-content">
             <section class="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <!-- MODIFIED SECTION -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">Start Your Onboarding</h3>
                     <p class="text-gray-600 mb-6">Please be ready with documents like your PAN card, Aadhaar Card, and a cancelled cheque leaf. Ensure you have soft copies of these documents ready for upload.</p>
                     <p class="text-gray-600 mb-8">Click the button below to start the process.</p>
                     <a href="onboarding.html" class="block w-full text-center bg-m-vita-gold text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition-opacity duration-300">Proceed to Onboarding</a>
                 </div>
-                <!-- END MODIFIED SECTION -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">Essential Documents</h3>
                     <p class="text-gray-600 mb-6">To ensure a smooth process, please have the following documents ready based on your investor type.</p>
@@ -716,14 +691,12 @@
 
         <div id="get-started-mr" class="lang-content hidden">
             <section class="mb-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <!-- MODIFIED MARATHI SECTION -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">तुमची नोंदणी सुरू करा</h3>
                     <p class="text-gray-600 mb-6">कृपया तुमचे पॅन कार्ड, आधार कार्ड, आणि रद्द केलेला चेक लीफ यांसारखी कागदपत्रे तयार ठेवा. अपलोड करण्यासाठी तुमच्याकडे या कागदपत्रांच्या सॉफ्ट कॉपी असल्याची खात्री करा.</p>
                     <p class="text-gray-600 mb-8">प्रक्रिया सुरू करण्यासाठी खालील बटणावर क्लिक करा.</p>
                     <a href="onboarding.html" class="block w-full text-center bg-m-vita-gold text-white font-bold py-3 px-4 rounded-lg hover:opacity-90 transition-opacity duration-300">ऑनबोर्डिंगसाठी पुढे जा</a>
                 </div>
-                <!-- END MODIFIED MARATHI SECTION -->
                 <div class="bg-white p-8 rounded-2xl shadow-lg">
                     <h3 class="text-2xl font-bold text-gray-800 mb-6">आवश्यक कागदपत्रे</h3>
                     <p class="text-gray-600 mb-6">प्रक्रिया सुरळीत होण्यासाठी, तुमच्या गुंतवणूकदाराच्या प्रकारानुसार खालील कागदपत्रे तयार ठेवा.</p>
@@ -757,7 +730,6 @@
         </div>
 
 
-        <!-- KYC and Charges Section -->
         <div id="details-en" class="lang-content">
             <section class="mb-16">
                 <div class="text-center mb-12">
@@ -765,15 +737,12 @@
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Transparency is key to trust. Here we break down the mandatory KYC process and the common charges associated with mutual funds.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                    <!-- KYC Section -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">The KYC Process Explained</h3>
                         <p class="text-gray-600 mb-6">The "Know Your Customer" (KYC) process is a mandatory identity verification step required by SEBI. It's a one-time process to ensure a secure investment environment. Understanding your KYC status is crucial. Click on a status below to learn more.</p>
                         <div id="kyc-accordion" class="space-y-2">
-                            <!-- Accordion Items will be injected by JS -->
-                        </div>
+                            </div>
                     </div>
-                    <!-- Our Charges Section -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">Our Charges</h3>
                         <p class="text-gray-600 mb-6">We believe in complete transparency with our clients. For our mutual fund distribution services, we do not levy any direct charges, fees, or costs on you, the investor.</p>
@@ -782,7 +751,6 @@
                             <p class="text-gray-600 text-sm">Our revenue comes from the commissions paid to us by the Asset Management Companies (AMCs) whose funds you invest in. This is a standard industry practice and does not affect the Net Asset Value (NAV) of your investment.</p>
                         </div>
                     </div>
-                    <!-- Charges Section -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">Mutual Fund Charges</h3>
                         <p class="text-gray-600 mb-6">All funds have operational costs, which are regulated by SEBI. The two most important are the Expense Ratio and Exit Load.</p>
@@ -812,15 +780,12 @@
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">विश्वासासाठी पारदर्शकता महत्त्वाची आहे. येथे आम्ही अनिवार्य KYC प्रक्रिया आणि म्युच्युअल फंडांशी संबंधित सामान्य खर्चांचा तपशील देतो.</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                    <!-- KYC Section -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">KYC प्रक्रिया समजून घ्या</h3>
                         <p class="text-gray-600 mb-6">“तुमच्या ग्राहकाला ओळखा” (KYC) ही SEBI द्वारे आवश्यक असलेली एक अनिवार्य ओळख पडताळणी प्रक्रिया आहे. सुरक्षित गुंतवणुकीचे वातावरण सुनिश्चित करण्यासाठी ही एक-वेळची प्रक्रिया आहे. तुमचा KYC स्टेटस समजून घेणे महत्त्वाचे आहे. अधिक जाणून घेण्यासाठी खालील स्टेटसवर क्लिक करा.</p>
                         <div id="kyc-accordion-mr" class="space-y-2">
-                            <!-- Accordion Items will be injected by JS -->
-                        </div>
+                            </div>
                     </div>
-                    <!-- Our Charges Section -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">आमचे शुल्क</h3>
                         <p class="text-gray-600 mb-6">आम्ही आमच्या ग्राहकांसोबत पूर्ण पारदर्शकतेवर विश्वास ठेवतो. आमच्या म्युच्युअल फंड वितरण सेवांसाठी, आम्ही तुमच्याकडून, म्हणजेच गुंतवणूकदाराकडून, कोणतेही थेट शुल्क, फी किंवा खर्च आकारत नाही.</p>
@@ -829,7 +794,6 @@
                             <p class="text-gray-600 text-sm">आमचे उत्पन्न मालमत्ता व्यवस्थापन कंपन्यांकडून (AMCs) मिळणाऱ्या कमिशनमधून येते, ज्यांच्या फंडात तुम्ही गुंतवणूक करता. ही एक प्रमाणित उद्योग प्रथा आहे आणि याचा तुमच्या गुंतवणुकीच्या निव्वळ मालमत्ता मूल्यावर (NAV) कोणताही परिणाम होत नाही.</p>
                         </div>
                     </div>
-                    <!-- Charges Section -->
                     <div class="bg-white p-8 rounded-2xl shadow-lg">
                         <h3 class="text-2xl font-bold text-gray-800 mb-4">म्युच्युअल फंड शुल्क</h3>
                         <p class="text-gray-600 mb-6">सर्व फंडांमध्ये कामकाजाचे खर्च असतात, जे SEBI द्वारे नियंत्रित केले जातात. सर्वात महत्त्वाचे दोन खर्च म्हणजे एक्सपेंस रेश्यो आणि एक्झिट लोड.</p>
@@ -852,7 +816,6 @@
             </section>
         </div>
 
-        <!-- Tax Implications Section -->
         <div id="tax-implications-en" class="lang-content">
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-12">
@@ -928,7 +891,6 @@
         </div>
 
 
-        <!-- Portfolio & Strategy Section -->
         <div id="strategy-en" class="lang-content">
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-12">
@@ -954,7 +916,6 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- NEW SUB-SECTION -->
                     <div>
                         <h3 class="text-2xl font-semibold m-vita-blue mb-4">Ideal fund category combinations for different risk profiles</h3>
                         <div class="space-y-4">
@@ -973,8 +934,7 @@
                         </div>
                          <p class="text-xs text-gray-500 mt-4"><i>Disclaimer: This is for educational purposes only and not investment advice. Consult a financial advisor before investing.</i></p>
                     </div>
-                    <!-- END NEW SUB-SECTION -->
-                </div>
+                    </div>
             </section>
         </div>
 
@@ -1003,7 +963,6 @@
                             </li>
                         </ul>
                     </div>
-                    <!-- NEW MARATHI SUB-SECTION -->
                     <div>
                         <h3 class="text-2xl font-semibold m-vita-blue mb-4">वेगवेगळ्या जोखीम प्रोफाइलसाठी आदर्श फंड श्रेणी संयोजन</h3>
                         <div class="space-y-4">
@@ -1022,16 +981,10 @@
                         </div>
                         <p class="text-xs text-gray-500 mt-4"><i>अस्वीकरण: ही माहिती केवळ शैक्षणिक हेतूंसाठी आहे आणि गुंतवणुकीचा सल्ला नाही. गुंतवणूक करण्यापूर्वी आर्थिक सल्लागाराचा सल्ला घ्या.</i></p>
                     </div>
-                    <!-- END NEW MARATHI SUB-SECTION -->
-                </div>
+                    </div>
             </section>
         </div>
         
-        <!-- =================================================================== -->
-        <!-- ======================= NEW SECTION START ======================= -->
-        <!-- =================================================================== -->
-
-        <!-- Empaneled Companies Ribbon Section -->
         <div id="empanelled-en" class="lang-content">
             <section class="mb-16">
                 <div class="text-center mb-12">
@@ -1040,7 +993,6 @@
                 </div>
                 <div class="scrolling-ribbon">
                     <div class="ribbon-track">
-                        <!-- List of AMCs (duplicated for seamless scroll) -->
                         <script>
                             const amcs = [
                                 { name: 'SBI Mutual Fund', logo: 'logos/sbimf.png' },
@@ -1089,13 +1041,11 @@
                 </div>
                  <div class="scrolling-ribbon">
                     <div class="ribbon-track">
-                        <!-- Content is dynamically generated via the script above, so this will also be populated -->
-                    </div>
+                        </div>
                 </div>
             </section>
         </div>
 
-        <!-- Compliance and Links Section -->
         <div id="compliance-en" class="lang-content">
             <section class="mb-16 p-8 bg-white rounded-2xl shadow-lg">
                 <div class="text-center mb-12">
@@ -1103,7 +1053,6 @@
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">Access key regulatory websites, understand complaint mechanisms, and stay updated with the latest circulars.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
-                    <!-- Regulatory Bodies -->
                     <div>
                         <h3 class="text-xl font-semibold m-vita-blue mb-4">Regulatory Bodies</h3>
                         <ul class="space-y-3">
@@ -1111,7 +1060,6 @@
                             <li><a href="https://www.amfiindia.com/" target="_blank" class="hover:underline text-blue-600">AMFI (Association of Mutual Funds in India)</a> - Dedicated to developing the Indian Mutual Fund Industry on professional and ethical lines.</li>
                         </ul>
                     </div>
-                    <!-- Complaint Mechanisms -->
                     <div>
                         <h3 class="text-xl font-semibold m-vita-blue mb-4">Grievance Redressal</h3>
                         <ul class="space-y-3">
@@ -1136,7 +1084,6 @@
                     <p class="text-lg text-gray-600 max-w-3xl mx-auto">मुख्य नियामक वेबसाइट्सवर प्रवेश करा, तक्रार निवारण यंत्रणा समजून घ्या आणि नवीनतम परिपत्रकांसह अद्ययावत रहा.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
-                    <!-- Regulatory Bodies -->
                     <div>
                         <h3 class="text-xl font-semibold m-vita-blue mb-4">नियामक संस्था</h3>
                         <ul class="space-y-3">
@@ -1144,7 +1091,6 @@
                             <li><a href="https://www.amfiindia.com/" target="_blank" class="hover:underline text-blue-600">AMFI (असोसिएशन ऑफ म्युच्युअल फंड्स इन इंडिया)</a> - भारतीय म्युच्युअल फंड उद्योगाला व्यावसायिक आणि नैतिक मार्गांवर विकसित करण्यासाठी समर्पित.</li>
                         </ul>
                     </div>
-                    <!-- Complaint Mechanisms -->
                     <div>
                         <h3 class="text-xl font-semibold m-vita-blue mb-4">तक्रार निवारण</h3>
                         <ul class="space-y-3">
@@ -1162,20 +1108,13 @@
             </section>
         </div>
 
-        <!-- ================================================================= -->
-        <!-- ======================== NEW SECTION END ======================== -->
-        <!-- ================================================================= -->
-
-
-        <!-- FAQs Section -->
         <div id="faq-en" class="lang-content">
             <section class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-3xl font-bold text-gray-800">Frequently Asked Questions</h2>
                 </div>
                 <div id="faq-accordion" class="space-y-4">
-                    <!-- FAQ Items will be injected by JS -->
-                </div>
+                    </div>
             </section>
         </div>
 
@@ -1185,8 +1124,7 @@
                     <h2 class="text-3xl font-bold text-gray-800">वारंवार विचारले जाणारे प्रश्न</h2>
                 </div>
                 <div id="faq-accordion-mr" class="space-y-4">
-                    <!-- FAQ Items will be injected by JS -->
-                </div>
+                    </div>
             </section>
         </div>
 
@@ -1418,7 +1356,6 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <div class="mb-4 md:mb-0">
@@ -1426,25 +1363,20 @@
                 <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
             </div>
             <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
-                <!-- Social Media Icons -->
                 <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
                 <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <!-- WhatsApp Icon -->
                 <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
-                <!-- Email Icon -->
                 <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="text-sm">
-                <!-- Links now trigger modals -->
                 <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
                 <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <!-- Privacy Policy Modal -->
     <div id="privacy-policy-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-close" id="privacy-policy-close">&times;</span>
@@ -1480,7 +1412,6 @@
         </div>
     </div>
 
-    <!-- Terms of Service Modal -->
     <div id="terms-of-service-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-close" id="terms-of-service-close">&times;</span>
@@ -1510,7 +1441,6 @@
         </div>
     </div>
 
-    <!-- JavaScript for Mobile Menu and Modals -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
@@ -1577,8 +1507,7 @@
         });
     </script>
     
-    <!-- Floating Action Button -->
-        <div class="fixed bottom-6 right-6 z-50">
+    <div class="fixed bottom-6 right-6 z-50">
         <a href="onboarding.html" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
             Open your account
         </a>
