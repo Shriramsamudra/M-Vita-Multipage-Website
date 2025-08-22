@@ -3,84 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M-Vita Services | Your Partner in Financial Well-being</title>
-    <!-- Use Tailwind CSS for a modern, responsive design -->
+    <title>M-Vita Services | Interactive Retirement Planner</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use a modern, sans-serif font like Poppins from Google Fonts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chosen Palette: Updated to match the blue from the M-Vita logo. -->
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f7fafc; /* Very light gray background */
+            background-color: #f8f7f4; 
+            color: #3d3d3d;
         }
-        /* Define a custom color for the primary blue from the logo */
+        .tab-active {
+            border-color: #2b6cb0; /* Deep blue from logo */
+            color: #2b6cb0;
+            font-weight: 600;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+                max-height: 400px;
+            }
+        }
         .m-vita-blue-bg {
             background-color: #1E65AE;
         }
         .m-vita-blue-text {
             color: #1E65AE;
         }
-        /* Custom scrollbar for better aesthetics */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: #1E65AE;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-track {
-            background-color: #f1f1f1;
-        }
         .custom-shadow {
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
         }
-        .bg-hero {
-            background-image: url('https://images.unsplash.com/photo-1549420556-9a57158756ca?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
-        /* Modal styling */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-        .modal-content {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 0.75rem;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            position: relative;
-            animation: fadeIn 0.3s ease-out;
-        }
-        .modal-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #555;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
         /* Styles for dropdown menu */
-        /* Updated to use opacity and visibility for smoother and more reliable hover behavior */
         .dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
@@ -90,9 +64,51 @@
             visibility: hidden;
             transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.open {
+            opacity: 1;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transform: translateY(-20px);
+            transition: transform 0.3s ease;
+        }
+        .modal-overlay.open .modal-content {
+            transform: translateY(0);
+        }
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #3d3d3d;
+        }
     </style>
 </head>
-<body class="text-gray-800">
+<body class="antialiased">
 
     <!-- Header & Navigation -->
     <header class="bg-white custom-shadow fixed w-full z-50">
@@ -106,14 +122,12 @@
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
-                
                 <!-- Services Dropdown Menu -->
                 <div class="relative group dropdown">
                     <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
                         Services
                         <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
                     <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                         <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
                         <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
@@ -123,7 +137,6 @@
                         <a href="knowledge.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-md">Financial Literacy</a>
                     </div>
                 </div>
-
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
@@ -146,7 +159,6 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
-            
             <!-- Mobile Services Dropdown -->
             <div x-data="{ open: false }" class="relative">
                 <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
@@ -162,86 +174,237 @@
                     <a href="knowledge.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Financial Literacy</a>
                 </div>
             </div>
-
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="https://www.m-vitaservices.in/software/custlogin.asp" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
-<!-- START: Added NRI Button to Mobile Menu -->
+            <!-- START: Added NRI Button to Mobile Menu -->
             <a href="nri.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">NRI Section</a>
             <!-- END: Added NRI Button to Mobile Menu -->
         </div>
     </header>
 
-    <main class="pt-20">
-
-        <!-- Home Hero Section -->
-        
-<section id="home" class="bg-hero-updated text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
-            <div class="bg-black bg-opacity-30 p-8 md:p-12 rounded-lg max-w-4xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Your Partner in Financial Well-being</h1>
-                <p class="text-lg md:text-xl font-light mb-8">
-                    Empowering individuals and families to achieve their financial goals through various financial products and personalized solutions.
-                </p>
-                <a href="https://wa.me/919152049967" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full m-vita-blue-bg text-white font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 custom-shadow">
-                    Let's Connect!
-                </a>
-            </div>
-        </section>
-
-        <!-- Services Overview -->
-        <section id="services" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-4">Our Comprehensive Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-                    We offer a full spectrum of financial services to help you secure your future.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <a href="mf.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-chart-line"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Mutual Funds</h3>
-                        <p class="text-gray-600">Expert guidance on SIPs, lump-sum investments, and portfolio management.</p>
-                    </a>
-                    <!-- Service Card 2 -->
-                    <a href="Life.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-heartbeat"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Life Insurance</h3>
-                        <p class="text-gray-600">Protect your family's future with the right insurance policies.</p>
-                    </a>
-                    <!-- Service Card 3 -->
-                    <a href="genins.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-car-side"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">General Insurance</h3>
-                        <p class="text-gray-600">Secure your assets with health, motor, and corporate insurance.</p>
-                    </a>
-                    <!-- Service Card 4 -->
-                    <a href="fixed.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-handshake"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Bonds & Fixed Income</h3>
-                        <p class="text-gray-600">Explore stable investment opportunities for consistent returns.</p>
-                    </a>
-                    <!-- Service Card 5 -->
-                    <a href="sevices.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-piggy-bank"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Pension Planning</h3>
-                        <p class="text-gray-600">Plan for a worry-free retirement with our tailored solutions.</p>
-                    </a>
-                    <!-- Service Card 6 -->
-                    <a href="sevices.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-book"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Financial Literacy</h3>
-                        <p class="text-gray-600">Access our blog and calculators to enhance your financial knowledge.</p>
-                    </a>
+    <main class="pt-24">
+        <section id="hero" class="bg-stone-100 py-20 px-6 text-center">
+            <div class="container mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-blue-900 mb-4">Your Guide to a Secure Retirement</h1>
+                <p class="text-lg text-gray-700 max-w-3xl mx-auto mb-8">Whether you're building your future or enjoying it, we provide the clarity you need. Select your current stage to begin your personalized journey.</p>
+                <div class="flex justify-center space-x-4">
+                    <button onclick="selectStage('pre-retiree')" class="bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">I'm Planning for Retirement</button>
+                    <button onclick="selectStage('retiree')" class="bg-white text-blue-600 font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-stone-50 border border-blue-600 transition-colors duration-300">I'm Already Retired</button>
                 </div>
             </div>
         </section>
 
+        <div id="planner-content" class="container mx-auto px-6 py-12 hidden">
+            
+            <div id="pre-retiree-content" class="hidden">
+                <div class="border-b border-gray-200 mb-8">
+                    <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
+                        <button onclick="showTab('pre-retiree', 'corpus')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg tab-active">How Much Do I Need?</button>
+                        <button onclick="showTab('pre-retiree', 'invest')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300">Where to Invest?</button>
+                        <button onclick="showTab('pre-retiree', 'strategy')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300">Smart Strategies</button>
+                    </nav>
+                </div>
+                <div id="pre-retiree-corpus" class="tab-content">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Retirement Corpus Calculator</h2>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">This tool helps you estimate the total savings you'll need for a comfortable retirement. By adjusting your current age, expenses, and expected inflation, you can see how these factors dramatically impact your final goal. This interactive calculation makes the abstract concept of future financial needs concrete and personal.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="currentAge" class="font-medium text-gray-700">Your Current Age: <span id="currentAgeValue" class="font-bold text-blue-700">30</span></label>
+                                    <input type="range" id="currentAge" min="20" max="59" value="30" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                </div>
+                                <div>
+                                    <label for="annualExpenses" class="font-medium text-gray-700">Current Annual Expenses (₹): <span id="annualExpensesValue" class="font-bold text-blue-700">6,00,000</span></label>
+                                    <input type="range" id="annualExpenses" min="100000" max="2000000" step="50000" value="600000" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                </div>
+                                <div>
+                                    <label for="inflationRate" class="font-medium text-gray-700">Expected Inflation (%): <span id="inflationRateValue" class="font-bold text-blue-700">6</span></label>
+                                    <input type="range" id="inflationRate" min="4" max="8" step="0.5" value="6" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center bg-stone-50 p-8 rounded-xl">
+                            <p class="text-gray-600">Projected Annual Expenses at Retirement (Age 60):</p>
+                            <p id="futureExpenses" class="text-4xl font-bold text-blue-900 my-2">₹34.46 Lakhs</p>
+                            <p class="text-gray-600">Estimated Retirement Corpus Needed:</p>
+                            <p id="corpusNeeded" class="text-5xl font-extrabold text-amber-600 my-2">₹10.34 Crores</p>
+                            <p class="text-sm text-gray-500 mt-2">(Based on the 30X rule)</p>
+                        </div>
+                    </div>
+                    <div class="mt-12">
+                        <div class="chart-container">
+                            <canvas id="corpusChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div id="pre-retiree-invest" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Core Retirement Investment Instruments</h2>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Building a robust retirement portfolio requires a mix of investments. This section allows you to explore and compare the primary options available in India, from government-backed schemes offering stability to market-linked products designed for growth. Click on each instrument to understand its unique features, risk level, and tax benefits to see how it fits into your long-term strategy.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="pre-retiree-instrument-selector"></div>
+                    <div id="pre-retiree-instrument-details" class="mt-8 bg-white p-8 rounded-xl shadow-lg min-h-[200px]"></div>
+                </div>
+                <div id="pre-retiree-strategy" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Strategic Planning for Growth</h2>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">A successful retirement plan is built on sound strategies. Here, we explore two fundamental concepts: asset allocation, which is how you mix your investments, and tax planning, which ensures you keep more of your returns. Interact with the tools below to understand how to balance risk and reward and leverage tax-saving opportunities effectively.</p>
+                    <div class="grid md:grid-cols-2 gap-12">
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-blue-700 mb-4">Asset Allocation: The 100-Minus-Age Rule</h3>
+                            <p class="text-gray-600 mb-6">This simple rule of thumb helps determine your equity exposure. As you age, your allocation to riskier assets like stocks should decrease. Use the slider to see how the recommended mix changes over your lifetime.</p>
+                            <div>
+                                <label for="assetAllocationAge" class="font-medium text-gray-700">Your Age: <span id="assetAllocationAgeValue" class="font-bold text-blue-700">35</span></label>
+                                <input type="range" id="assetAllocationAge" min="20" max="60" value="35" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+                            </div>
+                            <div class="chart-container h-64 max-h-64 mt-6">
+                                <canvas id="assetAllocationChart"></canvas>
+                            </div>
+                        </div>
+                        <div class="bg-white p-8 rounded-xl shadow-lg">
+                            <h3 class="text-2xl font-bold text-blue-700 mb-4">Tax Planning: EEE vs. EET</h3>
+                            <p class="text-gray-600 mb-6">Understanding tax treatment is crucial. EEE is the gold standard, offering tax exemption at investment, earning, and withdrawal stages. EET products are taxable upon withdrawal. A balanced portfolio often uses both.</p>
+                            <div class="space-y-4">
+                                <div class="p-4 border border-green-200 bg-green-50 rounded-lg">
+                                    <h4 class="font-bold text-green-800">EEE (Exempt-Exempt-Exempt)</h4>
+                                    <p class="text-green-700">Ideal for a completely tax-free corpus.</p>
+                                    <p class="font-medium mt-2">Examples: EPF, PPF</p>
+                                </div>
+                                <div class="p-4 border border-orange-200 bg-orange-50 rounded-lg">
+                                    <h4 class="font-bold text-orange-800">EET (Exempt-Exempt-Taxable)</h4>
+                                    <p class="text-orange-700">Good for additional tax deductions, but income is taxable later.</p>
+                                    <p class="font-medium mt-2">Example: NPS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="retiree-content" class="hidden">
+                <div class="border-b border-gray-200 mb-8">
+                    <nav class="-mb-px flex justify-center space-x-8" aria-label="Tabs">
+                        <button onclick="showTab('retiree', 'income')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg tab-active">Generating Income</button>
+                        <button onclick="showTab('retiree', 'options')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300">Income Options</button>
+                        <button onclick="showTab('retiree', 'manage')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300">Managing Your Money</button>
+                        <button onclick="showTab('retiree', 'allocation')" class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-lg text-gray-500 hover:text-gray-700 hover:border-gray-300">Ideal Allocation</button>
+                    </nav>
+                </div>
+                <div id="retiree-income" class="tab-content">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">The M-Vita Bucket Strategy</h2>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Once retired, the goal shifts from growing your money to making it last. The Bucket Strategy is a powerful way to structure your finances to provide a steady income while protecting your main corpus from market volatility. This interactive diagram explains how to divide your assets to cover immediate needs, short-term goals, and long-term growth. Click on each bucket to learn more.</p>
+                    <div class="flex flex-col md:flex-row justify-center items-start md:items-center gap-4 md:gap-0 relative">
+                        <div class="bucket-item w-full md:w-1/4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500 text-center card-hover-effect cursor-pointer" onclick="showBucketDetails(0)">
+                            <h3 class="text-xl font-bold text-blue-700">Bucket 1: Immediate Needs</h3>
+                            <p class="text-gray-600 mt-2">1-2 Years of Expenses</p>
+                        </div>
+                        <div class="text-2xl text-gray-400 mx-4 hidden md:block">&rarr;</div>
+                         <div class="bucket-item w-full md:w-1/4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-cyan-500 text-center card-hover-effect cursor-pointer" onclick="showBucketDetails(1)">
+                            <h3 class="text-xl font-bold text-cyan-700">Bucket 2: Short-Term</h3>
+                            <p class="text-gray-600 mt-2">3-5 Years of Expenses</p>
+                        </div>
+                        <div class="text-2xl text-gray-400 mx-4 hidden md:block">&rarr;</div>
+                        <div class="bucket-item w-full md:w-1/4 p-6 bg-white rounded-xl shadow-lg border-t-4 border-amber-500 text-center card-hover-effect cursor-pointer" onclick="showBucketDetails(2)">
+                            <h3 class="text-xl font-bold text-amber-700">Bucket 3: Long-Term Growth</h3>
+                            <p class="text-gray-600 mt-2">5+ Years Horizon</p>
+                        </div>
+                    </div>
+                    <div id="bucket-details" class="mt-8 bg-stone-50 p-8 rounded-xl min-h-[150px]"></div>
+                </div>
+                <div id="retiree-options" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Investment Options for Regular Income</h2>
+                     <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">For retirees, the priority is finding investments that provide a safe, reliable, and regular stream of income. This section compares the most popular options in India, from secure government schemes to tax-efficient mutual fund plans. Click each option to explore its risk profile, return type, and tax implications to build an income portfolio that suits your needs.</p>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6" id="retiree-instrument-selector"></div>
+                    <div id="retiree-instrument-details" class="mt-8 bg-white p-8 rounded-xl shadow-lg min-h-[200px]"></div>
+                </div>
+                <div id="retiree-manage" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Tax Management for Retirees</h2>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">Preserving your capital in retirement means managing your taxes effectively. Different sources of income are taxed differently. This section provides a clear overview of how pensions, gratuity, and interest income are treated, offering key strategies—like submitting Form 15H—to minimize your tax liability and make your corpus last longer.</p>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-white p-8 rounded-xl shadow-lg space-y-4">
+                            <h3 class="text-2xl font-bold text-blue-700 mb-4">Understanding Tax on Income</h3>
+                            <div>
+                                <h4 class="font-semibold text-gray-800">Pensions</h4>
+                                <p class="text-gray-600">Regular monthly pension is fully taxable. A lump-sum (commuted) pension may be partially or fully exempt.</p>
+                            </div>
+                             <div>
+                                <h4 class="font-semibold text-gray-800">Gratuity, EPF, PPF</h4>
+                                <p class="text-gray-600">Lump-sum withdrawals at retirement are generally tax-exempt under specific conditions.</p>
+                            </div>
+                             <div>
+                                <h4 class="font-semibold text-gray-800">Interest Income</h4>
+                                <p class="text-gray-600">Interest from FDs is fully taxable. TDS is deducted if interest exceeds ₹50,000 for senior citizens.</p>
+                            </div>
+                        </div>
+                        <div class="bg-blue-50 p-8 rounded-xl border border-blue-200">
+                             <h3 class="text-2xl font-bold text-blue-700 mb-4">Key Tax-Saving Actions</h3>
+                             <div class="space-y-4">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Submit Form 15H</h4>
+                                    <p class="text-gray-600">If your total income is below the taxable limit, submit this form to your bank to prevent TDS deduction on interest income.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Strategic Withdrawals</h4>
+                                    <p class="text-gray-600">Plan your withdrawals from different instruments to manage your annual income and stay in a lower tax bracket.</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Utilize SWP</h4>
+                                    <p class="text-gray-600">A Systematic Withdrawal Plan (SWP) from mutual funds is highly tax-efficient, as only the capital gains portion is taxed, and LTCG up to ₹1 lakh is tax-free.</p>
+                                </div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="retiree-allocation" class="tab-content hidden">
+                    <h2 class="text-3xl font-bold text-center text-blue-900 mb-4">Ideal Fund Allocation by Risk Profile</h2>
+                    <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">As a retiree, your investment strategy should align with your comfort level for risk and your income needs. A well-diversified portfolio helps protect your capital while providing consistent returns. Here are three common risk profiles and their ideal fund allocations. Select a profile to view the suggested asset mix.</p>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-blue-500 text-center card-hover-effect cursor-pointer" onclick="showAllocationDetails('Conservative')">
+                            <h3 class="text-xl font-bold text-blue-700">Conservative</h3>
+                            <p class="text-gray-600 mt-2">Prioritizes capital safety and fixed income.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-cyan-500 text-center card-hover-effect cursor-pointer" onclick="showAllocationDetails('Moderate')">
+                            <h3 class="text-xl font-bold text-cyan-700">Moderate</h3>
+                            <p class="text-gray-600 mt-2">Balances capital protection with inflation-beating growth.</p>
+                        </div>
+                        <div class="p-6 bg-white rounded-xl shadow-lg border-t-4 border-amber-500 text-center card-hover-effect cursor-pointer" onclick="showAllocationDetails('Aggressive')">
+                            <h3 class="text-xl font-bold text-amber-700">Aggressive</h3>
+                            <p class="text-gray-600 mt-2">Aims for high growth and is comfortable with market volatility.</p>
+                        </div>
+                    </div>
+                    <div id="allocation-details" class="mt-8 bg-stone-50 p-8 rounded-xl min-h-[200px]"></div>
+                </div>
+            </div>
+        </div>
+
+        <section id="holistic" class="bg-white py-20 px-6">
+            <div class="container mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-blue-900">A Holistic Approach to Retirement</h2>
+                    <p class="mt-4 text-lg text-gray-600 max-w-3xl mx-auto">A fulfilling retirement goes beyond finances. It's about ensuring your health, well-being, and legacy are secure. This section covers the essential non-financial pillars of a comprehensive retirement plan, providing a framework for a healthy, worry-free, and meaningful life after work.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="p-8 bg-stone-50 rounded-xl">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-4">Health and Wellness</h3>
+                        <p class="text-gray-600">Rising healthcare costs can be a significant threat to your retirement corpus. A layered strategy is essential. This includes maintaining a dedicated emergency fund for unexpected bills, securing comprehensive health insurance for major expenses, and leveraging government schemes for additional support. Equally important is investing in your physical and mental well-being to enjoy a vibrant and active retirement.</p>
+                    </div>
+                    <div class="p-8 bg-stone-50 rounded-xl">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-4">Estate and Legacy Planning</h3>
+                        <p class="text-gray-600">Effective estate planning is the final act of financial stewardship. It ensures your assets are distributed according to your wishes, smoothly and tax-efficiently. A comprehensive plan, including a Will, is crucial to avoid legal complications for your loved ones. This is not a one-time task but a living plan that should be reviewed periodically to reflect life's changes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container mx-auto px-6 py-4 mt-4 text-sm text-center border-t border-gray-700">
+            <p class="text-gray-500 mb-2">Disclaimer: The information provided on this website is for general informational purposes only and does not constitute financial or legal advice. Consult with a qualified financial advisor for personalized planning. M-Vita Services does not provide regulated financial advice.</p>
+            <div class="flex justify-center space-x-4 mt-2">
+                <a href="https://www.pfrda.org.in/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">PFRDA</a>
+                <a href="https://www.irdai.gov.in/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">IRDAI</a>
+                <a href="https://www.amfiindia.com/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">AMFI</a>
+                <a href="https://www.sebi.gov.in/" target="_blank" class="text-gray-400 hover:text-white transition-colors duration-300">SEBI</a>
+            </div>
+        </div>
+        
     </main>
-
-
-
-    </main>
-
     <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12">
         <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
@@ -333,10 +496,279 @@
             </p>
         </div>
     </div>
+    <div class="fixed bottom-6 right-6 z-50">
+        <a href="onboarding.html" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+            Open your account
+        </a>
+    </div>
 
-    <!-- JavaScript for Mobile Menu and Modals -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
     <script>
+        const preRetireeInstruments = [
+            { name: 'EPF', fullName: 'Employees’ Provident Fund', issuer: 'Govt. of India', risk: 'Low', tax: 'EEE', liquidity: 'Low (Till retirement)', use: 'Core savings for salaried employees.', maturity: 'At retirement', lockIn: 'Until retirement', minInvest: '₹500/month', maxInvest: 'No limit', interestRate: '8.25%' },
+            { name: 'PPF', fullName: 'Public Provident Fund', issuer: 'Govt. of India', risk: 'Very Low', tax: 'EEE', liquidity: 'Low (15 years)', use: 'Tax-free wealth creation for conservative savers.', maturity: '15 years', lockIn: '15 years', minInvest: '₹500/year', maxInvest: '₹1.5 Lakhs/year', interestRate: '7.1%' },
+            { name: 'NPS', fullName: 'National Pension System', issuer: 'Govt. of India', risk: 'Market-linked', tax: 'EET (Hybrid)', liquidity: 'Low (Till retirement)', use: 'Tax-efficient savings with market-linked growth.', maturity: 'At retirement', lockIn: 'Until retirement', minInvest: '₹500/year', maxInvest: 'No limit', interestRate: 'Varies with market' },
+            { name: 'Mutual Funds', fullName: 'Various Mutual Funds', issuer: 'AMCs (e.g. SBI, HDFC)', risk: 'High', tax: 'Taxed on Gains', liquidity: 'High', use: 'Long-term, inflation-beating growth.', maturity: 'Varies by fund', lockIn: 'Varies by fund', minInvest: '₹100/month', maxInvest: 'No limit', interestRate: 'Varies with market' }
+        ];
+
+        const retireeInstruments = [
+            { name: 'SCSS', fullName: 'Senior Citizens Savings Scheme', issuer: 'Govt. of India', risk: 'Very Low', return: 'Fixed, quarterly', tax: 'Fully taxable', use: 'Secure, high-interest income for seniors.', maturity: '5 years (Extendable)', lockIn: '5 years', minInvest: '₹1,000', maxInvest: '₹30 Lakhs', interestRate: '8.2%' },
+            { name: 'POMIS', fullName: 'Post Office Monthly Income Scheme', issuer: 'Govt. of India', risk: 'Very Low', return: 'Fixed, monthly', tax: 'Fully taxable', use: 'Steady and reliable monthly income.', maturity: '5 years', lockIn: '5 years', minInvest: '₹1,000', maxInvest: '₹9 Lakhs (Single)', interestRate: '7.4%' },
+            { name: 'Fixed Deposits', fullName: 'Bank Fixed Deposits', issuer: 'Various Banks', risk: 'Very Low', return: 'Fixed, periodic', tax: 'Fully taxable', use: 'Capital preservation and predictable returns.', maturity: 'Varies', lockIn: 'Varies', minInvest: '₹1,000', maxInvest: 'No limit', interestRate: 'Varies (7.5% - 8% for seniors)' },
+            { name: 'SWP from MF', fullName: 'Systematic Withdrawal Plan from Mutual Funds', issuer: 'AMCs', risk: 'Market-linked', return: 'Regular withdrawal', tax: 'Highly tax-efficient', use: 'Flexible, tax-efficient income stream.', maturity: 'Varies', lockIn: 'No lock-in', minInvest: 'Varies', maxInvest: 'Varies', interestRate: 'Varies with market' }
+        ];
+        
+        const bucketDetailsData = [
+            { title: "Bucket 1: Immediate Needs", content: "This bucket holds 1-2 years of living expenses in ultra-safe, liquid instruments like FDs or Liquid Funds. Its purpose is to provide a cash cushion so you never have to sell long-term investments during a market downturn to pay your bills." },
+            { title: "Bucket 2: Short-Term Stability", content: "This bucket covers expenses for the next 3-5 years. It's invested in low-risk options like short-term debt funds that offer modest growth to outpace inflation. It acts as a buffer and is used to refill Bucket 1." },
+            { title: "Bucket 3: Long-Term Growth", content: "The rest of your corpus is invested here for long-term growth in assets like equity mutual funds. This bucket's goal is capital appreciation to ensure your money lasts a lifetime. Gains from this bucket are used to strategically refill Bucket 2." }
+        ];
+        
+        const allocationData = {
+            'Conservative': {
+                description: 'This profile is for investors who prioritize capital protection and regular income over high growth. You have a very low tolerance for market risk.',
+                allocation: { 'Debt Funds / FDs': '70%', 'Equity Mutual Funds': '20%', 'Gold': '10%' }
+            },
+            'Moderate': {
+                description: 'A moderate profile seeks a balance between capital preservation and inflation-beating growth. You are willing to take some market risk for potentially higher returns.',
+                allocation: { 'Debt Funds / FDs': '50%', 'Equity Mutual Funds': '40%', 'Gold': '10%' }
+            },
+            'Aggressive': {
+                description: 'This profile is for investors who are comfortable with significant market risk for the potential of substantial long-term growth. You have a long horizon and do not need immediate income from your entire corpus.',
+                allocation: { 'Debt Funds / FDs': '30%', 'Equity Mutual Funds': '60%', 'Gold': '10%' }
+            }
+        };
+
+        let corpusChart, assetAllocationChart;
+
+        function selectStage(stage) {
+            document.getElementById('planner-content').classList.remove('hidden');
+            if (stage === 'pre-retiree') {
+                document.getElementById('pre-retiree-content').classList.remove('hidden');
+                document.getElementById('retiree-content').classList.add('hidden');
+                showTab('pre-retiree', 'corpus');
+                initializePreRetiree();
+            } else {
+                document.getElementById('retiree-content').classList.remove('hidden');
+                document.getElementById('pre-retiree-content').classList.add('hidden');
+                showTab('retiree', 'income');
+                initializeRetiree();
+            }
+            document.getElementById('planner-content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showTab(stage, tabName) {
+            const content = document.getElementById(`${stage}-content`);
+            content.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+            content.querySelectorAll('nav button').forEach(button => button.classList.remove('tab-active', 'text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300'));
+            content.querySelectorAll('nav button').forEach(button => {
+                if (button.getAttribute('onclick').includes(`'${tabName}'`)) {
+                    button.classList.add('tab-active');
+                } else {
+                    button.classList.add('text-gray-500', 'hover:text-gray-700', 'hover:border-gray-300');
+                }
+            });
+            document.getElementById(`${stage}-${tabName}`).classList.remove('hidden');
+        }
+
+        function formatCurrency(value, isCrore = false) {
+            if (isCrore) {
+                return `₹${(value / 10000000).toFixed(2)} Crores`;
+            }
+            return new Intl.NumberFormat('en-IN', { style: 'currency', currency: 'INR', maximumFractionDigits: 0 }).format(value);
+        }
+        
+        function formatLakhs(value) {
+            return `₹${(value / 100000).toFixed(2)} Lakhs`;
+        }
+
+        function calculateCorpus() {
+            const currentAge = parseInt(document.getElementById('currentAge').value);
+            const annualExpenses = parseInt(document.getElementById('annualExpenses').value);
+            const inflationRate = parseFloat(document.getElementById('inflationRate').value);
+            const retirementAge = 60;
+            const yearsToRetire = retirementAge - currentAge;
+
+            document.getElementById('currentAgeValue').textContent = currentAge;
+            document.getElementById('annualExpensesValue').textContent = annualExpenses.toLocaleString('en-IN');
+            document.getElementById('inflationRateValue').textContent = inflationRate;
+
+            const futureExpenses = annualExpenses * Math.pow(1 + (inflationRate / 100), yearsToRetire);
+            const corpusNeeded = futureExpenses * 30;
+
+            document.getElementById('futureExpenses').textContent = formatLakhs(futureExpenses);
+            document.getElementById('corpusNeeded').textContent = formatCurrency(corpusNeeded, true);
+
+            updateCorpusChart(corpusNeeded);
+        }
+
+        function updateCorpusChart(corpusValue) {
+            const ctx = document.getElementById('corpusChart').getContext('2d');
+            const data = {
+                labels: ['Estimated Corpus Needed'],
+                datasets: [{
+                    label: 'Corpus in Crores (₹)',
+                    data: [(corpusValue / 10000000).toFixed(2)],
+                    backgroundColor: ['#2b6cb0'], /* Deep blue from logo */
+                    borderColor: ['#2c5282'], /* A slightly darker blue */
+                    borderWidth: 1
+                }]
+            };
+
+            if (corpusChart) {
+                corpusChart.data = data;
+                corpusChart.update();
+            } else {
+                corpusChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        return `₹ ${context.raw} Crores`;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Amount in Crores (₹)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+        
+        function updateAssetAllocation() {
+            const age = parseInt(document.getElementById('assetAllocationAge').value);
+            document.getElementById('assetAllocationAgeValue').textContent = age;
+            const equityPercentage = 100 - age;
+            const debtPercentage = age;
+
+            const ctx = document.getElementById('assetAllocationChart').getContext('2d');
+            const data = {
+                labels: [`Equity (${equityPercentage}%)`, `Debt (${debtPercentage}%)`],
+                datasets: [{
+                    data: [equityPercentage, debtPercentage],
+                    backgroundColor: ['#2b6cb0', '#f59e0b'], /* Deep blue and amber */
+                    hoverOffset: 4
+                }]
+            };
+
+            if (assetAllocationChart) {
+                assetAllocationChart.data = data;
+                assetAllocationChart.update();
+            } else {
+                assetAllocationChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: data,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'top',
+                            },
+                        }
+                    }
+                });
+            }
+        }
+
+        function populateInstruments(selectorId, detailsId, instruments) {
+            const selector = document.getElementById(selectorId);
+            selector.innerHTML = '';
+            instruments.forEach((inst, index) => {
+                const button = document.createElement('button');
+                button.className = 'p-4 bg-white rounded-lg shadow text-center font-semibold text-blue-800 card-hover-effect';
+                button.textContent = inst.name;
+                button.onclick = () => showInstrumentDetails(detailsId, instruments, index);
+                selector.appendChild(button);
+            });
+            showInstrumentDetails(detailsId, instruments, 0);
+        }
+        
+        function showInstrumentDetails(detailsId, instruments, index) {
+            const detailsContainer = document.getElementById(detailsId);
+            const inst = instruments[index];
+            let content = `<h3 class="text-2xl font-bold text-blue-700 mb-4">${inst.fullName}</h3>`;
+            if (inst.use) content += `<p class="text-lg text-gray-700 mb-4">${inst.use}</p>`;
+            content += `<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 text-center">`;
+            
+            const fields = [
+                { key: 'risk', label: 'Risk' },
+                { key: 'tax', label: 'Tax Status' },
+                { key: 'liquidity', label: 'Liquidity' },
+                { key: 'return', label: 'Return Type' },
+                { key: 'issuer', label: 'Issuer' },
+                { key: 'maturity', label: 'Maturity' },
+                { key: 'lockIn', label: 'Lock-in Period' },
+                { key: 'minInvest', label: 'Min. Invest.' },
+                { key: 'maxInvest', label: 'Max. Invest.' },
+                { key: 'interestRate', label: 'Current Rate' }
+            ];
+
+            fields.forEach(field => {
+                if (inst[field.key]) {
+                    content += `<div class="bg-stone-100 p-3 rounded-lg"><p class="text-sm text-gray-500">${field.label}</p><p class="font-semibold">${inst[field.key]}</p></div>`;
+                }
+            });
+
+            content += `</div>`;
+            detailsContainer.innerHTML = content;
+        }
+        
+        function showBucketDetails(index) {
+            const detailsContainer = document.getElementById('bucket-details');
+            const bucket = bucketDetailsData[index];
+            detailsContainer.innerHTML = `<h3 class="text-2xl font-bold text-blue-700 mb-2">${bucket.title}</h3><p class="text-gray-700">${bucket.content}</p>`;
+        }
+        
+        function showAllocationDetails(profile) {
+            const detailsContainer = document.getElementById('allocation-details');
+            const data = allocationData[profile];
+            let content = `<h3 class="text-2xl font-bold text-blue-700 mb-4">${profile} Profile</h3>`;
+            content += `<p class="text-gray-700 mb-6">${data.description}</p>`;
+            content += `<div class="grid md:grid-cols-3 gap-4">`;
+            for (const asset in data.allocation) {
+                content += `<div class="p-4 bg-white rounded-lg shadow-sm"><p class="text-sm text-gray-500">${asset}</p><p class="text-2xl font-bold">${data.allocation[asset]}</p></div>`;
+            }
+            content += `</div>`;
+            detailsContainer.innerHTML = content;
+        }
+
+        function initializePreRetiree() {
+            const ageInput = document.getElementById('currentAge');
+            const expensesInput = document.getElementById('annualExpenses');
+            const inflationInput = document.getElementById('inflationRate');
+            
+            ageInput.addEventListener('input', calculateCorpus);
+            expensesInput.addEventListener('input', calculateCorpus);
+            inflationInput.addEventListener('input', calculateCorpus);
+            
+            document.getElementById('assetAllocationAge').addEventListener('input', updateAssetAllocation);
+
+            calculateCorpus();
+            updateAssetAllocation();
+            populateInstruments('pre-retiree-instrument-selector', 'pre-retiree-instrument-details', preRetireeInstruments);
+        }
+        
+        function initializeRetiree() {
+            populateInstruments('retiree-instrument-selector', 'retiree-instrument-details', retireeInstruments);
+            showBucketDetails(0);
+            showAllocationDetails('Conservative');
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
@@ -364,10 +796,12 @@
 
             function showModal(modal) {
                 modal.classList.remove('hidden');
+                setTimeout(() => modal.classList.add('open'), 10); // Trigger transition
             }
 
             function hideModal(modal) {
-                modal.classList.add('hidden');
+                modal.classList.remove('open');
+                setTimeout(() => modal.classList.add('hidden'), 300); // Hide after transition
             }
 
             privacyPolicyLink.addEventListener('click', (e) => {
