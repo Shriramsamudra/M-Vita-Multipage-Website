@@ -4,16 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M-Vita Risk Appetite Calculator</title>
-    <!-- Chosen Palette: M-Vita Primary Blue -->
-    <!-- Application Structure Plan: A multi-step wizard structure was chosen to guide the user through the process sequentially (Personal Details -> Questionnaire -> Results). This breaks down the complex task of filling a 20-question form into manageable, non-intimidating steps. A progress bar provides visual feedback on advancement. This task-oriented flow is superior to a single long page, enhancing usability and reducing user drop-off by minimizing cognitive load. The final step presents a clear summary with a visual chart and actionable buttons (Download, Recalculate), creating a focused and effective user journey. -->
-    <!-- Visualization & Content Choices: 
-        - Personal Details (Goal: Collect): Standard HTML form for user input. Interaction: Inline validation. Justification: Familiar and efficient.
-        - Questionnaire (Goal: Collect/Organize): Multi-step form with radio buttons and a progress bar. Interaction: Next/Back navigation. Justification: Manages complexity of 20 questions.
-        - Risk Score (Goal: Inform/Compare): A dynamic Donut Chart (Chart.js/Canvas) is used to visually represent the user's score against the total possible score. Interaction: The chart is dynamically generated based on the user's calculated score. Justification: Provides an immediate, easy-to-digest visual summary of the result, making the abstract score more tangible.
-        - Report (Goal: Inform): Instead of a PDF, a new window with a printable HTML report is generated client-side. This avoids the PDF rendering issues and provides a reliable way for the user to get a copy. Interaction: A "View & Print Report" button triggers the new window. Justification: Reliable and user-friendly. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -48,9 +41,9 @@
 <body class="bg-gray-50 text-gray-800">
 
     <div id="app" class="min-h-screen flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8">
-        
+
         <div class="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
-            
+
             <header class="p-6 bg-gray-100 border-b border-gray-200">
                 <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
                     <div class="flex items-center space-x-3">
@@ -65,7 +58,6 @@
             </header>
 
             <main class="p-6 sm:p-8">
-                <!-- Step 1: Personal Details -->
                 <div id="step-1">
                     <h2 class="text-2xl font-bold text-gray-800 mb-2">Discover Your Financial Risk Profile</h2>
                     <p class="text-gray-600 mb-6">Let's start with some basic information to personalize your report. This is the first step towards understanding your investment style.</p>
@@ -84,33 +76,29 @@
                     </form>
                 </div>
 
-                <!-- Step 2: Questionnaire -->
                 <div id="step-2" class="hidden">
                     <div class="mb-6">
                         <h2 class="text-2xl font-bold text-gray-800 mb-2">Investment Questionnaire</h2>
                         <p class="text-gray-600">Answer the following questions to help us understand your risk tolerance.</p>
                     </div>
-                    
+
                     <div class="w-full bg-gray-200 rounded-full h-2.5 mb-6">
                         <div id="progress-bar" class="bg-brand-blue h-2.5 rounded-full" style="width: 0%"></div>
                     </div>
-                    
+
                     <div id="question-container" class="space-y-6">
-                        <!-- Questions will be injected here by JS -->
-                    </div>
-                    
-                    <!-- Added an ID to this container for easier manipulation -->
+                        </div>
+
                     <div id="nav-buttons-container" class="mt-8 flex justify-end">
                         <button id="back-btn" class="px-6 py-2 bg-gray-200 text-gray-700 font-semibold rounded-lg hover:bg-gray-300 transition-colors">Back</button>
                         <button id="next-btn" class="px-6 py-2 bg-brand-blue text-white font-semibold rounded-lg hover:opacity-90 transition-opacity">Next</button>
                     </div>
                 </div>
 
-                <!-- Step 3: Results -->
                 <div id="step-3" class="hidden text-center">
                     <h2 class="text-3xl font-bold text-gray-800 mb-2">Your Risk Profile Results</h2>
                     <p class="text-gray-600 mb-6">Based on your answers, here is your personalized risk appetite assessment.</p>
-                    
+
                     <div class="chart-container mb-6">
                         <canvas id="resultChart"></canvas>
                     </div>
@@ -138,6 +126,26 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
+    // Check if the Supabase library has loaded
+    if (typeof supabase === 'undefined') {
+        console.error("Supabase library not loaded. Please check your internet connection and ensure the script from cdn.jsdelivr.net is not blocked.");
+        
+        const submitButton = document.getElementById('details-form').querySelector('button[type="submit"]');
+        if(submitButton) {
+            submitButton.disabled = true;
+            submitButton.textContent = 'Error: App Could Not Load';
+            submitButton.style.backgroundColor = '#999';
+        }
+        alert("A required library (Supabase) could not be loaded. Please check your internet connection and try again.");
+        return;
+    }
+
+    // --- SUPABASE SETUP ---
+    const SUPABASE_URL = 'https://uyntgocoxdrzdqumlwfe.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InV5bnRnb2NveGRyemRxdW1sd2ZlIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUxNzczMDMsImV4cCI6MjA3MDc1MzMwM30.xWK9IeeJcWqp-gaDR2yO_hqscAsVgbJQ5sxTo2AUvfU';
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    // --- END SUPABASE SETUP ---
+
     const appState = {
         currentStep: 1,
         currentQuestionIndex: 0,
@@ -212,7 +220,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const updateNavButtons = () => {
-        // This is the new logic to handle button alignment
         if (appState.currentQuestionIndex === 0) {
             backBtn.classList.add('hidden');
             navButtonsContainer.classList.remove('justify-between');
@@ -295,7 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
             day: 'numeric'
         });
 
-        // Generate the HTML content for the print window
         const printContent = `
             <!DOCTYPE html>
             <html lang="en">
@@ -385,24 +391,39 @@ document.addEventListener('DOMContentLoaded', () => {
             printWindow.document.write(printContent);
             printWindow.document.close();
         } else {
-            // Fallback for pop-up blockers
-            const msgBox = document.createElement('div');
-            msgBox.textContent = 'Please allow pop-ups for this site to view the report.';
-            msgBox.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            `;
-            document.body.appendChild(msgBox);
-            setTimeout(() => {
-                document.body.removeChild(msgBox);
-            }, 3000);
+            alert('Please allow pop-ups for this site to view the report.');
+        }
+    };
+
+    const uploadToSupabase = async () => {
+        try {
+            const { totalScore, level } = calculateRisk();
+
+            const questionnaireData = questions.map((q, index) => {
+                const selectedScore = parseInt(appState.answers[index]);
+                const selectedOption = q.o.find(o => o.s === selectedScore);
+                return {
+                    question: q.q,
+                    answer: selectedOption ? selectedOption.t : 'N/A',
+                    score: selectedScore
+                };
+            });
+
+            const { data, error } = await supabaseClient
+                .from('risk_appetite_reports')
+                .insert([{
+                    client_name: appState.userData.name,
+                    mobile_number: appState.userData.mobile,
+                    risk_score: totalScore,
+                    risk_profile: level,
+                    questionnaire: questionnaireData,
+                }]);
+
+            if (error) {
+                console.error('Error uploading to Supabase:', error);
+            }
+        } catch (error) {
+            console.error('An exception occurred during the Supabase upload:', error);
         }
     };
 
@@ -417,23 +438,7 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => {
         const selectedOption = questionContainer.querySelector(`input[name="q${appState.currentQuestionIndex}"]:checked`);
         if (!selectedOption) {
-            const msgBox = document.createElement('div');
-            msgBox.textContent = 'Please select an answer.';
-            msgBox.style.cssText = `
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: white;
-                padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            `;
-            document.body.appendChild(msgBox);
-            setTimeout(() => {
-                document.body.removeChild(msgBox);
-            }, 2000);
+            alert('Please select an answer.');
             return;
         }
         appState.answers[appState.currentQuestionIndex] = selectedOption.value;
@@ -461,7 +466,10 @@ document.addEventListener('DOMContentLoaded', () => {
         showStep(1);
     });
     
-    viewPrintBtn.addEventListener('click', openPrintWindow);
+    viewPrintBtn.addEventListener('click', async () => {
+        await uploadToSupabase();
+        openPrintWindow();
+    });
 
 });
 </script>
