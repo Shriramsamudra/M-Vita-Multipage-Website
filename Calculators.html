@@ -176,18 +176,19 @@
     <main class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div class="bg-white rounded-lg shadow p-2 sm:p-4 mb-8">
             <nav id="tabs" class="flex flex-wrap justify-center -mb-px">
-                <button data-tab="sip" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">SIP</button>
+                <button data-tab="sip" class="tab-btn tab-active text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">SIP</button>
                 <button data-tab="step-up-sip" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Step-up SIP</button>
                 <button data-tab="retirement" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Retirement</button>
                 <button data-tab="goal" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Goal Journey</button>
                 <button data-tab="hlv" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Human Life Value</button>
                 <button data-tab="emi" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">EMI</button>
                 <button data-tab="repayment" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Loan Repayment</button>
-                <button data-tab="lumpsum" class="tab-btn tab-active text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Lumpsum Loan Repayment</button>
+                <button data-tab="lumpsum" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Lumpsum Loan Repayment</button>
+                <button data-tab="capital-gain" class="tab-btn tab-inactive text-sm sm:text-base px-3 sm:px-4 py-3 border-b-2 border-transparent whitespace-nowrap">Capital Gain</button>
             </nav>
         </div>
 
-        <div id="sip-calculator" class="tab-content hidden">
+        <div id="sip-calculator" class="tab-content">
             <div class="calculator-card">
                 <h2 class="text-2xl font-bold text-gray-800 mb-1">SIP Calculator</h2>
                 <p class="text-gray-600 mb-6">Estimate the future value of your monthly investments through a Systematic Investment Plan.</p>
@@ -522,7 +523,7 @@
             </div>
         </div>
         
-        <div id="lumpsum-calculator" class="tab-content">
+        <div id="lumpsum-calculator" class="tab-content hidden">
             <div class="calculator-card">
                 <h2 class="text-2xl font-bold text-gray-800 mb-1">Home Loan Lumpsum Payment Calculator</h2>
                 <p class="text-gray-600 mb-6">See how a one-time lump sum payment can reduce your loan burden.</p>
@@ -589,6 +590,99 @@
                 </div>
             </div>
         </div>
+
+        <div id="capital-gain-calculator" class="tab-content hidden">
+            <div class="calculator-card">
+                <h2 class="text-2xl font-bold text-gray-800 mb-1">Capital Gain Calculator</h2>
+                <p class="text-gray-600 mb-6">Calculate your capital gains tax based on holding period and scheme type.</p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <div class="input-group">
+                            <label for="cg-category" class="input-label">Scheme Category</label>
+                            <select id="cg-category" class="input-field bg-white">
+                                <option value="equity">Equity Oriented Scheme</option>
+                                <option value="debt">Debt Oriented Scheme</option>
+                                <option value="other">Other (Gold/Hybrid < 65% Equity)</option>
+                            </select>
+                        </div>
+                        <div id="cg-exemption-container" class="input-group hidden">
+                            <label class="flex items-center space-x-2 cursor-pointer bg-blue-50 p-3 rounded-lg border border-blue-100 hover:bg-blue-100 transition-colors">
+                                <input type="checkbox" id="cg-use-exemption" class="form-checkbox text-blue-600 h-5 w-5 rounded focus:ring-blue-500" checked>
+                                <span class="text-gray-800 font-medium select-none">Utilize ₹1.25L LTCG Exemption?</span>
+                            </label>
+                            <p class="text-xs text-gray-500 mt-2 px-1">Uncheck this if you have already utilized the ₹1.25 Lakh exemption limit on other long-term equity gains this financial year.</p>
+                        </div>
+                        <div class="input-group">
+                            <label for="cg-purchase-date" class="input-label">Purchase Date</label>
+                            <input type="date" id="cg-purchase-date" class="input-field">
+                        </div>
+                        <div class="input-group">
+                            <label for="cg-sale-date" class="input-label">Sale Date</label>
+                            <input type="date" id="cg-sale-date" class="input-field">
+                        </div>
+                        <div class="input-group">
+                            <label for="cg-sale" class="input-label">Sale Value (₹)</label>
+                            <input type="number" id="cg-sale" class="input-field" value="100000">
+                        </div>
+                        <div class="input-group">
+                            <label for="cg-purchase" class="input-label">Purchase Value (₹)</label>
+                            <input type="number" id="cg-purchase" class="input-field" value="50000">
+                        </div>
+                        <button id="cg-calculate-btn" class="calculate-btn">Calculate</button>
+                    </div>
+                    <div class="flex flex-col justify-center items-center space-y-4">
+                        <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="output-card">
+                                <p class="output-label">Holding Period</p>
+                                <p id="cg-period" class="output-value text-lg">0y 0m 0d</p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Total Capital Gain</p>
+                                <p id="cg-total-gain" class="output-value">₹0</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Simple View for Equity -->
+                        <div id="cg-simple-view" class="w-full grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                            <div class="output-card">
+                                <p class="output-label">Tax Payable</p>
+                                <p id="cg-tax" class="output-value">₹0</p>
+                                <p id="cg-tax-info" class="text-xs text-gray-500 mt-1"></p>
+                            </div>
+                            <div class="output-card">
+                                <p class="output-label">Net Profit</p>
+                                <p id="cg-net-profit" class="output-value">₹0</p>
+                            </div>
+                        </div>
+
+                        <!-- Slab View for Debt -->
+                        <div id="cg-slab-view" class="w-full hidden">
+                            <div class="output-card mb-4 bg-yellow-50 border border-yellow-200">
+                                <p class="output-label text-yellow-800">Taxed as per Income Slab</p>
+                                <div class="overflow-x-auto mt-2">
+                                    <table class="w-full text-sm text-left text-gray-700">
+                                        <thead class="text-xs text-gray-700 uppercase bg-yellow-100">
+                                            <tr>
+                                                <th class="px-3 py-2">Slab</th>
+                                                <th class="px-3 py-2">Tax</th>
+                                                <th class="px-3 py-2">Net Profit</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="cg-slab-body">
+                                            <!-- Rows generated by JS -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container">
+                            <canvas id="cg-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 text-center">
@@ -621,7 +715,7 @@
             // Helper function to format currency
             function formatCurrency(value) {
                 // Ensure the value is a number and not negative
-                if (typeof value !== 'number' || isNaN(value) || value < 0) {
+                if (typeof value !== 'number' || isNaN(value)) {
                     value = 0;
                 }
                 return currencyFormatter.format(value);
@@ -656,6 +750,7 @@
                     if (tabId === 'emi') calculateEMI();
                     if (tabId === 'repayment') calculateRepayment();
                     if (tabId === 'lumpsum') calculateLumpsum();
+                    if (tabId === 'capital-gain') calculateCapitalGain();
                 });
             });
 
@@ -1148,11 +1243,174 @@
             }
             lumpsumCalculateBtn.addEventListener('click', calculateLumpsum);
 
+            // Capital Gain Calculator Logic - Updated
+            // No slider listener needed for tax rate anymore
+            const cgCalculateBtn = document.getElementById('cg-calculate-btn');
+            const cgCategorySelect = document.getElementById('cg-category');
+            const cgExemptionContainer = document.getElementById('cg-exemption-container');
+
+            // Handle Category change to show/hide exemption checkbox
+            cgCategorySelect.addEventListener('change', function() {
+                if (this.value === 'equity') {
+                    cgExemptionContainer.classList.remove('hidden');
+                } else {
+                    cgExemptionContainer.classList.add('hidden');
+                }
+            });
+
+            // Set default dates on load to help user
+            const today = new Date();
+            const oneYearAgo = new Date();
+            oneYearAgo.setFullYear(today.getFullYear() - 1);
+            
+            document.getElementById('cg-sale-date').valueAsDate = today;
+            document.getElementById('cg-purchase-date').valueAsDate = oneYearAgo;
+
+            function calculateCapitalGain() {
+                const sale = parseFloat(document.getElementById('cg-sale').value);
+                const purchase = parseFloat(document.getElementById('cg-purchase').value);
+                const category = document.getElementById('cg-category').value;
+                const purchaseDateVal = document.getElementById('cg-purchase-date').value;
+                const saleDateVal = document.getElementById('cg-sale-date').value;
+                const useExemption = document.getElementById('cg-use-exemption').checked;
+
+                const simpleView = document.getElementById('cg-simple-view');
+                const slabView = document.getElementById('cg-slab-view');
+                const slabBody = document.getElementById('cg-slab-body');
+
+                if (isNaN(sale) || isNaN(purchase) || !purchaseDateVal || !saleDateVal || sale < 0 || purchase < 0) {
+                    document.getElementById('cg-total-gain').textContent = formatCurrency(0);
+                    document.getElementById('cg-period').textContent = "-";
+                    return;
+                }
+
+                const purchaseDate = new Date(purchaseDateVal);
+                const saleDate = new Date(saleDateVal);
+
+                // Calculate holding period
+                const diffTime = saleDate - purchaseDate;
+                if (diffTime < 0) {
+                    alert("Sale date cannot be before purchase date.");
+                    return;
+                }
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+                const years = Math.floor(diffDays / 365);
+                const months = Math.floor((diffDays % 365) / 30);
+                const days = (diffDays % 365) % 30;
+                
+                document.getElementById('cg-period').textContent = `${years}y ${months}m ${days}d`;
+
+                const totalGain = Math.max(0, sale - purchase);
+                document.getElementById('cg-total-gain').textContent = formatCurrency(totalGain);
+
+                let tax = 0;
+                let isSlab = false;
+                let taxInfo = "";
+                let taxSlabs = []; // Array of objects { label: '10%', tax: 100, profit: 900 }
+
+                if (category === 'equity') {
+                    // Equity: STCG < 12 months (365 days), LTCG > 12 months
+                    if (diffDays <= 365) {
+                        // STCG 20%
+                        tax = totalGain * 0.20;
+                        taxInfo = "Short Term Capital Gain (STCG) @ 20%";
+                    } else {
+                        // LTCG 12.5% 
+                        // Exemption logic
+                        let taxableGain = 0;
+                        let exemptionNote = "";
+                        
+                        if (useExemption) {
+                             // Subtract exemption
+                             taxableGain = Math.max(0, totalGain - 125000);
+                             exemptionNote = "(with ₹1.25L exemption applied)";
+                        } else {
+                             // Full tax
+                             taxableGain = totalGain;
+                             exemptionNote = "(without exemption)";
+                        }
+                        
+                        tax = taxableGain * 0.125;
+                        taxInfo = `Long Term Capital Gain (LTCG) @ 12.5% ${exemptionNote}`;
+                    }
+                } else if (category === 'debt') {
+                    // Debt: Always Slab Rate (Assuming new rules/simplification for calculator)
+                    isSlab = true;
+                    // Generate data for 10%, 20%, 30% slabs
+                    taxSlabs = [
+                        { label: '10% Slab', tax: totalGain * 0.10, profit: totalGain - (totalGain * 0.10) },
+                        { label: '20% Slab', tax: totalGain * 0.20, profit: totalGain - (totalGain * 0.20) },
+                        { label: '30% Slab', tax: totalGain * 0.30, profit: totalGain - (totalGain * 0.30) }
+                    ];
+                } else {
+                    // Other (Gold/Hybrid): STCG < 24 months, LTCG > 24 months
+                    if (diffDays <= 730) {
+                        isSlab = true;
+                         taxSlabs = [
+                            { label: '10% Slab', tax: totalGain * 0.10, profit: totalGain - (totalGain * 0.10) },
+                            { label: '20% Slab', tax: totalGain * 0.20, profit: totalGain - (totalGain * 0.20) },
+                            { label: '30% Slab', tax: totalGain * 0.30, profit: totalGain - (totalGain * 0.30) }
+                        ];
+                    } else {
+                        // LTCG 12.5% (New rule Budget 2024 removed indexation for most, set to 12.5%)
+                        tax = totalGain * 0.125;
+                        taxInfo = "Long Term Capital Gain (LTCG) @ 12.5%";
+                    }
+                }
+
+                if (isSlab) {
+                    simpleView.classList.add('hidden');
+                    slabView.classList.remove('hidden');
+                    
+                    // Render Table
+                    slabBody.innerHTML = '';
+                    taxSlabs.forEach(slab => {
+                        const row = `<tr class="bg-white border-b">
+                            <td class="px-3 py-2 font-medium text-gray-900 whitespace-nowrap">${slab.label}</td>
+                            <td class="px-3 py-2">${formatCurrency(slab.tax)}</td>
+                            <td class="px-3 py-2 text-green-600 font-semibold">${formatCurrency(slab.profit)}</td>
+                        </tr>`;
+                        slabBody.insertAdjacentHTML('beforeend', row);
+                    });
+
+                    // For Chart in slab view, visualize the 30% scenario (worst case) or just Net Profit comparison?
+                    // Let's visualize Tax vs Profit for 30% slab to keep chart consistent
+                    const worstCase = taxSlabs[2];
+                    createOrUpdateChart('cg-chart', 'doughnut', {
+                        labels: ['Net Profit (30% Slab)', 'Tax (30% Slab)'],
+                        datasets: [{
+                            data: [worstCase.profit, worstCase.tax],
+                            backgroundColor: ['#3b82f6', '#005A9C'],
+                        }]
+                    }, defaultChartOptions);
+
+                } else {
+                    simpleView.classList.remove('hidden');
+                    slabView.classList.add('hidden');
+
+                    const netProfit = totalGain - tax;
+                    document.getElementById('cg-tax').textContent = formatCurrency(tax);
+                    document.getElementById('cg-tax-info').textContent = taxInfo;
+                    document.getElementById('cg-net-profit').textContent = formatCurrency(netProfit);
+
+                    createOrUpdateChart('cg-chart', 'doughnut', {
+                        labels: ['Net Profit', 'Tax Payable'],
+                        datasets: [{
+                            data: [netProfit, tax],
+                            backgroundColor: ['#3b82f6', '#005A9C'],
+                        }]
+                    }, defaultChartOptions);
+                }
+            }
+            cgCalculateBtn.addEventListener('click', calculateCapitalGain);
+            
+            // Initial call to set visibility correct on load
+            cgCategorySelect.dispatchEvent(new Event('change'));
 
             // Initialize all calculators on page load
-            const initialTab = tabs[tabs.length - 1]; // Select the last tab (Lumpsum)
+            const initialTab = document.querySelector('button[data-tab="sip"]'); // Select the SIP tab
             switchTab(initialTab);
-            calculateLumpsum();
+            calculateSIP();
         });
     </script>
 </body>
