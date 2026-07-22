@@ -80,7 +80,6 @@
             to { opacity: 1; transform: scale(1); }
         }
         /* Styles for dropdown menu */
-        /* Updated to use opacity and visibility for smoother and more reliable hover behavior */
         .dropdown:hover .dropdown-menu {
             opacity: 1;
             visibility: visible;
@@ -90,7 +89,7 @@
             visibility: hidden;
             transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
         }
-/* Scrolling ribbon styles */
+        /* Scrolling ribbon styles */
         .scrolling-ribbon {
             overflow: hidden;
             position: relative;
@@ -138,7 +137,6 @@
                 transform: translateX(-50%);
             }
         }
-
     </style>
 </head>
 <body class="text-gray-800">
@@ -162,7 +160,6 @@
                         Services
                         <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <!-- Removed mt-2 and added top-full and a small mt-1 for spacing -->
                     <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                         <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
                         <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
@@ -176,11 +173,9 @@
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
-                <!-- START: Added NRI Button to Header -->
                 <a href="nri.html" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow flex items-center">
                     <i class="fas fa-globe mr-2"></i>NRI Section
                 </a>
-                <!-- END: Added NRI Button to Header -->
             </div>
 
             <!-- Mobile Navigation -->
@@ -215,9 +210,7 @@
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="http://mf.m-vitaservices.in/" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
- <!-- START: Added NRI Button to Mobile Menu -->
             <a href="nri.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">NRI Section</a>
-            <!-- END: Added NRI Button to Mobile Menu -->
         </div>
     </header>
 
@@ -285,8 +278,23 @@
                             </p>
                         </div>
                     </div>
-                    <div class="flex justify-center md:justify-end">
+
+                    <!-- Photo & Qualifications Section -->
+                    <div class="flex flex-col items-center md:items-end space-y-4">
                         <img src="Canva Shriram PP Size.jpg" alt="Shriram Samudra" class="w-full md:w-3/4 lg:w-full max-w-sm rounded-lg custom-shadow">
+                        
+                        <!-- Qualifications Box -->
+                        <div class="bg-white p-5 rounded-lg custom-shadow border-l-4 border-[#1E65AE] max-w-sm w-full text-left">
+                            <h4 class="font-bold text-lg m-vita-blue-text mb-3 border-b pb-1 flex items-center">
+                                <i class="fas fa-graduation-cap mr-2"></i> Qualifications
+                            </h4>
+                            <ul class="text-sm text-gray-700 space-y-2">
+                                <li><strong class="font-semibold text-gray-900">B.Com</strong> — Mumbai University</li>
+                                <li><strong class="font-semibold text-gray-900">LLB</strong> — Mumbai University</li>
+                                <li><strong class="font-semibold text-gray-900">Diploma in Business Management</strong> — Welingkar Institute</li>
+                                <li><strong class="font-semibold text-gray-900">Diploma in Customer Relationship Management</strong> — Lawkim</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -325,7 +333,9 @@
                     </div>
                 </div>
             </div>
-</section>
+        </section>
+
+        <!-- Empaneled Ribbon -->
         <div id="empanelled-en" class="lang-content">
             <section class="mb-16">
                 <div class="text-center mb-12">
@@ -356,10 +366,8 @@
                                 { name: 'Motilal Oswal Mutual Fund', logo: 'logos/motilalmf.png' },
                                 { name: 'PPFAS Mutual Fund', logo: 'logos/ppfasmf.png' },
                                 { name: 'Sundaram Mutual Fund', logo: 'logos/sundarammf.png' }
-
                             ];
                             const track = document.querySelector('.ribbon-track');
-                            // Duplicate the array to create a seamless loop
                             [...amcs, ...amcs].forEach(amc => {
                                 track.innerHTML += `
                                     <div class="ribbon-item">
@@ -373,10 +381,7 @@
                 </div>
             </section>
         </div>
-   
-     </section>
     </main>
-
 
     <!-- Footer -->
     <footer class="bg-white text-gray-600 py-12">
@@ -384,21 +389,17 @@
             <div class="mb-4 md:mb-0">
                 <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
                 <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
-<p class="mt-2 text-sm"> AMFI registered Mutual Fund Distributor (MFD) ARN-18927</p>
+                <p class="mt-2 text-sm"> AMFI registered Mutual Fund Distributor (MFD) ARN-18927</p>
             </div>
             <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
-                <!-- Social Media Icons -->
                 <a href="https://www.linkedin.com/in/shriram-samudra-299066276" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-linkedin"></i></a>
                 <a href="https://twitter.com/samudra_shriram" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-twitter"></i></a>
                 <a href="https://www.facebook.com/profile.php?id=100078655825358" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/mvitaservices/" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-instagram"></i></a>
-                <!-- WhatsApp Icon -->
                 <a href="https://wa.me/919152049967" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fab fa-whatsapp"></i></a>
-                <!-- Email Icon -->
                 <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="text-sm">
-                <!-- Links now trigger modals -->
                 <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
                 <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
             </div>
@@ -410,34 +411,16 @@
         <div class="modal-content">
             <span class="modal-close" id="privacy-policy-close">&times;</span>
             <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
-            <p class="mb-4 text-sm">
-                <strong>Last Updated: August 11, 2024</strong>
-            </p>
-            <p class="mb-4 text-sm">
-                Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.
-            </p>
+            <p class="mb-4 text-sm"><strong>Last Updated: August 11, 2024</strong></p>
+            <p class="mb-4 text-sm">Welcome to M-Vita Services. We are committed to protecting your privacy and personal information. This policy outlines how we collect, use, and safeguard the information you provide when using our website and services.</p>
             <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
-            <p class="mb-4 text-sm">
-                We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services. We also collect non-personal data, such as browser type, IP address, and usage data, to enhance your website experience.
-            </p>
+            <p class="mb-4 text-sm">We collect information to provide and improve our services. This may include personal details such as your name, email address, phone number, and financial information necessary to provide our financial services.</p>
             <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
-            <p class="mb-4 text-sm">
-                Your information is used to:
-                <ul class="list-disc list-inside space-y-1 mt-2">
-                    <li>Provide you with financial services and personalized advice.</li>
-                    <li>Communicate with you regarding your account and our services.</li>
-                    <li>Improve our website and services.</li>
-                    <li>Comply with legal and regulatory requirements.</li>
-                </ul>
-            </p>
+            <p class="mb-4 text-sm">Your information is used to provide financial advice, communicate updates, and comply with regulatory standards.</p>
             <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
-            <p class="mb-4 text-sm">
-                We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet or method of electronic storage is 100% secure.
-            </p>
+            <p class="mb-4 text-sm">We implement security measures to protect your personal information against unauthorized access.</p>
             <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
-            <p class="mb-4 text-sm">
-                We do not sell, trade, or otherwise transfer your personal information to outside parties without your consent, except as required to provide our services or comply with the law. This may include sharing information with our partners and service providers who assist us in operating our business.
-            </p>
+            <p class="mb-4 text-sm">We do not sell or trade your personal information to outside parties without explicit consent.</p>
         </div>
     </div>
 
@@ -446,28 +429,16 @@
         <div class="modal-content">
             <span class="modal-close" id="terms-of-service-close">&times;</span>
             <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
-            <p class="mb-4 text-sm">
-                <strong>Last Updated: August 11, 2024</strong>
-            </p>
-            <p class="mb-4 text-sm">
-                By accessing and using the M-Vita Services website and our services, you agree to comply with and be bound by the following terms and conditions.
-            </p>
+            <p class="mb-4 text-sm"><strong>Last Updated: August 11, 2024</strong></p>
+            <p class="mb-4 text-sm">By using the M-Vita Services website, you agree to comply with our general service terms and policy guidelines.</p>
             <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
-            <p class="mb-4 text-sm">
-                The content on this website is for general informational purposes only. It is not professional financial advice and should not be relied upon as such. We are not responsible for any financial decisions you make based on the information provided on this website.
-            </p>
+            <p class="mb-4 text-sm">Content is for general informational purposes and should not be considered formal advice without individual consultation.</p>
             <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
-            <p class="mb-4 text-sm">
-                You agree to provide accurate and complete information when using our services. We reserve the right to terminate your access to our services if we discover that the information you provided is false or misleading.
-            </p>
+            <p class="mb-4 text-sm">You agree to provide accurate details when engaging with our platform and client onboarding features.</p>
             <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
-            <p class="mb-4 text-sm">
-                All content, trademarks, logos, and other intellectual property on this website are the property of M-Vita Services or its licensors. You may not use, reproduce, or distribute any content from this site without our express written permission.
-            </p>
+            <p class="mb-4 text-sm">All trademarks, logos, and materials belong to M-Vita Services unless stated otherwise.</p>
             <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
-            <p class="mb-4 text-sm">
-                M-Vita Services will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our services or website.
-            </p>
+            <p class="mb-4 text-sm">M-Vita Services is not liable for indirect damages resulting from inappropriate platform usage.</p>
         </div>
     </div>
 
@@ -483,19 +454,16 @@
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            // Toggle mobile menu visibility
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
             });
 
-            // Close mobile menu on link click
             mobileMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
                 });
             });
 
-            // Tab functionality for English/Marathi content
             const englishTab = document.getElementById('english-tab');
             const marathiTab = document.getElementById('marathi-tab');
             const englishContent = document.getElementById('english-content');
@@ -515,7 +483,6 @@
                 englishContent.classList.add('hidden');
             });
 
-            // Modal functionality
             const privacyPolicyLink = document.getElementById('privacy-policy-link');
             const privacyPolicyModal = document.getElementById('privacy-policy-modal');
             const privacyPolicyClose = document.getElementById('privacy-policy-close');
@@ -550,7 +517,6 @@
                 hideModal(termsOfServiceModal);
             });
 
-            // Close modals when clicking outside the content
             privacyPolicyModal.addEventListener('click', (e) => {
                 if (e.target === privacyPolicyModal) {
                     hideModal(privacyPolicyModal);
