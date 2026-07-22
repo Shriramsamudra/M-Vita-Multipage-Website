@@ -44,14 +44,6 @@
             background-position: center;
             background-repeat: no-repeat;
         }
-        /* --- START: Improved Hero Overlay Style --- */
-        .bg-hero-overlay {
-            background-image: linear-gradient(to right, rgba(20, 63, 107, 0.7), rgba(30, 101, 174, 0.5));
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px); /* For Safari support */
-        }
-        /* --- END: Improved Hero Overlay Style --- */
-        
         /* Modal styling */
         .modal-overlay {
             position: fixed;
@@ -59,7 +51,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 100, 0.7);
+            background-color: rgba(0, 0, 0, 0.7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -87,31 +79,6 @@
             from { opacity: 0; transform: scale(0.95); }
             to { opacity: 1; transform: scale(1); }
         }
-        /* Styles for dropdown menu */
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-        }
-        .dropdown-menu {
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out;
-        }
-
-        /* Styles for the scrolling ribbon */
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-        .scrolling-ribbon-content {
-            white-space: nowrap;
-            width: max-content;
-            animation: scroll-left 40s linear infinite;
-        }
-        .scrolling-ribbon-content:hover {
-            animation-play-state: paused;
-        }
-
     </style>
 </head>
 <body class="text-gray-800">
@@ -128,23 +95,7 @@
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
-                
-                <!-- Services Dropdown Menu -->
-                <div class="relative group dropdown">
-                    <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
-                        Services
-                        <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
-                    </button>
-                    <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
-                        <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
-                        <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
-                        <a href="genins.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
-                        <a href="fixed.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
-                        <a href="pension.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
-                        <a href="knowledge.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-b-md">Financial Literacy</a>
-                    </div>
-                </div>
-
+                <a href="sevices.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Services</a>
                 <a href="knowledge.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Knowledge Center</a>
                 <a href="Contactus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Contact Us</a>
                 <a href="http://mf.m-vitaservices.in/" target="_blank" class="px-5 py-2 rounded-full m-vita-blue-bg text-white font-medium hover:bg-blue-700 transition-all duration-300 ease-in-out custom-shadow">Client Portal</a>
@@ -167,128 +118,24 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white custom-shadow py-2 text-center">
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
-            
-            <!-- Mobile Services Dropdown -->
-            <div x-data="{ open: false }" class="relative">
-                <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
-                    Services
-                    <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
-                </button>
-                <div x-show="open" x-collapse x-cloak class="bg-gray-50 border-t border-gray-200 py-2">
-                    <a href="mf.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Mutual Funds</a>
-                    <a href="Life.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
-                    <a href="genins.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
-                    <a href="fixed.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
-                    <a href="pension.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Pension Planning</a>
-                    <a href="knowledge.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Financial Literacy</a>
-                </div>
-            </div>
-
+            <a href="sevices.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Services</a>
             <a href="knowledge.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Knowledge Center</a>
             <a href="Contactus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contact Us</a>
             <a href="http://mf.m-vitaservices.in/" target="_blank" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Client Portal</a>
-            <!-- START: Added NRI Button to Mobile Menu -->
+<!-- START: Added NRI Button to Mobile Menu -->
             <a href="nri.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">NRI Section</a>
             <!-- END: Added NRI Button to Mobile Menu -->
         </div>
     </header>
 
-    <!-- Scrolling Ribbon -->
-    <div style="padding-top: 96px;"> <!-- Spacer to push content below fixed header -->
-        <!-- START: Updated Scrolling Ribbon -->
-        <div class="scrolling-ribbon-container bg-white h-[1cm] flex items-center overflow-hidden w-full z-40 border-b border-gray-200">
-            <div class="scrolling-ribbon-content flex items-center space-x-10 px-4">
-                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
-                <span class="text-gray-400">|</span>
-                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-                <span class="text-gray-400">|</span>
-                <a href="Calculators.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check out our Financial Calulators section</a>
-                <span class="text-gray-400">|</span>
-                <a href="riskcalc.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know and download your "Risk Appetite" report</a>
-                <span class="text-gray-400">|</span>
-                <a href="Roadmap.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know your Financial Roadmap</a>
-                <span class="text-gray-400">|</span>
-                <a href="tax.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check our Tax Guide for easy understanding!</a>
-                <span class="text-gray-400">|</span>
-                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-                <span class="text-gray-400">|</span>
-                <a href="onboarding.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Open your account with us</a>
-                <span class="text-gray-400">|</span>
-                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-                <span class="text-gray-400">|</span>
-                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
-                <span class="text-gray-400">|</span>
-                <a href="riskcalc.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know and download your "Risk Appetite"</a>
-                <span class="text-gray-400">|</span>
-                <a href="tax.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check our Tax Guide for easy understanding!</a>
-            </div>
-        </div>
-        <!-- END: Updated Scrolling Ribbon -->
-    </div>
-    <main>
+    <main class="pt-20">
 
         <!-- Home Hero Section -->
-        <section id="home" class="bg-hero text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
-            <!-- START: Updated Hero Overlay Box -->
-            <div class="bg-hero-overlay p-8 md:p-12 rounded-lg max-w-4xl custom-shadow">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Your Partner in Financial Well-being</h1>
-                <p class="text-lg md:text-xl font-light mb-8">
-                    Empowering individuals and families to achieve their financial goals through various financial products and personalized solutions.
-                </p>
-                <a href="https://wa.me/919152049967" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full m-vita-blue-bg text-white font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 custom-shadow">
-                    Let's Connect!
-                </a>
-            </div>
-            <!-- END: Updated Hero Overlay Box -->
-        </section>
+        
 
-        <!-- Services Overview -->
-        <section id="services" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-4">Our Comprehensive Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-                    We offer a full spectrum of financial services to help you secure your future.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <a href="mf.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-chart-line"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Mutual Funds</h3>
-                        <p class="text-gray-600">Expert guidance on SIPs, lump-sum investments, and portfolio management.</p>
-                    </a>
-                    <!-- Service Card 2 -->
-                    <a href="Life.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-heartbeat"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Life Insurance</h3>
-                        <p class="text-gray-600">Protect your family's future with the right insurance policies.</p>
-                    </a>
-                    <!-- Service Card 3 -->
-                    <a href="genins.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-car-side"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">General Insurance</h3>
-                        <p class="text-gray-600">Secure your assets with health, motor, and corporate insurance.</p>
-                    </a>
-                    <!-- Service Card 4 -->
-                    <a href="fixed.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-handshake"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Bonds & Fixed Income</h3>
-                        <p class="text-gray-600">Explore stable investment opportunities for consistent returns.</p>
-                    </a>
-                    <!-- Service Card 5 -->
-                    <a href="pension.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-piggy-bank"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Pension Planning</h3>
-                        <p class="text-gray-600">Plan for a worry-free retirement with our tailored solutions.</p>
-                    </a>
-                    <!-- Service Card 6 -->
-                    <a href="sevices.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-book"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Financial Literacy</h3>
-                        <p class="text-gray-600">Access our blog and calculators to enhance your financial knowledge.</p>
-                    </a>
-                </div>
-            </div>
-        </section>
+<"Page Content here">
+
+
 
     </main>
 
@@ -298,7 +145,7 @@
             <div class="mb-4 md:mb-0">
                 <div class="text-4xl m-vita-blue-text font-bold mx-auto md:mx-0">M-Vita Services</div>
                 <p class="mt-2 text-sm">&copy; 2024 M-Vita Services. All Rights Reserved.</p>
-		<p class="mt-2 text-sm"> AMFI registered Mutual Fund Distributor (MFD) ARN-18927</p>
+<p class="mt-2 text-sm"> AMFI registered Mutual Fund Distributor (MFD) ARN-18927</p>
             </div>
             <div class="flex space-x-6 text-2xl mb-4 md:mb-0">
                 <!-- Social Media Icons -->
@@ -384,15 +231,8 @@
             </p>
         </div>
     </div>
-    <div class="fixed bottom-6 right-6 z-50">
-        <a href="onboarding.html" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
-            Open your account
-        </a>
-    </div>
-
 
     <!-- JavaScript for Mobile Menu and Modals -->
-    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const mobileMenuButton = document.getElementById('mobile-menu-button');
