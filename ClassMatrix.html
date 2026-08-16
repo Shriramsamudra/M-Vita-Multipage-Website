@@ -251,8 +251,8 @@
                     <input type="hidden" name="_subject" value="New Inquiry for ClassMatrix!">
                     <input type="hidden" name="_captcha" value="false">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://www.m-vitaservices.in/ClassMatrix.html">
-                    <input type="text" name="Client_Name" required placeholder="Your Name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-lg p-3 focus:outline-none focus:border-[#00A3E0]">
+
+                    <input type="hidden" name="_next" value="https://www.m-vitaservices.in/ClassMatrix.html?submitted=true">                    <input type="text" name="Client_Name" required placeholder="Your Name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-lg p-3 focus:outline-none focus:border-[#00A3E0]">
                     
                     <input type="text" name="School_Name" required placeholder="School Name" class="w-full bg-gray-700 text-white border border-gray-600 rounded-lg p-3 focus:outline-none focus:border-[#00A3E0]">
                     
@@ -272,6 +272,15 @@
             <p>© 2026 M-Vita Services. All rights reserved. | <a href="http://www.m-vitaservices.in/ClassMatrix.html" class="hover:text-white" target="_blank">www.m-vitaservices.in/ClassMatrix</a></p>
         </div>
     </section>
-
+<!-- Form Submission Confirmation Popup -->
+    <script>
+        // Check if the URL contains our success tag
+        if (window.location.search.includes('submitted=true')) {
+            // Show a professional confirmation alert
+            alert("✅ Thank you! Your inquiry has been sent successfully. Shriram will contact you shortly.");
+            // Clean the URL to remove the ?submitted=true tag so it doesn't trigger again on refresh
+            window.history.replaceState(null, '', window.location.pathname);
+        }
+    </script>
 </body>
 </html>
