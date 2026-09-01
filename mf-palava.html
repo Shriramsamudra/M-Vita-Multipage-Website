@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M-Vita Services | Your Partner in Financial Well-being</title>
+    <title>Mutual Fund Distribution in Palava City | M-Vita Services</title>
+    <meta name="description" content="Expert Mutual Fund and SIP distribution services in Palava City. Visit M-Vita Services in Casa Bella Gold for personalized wealth creation strategies.">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
+    <!-- Google Fonts (Poppins) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -43,7 +44,7 @@
             background-repeat: no-repeat;
         }
         .bg-hero-overlay {
-            background-image: linear-gradient(to right, rgba(20, 63, 107, 0.7), rgba(30, 101, 174, 0.5));
+            background-image: linear-gradient(to right, rgba(20, 63, 107, 0.8), rgba(30, 101, 174, 0.6));
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
         }
@@ -116,17 +117,18 @@
 
             <!-- Desktop Navigation Links -->
             <div class="hidden md:flex space-x-6 items-center">
-                <a href="index.html" class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300">Home</a>
+                <a href="index.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">Home</a>
                 <a href="Aboutus.html" class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300">About Us</a>
                 
                 <!-- Services Dropdown Menu -->
                 <div class="relative group dropdown">
-                    <button class="text-gray-600 hover:text-m-vita-blue-text transition-colors duration-300 focus:outline-none flex items-center">
+                    <button class="m-vita-blue-text font-semibold hover:text-blue-700 transition-colors duration-300 focus:outline-none flex items-center">
                         Services
                         <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300 group-hover:rotate-180"></i>
                     </button>
-                    <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-20">
+                    <div class="dropdown-menu absolute left-1/2 -translate-x-1/2 top-full mt-1 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-20">
                         <a href="mf.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 rounded-t-md">Mutual Funds</a>
+                        <a href="mf-palava.html" class="block px-4 py-2 font-medium m-vita-blue-text bg-blue-50 hover:bg-blue-100">Mutual Funds in Palava</a>
                         <a href="Life.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
                         <a href="genins.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
                         <a href="fixed.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
@@ -156,13 +158,14 @@
             <a href="index.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Home</a>
             <a href="Aboutus.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">About Us</a>
             
-            <div x-data="{ open: false }" class="relative">
+            <div x-data="{ open: true }" class="relative">
                 <button @click="open = !open" class="block px-4 py-2 w-full text-gray-600 hover:bg-gray-100 flex items-center justify-between">
                     Services
                     <i class="fas fa-chevron-down ml-2 text-xs transition-transform duration-300" :class="{ 'rotate-180': open }"></i>
                 </button>
-                <div x-show="open" x-collapse x-cloak class="bg-gray-50 border-t border-gray-200 py-2">
+                <div x-show="open" x-collapse class="bg-gray-50 border-t border-gray-200 py-2">
                     <a href="mf.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Mutual Funds</a>
+                    <a href="mf-palava.html" class="block px-8 py-2 m-vita-blue-text font-semibold hover:bg-gray-100">Mutual Funds in Palava</a>
                     <a href="Life.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Life Insurance</a>
                     <a href="genins.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">General Insurance</a>
                     <a href="fixed.html" class="block px-8 py-2 text-gray-800 hover:bg-gray-100">Bonds & Fixed Income</a>
@@ -186,23 +189,11 @@
                 <span class="text-gray-400">|</span>
                 <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
                 <span class="text-gray-400">|</span>
-                <a href="Calculators.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check out our Financial Calulators section</a>
+                <a href="Calculators.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check out our Financial Calculators section</a>
                 <span class="text-gray-400">|</span>
                 <a href="riskcalc.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know and download your "Risk Appetite" report</a>
                 <span class="text-gray-400">|</span>
                 <a href="Roadmap.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know your Financial Roadmap</a>
-                <span class="text-gray-400">|</span>
-                <a href="tax.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check our Tax Guide for easy understanding!</a>
-                <span class="text-gray-400">|</span>
-                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-                <span class="text-gray-400">|</span>
-                <a href="onboarding.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Open your account with us</a>
-                <span class="text-gray-400">|</span>
-                <a href="nipponmaf.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Focus Fund - Nippon India Multi Asset Fund</a>
-                <span class="text-gray-400">|</span>
-                <a href="chhotisip.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Introducing Chhoti SIP Rs.250 per month</a>
-                <span class="text-gray-400">|</span>
-                <a href="riskcalc.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Know and download your "Risk Appetite"</a>
                 <span class="text-gray-400">|</span>
                 <a href="tax.html" target="_blank" class="text-gray-800 hover:underline whitespace-nowrap">Check our Tax Guide for easy understanding!</a>
             </div>
@@ -210,58 +201,108 @@
     </div>
 
     <main>
-        <!-- Home Hero Section -->
-        <section id="home" class="bg-hero text-white min-h-[80vh] flex items-center justify-center text-center px-4 py-16">
+        <!-- Hero Section -->
+        <section class="bg-hero text-white min-h-[60vh] flex items-center justify-center text-center px-4 py-16">
             <div class="bg-hero-overlay p-8 md:p-12 rounded-lg max-w-4xl custom-shadow">
-                <h1 class="text-4xl md:text-6xl font-bold mb-4 leading-tight">Your Partner in Financial Well-being</h1>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Mutual Fund Distribution & Advisory in Palava City</h1>
                 <p class="text-lg md:text-xl font-light mb-8">
-                    Empowering individuals and families to achieve their financial goals through various financial products and personalized solutions.
+                    Build wealth with confidence through customized Mutual Fund and SIP solutions tailored for Palava residents.
                 </p>
-                <a href="https://wa.me/919152049967" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full m-vita-blue-bg text-white font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 custom-shadow">
-                    Let's Connect!
+                <a href="https://wa.me/919152049967" target="_blank" rel="noopener noreferrer" class="px-8 py-4 rounded-full m-vita-blue-bg text-white font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 custom-shadow inline-block">
+                    <i class="fab fa-whatsapp mr-2"></i>Schedule a Review
                 </a>
             </div>
         </section>
 
-        <!-- Services Overview -->
-        <section id="services" class="py-16 md:py-24">
-            <div class="container mx-auto px-4 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-4">Our Comprehensive Services</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-12">
-                    We offer a full spectrum of financial services to help you secure your future.
-                </p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="mf.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-chart-line"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Mutual Funds</h3>
-                        <p class="text-gray-600">Expert guidance on SIPs, lump-sum investments, and portfolio management.</p>
-                    </a>
-                    <a href="Life.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-heartbeat"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Life Insurance</h3>
-                        <p class="text-gray-600">Protect your family's future with the right insurance policies.</p>
-                    </a>
-                    <a href="genins.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-car-side"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">General Insurance</h3>
-                        <p class="text-gray-600">Secure your assets with health, motor, and corporate insurance.</p>
-                    </a>
-                    <a href="fixed.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-handshake"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Bonds & Fixed Income</h3>
-                        <p class="text-gray-600">Explore stable investment opportunities for consistent returns.</p>
-                    </a>
-                    <a href="pension.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-piggy-bank"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Pension Planning</h3>
-                        <p class="text-gray-600">Plan for a worry-free retirement with our tailored solutions.</p>
-                    </a>
-                    <a href="sevices.html" class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300">
-                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-book"></i></div>
-                        <h3 class="text-xl font-semibold mb-2">Financial Literacy</h3>
-                        <p class="text-gray-600">Access our blog and calculators to enhance your financial knowledge.</p>
+        <!-- Main Content -->
+        <section class="py-16 md:py-20">
+            <div class="container mx-auto px-4 max-w-6xl">
+                
+                <!-- Introduction -->
+                <div class="bg-white p-8 md:p-12 rounded-lg custom-shadow mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold m-vita-blue-text mb-4">Your Trusted Local Investment Partner in Palava</h2>
+                    <p class="text-gray-700 text-lg leading-relaxed">
+                        At <strong>M-Vita Services</strong>, based conveniently in <strong>Casa Bella Gold, Palava City</strong>, we help individuals and families navigate their financial journeys. Whether you are starting your very first SIP or looking to optimize an existing portfolio, our goal is to align your investments with your real-life milestones.
+                    </p>
+                </div>
+
+                <!-- Key Services Offered -->
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold m-vita-blue-text mb-4">Our Mutual Fund & Wealth Services</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">Comprehensive solutions designed for disciplined capital growth and tax efficiency.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                    <!-- Service Card 1 -->
+                    <div class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300 border-t-4 border-[#1E65AE]">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-coins"></i></div>
+                        <h3 class="text-xl font-semibold mb-3">Systematic Investment Plans (SIPs)</h3>
+                        <p class="text-gray-600 text-sm">Start small and build long-term wealth through disciplined monthly investments across equity, hybrid, and debt schemes.</p>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300 border-t-4 border-[#1E65AE]">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-file-invoice-dollar"></i></div>
+                        <h3 class="text-xl font-semibold mb-3">Tax-Saving Investments (ELSS)</h3>
+                        <p class="text-gray-600 text-sm">Reduce your income tax under Section 80C while earning market-linked equity returns with a 3-year lock-in period.</p>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300 border-t-4 border-[#1E65AE]">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-bullseye"></i></div>
+                        <h3 class="text-xl font-semibold mb-3">Goal-Based Wealth Creation</h3>
+                        <p class="text-gray-600 text-sm">Structured portfolios customized for child education, home buying, retirement funds, and wealth preservation.</p>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="bg-white p-8 rounded-lg custom-shadow hover:scale-105 transition-transform duration-300 border-t-4 border-[#1E65AE]">
+                        <div class="text-4xl m-vita-blue-text mb-4"><i class="fas fa-chart-pie"></i></div>
+                        <h3 class="text-xl font-semibold mb-3">Portfolio Review & Rebalancing</h3>
+                        <p class="text-gray-600 text-sm">Analyze existing holdings to ensure optimum asset allocation, risk management, and return performance.</p>
+                    </div>
+                </div>
+
+                <!-- Why Choose Us -->
+                <div class="bg-white p-8 md:p-12 rounded-lg custom-shadow mb-16">
+                    <h2 class="text-2xl md:text-3xl font-bold m-vita-blue-text mb-6">Why Choose M-Vita Services in Palava City?</h2>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-[#1E65AE] text-xl mr-4 mt-1"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Local Accessibility</h4>
+                                <p class="text-gray-600">Located directly in Casa Bella Gold, offering in-person consultations for Palava residents.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#1E65AE] text-xl mr-4 mt-1"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Personalized Strategy</h4>
+                                <p class="text-gray-600">No generic solutions—we assess your risk tolerance, liquidity needs, and time horizon.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="text-[#1E65AE] text-xl mr-4 mt-1"><i class="fas fa-check-circle"></i></div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Hassle-Free Digital Onboarding</h4>
+                                <p class="text-gray-600">Complete paperless setup for seamless online mutual fund tracking.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact / NAP Section -->
+                <div class="bg-blue-50 border border-blue-200 p-8 md:p-12 rounded-lg text-center custom-shadow mb-12">
+                    <h2 class="text-2xl md:text-3xl font-bold m-vita-blue-text mb-4">Visit or Contact M-Vita Services Today</h2>
+                    <p class="text-gray-700 text-lg mb-2"><i class="fas fa-map-marker-alt text-red-500 mr-2"></i><strong>Address:</strong> Casa Bella Gold, Palava City, Dombivli East, Maharashtra 421204</p>
+                    <p class="text-gray-700 text-lg mb-2"><i class="fas fa-phone-alt text-green-600 mr-2"></i><strong>Phone:</strong> +91 91520 49967</p>
+                    <p class="text-gray-700 text-lg mb-6"><i class="fas fa-globe text-blue-600 mr-2"></i><strong>Website:</strong> <a href="http://www.m-vitaservices.in/" class="text-blue-700 underline">www.m-vitaservices.in</a></p>
+                    <a href="https://wa.me/919152049967" target="_blank" class="px-8 py-3 rounded-full m-vita-blue-bg text-white font-semibold text-lg hover:bg-blue-700 transition-colors duration-300 inline-block custom-shadow">
+                        Call or Message Us Now
                     </a>
                 </div>
+
+                <!-- Regulatory Disclaimer -->
+                <div class="text-xs text-gray-500 border-t border-gray-200 pt-6">
+                    <p><strong>Disclaimer:</strong> Mutual Fund investments are subject to market risks, read all scheme related documents carefully. Past performance is not an indicator of future returns.</p>
+                </div>
+
             </div>
         </section>
     </main>
@@ -283,65 +324,43 @@
                 <a href="mailto:mvitaservices@gmail.com" target="_blank" class="hover:text-m-vita-blue-text transition-colors duration-300"><i class="fas fa-envelope"></i></a>
             </div>
             <div class="text-sm">
-                <!-- Added link exclusively to the Footer here -->
-                <a href="mf-palava.html" class="hover:underline">Mutual Funds in Palava</a> |
                 <a href="#" id="privacy-policy-link" class="hover:underline">Privacy Policy</a> |
                 <a href="#" id="terms-of-service-link" class="hover:underline">Terms of Service</a>
             </div>
         </div>
     </footer>
 
-    <!-- Privacy Policy Modal -->
+    <!-- Modals -->
     <div id="privacy-policy-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-close" id="privacy-policy-close">&times;</span>
             <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Privacy Policy</h2>
-            <p class="mb-4 text-sm">**Last Updated: August 11, 2024**</p>
             <p class="mb-4 text-sm">Welcome to M-Vita Services. We are committed to protecting your privacy and personal information.</p>
-            <h3 class="text-lg font-semibold mb-2">1. Information We Collect</h3>
-            <p class="mb-4 text-sm">We collect information to provide and improve our services.</p>
-            <h3 class="text-lg font-semibold mb-2">2. How We Use Your Information</h3>
-            <p class="mb-4 text-sm">Your information is used to provide financial services and personalized advice.</p>
-            <h3 class="text-lg font-semibold mb-2">3. Data Security</h3>
-            <p class="mb-4 text-sm">We implement security measures to protect your data.</p>
-            <h3 class="text-lg font-semibold mb-2">4. Third-Party Disclosure</h3>
-            <p class="mb-4 text-sm">We do not sell or trade your personal information.</p>
         </div>
     </div>
 
-    <!-- Terms of Service Modal -->
     <div id="terms-of-service-modal" class="modal-overlay hidden">
         <div class="modal-content">
             <span class="modal-close" id="terms-of-service-close">&times;</span>
             <h2 class="text-2xl font-bold m-vita-blue-text mb-4">Terms of Service</h2>
-            <p class="mb-4 text-sm">**Last Updated: August 11, 2024**</p>
-            <p class="mb-4 text-sm">By accessing and using our website, you agree to comply with our terms and conditions.</p>
-            <h3 class="text-lg font-semibold mb-2">1. Use of Website</h3>
-            <p class="mb-4 text-sm">Content is for general informational purposes only.</p>
-            <h3 class="text-lg font-semibold mb-2">2. Accuracy of Information</h3>
-            <p class="mb-4 text-sm">You agree to provide accurate information.</p>
-            <h3 class="text-lg font-semibold mb-2">3. Intellectual Property</h3>
-            <p class="mb-4 text-sm">All content is the property of M-Vita Services.</p>
-            <h3 class="text-lg font-semibold mb-2">4. Limitation of Liability</h3>
-            <p class="mb-4 text-sm">M-Vita Services is not liable for indirect or consequential damages.</p>
+            <p class="mb-4 text-sm">By accessing and using the M-Vita Services website, you agree to comply with our terms and conditions.</p>
         </div>
     </div>
-    
-    <!-- Floating Weekly Update Button -->
+
+    <!-- Floating Buttons -->
     <div class="fixed bottom-24 right-6 z-50 md:bottom-6 md:left-6 md:right-auto w-max">
         <a href="https://www.m-vitaservices.in/Weeklyupdate.html" target="_blank" class="px-6 py-3 rounded-full bg-orange-500 text-white font-semibold shadow-lg hover:bg-orange-600 transition-all duration-300 ease-in-out transform hover:scale-105 inline-flex items-center animate-pulse hover:animate-none">
             <i class="fas fa-bolt mr-2"></i> Check out latest Weekly update!
         </a>
     </div>
 
-    <!-- Floating Open Account Button -->
     <div class="fixed bottom-6 right-6 z-50">
         <a href="onboarding.html" class="px-6 py-3 rounded-full m-vita-blue-bg text-white font-semibold shadow-lg hover:bg-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
             Open your account
         </a>
     </div>
 
-    <!-- JavaScript -->
+    <!-- JavaScript & AlpineJS -->
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
